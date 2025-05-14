@@ -1,0 +1,259 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Hybrid Workplace - Huntertech">
+    <Header />
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Hybrid Workplace</h1>
+                <p>Seamless technology solutions for the modern hybrid workplace</p>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container">
+                <div class="content-grid">
+                    <div class="main-content">
+                        <h2>Modern Workplace Solutions</h2>
+                        <p>Our hybrid workplace solutions enable your team to work efficiently from anywhere, ensuring seamless collaboration and productivity whether in the office or remotely. We provide the technology infrastructure and support needed for a successful hybrid work environment.</p>
+                        
+                        <h3>Hybrid Work Solutions</h3>
+                        <ul class="feature-list">
+                            <li>
+                                <i class="fas fa-video"></i>
+                                <div>
+                                    <h4>Virtual Collaboration</h4>
+                                    <p>Advanced video conferencing and team collaboration tools</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-mobile-alt"></i>
+                                <div>
+                                    <h4>Remote Access</h4>
+                                    <p>Secure remote access to company resources from any device</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <h4>Team Management</h4>
+                                    <p>Tools for managing and coordinating distributed teams</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-sync"></i>
+                                <div>
+                                    <h4>Workflow Integration</h4>
+                                    <p>Seamless integration between office and remote work</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <h3>Why Choose Our Hybrid Solutions?</h3>
+                        <div class="benefits-grid">
+                            <div class="benefit-card">
+                                <i class="fas fa-lock"></i>
+                                <h4>Secure Access</h4>
+                                <p>Protected remote access to company resources</p>
+                            </div>
+                            <div class="benefit-card">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <h4>High Performance</h4>
+                                <p>Optimized for seamless remote work</p>
+                            </div>
+                            <div class="benefit-card">
+                                <i class="fas fa-handshake"></i>
+                                <h4>Easy Collaboration</h4>
+                                <p>Tools for effective team collaboration</p>
+                            </div>
+                            <div class="benefit-card">
+                                <i class="fas fa-cogs"></i>
+                                <h4>Flexible Setup</h4>
+                                <p>Customizable for your specific needs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2>Transform Your Workplace</h2>
+                <p>Contact us to discuss your hybrid workplace needs</p>
+                <a href="/contact" class="cta-button">Contact Us</a>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .hero {
+        background: var(--primary-color);
+        color: var(--white);
+        padding: 4rem 0;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .content {
+        padding: 4rem 0;
+        background: var(--white);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .content-grid {
+        display: grid;
+        gap: 2rem;
+    }
+
+    .main-content h2 {
+        color: var(--primary-color);
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .main-content h3 {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin: 2rem 0 1rem;
+    }
+
+    .main-content p {
+        color: var(--text-color);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 2rem 0;
+    }
+
+    .feature-list li {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        align-items: flex-start;
+    }
+
+    .feature-list i {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-top: 0.25rem;
+    }
+
+    .feature-list h4 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .benefit-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .benefit-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .benefit-card i {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .benefit-card h4 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .cta {
+        background: var(--primary-color);
+        color: var(--white);
+        padding: 4rem 0;
+        text-align: center;
+    }
+
+    .cta h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .cta p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: var(--white);
+        color: var(--primary-color);
+        padding: 1rem 2rem;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+        background: var(--secondary-color);
+        color: var(--white);
+    }
+
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2rem;
+        }
+
+        .main-content h2 {
+            font-size: 1.75rem;
+        }
+
+        .benefits-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .feature-list li {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+</style> 

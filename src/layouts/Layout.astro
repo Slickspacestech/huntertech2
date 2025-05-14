@@ -1,0 +1,144 @@
+---
+interface Props {
+    title: string;
+    description?: string;
+    image?: string;
+}
+
+const {
+    title,
+    description = "Huntertech - Professional IT Solutions & Revit Management Services",
+    image = "/images/og-image.jpg"
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content={description} />
+        
+        <!-- Open Graph / Social Media Meta Tags -->
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={image} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={Astro.url} />
+        
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={image} />
+        
+        <!-- Favicons -->
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#00ACAC" />
+        <meta name="msapplication-TileColor" content="#00ACAC" />
+        <meta name="theme-color" content="#00ACAC" />
+        
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        
+        <title>{title}</title>
+        
+        <!-- Structured Data -->
+        <script type="application/ld+json" set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Huntertech",
+            "url": "https://www.huntertech.ca",
+            "logo": "https://www.huntertech.ca/images/logo.png",
+            "description": "Professional IT solutions and Revit management services for businesses in Calgary and Vancouver",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "4121 23b St NE",
+                "addressLocality": "Calgary",
+                "addressRegion": "AB",
+                "postalCode": "T2E 7V9",
+                "addressCountry": "CA"
+            },
+            "contactPoint": [
+                {
+                    "@type": "ContactPoint",
+                    "telephone": "+1-825-415-6990",
+                    "contactType": "customer service",
+                    "areaServed": "Calgary"
+                },
+                {
+                    "@type": "ContactPoint",
+                    "telephone": "+1-778-819-7411",
+                    "contactType": "customer service",
+                    "areaServed": "Vancouver"
+                }
+            ],
+            "sameAs": [
+                "https://www.linkedin.com/company/huntertech",
+                "https://www.facebook.com/huntertech"
+            ]
+        })} />
+        
+        <script type="application/ld+json" set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Huntertech",
+            "image": "https://www.huntertech.ca/images/og-image.jpg",
+            "priceRange": "$$",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "4121 23b St NE",
+                "addressLocality": "Calgary",
+                "addressRegion": "AB",
+                "postalCode": "T2E 7V9",
+                "addressCountry": "CA"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "51.0935",
+                "longitude": "-113.9783"
+            },
+            "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ],
+                "opens": "08:30",
+                "closes": "17:00"
+            }
+        })} />
+        
+        <script type="application/ld+json" set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Huntertech",
+            "url": "https://www.huntertech.ca"
+        })} />
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>
+
+<style is:global>
+    /* Import global styles */
+    @import '../styles/global.css';
+
+    /* Layout-specific styles */
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.6;
+    }
+</style> 

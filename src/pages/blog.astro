@@ -1,0 +1,196 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Sample blog posts data (in a real application, this would come from a CMS or API)
+const posts = [
+    {
+        title: "The Future of IT Support: Trends to Watch in 2024",
+        excerpt: "Discover the latest trends in IT support and how they're shaping the future of business technology.",
+        date: "2024-03-15",
+        author: "John Smith",
+        category: "IT Support",
+        image: "/images/blog/it-support-trends.jpg"
+    },
+    {
+        title: "Revit Best Practices for Architecture Firms",
+        excerpt: "Learn essential Revit workflows and best practices to improve your architecture firm's efficiency.",
+        date: "2024-03-10",
+        author: "Sarah Johnson",
+        category: "Revit",
+        image: "/images/blog/revit-best-practices.jpg"
+    },
+    {
+        title: "Cybersecurity Essentials for Small Businesses",
+        excerpt: "Protect your business with these essential cybersecurity practices and tools.",
+        date: "2024-03-05",
+        author: "Mike Wilson",
+        category: "Security",
+        image: "/images/blog/cybersecurity.jpg"
+    }
+];
+---
+
+<Layout title="Blog - Huntertech">
+    <Header />
+    <main class="blog-page">
+        <section class="hero">
+            <div class="container">
+                <h1>Our Blog</h1>
+                <p>Insights, tips, and news from the world of IT and Revit</p>
+            </div>
+        </section>
+        <section class="blog-section">
+            <div class="container">
+                <div class="blog-grid">
+                    {posts.map(post => (
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <img src={post.image} alt={post.title} />
+                                <span class="category">{post.category}</span>
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-meta">
+                                    <span class="date">{new Date(post.date).toLocaleDateString()}</span>
+                                    <span class="author">By {post.author}</span>
+                                </div>
+                                <h2>{post.title}</h2>
+                                <p>{post.excerpt}</p>
+                                <a href={`/blog/${post.title.toLowerCase().replace(/\s+/g, '-')}`} class="read-more">
+                                    Read More <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .blog-page {
+        padding-top: 80px;
+    }
+
+    .hero {
+        background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('/images/blog-bg.jpg');
+        background-size: cover;
+        background-position: center;
+        color: var(--white);
+        padding: 4rem 1rem;
+        text-align: center;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .blog-section {
+        padding: 4rem 1rem;
+    }
+
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .blog-card {
+        background: var(--white);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .blog-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .blog-image {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .blog-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .blog-card:hover .blog-image img {
+        transform: scale(1.1);
+    }
+
+    .category {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: var(--secondary-color);
+        color: var(--white);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+    }
+
+    .blog-content {
+        padding: 1.5rem;
+    }
+
+    .blog-meta {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1rem;
+    }
+
+    .blog-content h2 {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+    }
+
+    .blog-content p {
+        color: var(--text-color);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .read-more {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--secondary-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: gap 0.3s ease;
+    }
+
+    .read-more:hover {
+        gap: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2rem;
+        }
+
+        .blog-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style> 

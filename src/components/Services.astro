@@ -1,0 +1,72 @@
+<section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <i class="fas fa-server"></i>
+            <h3>IT Infrastructure</h3>
+            <p>Comprehensive IT infrastructure solutions for your business</p>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Cybersecurity</h3>
+            <p>Protect your business with advanced security solutions</p>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-cloud"></i>
+            <h3>Cloud Services</h3>
+            <p>Scalable cloud solutions for modern businesses</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .services {
+        padding: 5rem 1rem;
+        background-color: var(--light-bg);
+    }
+
+    .services h2 {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--primary-color);
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .service-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        animation: fadeIn 0.5s ease-out;
+    }
+
+    .service-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .service-card i {
+        font-size: 2.5rem;
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style> 

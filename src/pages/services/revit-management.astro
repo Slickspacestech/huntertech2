@@ -1,0 +1,272 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Revit Management - Huntertech">
+    <Header />
+    <main class="service-page">
+        <section class="hero">
+            <div class="container">
+                <h1>Revit Management</h1>
+                <p>Expert Revit solutions for architecture professionals</p>
+            </div>
+        </section>
+        <section class="intro">
+            <div class="managed-it-container">
+                <div class="content">
+                    <h2>We help you get the most out of Revit</h2>
+                    <p>We aim to make Revit modeling easier and more efficient for your team, benefiting your business success. Beginning with an assessment of your current workflow and unique business needs, we develop strategies that help your team leverage the software and get the most out of your Revit models.</p>
+                    <p>In an industry where it is important that projects are completed on time and on budget, an efficient workflow is essential to remain competitive. BIM software offers many benefits, but if not done well, it could set you back. A good Revit model will save you time and reduce your risk of error. We're here to help you realize its full potential.</p>
+                </div>
+            </div>
+        </section>
+        <section class="content">
+            <div class="managed-it-container">
+                <h2>Our Revit Services</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <i class="fas fa-search"></i>
+                        <h3>Revit Model Review</h3>
+                        <p>We review your Revit models for accuracy, consistency, and quality.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-heartbeat"></i>
+                        <h3>Revit Model Health Checks</h3>
+                        <p>We assess your Revit models for overall quality, performance, and stability.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Revit Training</h3>
+                        <p>We help your team become proficient with Revit software which involves a combination of theoretical learning and hands-on practice.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-cubes"></i>
+                        <h3>Parametric Family Creation</h3>
+                        <p>We create flexible and reusable components that you can easily modify to fit different project requirements.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-robot"></i>
+                        <h3>Automation (via pyRevit or Dynamo)</h3>
+                        <p>We can significantly enhance your workflow by automating repetitive tasks and improving efficiency.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Customized configuration, installation & updating</h3>
+                        <p>We tailor the installation and settings of your Revit software to meet your specific needs for a more efficient workflow, as well as ensure you have the latest features, improvements, and security updates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="benefits">
+            <div class="managed-it-container">
+                <h2>What you gain from Revit Management</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <i class="fas fa-magic"></i>
+                        <h3>Fully Leverage Revit</h3>
+                        <p>Learn how to fully leverage Revit's automation capabilities, saving valuable time and reducing the risk of costly mistakes.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Value-Driven Strategies</h3>
+                        <p>Acquire value-driven Revit strategies that are tailored to your specific business needs and workflow.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-tasks"></i>
+                        <h3>Actionable Improvements</h3>
+                        <p>Receive actionable improvements that are identified for both short-term gain and long-term investment of your Revit models.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .service-page {
+        padding-top: 80px;
+    }
+
+    .hero {
+        background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('/images/revit-bg.jpg');
+        background-size: cover;
+        background-position: center;
+        color: var(--white);
+        padding: 4rem 1rem;
+        text-align: center;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .content {
+        padding: 4rem 1rem;
+    }
+
+    .content h2 {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 3rem;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .service-item {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .service-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .service-item i {
+        font-size: 2.5rem;
+        color: var(--button-color);
+        margin-bottom: 1rem;
+    }
+
+    .service-item h3 {
+        color: var(--secondary-heading);
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+    }
+
+    .service-item p {
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2rem;
+        }
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+        .service-item {
+            padding: 1.5rem;
+        }
+    }
+
+    .benefits {
+        padding: 4rem 0;
+        background-color: var(--secondary-bg);
+    }
+
+    .benefits h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: var(--secondary-heading);
+    }
+
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .benefit-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .benefit-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .benefit-card i {
+        font-size: 2.5rem;
+        color: var(--button-color);
+        margin-bottom: 1rem;
+    }
+
+    .benefit-card h3 {
+        color: var(--secondary-heading);
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+    }
+
+    .benefit-card p {
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+        .benefits-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .benefit-card {
+            padding: 1.5rem;
+        }
+    }
+
+    .intro {
+        padding: 4rem 0;
+        background-color: var(--white);
+    }
+
+    .intro .content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .intro h2 {
+        color: var(--secondary-heading);
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+    }
+
+    .intro p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        color: var(--text-color);
+    }
+
+    .intro p:last-child {
+        margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+        .intro h2 {
+            font-size: 1.75rem;
+        }
+
+        .intro p {
+            font-size: 1rem;
+        }
+    }
+</style> 

@@ -1,68 +1,107 @@
-# Astro Starter Kit: Blog
+# HunterTech Website
 
-```sh
-npm create astro@latest -- --template blog
+A modern website for HunterTech, built with Astro.js and Tailwind CSS.
+
+## Features
+
+- Responsive design
+- Modern UI components
+- Blog system
+- Contact form
+- SEO optimized
+- Fast performance
+
+## Tech Stack
+
+- [Astro.js](https://astro.build)
+- [Tailwind CSS](https://tailwindcss.com)
+- [TypeScript](https://www.typescriptlang.org)
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or later)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/huntertech-website.git
+   cd huntertech-website
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. Open [http://localhost:4321](http://localhost:4321) in your browser.
+
+## Project Structure
+
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/blog/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
-
-Features:
-
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-├── public/
+huntertech-website/
+├── public/             # Static assets
+│   ├── images/        # Image files
+│   ├── robots.txt     # Robots file
+│   └── sitemap.xml    # Sitemap
 ├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+│   ├── components/    # Astro components
+│   ├── layouts/       # Layout components
+│   └── pages/         # Page components
+├── astro.config.mjs   # Astro configuration
+├── package.json       # Project dependencies
+├── tailwind.config.js # Tailwind configuration
+└── tsconfig.json      # TypeScript configuration
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Building for Production
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+To create a production build:
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+```bash
+npm run build
+# or
+yarn build
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+The built files will be in the `dist` directory.
 
-## 🧞 Commands
+## Preview Production Build
 
-All commands are run from the root of the project, from a terminal:
+To preview the production build locally:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```bash
+npm run preview
+# or
+yarn preview
+```
 
-## 👀 Want to learn more?
+## Contributing
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## Credit
+## License
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+HunterTech - [info@huntertech.ca](mailto:info@huntertech.ca)
+
+Project Link: [https://github.com/yourusername/huntertech-website](https://github.com/yourusername/huntertech-website) 
