@@ -79,9 +79,9 @@ import Footer from '../../components/Footer.astro';
 
         <section class="cta">
             <div class="container">
-                <h2>Ready to Secure Your Accounting Practice?</h2>
-                <p>Get a free consultation to discuss your firm's specific needs</p>
-                <a href="/consultation" class="cta-button">Schedule Consultation</a>
+                <h2>Ready to Modernize Your Accounting Practice?</h2>
+                <p>Contact us today to discuss your technology needs</p>
+                <a href="/contact" class="cta-button">Contact Us</a>
             </div>
         </section>
     </main>
@@ -183,26 +183,40 @@ import Footer from '../../components/Footer.astro';
     }
 
     .cta {
+        background: var(--dark-bg);
+        color: var(--white);
         padding: 4rem 0;
         text-align: center;
-        background-color: var(--white);
+    }
+
+    .cta h2 {
+        color: var(--white);
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .cta p {
+        color: var(--white);
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .cta-button {
         display: inline-block;
-        background-color: var(--button-color);
+        background: var(--button-color);
         color: var(--white);
         padding: 1rem 2rem;
-        border-radius: var(--radius-md);
+        border-radius: 5px;
         text-decoration: none;
-        font-weight: 500;
-        margin-top: 1rem;
-        transition: all var(--transition-normal);
+        font-weight: 600;
+        transition: background-color 0.3s ease;
     }
 
     .cta-button:hover {
-        background-color: var(--button-hover);
-        transform: translateY(-2px);
+        background: var(--button-hover);
     }
 
     @media (max-width: 768px) {

@@ -15,7 +15,7 @@ import Footer from '../components/Footer.astro';
     <Hero 
       title="Transform Your Business with Expert IT Solutions"
       subtitle="Professional IT support, cloud solutions, and Revit management services tailored to your needs"
-      ctaText="Get Free Consultation"
+      ctaText="Get Started"
       ctaLink="/contact"
       backgroundImage="/images/architect_engineer_tech.jpeg"
     />
@@ -35,56 +35,60 @@ import Footer from '../components/Footer.astro';
 
     <section class="features">
       <div class="container">
-        <h2 class="section-title">Why Choose Huntertech?</h2>
-        <div class="grid grid-3">
-          <div class="feature-card animate-fade-in">
-            <i class="fas fa-headset"></i>
-            <h3>Expert Support</h3>
-            <p>Friendly technical support and proactive planning to keep your business running smoothly.</p>
-          </div>
-          <div class="feature-card animate-fade-in">
+        <h2>Why Choose Us</h2>
+        <div class="features-grid">
+          <div class="feature-card">
             <i class="fas fa-shield-alt"></i>
-            <h3>Comprehensive Security</h3>
-            <p>24/7 monitoring, detection and response for modern business needs.</p>
+            <h3>Enterprise-Grade Security</h3>
+            <p>We provide the same level of security and protection that large enterprises use, tailored for your business needs.</p>
           </div>
-          <div class="feature-card animate-fade-in">
-            <i class="fas fa-drafting-compass"></i>
-            <h3>Revit Management</h3>
-            <p>Specialized Revit implementation and training for architecture firms.</p>
+          <div class="feature-card">
+            <i class="fas fa-headset"></i>
+            <h3>Friendly Support</h3>
+            <p>Our team is known for being approachable and helpful, making technology support a pleasant experience.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Proactive Solutions</h3>
+            <p>We prevent issues before they occur, keeping your business running smoothly and efficiently.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="services bg-light">
+    <section id="solutions" class="services">
       <div class="container">
-        <h2 class="section-title">Our Services</h2>
-        <div class="grid grid-2">
+        <h2>Our Solutions</h2>
+        <div class="services-grid">
           <div class="service-card">
-            <div class="service-content">
-              <h3>Managed IT & Support</h3>
-              <p>Comprehensive IT solutions including help desk support, network security, and cloud management.</p>
-              <a href="/services/managed-it-support" class="btn btn-secondary">
-                Learn More
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-            <div class="service-image">
-              <img src="/images/managed-it.jpg" alt="Managed IT Services" />
-            </div>
+            <i class="fas fa-laptop-house"></i>
+            <h3>IT Support</h3>
+            <p>Professional IT support services to keep your business running smoothly. From help desk to network management.</p>
+            <a href="/solutions/it-support" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
           </div>
           <div class="service-card">
-            <div class="service-content">
-              <h3>Revit Management</h3>
-              <p>Expert Revit implementation, team training, and workflow optimization for architecture firms.</p>
-              <a href="/services/revit-management" class="btn btn-secondary">
-                Learn More
-                <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-            <div class="service-image">
-              <img src="/images/revit.jpg" alt="Revit Management" />
-            </div>
+            <i class="fas fa-shield-alt"></i>
+            <h3>Cyber Security</h3>
+            <p>Comprehensive security solutions to protect your business from threats and ensure data safety.</p>
+            <a href="/solutions/cyber-security" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-users"></i>
+            <h3>Hybrid Workplace</h3>
+            <p>Enable seamless remote and hybrid work environments with our modern workplace solutions.</p>
+            <a href="/solutions/hybrid-workplace" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-cloud"></i>
+            <h3>Microsoft 365</h3>
+            <p>Expert implementation and support for Microsoft 365 to enhance productivity and collaboration.</p>
+            <a href="/solutions/microsoft-365" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-network-wired"></i>
+            <h3>Computer Networking</h3>
+            <p>Design, implementation, and management of robust network infrastructure for your business.</p>
+            <a href="/solutions/computer-networking" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
@@ -193,8 +197,8 @@ import Footer from '../components/Footer.astro';
         <h2 class="section-title">Frequently Asked Questions</h2>
         <div class="faq-grid">
           <div class="faq-item">
-            <h3>Why the building industry?</h3>
-            <p>Mathew Hunter, our founder and owner, was previously employed at one of the largest architecture firms in North America. After he began his own business, he noticed that other IT companies weren't really taking the time to understand the industry, learn the software, and truly provide valuable services to their clients.</p>
+            <h3>Do you charge project fees?</h3>
+            <p>We don’t believe in charging project-based fees. Instead, we offer our services for a simple monthly rate. This approach allows us to focus on delivering the best solutions and proactively developing a strategic IT roadmap for your business. Project fees often tie technology decisions to budget constraints, which can delay adoption, reduce productivity, and increase the risk of failures or security vulnerabilities.</p>
           </div>
           <div class="faq-item">
             <h3>What's the difference between Huntertech and the other IT managed service providers?</h3>
@@ -253,16 +257,32 @@ import Footer from '../components/Footer.astro';
   }
 
   .features {
-    padding: var(--spacing-xl) 0;
+    padding: 4rem 0;
+    background: var(--secondary-bg);
+  }
+
+  .features h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .feature-card {
     background: var(--white);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
-    text-align: center;
+    padding: 2rem;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform var(--transition-normal);
+    text-align: center;
+    transition: transform 0.3s ease;
   }
 
   .feature-card:hover {
@@ -271,57 +291,112 @@ import Footer from '../components/Footer.astro';
 
   .feature-card i {
     font-size: 2.5rem;
-    color: var(--secondary-color);
-    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
   }
 
   .feature-card h3 {
-    margin-bottom: var(--spacing-sm);
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-card p {
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
   }
 
   .services {
-    padding: var(--spacing-xl) 0;
+    padding: 4rem 0;
+    background: var(--white);
+  }
+
+  .services h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .service-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-lg);
     background: var(--white);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
+    padding: 2rem;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .service-content {
-    padding: var(--spacing-lg);
+    text-align: center;
+    transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-  }
-
-  .service-content h3 {
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .service-content p {
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .service-image {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .service-image img {
-    width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-normal);
   }
 
-  .service-card:hover .service-image img {
-    transform: scale(1.1);
+  .service-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .service-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+  }
+
+  .service-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-card p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .service-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+  }
+
+  .service-link:hover {
+    color: var(--button-hover);
+  }
+
+  .service-link i {
+    font-size: 1rem;
+    margin: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .service-link:hover i {
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
   }
 
   .cta {
@@ -579,49 +654,60 @@ import Footer from '../components/Footer.astro';
 
   .faq-grid {
     display: grid;
-    gap: var(--spacing-xl);
-    max-width: 900px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
     margin: 0 auto;
   }
 
   .faq-item {
     background: var(--white);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
+    padding: 2rem;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%;
   }
 
   .faq-item h3 {
-    color: var(--secondary-heading);
+    color: var(--primary-color);
     font-size: 1.3rem;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 1rem;
   }
 
   .faq-item p {
     color: var(--text-color);
     line-height: 1.6;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 1rem;
   }
 
   .faq-item ul {
     list-style: disc;
-    margin-left: var(--spacing-lg);
-    margin-bottom: var(--spacing-md);
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .faq-item li {
     color: var(--text-color);
     line-height: 1.6;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 0.5rem;
   }
 
   @media (max-width: 768px) {
+    .faq-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
     .faq-item {
-      padding: var(--spacing-md);
+      padding: 1.5rem;
     }
 
     .faq-item h3 {
       font-size: 1.2rem;
     }
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 </style>

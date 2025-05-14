@@ -84,7 +84,7 @@ import Footer from '../../components/Footer.astro';
         <section class="cta">
             <div class="container">
                 <h2>Ready to Optimize Your Microsoft 365?</h2>
-                <p>Contact us to discuss your Microsoft 365 needs</p>
+                <p>Contact us today to discuss your Microsoft 365 needs</p>
                 <a href="/contact" class="cta-button">Contact Us</a>
             </div>
         </section>
@@ -203,18 +203,20 @@ import Footer from '../../components/Footer.astro';
     }
 
     .cta {
-        background: var(--primary-color);
+        background: var(--dark-bg);
         color: var(--white);
         padding: 4rem 0;
         text-align: center;
     }
 
     .cta h2 {
+        color: var(--white);
         font-size: 2rem;
         margin-bottom: 1rem;
     }
 
     .cta p {
+        color: var(--white);
         font-size: 1.2rem;
         margin-bottom: 2rem;
         max-width: 600px;
@@ -224,8 +226,8 @@ import Footer from '../../components/Footer.astro';
 
     .cta-button {
         display: inline-block;
-        background: var(--white);
-        color: var(--primary-color);
+        background: var(--button-color);
+        color: var(--white);
         padding: 1rem 2rem;
         border-radius: 5px;
         text-decoration: none;
@@ -234,8 +236,7 @@ import Footer from '../../components/Footer.astro';
     }
 
     .cta-button:hover {
-        background: var(--secondary-color);
-        color: var(--white);
+        background: var(--button-hover);
     }
 
     @media (max-width: 768px) {

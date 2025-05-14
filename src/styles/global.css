@@ -29,6 +29,7 @@
     --radius-md: 8px;
     --radius-lg: 16px;
     --transition-normal: 0.3s ease;
+    --dark-bg: #384258;
 }
 
 /* Base styles */
@@ -384,4 +385,46 @@ h1, h2, h3, h4, h5, h6 {
 
 .service-card, .about-content, .contact-form {
     animation: fadeIn 0.5s ease-out;
+}
+
+.cta {
+    background: var(--dark-bg);
+    color: var(--white);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.cta .container {
+    background: var(--dark-bg);
+}
+
+.cta h2 {
+    color: var(--white);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cta p {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--white);
+    color: var(--dark-bg);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background: var(--button-hover);
+    color: var(--white);
 } 
