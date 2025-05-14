@@ -1,0 +1,176 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import SEO from '../../components/SEO.astro';
+import CTABox from '../../components/CTABox.astro';
+
+const title = "Phishing Attacks Rising in Canada | How to Protect Your Business";
+const description = "Learn about the increasing threat of phishing attacks in Canada and how to protect your business. Expert advice on technical and non-technical prevention strategies.";
+---
+
+<Layout title={title}>
+    <SEO 
+        title={title}
+        description={description}
+        canonicalURL="/blog/phishing-attacks-canada"
+        type="article"
+        keywords={[
+            "Phishing attacks Canada",
+            "Business cybersecurity",
+            "Email security",
+            "Cyber fraud prevention",
+            "IT security Calgary",
+            "IT security Vancouver",
+            "Business email compromise",
+            "Payment fraud prevention"
+        ]}
+    />
+    <Header />
+    <main>
+        <article class="blog-post">
+            <div class="container">
+                <header class="post-header">
+                    <h1>Phishing Attacks Rising in Canada</h1>
+                    <div class="post-meta">
+                        <time datetime="2024-03-10">March 10, 2024</time>
+                        <span class="reading-time">5 min read</span>
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <h2>What you can do to prevent them</h2>
+                    <p>Cybercrime is on the rise in Canada, including cyber fraud which has almost doubled since 2019 according to Statistics Canada's 2023 police-reported data. In the first half of 2024 alone, fraud has accounted for 56% of cybercrime violations.</p>
+
+                    <p>One of the most common types of cyber fraud is phishing where attackers send deceptive emails or messages that trick employees or business owners into sharing information that will give them access to your system. These attacks often involve an impersonation scam where criminals pretend to be real businesses or people to tempt you into sending money.</p>
+
+                    <p>This threat is not only affecting large firms, but <strong>increasingly small businesses are also becoming victims of phishing</strong>. In the building industry, we are seeing phishing attacks with an end goal of intercepting payment.</p>
+
+                    <h3>How Phishing Attacks Work</h3>
+                    <p>Here is an example of how this type of phishing attack plays out:</p>
+                    <ul>
+                        <li>The scammers send an email designed to trick you into handing over your login credentials to them.</li>
+                        <li>With your login information, the scammers exploit holes in the multi-factor requirements to gain access to your inbox.</li>
+                        <li>The scammers are then able to monitor your mailbox (sometimes for several months) learning client names, project names, and payment dates so they could craft a fake request that is convincing.</li>
+                        <li>Once they've collected sufficient information, they send emails from your mailbox (impersonating you) to your clients requesting they pay your next invoice via a new payment method.</li>
+                        <li>If your client obliges the request, they send payment directly to the scammer instead of you.</li>
+                    </ul>
+
+                    <p>This type of attack is not only damaging to you financially with possible legal implications but has the potential to damage your relationship and reputation with clients.</p>
+
+                    <h3>Real-World Example</h3>
+                    <p>A very similar attack was used to target MacEwen University in Edmonton. In 2017, a scammer impersonated a trusted vendor and requested changes to banking information. The university staff, believing the emails to be legitimate, transferred $11.8 million to the fraudulent accounts. Fortunately, MacEwen managed to recover $10.9 million, but only after extensive legal efforts.</p>
+
+                    <h2>How do we prevent it?</h2>
+                    <p>Prevention requires a combination of technical and non-technical approaches to fortify your business from attackers.</p>
+
+                    <h3>Technical approach—prevention and early detection</h3>
+                    <p>An IT managed services provider committed to your cybersecurity is your first line of defence. To be effective, your IT group should employ the following strategies:</p>
+                    <ul>
+                        <li><strong>Managed detection and response products</strong> from leading security companies, such as Huntress, provide your IT group with information that will allow them to respond quickly to threats. Ideally, these products monitor your business 24/7, including sign-ins, country of origin, and suspicious activity such as mail rule generation which can detect malicious access.</li>
+                        <li><strong>Phishing and spam protection email products</strong> recommended by your IT group can also lower your risk of attack by filtering incoming emails, thereby reducing the instances that staff could be fooled by login credential phishing attempts.</li>
+                        <li>Another form of protection is a <strong>strong conditional access policy</strong> that limits the ability of bad actors to even attempt to use your login credentials even if they were freely given. Combined with mobile device management, you can restrict access to your Microsoft 365 account to only selected devices that are approved by your IT group.</li>
+                    </ul>
+
+                    <h3>Non-technical approach</h3>
+                    <p>As your last line of defence, your accounting team should have strict rules about how you validate changes in payment information with existing clients, consultants, and vendors. The most effective rule would be to simply contact your client directly to validate the requested change before processing. You could also make it a requirement that multiple sign offs from internal stakeholders are needed before payment information can be changed.</p>
+
+                    <p>These approaches, when used in combination, will create a robust system that protects your business from successful phishing attacks.</p>
+
+                    <p>By staying informed and implementing these security measures, you can significantly reduce your risk of falling victim to phishing attacks. Remember, the best defense is a combination of awareness, skepticism, and proper security tools.</p>
+
+                    <CTABox 
+                        title="Need Help with Phishing Protection?"
+                        description="Contact our team for expert advice on implementing comprehensive security measures to protect your business from phishing attacks."
+                        buttonText="Get Expert Help"
+                        buttonLink="/contact"
+                    />
+                </div>
+            </div>
+        </article>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .blog-post {
+        padding: 4rem 0;
+    }
+
+    .post-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .post-header h1 {
+        font-size: 2.5rem;
+        color: var(--primary-heading);
+        margin-bottom: 1rem;
+    }
+
+    .post-meta {
+        color: var(--text-color);
+        font-size: 0.9rem;
+    }
+
+    .post-meta time {
+        margin-right: 1rem;
+    }
+
+    .post-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .post-content h2 {
+        color: var(--primary-heading);
+        margin: 2rem 0 1rem;
+        font-size: 1.8rem;
+    }
+
+    .post-content h3 {
+        color: var(--secondary-heading);
+        margin: 1.5rem 0 1rem;
+        font-size: 1.4rem;
+    }
+
+    .post-content p {
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .post-content ul, .post-content ol {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+    }
+
+    .post-content li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+    }
+
+    .post-content li strong {
+        color: var(--primary-heading);
+    }
+
+    .post-content blockquote {
+        background: var(--secondary-bg);
+        padding: 1.5rem;
+        border-left: 4px solid var(--button-color);
+        margin: 1.5rem 0;
+    }
+
+    @media (max-width: 768px) {
+        .blog-post {
+            padding: 2rem 0;
+        }
+
+        .post-header h1 {
+            font-size: 2rem;
+        }
+
+        .post-content {
+            padding: 0 1rem;
+        }
+    }
+</style> 

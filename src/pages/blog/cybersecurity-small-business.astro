@@ -1,0 +1,225 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import SEO from '../../components/SEO.astro';
+import CTABox from '../../components/CTABox.astro';
+
+const title = "Essential Cybersecurity Tips for Small Businesses in Calgary and Vancouver";
+const description = "Learn how to protect your small business from cyber threats. Expert cybersecurity advice for Calgary and Vancouver businesses, including practical tips and best practices.";
+---
+
+<Layout title={title}>
+    <SEO 
+        title={title}
+        description={description}
+        canonicalURL="/blog/cybersecurity-small-business"
+        type="article"
+        keywords={[
+            "Cybersecurity for small businesses",
+            "Small business IT security",
+            "Business cybersecurity tips",
+            "IT security Calgary",
+            "IT security Vancouver",
+            "Small business data protection",
+            "Business network security",
+            "Cybersecurity best practices"
+        ]}
+    />
+    <Header />
+    <main>
+        <article class="blog-post">
+            <div class="container">
+                <header class="post-header">
+                    <h1>{title}</h1>
+                    <div class="post-meta">
+                        <time datetime="2024-03-20">March 20, 2024</time>
+                        <span class="reading-time">5 min read</span>
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <h2>Why Small Businesses Need Cybersecurity</h2>
+                    <p>Small businesses in Calgary and Vancouver are increasingly becoming targets for cyber attacks. In fact, 43% of all cyber attacks target small businesses. This article will help you understand the essential cybersecurity measures your business needs to implement.</p>
+
+                    <h2>Essential Cybersecurity Measures</h2>
+                    <h3>1. Regular Software Updates</h3>
+                    <p>Keep all your software, including operating systems and applications, up to date. Regular updates patch security vulnerabilities that hackers could exploit.</p>
+
+                    <h3>2. Strong Password Policies</h3>
+                    <p>Implement and enforce strong password policies:</p>
+                    <ul>
+                        <li>Require passwords to be at least 12 characters long</li>
+                        <li>Include a mix of uppercase, lowercase, numbers, and special characters</li>
+                        <li>Never reuse passwords across different accounts or services</li>
+                        <li>Use a password manager to securely store and generate unique passwords</li>
+                        <li>Never share passwords or write them down, especially in unencrypted files on your computer</li>
+                    </ul>
+                    <p>For more detailed information about password security, check out our article on <a href="/blog/password-manager">Why You Should Use a Password Manager</a>.</p>
+
+                    <h3>3. Employee Training</h3>
+                    <p>Your employees are your first line of defense. Regular training on:</p>
+                    <ul>
+                        <li>Identifying phishing emails</li>
+                        <li>Safe browsing practices</li>
+                        <li>Data handling procedures</li>
+                        <li>Reporting suspicious activities</li>
+                    </ul>
+
+                    <h3>4. Data Backup Solutions</h3>
+                    <p>Implement the 3-2-1 backup rule:</p>
+                    <ul>
+                        <li>3 copies of your data</li>
+                        <li>2 different storage types</li>
+                        <li>1 off-site backup</li>
+                    </ul>
+                    <p>Don't forget to backup your cloud services as well:</p>
+                    <ul>
+                        <li>Microsoft 365 (Exchange, SharePoint, OneDrive, Teams)</li>
+                        <li>Google Workspace data</li>
+                        <li>Cloud-based applications and their data</li>
+                        <li>Cloud storage services</li>
+                    </ul>
+                    <p>Remember: Cloud services are not automatically backed up. While they provide redundancy, they don't protect against accidental deletion, ransomware, or malicious actions. A proper backup strategy should include both on-premises and cloud data.</p>
+
+                    <h3>5. Advanced Threat Protection</h3>
+                    <p>Modern businesses need more than just antivirus software. Implement these advanced security solutions:</p>
+                    
+                    <h4>Endpoint Detection and Response (EDR)</h4>
+                    <p>Huntress EDR provides advanced threat detection and response capabilities:</p>
+                    <ul>
+                        <li>24/7 managed detection and response by security experts</li>
+                        <li>Automated threat hunting and investigation</li>
+                        <li>Ransomware and malware detection with instant alerts</li>
+                        <li>Persistent foothold detection to identify compromised systems</li>
+                        <li>Automated remediation of detected threats</li>
+                        <li>Detailed security reports and visibility into your environment</li>
+                        <li>Integration with Microsoft Defender and other security tools</li>
+                    </ul>
+
+                    <h4>Identity Threat Detection and Response (ITDR)</h4>
+                    <p>Huntress ITDR provides comprehensive identity protection and monitoring:</p>
+                    <ul>
+                        <li>24/7 monitoring of Microsoft 365 and Entra ID (Azure AD) environments</li>
+                        <li>Detection of compromised accounts and suspicious sign-in activities</li>
+                        <li>Automated investigation of identity-based threats</li>
+                        <li>Alerting on unauthorized access attempts and privilege escalation</li>
+                        <li>Monitoring of admin account activities and changes</li>
+                        <li>Integration with existing security tools and workflows</li>
+                        <li>Detailed reporting on identity-related security events</li>
+                    </ul>
+
+                    <h4>DNS Web Filtering</h4>
+                    <p>DNS web filtering provides an additional layer of security by blocking access to malicious websites and controlling web usage:</p>
+                    <ul>
+                        <li>Block access to known malicious websites and phishing domains</li>
+                        <li>Prevent employees from visiting inappropriate or non-work-related sites</li>
+                        <li>Protect against malware and ransomware by blocking malicious downloads</li>
+                        <li>Filter content based on categories (adult content, gambling, social media, etc.)</li>
+                        <li>Enforce safe search settings across all devices</li>
+                        <li>Detailed reporting on web usage and blocked attempts</li>
+                        <li>Works across all devices and locations, including remote workers</li>
+                    </ul>
+
+                    <p>These solutions work together to provide comprehensive protection against both traditional and modern cyber threats. When combined with strong password policies and regular employee training, they create multiple layers of security for your business.</p>
+
+                    <h2>Local IT Support in Calgary and Vancouver</h2>
+                    <p>As your local IT service provider in Calgary and Vancouver, we offer comprehensive cybersecurity solutions tailored to small businesses. Our team can help you implement these security measures and provide ongoing support to keep your business protected.</p>
+
+                    <p>By implementing these cybersecurity measures, you're not just protecting your business – you're building trust with your customers and creating a foundation for sustainable growth. Remember, in today's digital world, cybersecurity isn't just an IT concern; it's a business imperative.</p>
+
+                    <CTABox 
+                        title="Need Help with Business Cybersecurity?"
+                        description="Contact our team for expert advice on implementing comprehensive security measures to protect your business from cyber threats."
+                        buttonText="Get Expert Help"
+                        buttonLink="/contact"
+                    />
+                </div>
+            </div>
+        </article>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .blog-post {
+        padding: 4rem 0;
+    }
+
+    .post-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .post-header h1 {
+        font-size: 2.5rem;
+        color: var(--primary-heading);
+        margin-bottom: 1rem;
+    }
+
+    .post-meta {
+        color: var(--text-color);
+        font-size: 0.9rem;
+    }
+
+    .post-meta time {
+        margin-right: 1rem;
+    }
+
+    .post-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .post-content h2 {
+        color: var(--primary-heading);
+        margin: 2rem 0 1rem;
+        font-size: 1.8rem;
+    }
+
+    .post-content h3 {
+        color: var(--secondary-heading);
+        margin: 1.5rem 0 1rem;
+        font-size: 1.4rem;
+    }
+
+    .post-content p {
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .post-content ul, .post-content ol {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+    }
+
+    .post-content li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+    }
+
+    .post-content li strong {
+        color: var(--primary-heading);
+    }
+
+    .post-content blockquote {
+        background: var(--secondary-bg);
+        padding: 1.5rem;
+        border-left: 4px solid var(--button-color);
+        margin: 1.5rem 0;
+    }
+
+    @media (max-width: 768px) {
+        .blog-post {
+            padding: 2rem 0;
+        }
+
+        .post-header h1 {
+            font-size: 2rem;
+        }
+
+        .post-content {
+            padding: 0 1rem;
+        }
+    }
+</style> 

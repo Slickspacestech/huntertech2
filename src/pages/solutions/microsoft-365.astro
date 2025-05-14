@@ -2,6 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import SolutionsCTA from '../../components/SolutionsCTA.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
 ---
 
 <Layout title="Microsoft 365 - Huntertech">
@@ -21,37 +23,31 @@ import Footer from '../../components/Footer.astro';
                         <h2>Microsoft 365 Solutions</h2>
                         <p>We provide expert Microsoft 365 implementation, management, and support services to help your business leverage the full power of the Microsoft ecosystem. From setup to ongoing optimization, we ensure your team gets the most out of their Microsoft 365 tools.</p>
                         
-                        <h3>Our Microsoft 365 Services</h3>
-                        <ul class="feature-list">
-                            <li>
-                                <i class="fas fa-cogs"></i>
-                                <div>
-                                    <h4>Implementation & Setup</h4>
-                                    <p>Seamless migration and configuration of Microsoft 365 services</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-users-cog"></i>
-                                <div>
-                                    <h4>User Management</h4>
-                                    <p>Comprehensive user setup, licensing, and access control</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-shield-alt"></i>
-                                <div>
-                                    <h4>Security & Compliance</h4>
-                                    <p>Advanced security features and compliance management</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-graduation-cap"></i>
-                                <div>
-                                    <h4>Training & Support</h4>
-                                    <p>User training and ongoing technical support</p>
-                                </div>
-                            </li>
-                        </ul>
+                        <div class="services-section">
+                            <h3>Our Microsoft 365 Services</h3>
+                            <div class="services-grid">
+                                <ServiceCard 
+                                    icon="fa-cogs"
+                                    title="Implementation & Setup"
+                                    description="Seamless migration and configuration of Microsoft 365 services"
+                                />
+                                <ServiceCard 
+                                    icon="fa-users-cog"
+                                    title="User Management"
+                                    description="Comprehensive user setup, licensing, and access control"
+                                />
+                                <ServiceCard 
+                                    icon="fa-shield-alt"
+                                    title="Security & Compliance"
+                                    description="Advanced security features and compliance management"
+                                />
+                                <ServiceCard 
+                                    icon="fa-graduation-cap"
+                                    title="Training & Support"
+                                    description="User training and ongoing technical support"
+                                />
+                            </div>
+                        </div>
 
                         <h3>Why Choose Our Microsoft 365 Services?</h3>
                         <div class="benefits-grid">
@@ -81,13 +77,12 @@ import Footer from '../../components/Footer.astro';
             </div>
         </section>
 
-        <section class="cta">
-            <div class="container">
-                <h2>Ready to Optimize Your Microsoft 365?</h2>
-                <p>Contact us today to discuss your Microsoft 365 needs</p>
-                <a href="/contact" class="cta-button">Contact Us</a>
-            </div>
-        </section>
+        <SolutionsCTA 
+            title="Ready to Optimize Your Microsoft 365?"
+            description="Contact us today to discuss your Microsoft 365 needs and discover how we can help enhance your team's productivity and collaboration."
+            buttonText="Contact Us"
+            buttonLink="/contact"
+        />
     </main>
     <Footer />
 </Layout>
@@ -145,29 +140,22 @@ import Footer from '../../components/Footer.astro';
         margin-bottom: 1.5rem;
     }
 
-    .feature-list {
-        list-style: none;
-        padding: 0;
+    .services-section {
+        background: var(--secondary-bg);
+        padding: 3rem;
+        border-radius: 10px;
         margin: 2rem 0;
     }
 
-    .feature-list li {
-        display: flex;
-        gap: 1.5rem;
-        margin-bottom: 2rem;
-        align-items: flex-start;
+    .services-section h3 {
+        margin-top: 0;
     }
 
-    .feature-list i {
-        font-size: 1.5rem;
-        color: var(--primary-color);
-        margin-top: 0.25rem;
-    }
-
-    .feature-list h4 {
-        color: var(--primary-color);
-        margin-bottom: 0.5rem;
-        font-size: 1.2rem;
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
     }
 
     .benefits-grid {
@@ -202,43 +190,6 @@ import Footer from '../../components/Footer.astro';
         font-size: 1.2rem;
     }
 
-    .cta {
-        background: var(--dark-bg);
-        color: var(--white);
-        padding: 4rem 0;
-        text-align: center;
-    }
-
-    .cta h2 {
-        color: var(--white);
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-
-    .cta p {
-        color: var(--white);
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .cta-button {
-        display: inline-block;
-        background: var(--button-color);
-        color: var(--white);
-        padding: 1rem 2rem;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: background-color 0.3s ease;
-    }
-
-    .cta-button:hover {
-        background: var(--button-hover);
-    }
-
     @media (max-width: 768px) {
         .hero h1 {
             font-size: 2rem;
@@ -248,13 +199,9 @@ import Footer from '../../components/Footer.astro';
             font-size: 1.75rem;
         }
 
+        .services-grid,
         .benefits-grid {
             grid-template-columns: 1fr;
-        }
-
-        .feature-list li {
-            flex-direction: column;
-            gap: 1rem;
         }
     }
 </style> 

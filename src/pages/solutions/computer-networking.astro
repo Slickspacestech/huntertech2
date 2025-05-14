@@ -2,15 +2,58 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import SolutionsCTA from '../../components/SolutionsCTA.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+
+const title = "IT Services & Network Solutions in Calgary & Vancouver | Huntertech";
+const description = "Leading IT services provider in Calgary and Vancouver. Expert network solutions, managed IT services, and IT management for businesses. Get reliable, scalable IT infrastructure support.";
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "IT Services & Network Solutions",
+    "provider": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.com.au"
+    },
+    "description": description,
+    "areaServed": [
+        {
+            "@type": "City",
+            "name": "Calgary",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "AB",
+                "addressCountry": "CA"
+            }
+        },
+        {
+            "@type": "City",
+            "name": "Vancouver",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "BC",
+                "addressCountry": "CA"
+            }
+        }
+    ],
+    "serviceType": ["IT Services", "Network Solutions", "Managed IT"],
+    "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+    }
+};
 ---
 
-<Layout title="Computer Networking - Huntertech">
+<Layout title={title} description={description}>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <Header />
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Computer Networking</h1>
-                <p>Enterprise-grade network solutions for your business</p>
+                <h1>IT Services & Network Solutions</h1>
+                <p>Professional IT management and network solutions in Calgary and Vancouver</p>
             </div>
         </section>
 
@@ -18,62 +61,56 @@ import Footer from '../../components/Footer.astro';
             <div class="container">
                 <div class="content-grid">
                     <div class="main-content">
-                        <h2>Network Solutions</h2>
-                        <p>We design, implement, and maintain robust network infrastructure solutions that keep your business connected and secure. Our comprehensive networking services ensure optimal performance, reliability, and scalability for your organization's needs.</p>
+                        <h2>Managed IT & Network Solutions</h2>
+                        <p>As a leading IT services provider in Calgary and Vancouver, we design, implement, and maintain robust network infrastructure solutions that keep your business connected and secure. Our comprehensive managed IT services ensure optimal performance, reliability, and scalability for your organization's needs.</p>
                         
-                        <h3>Our Networking Services</h3>
-                        <ul class="feature-list">
-                            <li>
-                                <i class="fas fa-network-wired"></i>
-                                <div>
-                                    <h4>Network Design</h4>
-                                    <p>Custom network architecture and infrastructure planning</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-server"></i>
-                                <div>
-                                    <h4>Infrastructure Setup</h4>
-                                    <p>Complete network hardware and software implementation</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-shield-alt"></i>
-                                <div>
-                                    <h4>Network Security</h4>
-                                    <p>Advanced security measures and threat protection</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-tools"></i>
-                                <div>
-                                    <h4>Maintenance & Support</h4>
-                                    <p>Ongoing monitoring and technical support</p>
-                                </div>
-                            </li>
-                        </ul>
+                        <div class="services-section">
+                            <h3>Our IT & Networking Services</h3>
+                            <div class="services-grid">
+                                <ServiceCard 
+                                    icon="fa-network-wired"
+                                    title="Network Design & IT Infrastructure"
+                                    description="Custom network architecture and IT infrastructure planning for businesses in Calgary and Vancouver"
+                                />
+                                <ServiceCard 
+                                    icon="fa-server"
+                                    title="IT Infrastructure Setup"
+                                    description="Complete network hardware and software implementation with expert IT management"
+                                />
+                                <ServiceCard 
+                                    icon="fa-shield-alt"
+                                    title="IT Security & Network Protection"
+                                    description="Advanced security measures and threat protection for your business IT systems"
+                                />
+                                <ServiceCard 
+                                    icon="fa-tools"
+                                    title="Managed IT Support"
+                                    description="Ongoing IT monitoring, maintenance, and technical support services"
+                                />
+                            </div>
+                        </div>
 
-                        <h3>Why Choose Our Networking Services?</h3>
+                        <h3>Why Choose Our IT Services?</h3>
                         <div class="benefits-grid">
                             <div class="benefit-card">
                                 <i class="fas fa-globe"></i>
-                                <h4>Remote Monitoring</h4>
-                                <p>We know when there is a problem before you do</p>
+                                <h4>Proactive IT Management</h4>
+                                <p>We monitor and maintain your IT systems before issues arise</p>
                             </div>
                             <div class="benefit-card">
                                 <i class="fas fa-chart-line"></i>
-                                <h4>Performance</h4>
-                                <p>Optimized network solutions</p>
+                                <h4>Optimized Performance</h4>
+                                <p>Efficient IT solutions for your business needs</p>
                             </div>
                             <div class="benefit-card">
                                 <i class="fas fa-shield-virus"></i>
-                                <h4>Security</h4>
-                                <p>Advanced threat protection</p>
+                                <h4>Advanced Security</h4>
+                                <p>Comprehensive IT security and protection</p>
                             </div>
                             <div class="benefit-card">
                                 <i class="fas fa-dollar-sign"></i>
-                                <h4>Cost-Effective</h4>
-                                <p>Affordable solutions tailored to your budget</p>
+                                <h4>Cost-Effective IT</h4>
+                                <p>Affordable managed IT services in Calgary and Vancouver</p>
                             </div>
                         </div>
                     </div>
@@ -81,13 +118,12 @@ import Footer from '../../components/Footer.astro';
             </div>
         </section>
 
-        <section class="cta">
-            <div class="container">
-                <h2>Ready to Upgrade Your Network?</h2>
-                <p>Contact us today to discuss your networking needs</p>
-                <a href="/contact" class="cta-button">Contact Us</a>
-            </div>
-        </section>
+        <SolutionsCTA 
+            title="Ready to Optimize Your IT Infrastructure?"
+            description="Contact us today to discuss your IT needs in Calgary or Vancouver and discover how we can help enhance your business technology."
+            buttonText="Contact Us"
+            buttonLink="/contact"
+        />
     </main>
     <Footer />
 </Layout>
@@ -145,29 +181,22 @@ import Footer from '../../components/Footer.astro';
         margin-bottom: 1.5rem;
     }
 
-    .feature-list {
-        list-style: none;
-        padding: 0;
+    .services-section {
+        background: var(--secondary-bg);
+        padding: 3rem;
+        border-radius: 10px;
         margin: 2rem 0;
     }
 
-    .feature-list li {
-        display: flex;
-        gap: 1.5rem;
-        margin-bottom: 2rem;
-        align-items: flex-start;
+    .services-section h3 {
+        margin-top: 0;
     }
 
-    .feature-list i {
-        font-size: 1.5rem;
-        color: var(--primary-color);
-        margin-top: 0.25rem;
-    }
-
-    .feature-list h4 {
-        color: var(--primary-color);
-        margin-bottom: 0.5rem;
-        font-size: 1.2rem;
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
     }
 
     .benefits-grid {
@@ -202,43 +231,6 @@ import Footer from '../../components/Footer.astro';
         font-size: 1.2rem;
     }
 
-    .cta {
-        background: var(--dark-bg);
-        color: var(--white);
-        padding: 4rem 0;
-        text-align: center;
-    }
-
-    .cta h2 {
-        color: var(--white);
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-
-    .cta p {
-        color: var(--white);
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .cta-button {
-        display: inline-block;
-        background: var(--button-color);
-        color: var(--white);
-        padding: 1rem 2rem;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: background-color 0.3s ease;
-    }
-
-    .cta-button:hover {
-        background: var(--button-hover);
-    }
-
     @media (max-width: 768px) {
         .hero h1 {
             font-size: 2rem;
@@ -248,13 +240,9 @@ import Footer from '../../components/Footer.astro';
             font-size: 1.75rem;
         }
 
+        .services-grid,
         .benefits-grid {
             grid-template-columns: 1fr;
-        }
-
-        .feature-list li {
-            flex-direction: column;
-            gap: 1rem;
         }
     }
 </style> 

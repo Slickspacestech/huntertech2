@@ -1,0 +1,64 @@
+---
+interface Props {
+    icon: string;
+    title: string;
+    description: string;
+}
+
+const { icon, title, description } = Astro.props;
+---
+
+<div class="service-card">
+    <i class={`fas ${icon}`}></i>
+    <div class="service-content">
+        <h4>{title}</h4>
+        <p>{description}</p>
+    </div>
+</div>
+
+<style>
+    .service-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+        transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .service-card i {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-top: 0.25rem;
+    }
+
+    .service-content h4 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .service-content p {
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .service-card {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .service-card i {
+            margin: 0 auto;
+        }
+    }
+</style> 

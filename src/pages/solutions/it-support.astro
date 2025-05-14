@@ -2,6 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import SEO from '../../components/SEO.astro';
+import SolutionsCTA from '../../components/SolutionsCTA.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
 ---
 
 <Layout title="IT Support - Huntertech">
@@ -21,44 +24,41 @@ import Footer from '../../components/Footer.astro';
                         <h2>Professional IT Support Services</h2>
                         <p>Our IT support services are designed to provide your business with reliable, responsive, and proactive technical assistance. We ensure your technology infrastructure operates at peak efficiency, allowing you to focus on your core business operations.</p>
                         
-                        <h3>What We Offer</h3>
-                        <ul class="feature-list">
-                            <li>
-                                <i class="fas fa-headset"></i>
-                                <div>
-                                    <h4>Local Help Desk Support</h4>
-                                    <p>We are local and we are here to help you</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-tools"></i>
-                                <div>
-                                    <h4>Proactive Maintenance</h4>
-                                    <p>Regular system checks and updates to prevent issues</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-cloud"></i>
-                                <div>
-                                    <h4>Cloud Services Support</h4>
-                                    <p>Expert assistance with cloud infrastructure and applications</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-laptop"></i>
-                                <div>
-                                    <h4>Hardware Support</h4>
-                                    <p>Comprehensive support for all your business hardware</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-code"></i>
-                                <div>
-                                    <h4>Software Support</h4>
-                                    <p>Comprehensive support for all your business software and licensing</p>
-                                </div>
-                            </li>
-                        </ul>
+                        <div class="services-section">
+                            <h3>What We Offer</h3>
+                            <div class="services-grid">
+                                <ServiceCard 
+                                    icon="fa-headset"
+                                    title="Local Help Desk Support"
+                                    description="We don't offshore our helpdesk, which means you are talking to the same friendly knowledgable team every day, just like you had hired in house."
+                                />
+                                <ServiceCard 
+                                    icon="fa-tools"
+                                    title="Proactive Maintenance"
+                                    description="Regular system checks and updates to prevent issues"
+                                />
+                                <ServiceCard 
+                                    icon="fa-cloud"
+                                    title="Cloud Services Support"
+                                    description="Expert assistance with cloud infrastructure and applications"
+                                />
+                                <ServiceCard 
+                                    icon="fa-laptop"
+                                    title="Hardware Support"
+                                    description="Comprehensive support for all your business hardware"
+                                />
+                                <ServiceCard 
+                                    icon="fa-solid fa-window-maximize"
+                                    title="Software Support"
+                                    description="Comprehensive support for all your business software and licensing"
+                                />
+                                <ServiceCard 
+                                    icon="fa-shopping-cart"
+                                    title="IT Procurement"
+                                    description="Whether it's hardware, software, subscription, cloud we can help you purchase your next IT investment"
+                                />
+                            </div>
+                        </div>
 
                         <h3>Why Choose Our IT Support?</h3>
                         <div class="benefits-grid">
@@ -83,98 +83,76 @@ import Footer from '../../components/Footer.astro';
                                 <p>Personalized service for your business</p>
                             </div>
                         </div>
+
+                        <p>With our comprehensive IT support services, you can focus on growing your business while we handle your technology needs. Contact us today to learn more about how we can help your business thrive in the digital age.</p>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section class="cta">
-            <div class="container">
-                <h2>Ready to Get Started?</h2>
-                <p>Contact us today to discuss your IT support needs</p>
-                <a href="/contact" class="cta-button">Contact Us</a>
-            </div>
-        </section>
+        <SolutionsCTA 
+            title="Ready to Get Started with Professional IT Support?"
+            description="Contact our team today to discuss your IT needs and discover how our managed IT services can help your business succeed."
+            buttonText="Get Started"
+            buttonLink="/contact"
+        />
     </main>
     <Footer />
 </Layout>
 
 <style>
     .hero {
-        background: var(--primary-color);
-        color: var(--white);
-        padding: 4rem 0;
+        background: var(--primary-bg);
+        padding: 6rem 0;
         text-align: center;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/it-support.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
     .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
+        font-size: 3rem;
+        color: var(--white);
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
 
     .hero p {
         font-size: 1.2rem;
-        max-width: 600px;
+        color: var(--white);
+        max-width: 800px;
         margin: 0 auto;
+        line-height: 1.6;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     }
 
     .content {
         padding: 4rem 0;
-        background: var(--white);
     }
 
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
-    }
-
-    .content-grid {
-        display: grid;
-        gap: 2rem;
-    }
-
-    .main-content h2 {
-        color: var(--primary-color);
+    .content h2 {
+        color: var(--primary-heading);
         font-size: 2rem;
         margin-bottom: 1.5rem;
     }
 
-    .main-content h3 {
-        color: var(--primary-color);
+    .content h3 {
+        color: var(--secondary-heading);
         font-size: 1.5rem;
         margin: 2rem 0 1rem;
     }
 
-    .main-content p {
+    .content p {
         color: var(--text-color);
-        line-height: 1.6;
         margin-bottom: 1.5rem;
+        line-height: 1.6;
     }
 
-    .feature-list {
-        list-style: none;
-        padding: 0;
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
         margin: 2rem 0;
-    }
-
-    .feature-list li {
-        display: flex;
-        gap: 1.5rem;
-        margin-bottom: 2rem;
-        align-items: flex-start;
-    }
-
-    .feature-list i {
-        font-size: 1.5rem;
-        color: var(--primary-color);
-        margin-top: 0.25rem;
-    }
-
-    .feature-list h4 {
-        color: var(--primary-color);
-        margin-bottom: 0.5rem;
-        font-size: 1.2rem;
     }
 
     .benefits-grid {
@@ -209,59 +187,41 @@ import Footer from '../../components/Footer.astro';
         font-size: 1.2rem;
     }
 
-    .cta {
-        background: var(--dark-bg);
-        color: var(--white);
-        padding: 4rem 0;
-        text-align: center;
-    }
-
-    .cta h2 {
-        color: var(--white);
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-
-    .cta p {
-        color: var(--white);
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .cta-button {
-        display: inline-block;
-        background: var(--button-color);
-        color: var(--white);
-        padding: 1rem 2rem;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: background-color 0.3s ease;
-    }
-
-    .cta-button:hover {
-        background: var(--button-hover);
-    }
-
     @media (max-width: 768px) {
+        .hero {
+            padding: 4rem 1rem;
+        }
+
         .hero h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
         }
 
-        .main-content h2 {
-            font-size: 1.75rem;
+        .content {
+            padding: 3rem 1rem;
         }
 
+        .content h2 {
+            font-size: 1.8rem;
+        }
+
+        .content h3 {
+            font-size: 1.3rem;
+        }
+
+        .services-grid,
         .benefits-grid {
             grid-template-columns: 1fr;
         }
+    }
 
-        .feature-list li {
-            flex-direction: column;
-            gap: 1rem;
-        }
+    .services-section {
+        background: var(--secondary-bg);
+        padding: 3rem;
+        border-radius: 10px;
+        margin: 2rem 0;
+    }
+
+    .services-section h3 {
+        margin-top: 0;
     }
 </style> 

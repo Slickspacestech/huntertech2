@@ -1,0 +1,67 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    buttonText: string;
+    buttonLink: string;
+}
+
+const { title, description, buttonText, buttonLink } = Astro.props;
+---
+
+<section class="solutions-cta">
+    <div class="container">
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <a href={buttonLink} class="cta-button">{buttonText}</a>
+    </div>
+</div>
+
+<style>
+    .solutions-cta {
+        background: var(--secondary-bg);
+        padding: 4rem 0;
+        text-align: center;
+        margin-top: 4rem;
+    }
+
+    .solutions-cta h2 {
+        color: var(--primary-heading);
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .solutions-cta p {
+        color: var(--text-color);
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: var(--button-color);
+        color: var(--white);
+        padding: 1rem 2rem;
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 768px) {
+        .solutions-cta {
+            padding: 3rem 1rem;
+            margin-top: 3rem;
+        }
+
+        .solutions-cta h2 {
+            font-size: 1.8rem;
+        }
+    }
+</style> 

@@ -1,0 +1,36 @@
+---
+import { slugMap } from '../../data/blog-posts';
+
+interface PathProps {
+    isRoot?: boolean;
+    newSlug?: string;
+}
+
+export function getStaticPaths() {
+    // Handle the root path
+    const paths: { params: { slug?: string }; props: PathProps }[] = [{
+        params: { slug: undefined },
+        props: { isRoot: true }
+    }];
+
+    // Handle all the old blog post paths
+    Object.entries(slugMap).forEach(([oldSlug, newSlug]) => {
+        paths.push({
+            params: { slug: oldSlug },
+            props: { newSlug }
+        });
+    });
+
+    return paths;
+}
+
+const { isRoot, newSlug } = Astro.props;
+
+if (isRoot) {
+    return Astro.redirect('/blog');
+}
+
+return Astro.redirect('/blog/' + newSlug);
+---
+
+<meta http-equiv="refresh" content={`

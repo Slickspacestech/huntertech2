@@ -5,11 +5,11 @@
                 <h3>Huntertech</h3>
                 <div class="contact-info">
                     <div class="location">
-                        <h4>Calgary</h4>
+                        <h4><a href="/calgary">Calgary</a></h4>
                         <p>825 415 6990</p>
                     </div>
                     <div class="location">
-                        <h4>Vancouver</h4>
+                        <h4><a href="/vancouver">Vancouver</a></h4>
                         <p>778 819 7411</p>
                     </div>
                     <div class="email">
@@ -87,6 +87,16 @@
         color: var(--white);
         font-size: 1.1rem;
         margin-bottom: 0.25rem;
+    }
+
+    .location h4 a {
+        color: var(--white);
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .location h4 a:hover {
+        opacity: 0.8;
     }
 
     .location p {

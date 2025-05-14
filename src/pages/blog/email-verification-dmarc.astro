@@ -1,0 +1,214 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import SEO from '../../components/SEO.astro';
+import CTABox from '../../components/CTABox.astro';
+
+const title = "Help! Emails I Send from Our Email Blast System are Showing Up as Unverified | Email Authentication Guide";
+const description = "Learn how to fix unverified email issues and properly set up DMARC, DKIM, and SPF records for your business email system. Expert guide to email authentication.";
+---
+
+<Layout title={title}>
+    <SEO 
+        title={title}
+        description={description}
+        canonicalURL="/blog/email-verification-dmarc"
+        type="article"
+        keywords={[
+            "Email verification",
+            "DMARC setup",
+            "DKIM records",
+            "SPF records",
+            "Email authentication",
+            "Email deliverability",
+            "Email security",
+            "Business email setup"
+        ]}
+    />
+    <Header />
+    <main>
+        <article class="blog-post">
+            <div class="container">
+                <header class="post-header">
+                    <h1>Help! Emails I Send from Our Email Blast System are Showing Up as Unverified</h1>
+                    <div class="post-meta">
+                        <time datetime="2024-07-29">July 29, 2024</time>
+                        <span class="reading-time">8 min read</span>
+                    </div>
+                </header>
+
+                <div class="post-content">
+                    <p>I've been seeing a common issue faced by many companies. They send emails through a bulk email provider like Mailchimp, Ticketmaster, Brevo, Hubspot, etc. and their emails are getting flagged as possible spam or as unverified.</p>
+
+                    <h2>Understanding the Problem</h2>
+                    <p>Let's break this down to show what's happening. When a company sends email using their Mailchimp Account, it should be legitimate, right? Let's check the mail header to understand what's going wrong.</p>
+
+                    <blockquote>
+                        Authentication-Results: spf=pass (sender IP is 198.2.144.59) smtp.mailfrom=mail59.atl301.rsgsv.net; dkim=pass (signature was verified) header.d=mailchimpapp.net; dmarc=fail action=none header.from=deploydepot.ca; compauth=fail reason=001
+                    </blockquote>
+
+                    <p>Pulling out the important info:</p>
+                    <ul>
+                        <li>SPF Passed</li>
+                        <li>DKIM Passed</li>
+                        <li>DMARC Failed</li>
+                        <li>Fail reason = 001</li>
+                    </ul>
+
+                    <h2>What is DMARC, DKIM, and SPF?</h2>
+                    <p>DMARC (Domain-based Message Authentication, Reporting, and Conformance) builds upon SPF (Sender Policy Framework) and DKIM (DomainKeys Identified Mail). Its goal is to increase email security. Here's how it works:</p>
+
+                    <h3>Authentication Standards</h3>
+                    <ul>
+                        <li><strong>SPF</strong>: Checks if the sender's IP address is authorized to send emails on behalf of a domain. It specifies which servers are allowed to send mail for a domain.</li>
+                        <li><strong>DKIM</strong>: Adds a digital signature to outgoing emails. The recipient's server can verify this signature to ensure the email hasn't been tampered with.</li>
+                    </ul>
+
+                    <h3>DMARC Implementation</h3>
+                    <ul>
+                        <li>DMARC allows domain owners to set policies for handling emails that fail authentication checks.</li>
+                        <li>An organization can publish a DMARC policy that says, "If you send mail from my domain, it must pass SPF and DKIM checks."</li>
+                        <li>DMARC creates a feedback loop between the sender and receiver. If an email fails authentication, the receiver can send a report back to the sender, detailing why it failed.</li>
+                    </ul>
+
+                    <h2>How to Fix the Issue</h2>
+                    <p>In the Mailchimp example, the CNAME record you create is actually pointing at their TXT record which holds the public key used to verify the DKIM signature applied by the Mailchimp mail server.</p>
+
+                    <p>A proper TXT record should be formatted like this:</p>
+                    <pre>[selector]._domainkey.[domain]</pre>
+
+                    <p>With a value of:</p>
+                    <pre>v=DKIM1; p=[insert public key here]</pre>
+
+                    <h3>Step 1: Find the Selector</h3>
+                    <p>In your email, you need to open the message details or header (in Outlook you can right-click -> View -> Message Details). Scroll to the DKIM-Signature section of the header and take note of these important items:</p>
+                    <ul>
+                        <li>d= is the Domain (e.g., mailchimpapp.net)</li>
+                        <li>s= is the Selector (e.g., k3)</li>
+                        <li>v= is the version</li>
+                        <li>a= is the algorithm used to apply the DKIM signature</li>
+                    </ul>
+
+                    <h3>Step 2: Create the DNS Records</h3>
+                    <p>Head over to www.mxtoolbox.com and use their Super Tool. Select the DKIM Lookup from the dropdown and enter the d value and s value separated by a colon (:) - example: mailchimpapp.net:k3</p>
+
+                    <p>This will show you the DKIM record for your email provider. When you create your CNAME record, this is what you are pointing to. This has the public key used to verify the DKIM signature.</p>
+
+                    <h2>Setting Up DMARC Records</h2>
+                    <p>The last piece of the puzzle is setting up your DMARC records. You should create a mailbox or distribution list to collect DMARC reports and set your DNS DMARC to reject or quarantine emails that don't pass DMARC.</p>
+
+                    <p>Example DMARC TXT DNS record:</p>
+                    <pre>v=DMARC1; p=quarantine; adkim=s; aspf=s; rua=mailto:dmarcfailure@yourdomain.ca</pre>
+
+                    <p>What this means:</p>
+                    <ul>
+                        <li><strong>v=DMARC1</strong>: Indicates this is a DMARC policy</li>
+                        <li><strong>p=quarantine</strong>: Email servers should "quarantine" emails that fail DKIM and SPF</li>
+                        <li><strong>adkim=s</strong>: DKIM checks are "strict"</li>
+                        <li><strong>aspf=s</strong>: SPF checks are "strict"</li>
+                        <li><strong>rua=mailto:xxxx</strong>: Sends DMARC reports to this email address</li>
+                    </ul>
+
+                    <CTABox 
+                        title="Need Help with Email Authentication?"
+                        description="Contact our team for expert assistance with email verification and DMARC setup for your business."
+                        buttonText="Get Expert Help"
+                        buttonLink="/contact"
+                    />
+                </div>
+            </div>
+        </article>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .blog-post {
+        padding: 4rem 0;
+    }
+
+    .post-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .post-header h1 {
+        font-size: 2.5rem;
+        color: var(--primary-heading);
+        margin-bottom: 1rem;
+    }
+
+    .post-meta {
+        color: var(--text-color);
+        font-size: 0.9rem;
+    }
+
+    .post-meta time {
+        margin-right: 1rem;
+    }
+
+    .post-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .post-content h2 {
+        color: var(--primary-heading);
+        margin: 2rem 0 1rem;
+        font-size: 1.8rem;
+    }
+
+    .post-content h3 {
+        color: var(--primary-heading);
+        margin: 1.5rem 0 1rem;
+        font-size: 1.4rem;
+    }
+
+    .post-content p {
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .post-content ul, .post-content ol {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+    }
+
+    .post-content li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+    }
+
+    .post-content blockquote {
+        background: var(--secondary-bg);
+        padding: 1.5rem;
+        border-left: 4px solid var(--button-color);
+        margin: 1.5rem 0;
+        font-family: monospace;
+        overflow-x: auto;
+    }
+
+    .post-content pre {
+        background: var(--secondary-bg);
+        padding: 1rem;
+        border-radius: var(--radius-md);
+        overflow-x: auto;
+        font-family: monospace;
+        margin: 1rem 0;
+    }
+
+    @media (max-width: 768px) {
+        .blog-post {
+            padding: 2rem 0;
+        }
+
+        .post-header h1 {
+            font-size: 2rem;
+        }
+
+        .post-content {
+            padding: 0 1rem;
+        }
+    }
+</style> 

@@ -2,67 +2,123 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
 
-// Sample blog posts data (in a real application, this would come from a CMS or API)
-const posts = [
-    {
-        title: "The Future of IT Support: Trends to Watch in 2024",
-        excerpt: "Discover the latest trends in IT support and how they're shaping the future of business technology.",
-        date: "2024-03-15",
-        author: "John Smith",
-        category: "IT Support",
-        image: "/images/blog/it-support-trends.jpg"
-    },
-    {
-        title: "Revit Best Practices for Architecture Firms",
-        excerpt: "Learn essential Revit workflows and best practices to improve your architecture firm's efficiency.",
-        date: "2024-03-10",
-        author: "Sarah Johnson",
-        category: "Revit",
-        image: "/images/blog/revit-best-practices.jpg"
-    },
-    {
-        title: "Cybersecurity Essentials for Small Businesses",
-        excerpt: "Protect your business with these essential cybersecurity practices and tools.",
-        date: "2024-03-05",
-        author: "Mike Wilson",
-        category: "Security",
-        image: "/images/blog/cybersecurity.jpg"
-    }
-];
+const title = "IT Services Blog | Expert IT Insights for Calgary and Vancouver Businesses";
+const description = "Stay informed with the latest IT insights, cybersecurity tips, and technology trends for businesses in Calgary and Vancouver. Expert advice from your local IT service provider.";
 ---
 
-<Layout title="Blog - Huntertech">
+<Layout title={title}>
+    <SEO 
+        title={title}
+        description={description}
+        canonicalURL="/blog"
+        keywords={[
+            "IT Services blog",
+            "IT Support tips",
+            "Cybersecurity blog",
+            "Business IT advice",
+            "IT Services Calgary blog",
+            "IT Services Vancouver blog",
+            "Small business IT tips",
+            "Technology trends"
+        ]}
+    />
     <Header />
-    <main class="blog-page">
-        <section class="hero">
+    <main>
+        <section class="blog-hero">
             <div class="container">
-                <h1>Our Blog</h1>
-                <p>Insights, tips, and news from the world of IT and Revit</p>
+                <h1>IT Services Blog</h1>
+                <p>Expert insights and tips for your business technology needs</p>
             </div>
         </section>
-        <section class="blog-section">
+
+        <section class="blog-posts">
             <div class="container">
-                <div class="blog-grid">
-                    {posts.map(post => (
-                        <article class="blog-card">
-                            <div class="blog-image">
-                                <img src={post.image} alt={post.title} />
-                                <span class="category">{post.category}</span>
+                <div class="posts-grid">
+                    <article class="post-card">
+                        <div class="post-image">
+                            <img src="/images/blog/phishing-attacks.jpg" alt="Phishing Attacks in Canada" />
+                        </div>
+                        <div class="post-content">
+                            <h2>Phishing Attacks Rising in Canada</h2>
+                            <p>Learn about the increasing threat of phishing attacks in Canada and how to protect your business from cyber fraud.</p>
+                            <div class="post-meta">
+                                <time datetime="2024-03-10">March 10, 2024</time>
+                                <span class="reading-time">5 min read</span>
                             </div>
-                            <div class="blog-content">
-                                <div class="blog-meta">
-                                    <span class="date">{new Date(post.date).toLocaleDateString()}</span>
-                                    <span class="author">By {post.author}</span>
-                                </div>
-                                <h2>{post.title}</h2>
-                                <p>{post.excerpt}</p>
-                                <a href={`/blog/${post.title.toLowerCase().replace(/\s+/g, '-')}`} class="read-more">
-                                    Read More <i class="fas fa-arrow-right"></i>
-                                </a>
+                            <a href="/blog/phishing-attacks-canada" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                    <article class="post-card">
+                        <div class="post-image">
+                            <img src="/images/blog/password-manager.jpg" alt="Password Manager Security" />
+                        </div>
+                        <div class="post-content">
+                            <h2>Why You Should Use a Password Manager</h2>
+                            <p>Learn why password managers are essential for business security and what features to look for when choosing one.</p>
+                            <div class="post-meta">
+                                <time datetime="2024-03-21">March 21, 2024</time>
+                                <span class="reading-time">6 min read</span>
                             </div>
-                        </article>
-                    ))}
+                            <a href="/blog/password-manager" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                    <article class="post-card">
+                        <div class="post-image">
+                            <img src="/images/blog/cybersecurity.jpg" alt="Cybersecurity for Small Businesses" />
+                        </div>
+                        <div class="post-content">
+                            <h2>Essential Cybersecurity Tips for Small Businesses</h2>
+                            <p>Learn how to protect your small business from cyber threats with expert advice and practical tips.</p>
+                            <div class="post-meta">
+                                <time datetime="2024-03-20">March 20, 2024</time>
+                                <span class="reading-time">5 min read</span>
+                            </div>
+                            <a href="/blog/cybersecurity-small-business" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                    <article class="post-card">
+                        <img src="/images/blog/admin-rights.jpg" alt="Employee admin rights illustration" class="post-image" />
+                        <div class="post-content">
+                            <h2>Should Employees Have Admin Rights on Their Work Computers?</h2>
+                            <p>Learn about the implications of granting administrative rights to employees and how to implement proper access controls in your business.</p>
+                            <div class="post-meta">
+                                <time datetime="2024-09-12">September 12, 2024</time>
+                                <span class="reading-time">5 min read</span>
+                            </div>
+                            <a href="/blog/admin-rights-work-computers" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                    <article class="post-card">
+                        <div class="post-image">
+                            <img src="/images/blog/scan-to-email.jpg" alt="Office printer scan to email setup" />
+                        </div>
+                        <div class="post-content">
+                            <h2>Scan to Email on Your Office Printer with Microsoft 365 or Google Workspace</h2>
+                            <p>Learn how to set up scan-to-email functionality on your office printer using Microsoft 365 or Google Workspace. A simple 5-minute guide.</p>
+                            <div class="post-meta">
+                                <time datetime="2024-08-16">August 16, 2024</time>
+                                <span class="reading-time">5 min read</span>
+                            </div>
+                            <a href="/blog/scan-to-email-printer" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                    <article class="post-card">
+                        <div class="post-image">
+                            <img src="/images/blog/email-verification.jpg" alt="Email verification and DMARC setup" />
+                        </div>
+                        <div class="post-content">
+                            <h2>Help! Emails I Send from Our Email Blast System are Showing Up as Unverified</h2>
+                            <p>Learn how to fix unverified email issues and properly set up DMARC, DKIM, and SPF records for your business email system.</p>
+                            <div class="post-meta">
+                                <time datetime="2024-07-29">July 29, 2024</time>
+                                <span class="reading-time">8 min read</span>
+                            </div>
+                            <a href="/blog/email-verification-dmarc" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                    <!-- More blog posts will be added here -->
                 </div>
             </div>
         </section>
@@ -71,125 +127,100 @@ const posts = [
 </Layout>
 
 <style>
-    .blog-page {
-        padding-top: 80px;
-    }
-
-    .hero {
-        background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('/images/blog-bg.jpg');
-        background-size: cover;
-        background-position: center;
+    .blog-hero {
+        background: var(--primary-color);
         color: var(--white);
-        padding: 4rem 1rem;
+        padding: 4rem 0;
         text-align: center;
     }
 
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
-    }
-
-    .hero h1 {
+    .blog-hero h1 {
         font-size: 2.5rem;
         margin-bottom: 1rem;
     }
 
-    .blog-section {
-        padding: 4rem 1rem;
+    .blog-posts {
+        padding: 4rem 0;
     }
 
-    .blog-grid {
+    .posts-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
+        margin-top: 2rem;
     }
 
-    .blog-card {
+    .post-card {
         background: var(--white);
-        border-radius: 10px;
+        border-radius: var(--radius-lg);
         overflow: hidden;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         transition: transform 0.3s ease;
     }
 
-    .blog-card:hover {
+    .post-card:hover {
         transform: translateY(-5px);
     }
 
-    .blog-image {
-        position: relative;
+    .post-image {
         height: 200px;
         overflow: hidden;
     }
 
-    .blog-image img {
+    .post-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.3s ease;
     }
 
-    .blog-card:hover .blog-image img {
-        transform: scale(1.1);
-    }
-
-    .category {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        background: var(--secondary-color);
-        color: var(--white);
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-size: 0.8rem;
-    }
-
-    .blog-content {
+    .post-content {
         padding: 1.5rem;
     }
 
-    .blog-meta {
-        display: flex;
-        gap: 1rem;
-        font-size: 0.9rem;
-        color: #666;
+    .post-content h2 {
+        font-size: 1.4rem;
+        color: var(--primary-heading);
         margin-bottom: 1rem;
     }
 
-    .blog-content h2 {
-        color: var(--primary-color);
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        line-height: 1.4;
-    }
-
-    .blog-content p {
+    .post-content p {
         color: var(--text-color);
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
         line-height: 1.6;
     }
 
+    .post-meta {
+        font-size: 0.9rem;
+        color: var(--text-color);
+        margin-bottom: 1rem;
+    }
+
+    .post-meta time {
+        margin-right: 1rem;
+    }
+
     .read-more {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: var(--secondary-color);
+        display: inline-block;
+        color: var(--button-color);
         text-decoration: none;
-        font-weight: 500;
-        transition: gap 0.3s ease;
+        font-weight: 600;
+        transition: color 0.3s ease;
     }
 
     .read-more:hover {
-        gap: 0.8rem;
+        color: var(--primary-color);
     }
 
     @media (max-width: 768px) {
-        .hero h1 {
+        .blog-hero {
+            padding: 3rem 0;
+        }
+
+        .blog-hero h1 {
             font-size: 2rem;
         }
 
-        .blog-grid {
+        .posts-grid {
             grid-template-columns: 1fr;
         }
     }

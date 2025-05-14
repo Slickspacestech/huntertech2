@@ -1,0 +1,105 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    canonicalURL?: string;
+    image?: string;
+    type?: 'website' | 'article';
+    keywords?: string[];
+    location?: 'Calgary' | 'Vancouver';
+}
+
+const {
+    title,
+    description,
+    canonicalURL,
+    image = '/images/Huntertech_logo.png',
+    type = 'website',
+    keywords = [],
+    location
+} = Astro.props;
+
+const siteURL = 'https://huntertech.ca';
+const fullCanonicalURL = canonicalURL ? `${siteURL}${canonicalURL}` : Astro.url.href;
+
+// Default keywords based on location
+const defaultKeywords = location === 'Calgary' 
+    ? ['IT Services Calgary', 'Managed IT Services Calgary', 'IT Support Calgary', 'Cybersecurity Calgary']
+    : location === 'Vancouver'
+    ? ['IT Services Vancouver', 'Managed IT Services Vancouver', 'IT Support Vancouver', 'Cybersecurity Vancouver']
+    : ['IT Services', 'Managed IT Services', 'IT Support', 'Cybersecurity'];
+
+const allKeywords = [...new Set([...defaultKeywords, ...keywords])];
+
+// Structured data for local business
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ITService",
+    "name": "Huntertech",
+    "image": `${siteURL}${image}`,
+    "description": description,
+    "url": siteURL,
+    "telephone": location === 'Calgary' ? "825-415-6990" : "778-819-7411",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": location === 'Calgary' ? "4121 23b St NE" : "",
+        "addressLocality": location || "Calgary",
+        "addressRegion": location === 'Calgary' ? "AB" : "BC",
+        "postalCode": location === 'Calgary' ? "T2E 7V9" : "",
+        "addressCountry": "CA"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": location === 'Calgary' ? "51.0677" : "49.2827",
+        "longitude": location === 'Calgary' ? "-113.9777" : "-123.1207"
+    },
+    "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "17:00"
+    },
+    "sameAs": [
+        "https://www.linkedin.com/company/huntertech",
+        "https://www.facebook.com/huntertech"
+    ]
+};
+---
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="keywords" content={allKeywords.join(', ')} />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={fullCanonicalURL} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={fullCanonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={`${siteURL}${image}`} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={fullCanonicalURL} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={`${siteURL}${image}`} />
+
+<!-- Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+<!-- Additional Meta Tags -->
+<meta name="robots" content="index, follow" />
+<meta name="language" content="English" />
+<meta name="revisit-after" content="7 days" />
+<meta name="author" content="Huntertech" /> 

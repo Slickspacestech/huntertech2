@@ -1,0 +1,390 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
+
+const title = "IT Services Vancouver | Managed IT Support & Cybersecurity Solutions";
+const description = "Expert IT services in Vancouver. 24/7 managed IT support, cybersecurity solutions, and cloud services for businesses. Local IT experts serving Vancouver and surrounding areas.";
+---
+
+<Layout title={title}>
+    <SEO 
+        title={title}
+        description={description}
+        canonicalURL="/vancouver"
+        location="Vancouver"
+        keywords={[
+            "IT Services Vancouver",
+            "Managed IT Services Vancouver",
+            "IT Support Vancouver",
+            "Cybersecurity Vancouver",
+            "Cloud Services Vancouver",
+            "Business IT Support Vancouver",
+            "IT Consulting Vancouver",
+            "Network Security Vancouver"
+        ]}
+    />
+    <Header />
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>IT Services Vancouver</h1>
+                <p>Your trusted IT partner in Vancouver for managed services, cybersecurity, and cloud solutions</p>
+            </div>
+        </section>
+
+        <section class="location-info">
+            <div class="container">
+                <div class="location-grid">
+                    <div class="location-details">
+                        <h2>Vancouver's Premier IT Service Provider</h2>
+                        <div class="contact-card">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h3>Address</h3>
+                                    <p>Vancouver, BC</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h3>Phone</h3>
+                                    <p>778 819 7411</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h3>Email</h3>
+                                    <p>info@huntertech.ca</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2608.123456789012!2d-123.1234!3d49.1234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDA3JzI0LjMiTiAxMjPCsDA3JzI0LjMiVw!5e0!3m2!1sen!2sca!4v1620000000000!5m2!1sen!2sca" 
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <h2>Comprehensive IT Services in Vancouver</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-laptop"></i>
+                        <h3>Managed IT Support</h3>
+                        <p>Friendly, local IT support and monitoring for Vancouver businesses</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Cybersecurity Solutions</h3>
+                        <p>Advanced security solutions to protect your Vancouver business</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Cloud Services</h3>
+                        <p>Secure and scalable cloud infrastructure for Vancouver companies</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-network-wired"></i>
+                        <h3>Network Solutions</h3>
+                        <p>Reliable and efficient network infrastructure in Vancouver</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-choose-us">
+            <div class="container">
+                <h2>Why Choose Our IT Services in Vancouver?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Local, Friendly Support</h3>
+                        <p>Personal IT support from our Vancouver-based team who knows your business</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Certified Experts</h3>
+                        <p>Highly qualified IT professionals serving Vancouver businesses</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Local Partnership</h3>
+                        <p>We're your neighbors, dedicated to Vancouver's business community growth</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Proven Results</h3>
+                        <p>Track record of successful IT implementations in Vancouver</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Transform Your IT Infrastructure?</h2>
+                <p>Contact our Vancouver team today for a free IT consultation</p>
+                <a href="/contact" class="cta-button">Contact Us</a>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .hero {
+        background: var(--primary-color);
+        color: var(--white);
+        padding: 6rem 0 4rem;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .location-info {
+        padding: 4rem 0;
+    }
+
+    .location-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+    }
+
+    .location-details h2 {
+        margin-bottom: 2rem;
+        color: var(--primary-heading);
+    }
+
+    .contact-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: var(--radius-lg);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .contact-item {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .contact-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .contact-item i {
+        font-size: 1.5rem;
+        color: var(--button-color);
+    }
+
+    .contact-item h3 {
+        margin-bottom: 0.5rem;
+        color: var(--secondary-heading);
+    }
+
+    .map-container {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .services {
+        background: var(--secondary-bg);
+        padding: 4rem 0;
+    }
+
+    .services h2 {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--primary-heading);
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+
+    .service-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: var(--radius-lg);
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .service-card i {
+        font-size: 2.5rem;
+        color: var(--button-color);
+        margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+        margin-bottom: 1rem;
+        color: var(--secondary-heading);
+    }
+
+    .cta {
+        background: var(--dark-bg);
+        color: var(--white);
+        padding: 4rem 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+        z-index: 1;
+    }
+
+    .cta .container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .cta h2 {
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+
+    .cta p {
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: var(--button-color);
+        color: var(--white);
+        padding: 1rem 2.5rem;
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        background: var(--button-color);
+        color: var(--white);
+    }
+
+    @media (max-width: 768px) {
+        .location-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .hero {
+            padding: 4rem 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+        }
+
+        .cta {
+            padding: 3rem 0;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            padding: 0 1rem;
+        }
+
+        .cta-button {
+            width: 90%;
+            max-width: 300px;
+            text-align: center;
+        }
+    }
+
+    .why-choose-us {
+        padding: 4rem 0;
+        background: var(--white);
+    }
+
+    .why-choose-us h2 {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--primary-heading);
+    }
+
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+
+    .benefit-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: var(--radius-lg);
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .benefit-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .benefit-card i {
+        font-size: 2.5rem;
+        color: var(--button-color);
+        margin-bottom: 1rem;
+    }
+
+    .benefit-card h3 {
+        margin-bottom: 1rem;
+        color: var(--secondary-heading);
+    }
+
+    @media (max-width: 768px) {
+        .benefits-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style> 
