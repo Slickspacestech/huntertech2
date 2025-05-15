@@ -198,7 +198,7 @@ import Footer from '../components/Footer.astro';
         <div class="faq-grid">
           <div class="faq-item">
             <h3>Do you charge project fees?</h3>
-            <p>We don’t believe in charging project-based fees. Instead, we offer our services for a simple monthly rate. This approach allows us to focus on delivering the best solutions and proactively developing a strategic IT roadmap for your business. Project fees often tie technology decisions to budget constraints, which can delay adoption, reduce productivity, and increase the risk of failures or security vulnerabilities.</p>
+            <p>We don't believe in charging project-based fees. Instead, we offer our services for a simple monthly rate. This approach allows us to focus on delivering the best solutions and proactively developing a strategic IT roadmap for your business. Project fees often tie technology decisions to budget constraints, which can delay adoption, reduce productivity, and increase the risk of failures or security vulnerabilities.</p>
           </div>
           <div class="faq-item">
             <h3>What's the difference between Huntertech and the other IT managed service providers?</h3>
@@ -709,5 +709,29 @@ import Footer from '../components/Footer.astro';
 
   html {
     scroll-behavior: smooth;
+  }
+
+  .hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+      image-set(
+        url('/images/architect_engineer_tech.avif') type('image/avif'),
+        url('/images/architect_engineer_tech.webp') type('image/webp'),
+        url('/images/architect_engineer_tech.jpeg') type('image/jpeg')
+      );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .why-msp {
+    background-image: linear-gradient(rgba(56, 66, 88, 0.9), rgba(56, 66, 88, 0.9)), 
+      image-set(
+        url('/images/architect_engineer_tech.avif') type('image/avif'),
+        url('/images/architect_engineer_tech.webp') type('image/webp'),
+        url('/images/architect_engineer_tech.jpeg') type('image/jpeg')
+      );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 </style>

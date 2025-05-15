@@ -427,4 +427,17 @@ h1, h2, h3, h4, h5, h6 {
 .cta-button:hover {
     background: var(--button-hover);
     color: var(--white);
+}
+
+/* Industry page hero background */
+.industry-hero {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+        image-set(
+            url('/images/architect_engineer_tech.avif') type('image/avif'),
+            url('/images/architect_engineer_tech.webp') type('image/webp'),
+            url('/images/architect_engineer_tech.jpeg') type('image/jpeg')
+        );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 } 

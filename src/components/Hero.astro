@@ -42,13 +42,18 @@ const {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+      image-set(
+        url('/images/architect_engineer_tech.avif') type('image/avif'),
+        url('/images/architect_engineer_tech.webp') type('image/webp'),
+        url('/images/architect_engineer_tech.jpeg') type('image/jpeg')
+      );
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-repeat: no-repeat;
     color: var(--white);
-    padding: 0;
-    overflow: hidden;
-    margin-top: -80px; /* Offset for fixed header */
+    padding: 120px 0;
+    margin-bottom: 60px;
   }
 
   .hero-overlay {

@@ -9,6 +9,30 @@ export default defineConfig({
     ],
     site: 'https://huntertech.ca',
     build: {
-        assets: '_assets'
-    }
+        assets: '_assets',
+        inlineStylesheets: 'auto',
+    },
+    image: {
+        service: {
+            entrypoint: 'astro/assets/services/sharp',
+        },
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: '**',
+            },
+        ],
+    },
+    compressHTML: true,
+    vite: {
+        build: {
+            rollupOptions: {
+                output: {
+                    manualChunks: {
+                        'vendor': ['react', 'react-dom'],
+                    },
+                },
+            },
+        },
+    },
 }); 
