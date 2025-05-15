@@ -96,7 +96,7 @@ const description = "Learn how to fix unverified email issues and properly set u
                     <p>This will show you the DKIM record for your email provider. When you create your CNAME record, this is what you are pointing to. This has the public key used to verify the DKIM signature.</p>
 
                     <h2>Setting Up DMARC Records</h2>
-                    <p>The last piece of the puzzle is setting up your DMARC records. You should create a mailbox or distribution list to collect DMARC reports and set your DNS DMARC to reject or quarantine emails that don't pass DMARC.</p>
+                    <p>The last piece of the puzzle is setting up your DMARC records. You should create a mailbox or distribution list to collect DMARC reports and set your DNS DMARC to reject or quarantine emails that don't pass DMARC. Or you can use a service like <a href="https://www.uriports.com" target="_blank">https://www.uriports.com</a> to collect the reports for you.</p>
 
                     <p>Example DMARC TXT DNS record:</p>
                     <pre>v=DMARC1; p=quarantine; adkim=s; aspf=s; rua=mailto:dmarcfailure@yourdomain.ca</pre>

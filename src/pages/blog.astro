@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
+import { posts } from '../data/blog-posts';
+import { formatDate } from '../utils/date';
 
 const title = "IT Services Blog | Expert IT Insights for Calgary and Vancouver Businesses";
 const description = "Stay informed with the latest IT insights, cybersecurity tips, and technology trends for businesses in Calgary and Vancouver. Expert advice from your local IT service provider.";
@@ -36,89 +38,22 @@ const description = "Stay informed with the latest IT insights, cybersecurity ti
         <section class="blog-posts">
             <div class="container">
                 <div class="posts-grid">
-                    <article class="post-card">
-                        <div class="post-image">
-                            <img src="/images/blog/phishing-attacks.jpg" alt="Phishing Attacks in Canada" />
-                        </div>
-                        <div class="post-content">
-                            <h2>Phishing Attacks Rising in Canada</h2>
-                            <p>Learn about the increasing threat of phishing attacks in Canada and how to protect your business from cyber fraud.</p>
-                            <div class="post-meta">
-                                <time datetime="2024-03-10">March 10, 2024</time>
-                                <span class="reading-time">5 min read</span>
+                    {posts.map(post => (
+                        <article class="post-card">
+                            <div class="post-image">
+                                <img src={post.image} alt={post.title} />
                             </div>
-                            <a href="/blog/phishing-attacks-canada" class="read-more">Read More</a>
-                        </div>
-                    </article>
-                    <article class="post-card">
-                        <div class="post-image">
-                            <img src="/images/blog/password-manager.jpg" alt="Password Manager Security" />
-                        </div>
-                        <div class="post-content">
-                            <h2>Why You Should Use a Password Manager</h2>
-                            <p>Learn why password managers are essential for business security and what features to look for when choosing one.</p>
-                            <div class="post-meta">
-                                <time datetime="2024-03-21">March 21, 2024</time>
-                                <span class="reading-time">6 min read</span>
+                            <div class="post-content">
+                                <h2>{post.title}</h2>
+                                <p>{post.content.split('</p>')[0].replace('<p>', '')}</p>
+                                <div class="post-meta">
+                                    <time datetime={post.date}>{formatDate(post.date)}</time>
+                                    <span class="category">{post.category}</span>
+                                </div>
+                                <a href={`/blog/${post.slug}`} class="read-more">Read More</a>
                             </div>
-                            <a href="/blog/password-manager" class="read-more">Read More</a>
-                        </div>
-                    </article>
-                    <article class="post-card">
-                        <div class="post-image">
-                            <img src="/images/blog/cybersecurity.jpg" alt="Cybersecurity for Small Businesses" />
-                        </div>
-                        <div class="post-content">
-                            <h2>Essential Cybersecurity Tips for Small Businesses</h2>
-                            <p>Learn how to protect your small business from cyber threats with expert advice and practical tips.</p>
-                            <div class="post-meta">
-                                <time datetime="2024-03-20">March 20, 2024</time>
-                                <span class="reading-time">5 min read</span>
-                            </div>
-                            <a href="/blog/cybersecurity-small-business" class="read-more">Read More</a>
-                        </div>
-                    </article>
-                    <article class="post-card">
-                        <img src="/images/blog/admin-rights.jpg" alt="Employee admin rights illustration" class="post-image" />
-                        <div class="post-content">
-                            <h2>Should Employees Have Admin Rights on Their Work Computers?</h2>
-                            <p>Learn about the implications of granting administrative rights to employees and how to implement proper access controls in your business.</p>
-                            <div class="post-meta">
-                                <time datetime="2024-09-12">September 12, 2024</time>
-                                <span class="reading-time">5 min read</span>
-                            </div>
-                            <a href="/blog/admin-rights-work-computers" class="read-more">Read More</a>
-                        </div>
-                    </article>
-                    <article class="post-card">
-                        <div class="post-image">
-                            <img src="/images/blog/scan-to-email.jpg" alt="Office printer scan to email setup" />
-                        </div>
-                        <div class="post-content">
-                            <h2>Scan to Email on Your Office Printer with Microsoft 365 or Google Workspace</h2>
-                            <p>Learn how to set up scan-to-email functionality on your office printer using Microsoft 365 or Google Workspace. A simple 5-minute guide.</p>
-                            <div class="post-meta">
-                                <time datetime="2024-08-16">August 16, 2024</time>
-                                <span class="reading-time">5 min read</span>
-                            </div>
-                            <a href="/blog/scan-to-email-printer" class="read-more">Read More</a>
-                        </div>
-                    </article>
-                    <article class="post-card">
-                        <div class="post-image">
-                            <img src="/images/blog/email-verification.jpg" alt="Email verification and DMARC setup" />
-                        </div>
-                        <div class="post-content">
-                            <h2>Help! Emails I Send from Our Email Blast System are Showing Up as Unverified</h2>
-                            <p>Learn how to fix unverified email issues and properly set up DMARC, DKIM, and SPF records for your business email system.</p>
-                            <div class="post-meta">
-                                <time datetime="2024-07-29">July 29, 2024</time>
-                                <span class="reading-time">8 min read</span>
-                            </div>
-                            <a href="/blog/email-verification-dmarc" class="read-more">Read More</a>
-                        </div>
-                    </article>
-                    <!-- More blog posts will be added here -->
+                        </article>
+                    ))}
                 </div>
             </div>
         </section>
@@ -193,10 +128,21 @@ const description = "Stay informed with the latest IT insights, cybersecurity ti
         font-size: 0.9rem;
         color: var(--text-color);
         margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
     }
 
     .post-meta time {
-        margin-right: 1rem;
+        color: var(--text-light);
+    }
+
+    .category {
+        background: var(--accent-color);
+        color: white;
+        padding: 2px 10px;
+        border-radius: 15px;
+        font-size: 0.8em;
     }
 
     .read-more {

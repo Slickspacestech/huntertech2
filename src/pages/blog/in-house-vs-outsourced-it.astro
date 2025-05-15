@@ -1,0 +1,128 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { posts } from '../../data/blog-posts';
+import { formatDate } from '../../utils/date';
+
+const post = posts.find(p => p.slug === 'in-house-vs-outsourced-it');
+if (!post) return Astro.redirect('/404');
+
+const title = post.title;
+const description = "Discover the true costs of managing IT in-house vs outsourcing to professionals. Learn why many Calgary and Vancouver businesses choose managed IT services over DIY solutions.";
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "image": post.image,
+    "author": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://huntertech.ca/images/logo.png"
+        }
+    },
+    "datePublished": post.date,
+    "dateModified": post.date,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://huntertech.ca/blog/${post.slug}`
+    },
+    "keywords": "IT outsourcing vs in-house, small business IT management, IT support costs, managed IT services, IT management comparison, business IT solutions, IT support Calgary, IT support Vancouver"
+};
+---
+
+<Layout title={title} description={description}>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    
+    <main class="blog-post">
+        <div class="container">
+            <article>
+                <header class="post-header">
+                    <h1>{post.title}</h1>
+                    <div class="post-meta">
+                        <span class="date">{formatDate(post.date)}</span>
+                        <span class="author">By {post.author}</span>
+                        <span class="category">{post.category}</span>
+                    </div>
+                </header>
+
+                <div class="post-content" set:html={post.content} />
+            </article>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    .blog-post {
+        padding: 4rem 0;
+    }
+
+    .post-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .post-header h1 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .post-meta {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+    .post-meta span {
+        margin: 0 0.5rem;
+    }
+
+    .post-content {
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.8;
+    }
+
+    .post-content h2 {
+        color: var(--primary-color);
+        margin: 2rem 0 1rem;
+    }
+
+    .post-content h3 {
+        color: var(--secondary-color);
+        margin: 1.5rem 0 1rem;
+    }
+
+    .post-content ul {
+        margin: 1rem 0;
+        padding-left: 1.5rem;
+    }
+
+    .post-content li {
+        margin-bottom: 0.5rem;
+    }
+
+    .post-content strong {
+        color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+        .blog-post {
+            padding: 2rem 0;
+        }
+
+        .post-header h1 {
+            font-size: 2rem;
+        }
+
+        .post-content {
+            padding: 0 1rem;
+        }
+    }
+</style> 
