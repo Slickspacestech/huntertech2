@@ -19,8 +19,16 @@ export default defineConfig({
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: '**',
+                hostname: 'huntertech.ca',
             },
+            {
+                protocol: 'https',
+                hostname: 'www.huntertech.ca',
+            },
+            {
+                protocol: 'https',
+                hostname: 'huntertech2.fly.dev',
+            }
         ],
     },
     compressHTML: true,
