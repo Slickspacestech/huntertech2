@@ -8,7 +8,7 @@ interface Props {
 const {
     title,
     description = "Huntertech - Professional IT Solutions & Revit Management Services",
-    image = "/images/og-image.jpg"
+    image = "/images/huntertech_logo.png"
 } = Astro.props;
 ---
 
@@ -33,11 +33,12 @@ const {
         <meta name="twitter:image" content={image} />
         
         <!-- Favicons -->
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#00ACAC" />
+        <link rel="mask-icon" href="/favicon.svg" color="#00ACAC" />
         <meta name="msapplication-TileColor" content="#00ACAC" />
         <meta name="theme-color" content="#00ACAC" />
         
@@ -93,7 +94,7 @@ const {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "Huntertech",
-            "image": "https://www.huntertech.ca/images/og-image.jpg",
+            "image": "https://www.huntertech.ca/images/huntertech_logo.png",
             "priceRange": "$$",
             "address": {
                 "@type": "PostalAddress",

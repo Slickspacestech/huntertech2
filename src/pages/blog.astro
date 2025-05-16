@@ -41,7 +41,7 @@ const description = "Stay informed with the latest IT insights, cybersecurity ti
                     {posts.map(post => (
                         <article class="post-card">
                             <div class="post-image">
-                                <img src={post.image} alt={post.title} />
+                                <img src={post.image.replace(/\.(jpg|jpeg)$/i, '.webp')} alt={post.title} />
                             </div>
                             <div class="post-content">
                                 <h2>{post.title}</h2>
