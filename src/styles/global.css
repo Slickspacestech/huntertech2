@@ -8,6 +8,7 @@
 :root {
     /* Colors */
     --primary-bg: #FFFFFF;
+    --primary-color: #333;
     --secondary-bg: #F2F2F2;
     --button-color: #00ACAC;
     --button-hover: #00C2C2;

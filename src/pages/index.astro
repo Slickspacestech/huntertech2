@@ -3,6 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Footer from '../components/Footer.astro';
+import Headphones from '../components/icons/headphones.astro';
+import Shield from '../components/icons/shield.astro';
+import Checkmark from '../components/icons/checkmark.astro';
 ---
 
 <Layout 
@@ -38,13 +41,13 @@ import Footer from '../components/Footer.astro';
         <h2>Why Choose Us</h2>
         <div class="features-grid">
           <div class="feature-card">
-            <i class="fas fa-shield-alt"></i>
+            <Shield />
             <h3>Enterprise-Grade Security</h3>
             <p>We provide the same level of security and protection that large enterprises use, tailored for your business needs.</p>
           </div>
           <div class="feature-card">
-            <i class="fas fa-headset"></i>
-            <h3>Friendly Support</h3>
+            <Headphones color="var(--primary-color)" />
+            <h3>Friendly Supprt</h3>
             <p>Our team is known for being approachable and helpful, making technology support a pleasant experience.</p>
           </div>
           <div class="feature-card">
@@ -67,7 +70,7 @@ import Footer from '../components/Footer.astro';
             <a href="/solutions/it-support" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
           </div>
           <div class="service-card">
-            <i class="fas fa-shield-alt"></i>
+            <Shield color="var(--primary-color)"/>
             <h3>Cyber Security</h3>
             <p>Comprehensive security solutions to protect your business from threats and ensure data safety.</p>
             <a href="/solutions/cyber-security" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
@@ -104,14 +107,14 @@ import Footer from '../components/Footer.astro';
           <div class="benefits">
             <h3>Benefits of Managed IT Services:</h3>
             <ul class="benefits-list">
-              <li><i class="fas fa-check-circle"></i> Peace of Mind</li>
-              <li><i class="fas fa-check-circle"></i> Save Time</li>
-              <li><i class="fas fa-check-circle"></i> Increase Productivity</li>
-              <li><i class="fas fa-check-circle"></i> Increase Reliability</li>
-              <li><i class="fas fa-check-circle"></i> Employee Satisfaction</li>
-              <li><i class="fas fa-check-circle"></i> Focus On Your Business</li>
-              <li><i class="fas fa-check-circle"></i> Technical Expertise</li>
-              <li><i class="fas fa-check-circle"></i> Cost Savings</li>
+              <li><Checkmark color="var(--button-color)" /> Peace of Mind</li>
+              <li><Checkmark color="var(--button-color)" /> Save Time</li>
+              <li><Checkmark color="var(--button-color)" /> Increase Productivity</li>
+              <li><Checkmark color="var(--button-color)" /> Increase Reliability</li>
+              <li><Checkmark color="var(--button-color)" /> Employee Satisfaction</li>
+              <li><Checkmark color="var(--button-color)" /> Focus On Your Business</li>
+              <li><Checkmark color="var(--button-color)" /> Technical Expertise</li>
+              <li><Checkmark color="var(--button-color)" /> Cost Savings</li>
             </ul>
           </div>
         </div>
@@ -340,7 +343,6 @@ import Footer from '../components/Footer.astro';
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease;
-    display: flex;
     flex-direction: column;
     height: 100%;
   }

@@ -6,6 +6,7 @@ export interface BlogPost {
     category: string;
     image: string;
     content: string;
+    tags: string[];
 }
 
 export const posts: BlogPost[] = [
@@ -18,7 +19,8 @@ export const posts: BlogPost[] = [
         image: "/images/blog/phishing-attacks.jpg",
         content: `
             <p>Learn about the increasing threat of phishing attacks in Canada and how to protect your business from cyber fraud.</p>
-        `
+        `,
+        tags: []
     },
     {
         slug: 'password-manager',
@@ -29,7 +31,8 @@ export const posts: BlogPost[] = [
         image: "/images/blog/password-manager.jpg",
         content: `
             <p>Learn why password managers are essential for business security and what features to look for when choosing one.</p>
-        `
+        `,
+        tags: []
     },
     {
         slug: 'cybersecurity-small-business',
@@ -40,7 +43,8 @@ export const posts: BlogPost[] = [
         image: "/images/blog/cybersecurity.jpg",
         content: `
             <p>Learn how to protect your small business from cyber threats with expert advice and practical tips.</p>
-        `
+        `,
+        tags: []
     },
     {
         slug: 'admin-rights-work-computers',
@@ -51,7 +55,8 @@ export const posts: BlogPost[] = [
         image: "/images/blog/admin-rights.jpg",
         content: `
             <p>Learn about the implications of granting administrative rights to employees and how to implement proper access controls in your business.</p>
-        `
+        `,
+        tags: []
     },
     {
         slug: 'scan-to-email-printer',
@@ -62,7 +67,8 @@ export const posts: BlogPost[] = [
         image: "/images/blog/scan-to-email.jpg",
         content: `
             <p>Learn how to set up scan-to-email functionality on your office printer using Microsoft 365 or Google Workspace. A simple 5-minute guide.</p>
-        `
+        `,
+        tags: []
     },
     {
         slug: 'email-verification-dmarc',
@@ -73,7 +79,8 @@ export const posts: BlogPost[] = [
         image: "/images/blog/email-verification.jpg",
         content: `
             <p>Learn how to fix unverified email issues and properly set up DMARC, DKIM, and SPF records for your business email system.</p>
-        `
+        `,
+        tags: []
     },
     {
         slug: 'it-services-calgary-vancouver',
@@ -148,7 +155,8 @@ export const posts: BlogPost[] = [
             </ul>
 
             <p>Contact us today to learn how our IT services can help your business thrive in Calgary or Vancouver's competitive market.</p>
-        `
+        `,
+        tags: []
     },
     {
         slug: 'pontem-group-case-study',
@@ -157,7 +165,18 @@ export const posts: BlogPost[] = [
         author: "Huntertech Team",
         category: "Case Studies",
         image: "/images/blog/pontem-case-study.jpg",
-        content: `<p>Pontem Group, a leading fire suppression and CP code consulting firm in Calgary, faced significant IT challenges before partnering with Huntertech. With 20 staff members and four principals managing IT responsibilities, their technology infrastructure was becoming a liability rather than an asset. Here's how we helped them transform their IT operations and achieve substantial cost savings.</p>`
+        content: `<p>Pontem Group, a leading fire suppression and CP code consulting firm in Calgary, faced significant IT challenges before partnering with Huntertech. With 20 staff members and four principals managing IT responsibilities, their technology infrastructure was becoming a liability rather than an asset. Here's how we helped them transform their IT operations and achieve substantial cost savings.</p>`,
+        tags: []
+    },
+    {
+        title: "The Transformative Benefits of Revit and BIM in Architecture and Large Projects",
+        slug: "revit-bim-benefits",
+        date: "2024-03-20",
+        category: "Revit & BIM",
+        image: "/images/blog/revit-bim-benefits.jpg",
+        content: "In today's rapidly evolving construction industry, Building Information Modeling (BIM) and Revit have become indispensable tools for architects and project managers. These technologies are not just changing how we design buildings—they're revolutionizing the entire construction process, from initial concept to final delivery.",
+        author: "Huntertech Team",
+        tags: ["Revit", "BIM", "Architecture", "Construction", "Project Management"]
     }
 ];
 
