@@ -6,6 +6,13 @@ import Footer from '../components/Footer.astro';
 import Headphones from '../components/icons/headphones.astro';
 import Shield from '../components/icons/shield.astro';
 import Checkmark from '../components/icons/checkmark.astro';
+import ChartLine from '../components/icons/chart-line.astro';
+import MapleLeaf from '../components/icons/maple-leaf.astro';
+import Users from '../components/icons/users.astro';
+import Cloud from '../components/icons/cloud.astro';
+import NetworkWired from '../components/icons/network-wired.astro';
+import ArrowRight from '../components/icons/arrow-right.astro';
+import Work from '../components/icons/work.astro';
 ---
 
 <Layout 
@@ -51,7 +58,7 @@ import Checkmark from '../components/icons/checkmark.astro';
             <p>Our team is known for being approachable and helpful, making technology support a pleasant experience.</p>
           </div>
           <div class="feature-card">
-            <i class="fas fa-chart-line"></i>
+            <ChartLine color="var(--primary-color)" />
             <h3>Proactive Solutions</h3>
             <p>We prevent issues before they occur, keeping your business running smoothly and efficiently.</p>
           </div>
@@ -64,34 +71,34 @@ import Checkmark from '../components/icons/checkmark.astro';
         <h2>Our Solutions</h2>
         <div class="services-grid">
           <div class="service-card">
-            <i class="fas fa-laptop-house"></i>
-            <h3>IT Support</h3>
+            <MapleLeaf color="var(--primary-color)" />
+            <h3>Local IT Support</h3>
             <p>Professional IT support services to keep your business running smoothly. From help desk to network management.</p>
-            <a href="/solutions/it-support" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            <a href="/solutions/it-support" class="service-link">Learn More <ArrowRight /></a>
           </div>
           <div class="service-card">
             <Shield color="var(--primary-color)"/>
             <h3>Cyber Security</h3>
             <p>Comprehensive security solutions to protect your business from threats and ensure data safety.</p>
-            <a href="/solutions/cyber-security" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            <a href="/solutions/cyber-security" class="service-link">Learn More <ArrowRight /></a>
           </div>
           <div class="service-card">
-            <i class="fas fa-users"></i>
+            <Work color="var(--primary-color)" />
             <h3>Hybrid Workplace</h3>
             <p>Enable seamless remote and hybrid work environments with our modern workplace solutions.</p>
-            <a href="/solutions/hybrid-workplace" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            <a href="/solutions/hybrid-workplace" class="service-link">Learn More <ArrowRight /></a>
           </div>
           <div class="service-card">
-            <i class="fas fa-cloud"></i>
+            <Cloud color="var(--primary-color)" />
             <h3>Microsoft 365</h3>
             <p>Expert implementation and support for Microsoft 365 to enhance productivity and collaboration.</p>
-            <a href="/solutions/microsoft-365" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            <a href="/solutions/microsoft-365" class="service-link">Learn More <ArrowRight /></a>
           </div>
           <div class="service-card">
-            <i class="fas fa-network-wired"></i>
+            <NetworkWired color="var(--primary-color)" />
             <h3>Computer Networking</h3>
             <p>Design, implementation, and management of robust network infrastructure for your business.</p>
-            <a href="/solutions/computer-networking" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            <a href="/solutions/computer-networking" class="service-link">Learn More <ArrowRight /></a>
           </div>
         </div>
       </div>
@@ -233,7 +240,7 @@ import Checkmark from '../components/icons/checkmark.astro';
           <p>Get in touch with us today for a free consultation and discover how we can help your business grow.</p>
           <a href="/contact" class="btn btn-primary">
             Contact Us
-            <i class="fas fa-arrow-right"></i>
+            <ArrowRight />
           </a>
         </div>
       </div>

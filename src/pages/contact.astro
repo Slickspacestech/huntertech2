@@ -2,48 +2,54 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import MapPin from '../components/icons/map-pin.astro';
+import Phone from '../components/icons/phone.astro';
+import Envelope from '../components/icons/envelope.astro';
+import Clock from '../components/icons/clock.astro';
 ---
 
-<Layout title="Contact Us - Huntertech">
+<Layout title="Contact Us - HunterTech">
     <Header />
-    <main class="contact-page">
-        <section class="hero">
-            <div class="container">
-                <h1>Contact Us</h1>
-                <p>Get in touch with our team for any questions or inquiries</p>
-            </div>
-        </section>
+    <main class="service-page">
+        <Hero 
+            title="Contact Us"
+            subtitle="Get in touch with our team for expert IT solutions"
+            backgroundImage="/images/contact-bg.webp"
+            ctaText="Send Message"
+            ctaLink="#contact-form"
+        />
         <section class="contact-section">
             <div class="container">
                 <div class="contact-grid">
                     <div class="contact-info">
                         <h2>Get in Touch</h2>
                         <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
+                            <MapPin color="var(--primary-color)" />
                             <div>
                                 <h3>Address</h3>
-                                <p>123 Business Street<br>Vancouver, BC V6B 1A1</p>
+                                <p>123 Business Street<br>Calgary, AB T2P 1J9</p>
                             </div>
                         </div>
                         <div class="info-item">
-                            <i class="fas fa-phone"></i>
+                            <Phone color="var(--primary-color)" />
                             <div>
                                 <h3>Phone</h3>
-                                <p>(604) 555-0123</p>
+                                <p><a href="tel:+14035551234">(403) 555-1234</a></p>
                             </div>
                         </div>
                         <div class="info-item">
-                            <i class="fas fa-envelope"></i>
+                            <Envelope color="var(--primary-color)" />
                             <div>
                                 <h3>Email</h3>
-                                <p>info@huntertech.ca</p>
+                                <p><a href="mailto:info@huntertech.ca">info@huntertech.ca</a></p>
                             </div>
                         </div>
                         <div class="info-item">
-                            <i class="fas fa-clock"></i>
+                            <Clock color="var(--primary-color)" />
                             <div>
-                                <h3>Business Hours</h3>
-                                <p>Monday - Friday: 9:00 AM - 5:00 PM<br>Saturday - Sunday: Closed</p>
+                                <h3>Hours</h3>
+                                <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
                             </div>
                         </div>
                     </div>
@@ -80,10 +86,6 @@ import Footer from '../components/Footer.astro';
         padding: 0 1rem;
     }
 
-    .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
 
     .contact-section {
         padding: 4rem 1rem;
@@ -108,9 +110,11 @@ import Footer from '../components/Footer.astro';
         margin-bottom: 2rem;
     }
 
-    .info-item i {
-        font-size: 1.5rem;
-        color: var(--secondary-color);
+    .info-item svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: var(--primary-color);
+        margin-right: 1rem;
     }
 
     .info-item h3 {

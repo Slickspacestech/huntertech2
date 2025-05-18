@@ -2,39 +2,46 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import Shield from '../../components/icons/shield.astro';
+import Invoice from '../../components/icons/invoice.astro';
+import Cloud2 from '../../components/icons/cloud2.astro';
+import Lock from '../../components/icons/lock.astro';
+import MapleLeaf from '../../components/icons/maple-leaf.astro';
 ---
 
 <Layout title="IT Solutions for Law Firms | Huntertech">
     <Header />
-    <main>
-        <div class="hero industry-hero">
-            <div class="container">
-                <h1>IT Solutions for Law Firms</h1>
-                <p>Secure and efficient technology solutions for modern legal practices</p>
-            </div>
-        </div>
+    <main class="service-page">
+        <Hero 
+            title="IT Services for Law Firms"
+            subtitle="Specialized technology solutions for legal professionals"
+            backgroundImage="/images/law.webp"
+            ctaText="Get Started"
+            ctaLink="/contact"
+        />
 
         <section class="features">
             <div class="container">
                 <h2>Why Law Firms Choose Huntertech</h2>
                 <div class="feature-grid">
                     <div class="feature-card">
-                        <i class="fas fa-lock"></i>
+                        <Lock color="var(--button-color)" />
                         <h3>Client Confidentiality</h3>
                         <p>Advanced security measures to protect sensitive client information</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fas fa-file-alt"></i>
+                        <Invoice color="var(--button-color)" />
                         <h3>Document Management</h3>
                         <p>Comprehensive solutions for legal document organization and retrieval</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>Compliance Ready</h3>
-                        <p>Solutions designed to meet legal industry regulations and standards</p>
+                        <MapleLeaf color="var(--button-color)" />
+                        <h3>Data Residency Solutions</h3>
+                        <p>Need Canadian Solutions? We can help.</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fas fa-cloud"></i>
+                        <Cloud2 color="var(--button-color)" />
                         <h3>Cloud Solutions</h3>
                         <p>Secure cloud infrastructure for remote work and client collaboration</p>
                     </div>
@@ -89,29 +96,12 @@ import Footer from '../../components/Footer.astro';
 </Layout>
 
 <style>
-    .hero {
-        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/images/law.webp');
-        background-size: cover;
-        background-position: center;
-        color: var(--white);
-        padding: 8rem 0 4rem;
-        text-align: center;
-    }
+
 
     .container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 1rem;
-    }
-
-    .hero h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-    }
-
-    .subtitle {
-        font-size: 1.25rem;
-        opacity: 0.9;
     }
 
     .features {

@@ -2,19 +2,31 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
 import SolutionsCTA from '../../components/SolutionsCTA.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
+import Cloud from '../../components/icons/cloud.astro';
+import Lock from '../../components/icons/lock.astro';
+import Work from '../../components/icons/work.astro';
+import Certificate from '../../components/icons/certificate.astro';
+import Headphones from '../../components/icons/headphones.astro';
+import ChartLine from '../../components/icons/chart-line.astro';
+import Shield from '../../components/icons/shield.astro';
+import Cogs from '../../components/icons/Cogs.astro';
+import Users from '../../components/icons/users.astro';
+import GraduationHat from '../../components/icons/graduation-hat.astro';
 ---
 
-<Layout title="Microsoft 365 - Huntertech">
+<Layout title="Microsoft 365 - HunterTech">
     <Header />
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Microsoft 365</h1>
-                <p>Comprehensive Microsoft 365 solutions for your business</p>
-            </div>
-        </section>
+    <main class="service-page">
+        <Hero 
+            title="Microsoft 365"
+            subtitle="Empower your business with Microsoft 365's comprehensive suite of productivity tools"
+            backgroundImage="/images/microsoft-365-bg.webp"
+            ctaText="Get Started"
+            ctaLink="/contact"
+        />
 
         <section class="content">
             <div class="container">
@@ -27,22 +39,22 @@ import ServiceCard from '../../components/ServiceCard.astro';
                             <h3>Our Microsoft 365 Services</h3>
                             <div class="services-grid">
                                 <ServiceCard 
-                                    icon="fa-cogs"
+                                    icon={Cogs}
                                     title="Implementation & Setup"
                                     description="Seamless migration and configuration of Microsoft 365 services"
                                 />
                                 <ServiceCard 
-                                    icon="fa-users-cog"
+                                    icon={Users}
                                     title="User Management"
                                     description="Comprehensive user setup, licensing, and access control"
                                 />
                                 <ServiceCard 
-                                    icon="fa-shield-alt"
+                                    icon={Shield}
                                     title="Security & Compliance"
                                     description="Advanced security features and compliance management"
                                 />
                                 <ServiceCard 
-                                    icon="fa-graduation-cap"
+                                    icon={GraduationHat}
                                     title="Training & Support"
                                     description="User training and ongoing technical support"
                                 />
@@ -52,22 +64,22 @@ import ServiceCard from '../../components/ServiceCard.astro';
                         <h3>Why Choose Our Microsoft 365 Services?</h3>
                         <div class="benefits-grid">
                             <div class="benefit-card">
-                                <i class="fas fa-certificate"></i>
+                                <Certificate color="var(--primary-color)" />
                                 <h4>Microsoft Certified</h4>
                                 <p>Expert certified professionals</p>
                             </div>
                             <div class="benefit-card">
-                                <i class="fas fa-user-check"></i>
+                                <Headphones color="var(--primary-color)" />
                                 <h4>Friendly Support</h4>
                                 <p>We are here to help you</p>
                             </div>
                             <div class="benefit-card">
-                                <i class="fas fa-chart-line"></i>
+                                <ChartLine color="var(--primary-color)" />
                                 <h4>Performance</h4>
                                 <p>Optimized Microsoft 365 setup</p>
                             </div>
                             <div class="benefit-card">
-                                <i class="fas fa-magnifying-glass"></i>
+                                <Shield color="var(--primary-color)" />
                                 <h4>Regular Audits</h4>
                                 <p>We audit your Microsoft 365 setup to ensure it is secure</p>
                             </div>
@@ -93,17 +105,6 @@ import ServiceCard from '../../components/ServiceCard.astro';
         color: var(--white);
         padding: 4rem 0;
         text-align: center;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .hero p {
-        font-size: 1.2rem;
-        max-width: 600px;
-        margin: 0 auto;
     }
 
     .content {
@@ -178,9 +179,9 @@ import ServiceCard from '../../components/ServiceCard.astro';
         transform: translateY(-5px);
     }
 
-    .benefit-card i {
-        font-size: 2rem;
-        color: var(--primary-color);
+    .benefit-card svg {
+        width: 2rem;
+        height: 2rem;
         margin-bottom: 1rem;
     }
 

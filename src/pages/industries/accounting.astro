@@ -2,39 +2,45 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import Shield from '../../components/icons/shield.astro';
+import Invoice from '../../components/icons/invoice.astro';
+import Cloud2 from '../../components/icons/cloud2.astro';
+import Dollar from '../../components/icons/dollar.astro';
 ---
 
-<Layout title="IT Solutions for Accounting Firms | Huntertech">
+<Layout title="IT Services for Accounting Firms - HunterTech">
     <Header />
-    <main>
-        <div class="hero industry-hero">
-            <div class="container">
-                <h1>IT Solutions for Accounting Firms</h1>
-                <p>Secure, compliant, and efficient technology solutions for modern accounting practices</p>
-            </div>
-        </div>
+    <main class="service-page">
+        <Hero 
+            title="IT Services for Accounting Firms"
+            subtitle="Streamlined technology solutions for accounting professionals"
+            backgroundImage="/images/accountant.webp"
+            ctaText="Get Started"
+            ctaLink="/contact"
+        />
 
         <section class="features">
             <div class="container">
                 <h2>Why Accounting Firms Choose Huntertech</h2>
                 <div class="feature-grid">
                     <div class="feature-card">
-                        <i class="fas fa-shield-alt"></i>
+                        <Shield color="var(--button-color)" />
                         <h3>Enhanced Security</h3>
                         <p>Enterprise-grade security solutions to protect sensitive financial data</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fas fa-file-invoice"></i>
+                        <Invoice color="var(--button-color)" />
                         <h3>Software Integration</h3>
                         <p>Seamless integration with major accounting and tax software platforms</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fas fa-cloud"></i>
+                        <Cloud2 color="var(--button-color)" />
                         <h3>Cloud Solutions</h3>
                         <p>Secure cloud infrastructure for remote work and client collaboration</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fas fa-dollar-sign"></i>
+                        <Dollar color="var(--button-color)" />
                         <h3>Predictable Costs</h3>
                         <p>No surprise fees, no hidden costs, just reliable technology solutions</p>
                     </div>
@@ -87,29 +93,12 @@ import Footer from '../../components/Footer.astro';
 </Layout>
 
 <style>
-    .hero {
-        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/images/accountant.webp');
-        background-size: cover;
-        background-position: center;
-        color: var(--white);
-        padding: 8rem 0 4rem;
-        text-align: center;
-    }
+    
 
     .container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 1rem;
-    }
-
-    .hero h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-    }
-
-    .subtitle {
-        font-size: 1.25rem;
-        opacity: 0.9;
     }
 
     .features {

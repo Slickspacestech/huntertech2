@@ -2,20 +2,25 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import SEO from '../../components/SEO.astro';
+import Hero from '../../components/Hero.astro';
 import SolutionsCTA from '../../components/SolutionsCTA.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
+import Clock from '../../components/icons/clock.astro';
+import Certificate from '../../components/icons/certificate.astro';
+import ChartLine from '../../components/icons/chart-line.astro';
+import Handshake from '../../components/icons/handshake2.astro';
 ---
 
-<Layout title="IT Support - Huntertech">
+<Layout title="IT Support - HunterTech">
     <Header />
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>IT Support</h1>
-                <p>Comprehensive IT support services to keep your business running smoothly</p>
-            </div>
-        </section>
+    <main class="service-page">
+        <Hero 
+            title="IT Support"
+            subtitle="Reliable IT support services to keep your business running smoothly"
+            backgroundImage="/images/it-support.webp"
+            ctaText="Get Started"
+            ctaLink="/contact"
+        />
 
         <section class="content">
             <div class="container">
@@ -61,26 +66,26 @@ import ServiceCard from '../../components/ServiceCard.astro';
                         </div>
 
                         <h3>Why Choose Our IT Support?</h3>
-                        <div class="benefits-grid">
-                            <div class="benefit-card">
-                                <i class="fas fa-clock"></i>
-                                <h4>Quick Response Time</h4>
-                                <p>Fast response to all support requests</p>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <Clock color="var(--primary-color)" />
+                                <h3>24/7 Support</h3>
+                                <p>Round-the-clock technical support for your business needs.</p>
                             </div>
-                            <div class="benefit-card">
-                                <i class="fas fa-certificate"></i>
-                                <h4>Certified Experts</h4>
-                                <p>Highly qualified IT professionals</p>
+                            <div class="feature-card">
+                                <Certificate color="var(--primary-color)" />
+                                <h3>Certified Experts</h3>
+                                <p>Highly qualified IT professionals at your service.</p>
                             </div>
-                            <div class="benefit-card">
-                                <i class="fas fa-chart-line"></i>
-                                <h4>Proactive Approach</h4>
-                                <p>Prevent issues before they occur</p>
+                            <div class="feature-card">
+                                <ChartLine color="var(--primary-color)" />
+                                <h3>Performance Monitoring</h3>
+                                <p>Proactive monitoring to prevent issues before they occur.</p>
                             </div>
-                            <div class="benefit-card">
-                                <i class="fas fa-handshake"></i>
-                                <h4>Dedicated Support</h4>
-                                <p>Personalized service for your business</p>
+                            <div class="feature-card">
+                                <Handshake color="var(--primary-color)" />
+                                <h3>Dedicated Support</h3>
+                                <p>Personalized attention and reliable service delivery.</p>
                             </div>
                         </div>
 
@@ -100,31 +105,7 @@ import ServiceCard from '../../components/ServiceCard.astro';
 </Layout>
 
 <style>
-    .hero {
-        background: var(--primary-bg);
-        padding: 6rem 0;
-        text-align: center;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/it-support.webp');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    .hero h1 {
-        font-size: 3rem;
-        color: var(--white);
-        margin-bottom: 1.5rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    .hero p {
-        font-size: 1.2rem;
-        color: var(--white);
-        max-width: 800px;
-        margin: 0 auto;
-        line-height: 1.6;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    }
+    
 
     .content {
         padding: 4rem 0;
@@ -155,14 +136,14 @@ import ServiceCard from '../../components/ServiceCard.astro';
         margin: 2rem 0;
     }
 
-    .benefits-grid {
+    .features-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2rem;
         margin: 2rem 0;
     }
 
-    .benefit-card {
+    .feature-card {
         background: var(--white);
         padding: 2rem;
         border-radius: 10px;
@@ -171,29 +152,31 @@ import ServiceCard from '../../components/ServiceCard.astro';
         transition: transform 0.3s ease;
     }
 
-    .benefit-card:hover {
+    .feature-card:hover {
         transform: translateY(-5px);
     }
 
-    .benefit-card i {
-        font-size: 2rem;
+    .feature-card svg {
+        width: 2.5rem;
+        height: 2.5rem;
         color: var(--primary-color);
         margin-bottom: 1rem;
     }
 
-    .benefit-card h4 {
+    .feature-card h3 {
         color: var(--primary-color);
         margin-bottom: 0.5rem;
         font-size: 1.2rem;
     }
 
+    .feature-card p {
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
     @media (max-width: 768px) {
         .hero {
             padding: 4rem 1rem;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
         }
 
         .content {
@@ -209,7 +192,7 @@ import ServiceCard from '../../components/ServiceCard.astro';
         }
 
         .services-grid,
-        .benefits-grid {
+        .features-grid {
             grid-template-columns: 1fr;
         }
     }

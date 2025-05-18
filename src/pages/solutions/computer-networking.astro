@@ -2,8 +2,13 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
 import SolutionsCTA from '../../components/SolutionsCTA.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
+import Globe from '../../components/icons/globe.astro';
+import ChartLine from '../../components/icons/chart-line.astro';
+import Shield from '../../components/icons/shield.astro';
+import Dollar from '../../components/icons/dollar.astro';
 
 const title = "IT Services & Network Solutions in Calgary & Vancouver | Huntertech";
 const description = "Leading IT services provider in Calgary and Vancouver. Expert network solutions, managed IT services, and IT management for businesses. Get reliable, scalable IT infrastructure support.";
@@ -49,13 +54,14 @@ const structuredData = {
 <Layout title={title} description={description}>
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <Header />
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>IT Services & Network Solutions</h1>
-                <p>Professional IT management and network solutions in Calgary and Vancouver</p>
-            </div>
-        </section>
+    <main class="service-page">
+        <Hero 
+            title="Computer Networking"
+            subtitle="Build a robust and secure network infrastructure for your business"
+            backgroundImage="/images/networking_bg.webp"
+            ctaText="Get Started"
+            ctaLink="/contact"
+        />
 
         <section class="content">
             <div class="container">
@@ -91,26 +97,26 @@ const structuredData = {
                         </div>
 
                         <h3>Why Choose Our IT Services?</h3>
-                        <div class="benefits-grid">
-                            <div class="benefit-card">
-                                <i class="fas fa-globe"></i>
-                                <h4>Proactive IT Management</h4>
-                                <p>We monitor and maintain your IT systems before issues arise</p>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <Globe color="var(--primary-color)" />
+                                <h3>Global Connectivity</h3>
+                                <p>Seamless network solutions for businesses of all sizes.</p>
                             </div>
-                            <div class="benefit-card">
-                                <i class="fas fa-chart-line"></i>
-                                <h4>Optimized Performance</h4>
-                                <p>Efficient IT solutions for your business needs</p>
+                            <div class="feature-card">
+                                <ChartLine color="var(--primary-color)" />
+                                <h3>Performance Monitoring</h3>
+                                <p>Real-time monitoring and optimization of network performance.</p>
                             </div>
-                            <div class="benefit-card">
-                                <i class="fas fa-shield-virus"></i>
-                                <h4>Advanced Security</h4>
-                                <p>Comprehensive IT security and protection</p>
+                            <div class="feature-card">
+                                <Shield color="var(--primary-color)" />
+                                <h3>Network Security</h3>
+                                <p>Advanced security measures to protect your network infrastructure.</p>
                             </div>
-                            <div class="benefit-card">
-                                <i class="fas fa-dollar-sign"></i>
-                                <h4>Cost-Effective IT</h4>
-                                <p>Affordable managed IT services in Calgary and Vancouver</p>
+                            <div class="feature-card">
+                                <Dollar color="var(--primary-color)" />
+                                <h3>Cost Efficiency</h3>
+                                <p>Optimized solutions that reduce operational costs.</p>
                             </div>
                         </div>
                     </div>
@@ -129,21 +135,7 @@ const structuredData = {
 </Layout>
 
 <style>
-    .hero {
-        background: var(--primary-color);
-        color: var(--white);
-        padding: 4rem 0;
-        text-align: center;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/networking_bg.webp');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
+  
 
     .hero p {
         font-size: 1.2rem;
@@ -203,14 +195,14 @@ const structuredData = {
         margin: 2rem 0;
     }
 
-    .benefits-grid {
+    .features-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2rem;
         margin: 2rem 0;
     }
 
-    .benefit-card {
+    .feature-card {
         background: var(--white);
         padding: 2rem;
         border-radius: 10px;
@@ -219,20 +211,26 @@ const structuredData = {
         transition: transform 0.3s ease;
     }
 
-    .benefit-card:hover {
+    .feature-card:hover {
         transform: translateY(-5px);
     }
 
-    .benefit-card i {
-        font-size: 2rem;
+    .feature-card svg {
+        width: 2.5rem;
+        height: 2.5rem;
         color: var(--primary-color);
         margin-bottom: 1rem;
     }
 
-    .benefit-card h4 {
+    .feature-card h3 {
         color: var(--primary-color);
         margin-bottom: 0.5rem;
         font-size: 1.2rem;
+    }
+
+    .feature-card p {
+        color: var(--text-color);
+        line-height: 1.6;
     }
 
     @media (max-width: 768px) {
@@ -245,7 +243,7 @@ const structuredData = {
         }
 
         .services-grid,
-        .benefits-grid {
+        .features-grid {
             grid-template-columns: 1fr;
         }
     }

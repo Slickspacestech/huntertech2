@@ -2,39 +2,46 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import Cogs from '../../components/icons/Cogs.astro';
+import Server from '../../components/icons/server.astro';
+import Shield from '../../components/icons/shield.astro';
+import Users from '../../components/icons/users.astro';
+import Rocket from '../../components/icons/rocket.astro';
 ---
 
-<Layout title="IT Solutions for Engineering Firms | Huntertech">
+<Layout title="IT Services for Engineering Firms - HunterTech">
     <Header />
-    <main>
-        <div class="hero industry-hero">
-            <div class="container">
-                <h1>IT Solutions for Engineering Firms</h1>
-                <p>Enhancing engineering excellence with robust technology infrastructure</p>
-            </div>
-        </div>
+    <main class="service-page">
+        <Hero 
+            title="IT Services for Engineering Firms"
+            subtitle="Advanced technology solutions for engineering professionals"
+            backgroundImage="/images/engineer_tech.webp"
+            ctaText="Get Started"
+            ctaLink="/contact"
+        />
 
         <section class="features">
             <div class="container">
                 <h2>Why Engineering Firms Choose Huntertech</h2>
                 <div class="feature-grid">
                     <div class="feature-card">
-                        <i class="fas fa-cogs"></i>
+                        <Cogs color="var(--button-color)" />
                         <h3>CAD/BIM Support</h3>
                         <p>Comprehensive support for all major CAD and BIM software platforms</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fas fa-server"></i>
+                        <Server color="var(--button-color)" />
                         <h3>High-Performance Computing</h3>
                         <p>Optimized workstations and servers for complex engineering simulations</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fas fa-lock"></i>
+                        <Shield color="var(--button-color)" />
                         <h3>Data Protection</h3>
                         <p>Secure storage and backup solutions for critical engineering data</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fas fa-users"></i>
+                        <Users color="var(--button-color)" />
                         <h3>Collaboration Tools</h3>
                         <p>Advanced tools for team collaboration and project management</p>
                     </div>
@@ -95,17 +102,17 @@ import Footer from '../../components/Footer.astro';
                 </div>
                 <div class="video-features">
                     <div class="video-feature">
-                        <i class="fas fa-rocket"></i>
+                        <Rocket color="var(--button-color)" />
                         <h3>Enhanced Performance</h3>
                         <p>See how we optimize Revit and other design software</p>
                     </div>
                     <div class="video-feature">
-                        <i class="fas fa-users"></i>
+                        <Users color="var(--button-color)" />
                         <h3>Seamless Collaboration</h3>
                         <p>Watch our cloud solutions in action</p>
                     </div>
                     <div class="video-feature">
-                        <i class="fas fa-shield-alt"></i>
+                        <Shield color="var(--button-color)" />
                         <h3>Enterprise Security</h3>
                         <p>Discover our comprehensive security measures</p>
                     </div>
@@ -126,8 +133,6 @@ import Footer from '../../components/Footer.astro';
 
 <style>
     .hero {
-        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/images/engineer_tech.jpeg');
-        background-size: cover;
         background-position: center;
         color: var(--white);
         padding: 8rem 0 4rem;
@@ -138,16 +143,6 @@ import Footer from '../../components/Footer.astro';
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 1rem;
-    }
-
-    .hero h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-    }
-
-    .subtitle {
-        font-size: 1.25rem;
-        opacity: 0.9;
     }
 
     .features {

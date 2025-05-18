@@ -2,6 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Handshake from '../components/icons/handshake2.astro';
+import Lightbulb from '../components/icons/lightbulb.astro';
+import Users from '../components/icons/users.astro';
+import Star from '../components/icons/star.astro';
 ---
 
 <Layout title="About Us - Huntertech">
@@ -53,22 +57,22 @@ import Footer from '../components/Footer.astro';
                     <h3>Our Values</h3>
                     <div class="values-grid">
                         <div class="value-card">
-                            <i class="fas fa-handshake"></i>
+                            <Handshake color="var(--primary-color)" />
                             <h4>Integrity</h4>
                             <p>Honest and transparent in all our dealings</p>
                         </div>
                         <div class="value-card">
-                            <i class="fas fa-lightbulb"></i>
+                            <Lightbulb color="var(--primary-color)" />
                             <h4>Innovation</h4>
                             <p>Constantly evolving and embracing new technologies</p>
                         </div>
                         <div class="value-card">
-                            <i class="fas fa-users"></i>
+                            <Users color="var(--primary-color)" />
                             <h4>Collaboration</h4>
                             <p>Working together to achieve common goals</p>
                         </div>
                         <div class="value-card">
-                            <i class="fas fa-star"></i>
+                            <Star color="var(--primary-color)" />
                             <h4>Excellence</h4>
                             <p>Committed to delivering the highest quality service</p>
                         </div>
@@ -96,17 +100,6 @@ import Footer from '../components/Footer.astro';
         color: var(--white);
         padding: 4rem 0;
         text-align: center;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .hero p {
-        font-size: 1.2rem;
-        max-width: 600px;
-        margin: 0 auto;
     }
 
     .overview, .mission, .team {
@@ -204,8 +197,9 @@ import Footer from '../components/Footer.astro';
         transform: translateY(-5px);
     }
 
-    .value-card i {
-        font-size: 2rem;
+    .value-card svg {
+        width: 2rem;
+        height: 2rem;
         color: var(--primary-color);
         margin-bottom: 1rem;
     }

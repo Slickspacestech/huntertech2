@@ -28,10 +28,11 @@ const description = "Stay informed with the latest IT insights, cybersecurity ti
     />
     <Header />
     <main>
-        <section class="blog-hero">
+        <section class="hero">
+            <div class="hero-overlay"></div>
             <div class="container">
-                <h1>IT Services Blog</h1>
-                <p>Expert insights and tips for your business technology needs</p>
+                <h1>Tech Tips</h1>
+                <p class="subtitle">Expert insights and tips for your business technology needs</p>
             </div>
         </section>
 
@@ -62,16 +63,8 @@ const description = "Stay informed with the latest IT insights, cybersecurity ti
 </Layout>
 
 <style>
-    .blog-hero {
-        background: var(--primary-color);
-        color: var(--white);
-        padding: 4rem 0;
-        text-align: center;
-    }
-
-    .blog-hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
+    .hero {
+        background: linear-gradient(45deg, rgba(44,62,80,0.8), rgba(52,152,219,0.7)), url('/images/blog-bg.webp');
     }
 
     .blog-posts {

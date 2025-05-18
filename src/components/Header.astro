@@ -1,3 +1,6 @@
+---
+import ChevronDown from './icons/chevron-down.astro';
+---
 <header class="header">
     <nav class="nav-container">
         <div class="logo">
@@ -12,16 +15,16 @@
         </button>
         <div class="nav-menu">
             <ul class="nav-links">
-                <li><a href="/">Home</a></li>
+                <!-- <li><a href="/">Home</a></li> -->
                 <li class="dropdown">
-                    <a href="#" class="dropdown-trigger">Our Services <i class="fas fa-chevron-down"></i></a>
+                    <a href="#" class="dropdown-trigger">Our Services <ChevronDown color="currentColor" /></a>
                     <ul class="dropdown-menu">
                         <li><a href="/services/managed-it-support">Managed IT & Support</a></li>
                         <li><a href="/services/revit-management">Revit Management</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-trigger">Industries <i class="fas fa-chevron-down"></i></a>
+                    <a href="#industries" class="dropdown-trigger">Industries <ChevronDown color="currentColor" /></a>
                     <ul class="dropdown-menu">
                         <li><a href="/industries/architecture">Architecture</a></li>
                         <li><a href="/industries/engineering">Engineering</a></li>
@@ -30,7 +33,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-trigger">Solutions <i class="fas fa-chevron-down"></i></a>
+                    <a href="/#solutions" class="dropdown-trigger">Solutions <ChevronDown color="currentColor" /></a>
                     <ul class="dropdown-menu">
                         <li><a href="/solutions/it-support">IT Support</a></li>
                         <li><a href="/solutions/cyber-security">Cyber Security</a></li>
@@ -43,7 +46,7 @@
                 <li><a href="/blog">Blog</a></li>
                 <li><a href="/contact">Contact</a></li>
                 <li class="consultation-button">
-                    <a href="/consultation" class="cta-button">Free Consultation</a>
+                    <a href="https://outlook.office365.com/book/MeetwithHunterTech@huntertech.ca/" class="cta-button">Free Consultation</a>
                 </li>
             </ul>
         </div>
@@ -138,13 +141,13 @@
         color: #333333;
     }
 
-    .dropdown-trigger i {
-        font-size: 0.8rem;
+    .dropdown-trigger svg {
+        width: 0.75rem;
+        height: 0.75rem;
         transition: transform 0.3s ease;
-        color: #333333;
     }
 
-    .dropdown:hover .dropdown-trigger i {
+    .dropdown:hover .dropdown-trigger svg {
         transform: rotate(180deg);
     }
 
@@ -247,7 +250,6 @@
             width: 100%;
             margin-top: 0;
             padding-left: 1rem;
-
         }
 
         .nav-links a {
@@ -291,7 +293,7 @@
             position: relative;
         }
 
-        .dropdown-trigger i {
+        .dropdown-trigger svg {
             color: #333333 !important;
         }
 

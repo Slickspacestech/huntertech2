@@ -2,19 +2,24 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
 import SolutionsCTA from '../../components/SolutionsCTA.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
+import ChartPie from '../../components/icons/chart-pie.astro';
+import Sync from '../../components/icons/sync.astro';
+import GraduationHat from '../../components/icons/graduation-hat.astro';
 ---
 
-<Layout title="Cyber Security - Huntertech">
+<Layout title="Cyber Security - HunterTech">
     <Header />
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Cyber Security</h1>
-                <p>Protect your business with enterprise-grade security solutions</p>
-            </div>
-        </section>
+    <main class="service-page">
+        <Hero 
+            title="Cyber Security"
+            subtitle="Protect your business with comprehensive cybersecurity solutions"
+            backgroundImage="/images/cybersecurity.webp"
+            ctaText="Get Started"
+            ctaLink="/contact"
+        />
 
         <section class="content">
             <div class="container">
@@ -50,21 +55,21 @@ import ServiceCard from '../../components/ServiceCard.astro';
                         </div>
 
                         <h3>Why Choose Our Security Solutions?</h3>
-                        <div class="benefits-grid">
-                            <div class="benefit-card">
-                                <i class="fas fa-chart-pie"></i>
-                                <h4>Risk Assessment</h4>
-                                <p>Comprehensive security risk analysis</p>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <ChartPie color="var(--primary-color)" />
+                                <h3>Risk Assessment</h3>
+                                <p>Comprehensive evaluation of your security posture and vulnerabilities.</p>
                             </div>
-                            <div class="benefit-card">
-                                <i class="fas fa-sync"></i>
-                                <h4>24/7 Monitoring</h4>
-                                <p>Continuous security monitoring and alerts</p>
+                            <div class="feature-card">
+                                <Sync color="var(--primary-color)" />
+                                <h3>Continuous Monitoring</h3>
+                                <p>24/7 monitoring and threat detection to keep your systems secure.</p>
                             </div>
-                            <div class="benefit-card">
-                                <i class="fas fa-graduation-cap"></i>
-                                <h4>Security Training</h4>
-                                <p>Employee security awareness programs</p>
+                            <div class="feature-card">
+                                <GraduationHat color="var(--primary-color)" />
+                                <h3>Security Training</h3>
+                                <p>Employee training programs to build a security-first culture.</p>
                             </div>
                         </div>
                     </div>
@@ -83,29 +88,7 @@ import ServiceCard from '../../components/ServiceCard.astro';
 </Layout>
 
 <style>
-    .hero {
-        background: var(--primary-color);
-        color: var(--white);
-        padding: 4rem 0;
-        text-align: center;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/cybersecurity.webp');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    .hero p {
-        font-size: 1.2rem;
-        max-width: 600px;
-        margin: 0 auto;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    }
+  
 
     .content {
         padding: 4rem 0;
@@ -159,14 +142,14 @@ import ServiceCard from '../../components/ServiceCard.astro';
         margin: 2rem 0;
     }
 
-    .benefits-grid {
+    .features-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2rem;
         margin: 2rem 0;
     }
 
-    .benefit-card {
+    .feature-card {
         background: var(--white);
         padding: 2rem;
         border-radius: 10px;
@@ -175,20 +158,26 @@ import ServiceCard from '../../components/ServiceCard.astro';
         transition: transform 0.3s ease;
     }
 
-    .benefit-card:hover {
+    .feature-card:hover {
         transform: translateY(-5px);
     }
 
-    .benefit-card i {
-        font-size: 2rem;
+    .feature-card svg {
+        width: 2.5rem;
+        height: 2.5rem;
         color: var(--primary-color);
         margin-bottom: 1rem;
     }
 
-    .benefit-card h4 {
+    .feature-card h3 {
         color: var(--primary-color);
         margin-bottom: 0.5rem;
         font-size: 1.2rem;
+    }
+
+    .feature-card p {
+        color: var(--text-color);
+        line-height: 1.6;
     }
 
     @media (max-width: 768px) {
@@ -201,7 +190,7 @@ import ServiceCard from '../../components/ServiceCard.astro';
         }
 
         .services-grid,
-        .benefits-grid {
+        .features-grid {
             grid-template-columns: 1fr;
         }
     }

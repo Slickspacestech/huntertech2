@@ -2,17 +2,21 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import ChartLine from '../../components/icons/chart-line.astro';
+import Tasks from '../../components/icons/tasks.astro';
 ---
 
 <Layout title="Revit Management - HunterTech">
     <Header />
     <main class="service-page">
-        <section class="hero">
-            <div class="container">
-                <h1>Revit Management</h1>
-                <p>Expert Revit solutions for architecture and construction professionals</p>
-            </div>
-        </section>
+        <Hero 
+            title="Revit Management"
+            subtitle="Expert Revit solutions for architecture and construction professionals"
+            backgroundImage="/images/revit-bg.webp"
+            ctaText="Find Out More"
+            ctaLink="/contact"
+        />
         <section class="intro">
             <div class="managed-it-container">
                 <div class="content">
@@ -26,32 +30,32 @@ import Footer from '../../components/Footer.astro';
                 <h2>Our Revit Services</h2>
                 <div class="services-grid">
                     <div class="service-item">
-                        <i class="fas fa-search"></i>
+                        <img src="/images/bim/clash.webp" alt="Revit Model Review" style="width: 48px; height: 48px; object-fit: contain; margin-bottom: 1rem;" />
                         <h3>Revit Model Review</h3>
                         <p>We review your Revit models for accuracy, consistency, and quality.</p>
                     </div>
                     <div class="service-item">
-                        <i class="fas fa-heartbeat"></i>
+                        <img src="/images/bim/BIM_check.webp" alt="Revit Model Health Checks" style="width: 48px; height: 48px; object-fit: contain; margin-bottom: 1rem;" />
                         <h3>Revit Model Health Checks</h3>
                         <p>We assess your Revit models for overall quality, performance, and stability.</p>
                     </div>
                     <div class="service-item">
-                        <i class="fas fa-graduation-cap"></i>
+                        <img src="/images/bim/software.webp" alt="Revit Training" style="width: 48px; height: 48px; object-fit: contain; margin-bottom: 1rem;" />
                         <h3>Revit Training</h3>
                         <p>We help your team become proficient with Revit software which involves a combination of theoretical learning and hands-on practice.</p>
                     </div>
                     <div class="service-item">
-                        <i class="fas fa-cubes"></i>
+                        <img src="/images/bim/simulation.webp" alt="Parametric Family Creation" style="width: 48px; height: 48px; object-fit: contain; margin-bottom: 1rem;" />
                         <h3>Parametric Family Creation</h3>
                         <p>We create flexible and reusable components that you can easily modify to fit different project requirements.</p>
                     </div>
                     <div class="service-item">
-                        <i class="fas fa-robot"></i>
+                        <img src="/images/bim/BIM_workflow.webp" alt="Automation" style="width: 48px; height: 48px; object-fit: contain; margin-bottom: 1rem;" />
                         <h3>Automation (via pyRevit or Dynamo)</h3>
                         <p>We can significantly enhance your workflow by automating repetitive tasks and improving efficiency.</p>
                     </div>
                     <div class="service-item">
-                        <i class="fas fa-cogs"></i>
+                        <img src="/images/bim/software_300.webp" alt="Customized configuration, installation & updating" style="width: 48px; height: 48px; object-fit: contain; margin-bottom: 1rem;" />
                         <h3>Customized configuration, installation & updating</h3>
                         <p>We tailor the installation and settings of your Revit software to meet your specific needs for a more efficient workflow, as well as ensure you have the latest features, improvements, and security updates.</p>
                     </div>
@@ -65,17 +69,17 @@ import Footer from '../../components/Footer.astro';
                 <h2>What you gain from Revit Management</h2>
                 <div class="benefits-grid">
                     <div class="benefit-card">
-                        <i class="fas fa-magic"></i>
+                        <img src="/images/revit-logo.svg" alt="Fully Leverage Revit" style="width: 48px; height: 48px; object-fit: contain; margin-bottom: 1rem;" />
                         <h3>Fully Leverage Revit</h3>
                         <p>Learn how to fully leverage Revit's automation capabilities, saving valuable time and reducing the risk of costly mistakes.</p>
                     </div>
                     <div class="benefit-card">
-                        <i class="fas fa-chart-line"></i>
+                        <ChartLine color="#00ACAC" />
                         <h3>Value-Driven Strategies</h3>
                         <p>Acquire value-driven Revit strategies that are tailored to your specific business needs and workflow.</p>
                     </div>
                     <div class="benefit-card">
-                        <i class="fas fa-tasks"></i>
+                        <Tasks color="#00ACAC" />
                         <h3>Actionable Improvements</h3>
                         <p>Receive actionable improvements that are identified for both short-term gain and long-term investment of your Revit models.</p>
                     </div>
@@ -113,26 +117,6 @@ import Footer from '../../components/Footer.astro';
         padding: 0 1rem;
     }
 
-    .hero {
-        background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('/images/revit-bg.webp');
-        background-size: cover;
-        background-position: center;
-        color: var(--white);
-        padding: 4rem 1rem;
-        text-align: center;
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
     .content {
         padding: 4rem 1rem;
     }
@@ -152,7 +136,8 @@ import Footer from '../../components/Footer.astro';
     }
 
     .service-item {
-        background: var(--white);
+        background: #00acac;
+        color: #fff;
         padding: 2rem;
         border-radius: var(--radius-md);
         text-align: center;
@@ -170,15 +155,9 @@ import Footer from '../../components/Footer.astro';
         margin-bottom: 1rem;
     }
 
-    .service-item h3 {
-        color: var(--secondary-heading);
-        margin-bottom: 1rem;
-        font-size: 1.25rem;
-    }
-
+    .service-item h3,
     .service-item p {
-        color: var(--text-color);
-        line-height: 1.6;
+        color: #fff;
     }
 
     @media (max-width: 768px) {

@@ -1,15 +1,17 @@
 ---
 interface Props {
-    icon: string;
+    icon: any;
     title: string;
     description: string;
 }
 
-const { icon, title, description } = Astro.props;
+const { icon: Icon, title, description } = Astro.props;
 ---
 
 <div class="service-card">
-    <i class={`fas ${icon}`}></i>
+    <div class="custom-icon">
+        <Icon color="var(--primary-color)" />
+    </div>
     <div class="service-content">
         <h4>{title}</h4>
         <p>{description}</p>
@@ -32,10 +34,13 @@ const { icon, title, description } = Astro.props;
         transform: translateY(-5px);
     }
 
-    .service-card i {
-        font-size: 1.5rem;
-        color: var(--primary-color);
+    .service-card .custom-icon {
         margin-top: 0.25rem;
+    }
+
+    .service-card .custom-icon svg {
+        width: 1.5rem;
+        height: 1.5rem;
     }
 
     .service-content h4 {
@@ -57,7 +62,7 @@ const { icon, title, description } = Astro.props;
             text-align: center;
         }
 
-        .service-card i {
+        .service-card .custom-icon {
             margin: 0 auto;
         }
     }

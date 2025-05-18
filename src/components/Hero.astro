@@ -1,4 +1,6 @@
 ---
+import ArrowRight from './icons/arrow-right.astro';
+
 interface Props {
   title: string;
   subtitle: string;
@@ -16,20 +18,22 @@ const {
 } = Astro.props;
 ---
 
-<section class="hero" style={`background-image: url('${backgroundImage}')`}>
+<section class="hero" style={`background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${backgroundImage})`}>
   <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-content animate-fade-in">
       <h1>{title}</h1>
       <p class="subtitle">{subtitle}</p>
       <div class="cta-buttons">
-        <a href={ctaLink} class="btn btn-primary">
-          {ctaText}
-          <i class="fas fa-arrow-right"></i>
-        </a>
-        <a href="#solutions" class="btn btn-secondary white-text">
-          Our Solutions
-          <i class="fas fa-chevron-right"></i>
+        {ctaText && (
+          <a href={ctaLink} class="btn btn-primary">
+            {ctaText}
+            <ArrowRight color="var(--white)" />
+          </a>
+        )}
+        <a href="https://outlook.office365.com/book/MeetwithHunterTech@huntertech.ca/" class="btn btn-secondary white-text">
+          Book a Meeting
+          <ArrowRight color="var(--button-color)" />
         </a>
       </div>
     </div>
@@ -82,22 +86,6 @@ const {
     padding: 0 var(--spacing-xl);
   }
 
-  .hero h1 {
-    font-size: 4.5rem;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: var(--spacing-md);
-    line-height: 1.2;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-
-  .subtitle {
-    font-size: 1.75rem;
-    color: rgba(255, 255, 255, 0.95);
-    margin-bottom: var(--spacing-lg);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-  }
-
   .cta-buttons {
     display: flex;
     gap: var(--spacing-md);
@@ -117,11 +105,11 @@ const {
     letter-spacing: 0.5px;
   }
 
-  .btn i {
+  .btn svg {
     transition: transform var(--transition-normal);
   }
 
-  .btn:hover i {
+  .btn:hover svg {
     transform: translateX(5px);
   }
 
@@ -146,7 +134,10 @@ const {
   .btn-secondary:hover {
     background-color: var(--button-color);
     color: var(--white);
-    transform: translateY(-2px);
+  }
+
+  .btn-secondary:hover svg {
+    color: var(--white);
   }
 
   @media (max-width: 768px) {
@@ -156,10 +147,6 @@ const {
 
     .hero h1 {
       font-size: 2.75rem;
-    }
-
-    .subtitle {
-      font-size: 1.25rem;
     }
 
     .cta-buttons {

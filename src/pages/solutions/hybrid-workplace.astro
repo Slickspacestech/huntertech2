@@ -2,19 +2,25 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
 import SolutionsCTA from '../../components/SolutionsCTA.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
+import Lock from '../../components/icons/lock.astro';
+import Tachometer from '../../components/icons/tachometer.astro';
+import Handshake from '../../components/icons/handshake2.astro';
+import Cogs from '../../components/icons/Cogs.astro';
 ---
 
-<Layout title="Hybrid Workplace - Huntertech">
+<Layout title="Hybrid Workplace - HunterTech">
     <Header />
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Hybrid Workplace</h1>
-                <p>Seamless technology solutions for the modern hybrid workplace</p>
-            </div>
-        </section>
+    <main class="service-page">
+        <Hero 
+            title="Hybrid Workplace"
+            subtitle="Seamless technology solutions for the modern hybrid workplace"
+            backgroundImage="/images/hybrid-work-bg.webp"
+            ctaText="Get Started"
+            ctaLink="/contact"
+        />
 
         <section class="content">
             <div class="container">
@@ -50,26 +56,26 @@ import ServiceCard from '../../components/ServiceCard.astro';
                         </div>
 
                         <h3>Why Choose Our Hybrid Solutions?</h3>
-                        <div class="benefits-grid">
-                            <div class="benefit-card">
-                                <i class="fas fa-lock"></i>
-                                <h4>Secure Access</h4>
-                                <p>Protected remote access to company resources</p>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <Lock color="var(--primary-color)" />
+                                <h3>Secure Access</h3>
+                                <p>Secure remote access to your business resources.</p>
                             </div>
-                            <div class="benefit-card">
-                                <i class="fas fa-tachometer-alt"></i>
-                                <h4>High Performance</h4>
-                                <p>Optimized for seamless remote work</p>
+                            <div class="feature-card">
+                                <Tachometer color="var(--primary-color)" />
+                                <h3>Performance Optimization</h3>
+                                <p>Optimized solutions for seamless remote work.</p>
                             </div>
-                            <div class="benefit-card">
-                                <i class="fas fa-handshake"></i>
-                                <h4>Easy Collaboration</h4>
-                                <p>Tools for effective team collaboration</p>
+                            <div class="feature-card">
+                                <Handshake color="var(--primary-color)" />
+                                <h3>Collaboration Tools</h3>
+                                <p>Advanced tools for team collaboration.</p>
                             </div>
-                            <div class="benefit-card">
-                                <i class="fas fa-cogs"></i>
-                                <h4>Flexible Setup</h4>
-                                <p>Customizable for your specific needs</p>
+                            <div class="feature-card">
+                                <Cogs color="var(--primary-color)" />
+                                <h3>Workflow Automation</h3>
+                                <p>Automated processes for increased efficiency.</p>
                             </div>
                         </div>
                     </div>
@@ -88,29 +94,7 @@ import ServiceCard from '../../components/ServiceCard.astro';
 </Layout>
 
 <style>
-    .hero {
-        background: var(--primary-color);
-        color: var(--white);
-        padding: 4rem 0;
-        text-align: center;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/hybrid-work-bg.webp');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    .hero p {
-        font-size: 1.2rem;
-        max-width: 600px;
-        margin: 0 auto;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    }
+    
 
     .content {
         padding: 4rem 0;
@@ -164,14 +148,14 @@ import ServiceCard from '../../components/ServiceCard.astro';
         margin: 2rem 0;
     }
 
-    .benefits-grid {
+    .features-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2rem;
         margin: 2rem 0;
     }
 
-    .benefit-card {
+    .feature-card {
         background: var(--white);
         padding: 2rem;
         border-radius: 10px;
@@ -180,20 +164,26 @@ import ServiceCard from '../../components/ServiceCard.astro';
         transition: transform 0.3s ease;
     }
 
-    .benefit-card:hover {
+    .feature-card:hover {
         transform: translateY(-5px);
     }
 
-    .benefit-card i {
-        font-size: 2rem;
+    .feature-card svg {
+        width: 2.5rem;
+        height: 2.5rem;
         color: var(--primary-color);
         margin-bottom: 1rem;
     }
 
-    .benefit-card h4 {
+    .feature-card h3 {
         color: var(--primary-color);
         margin-bottom: 0.5rem;
         font-size: 1.2rem;
+    }
+
+    .feature-card p {
+        color: var(--text-color);
+        line-height: 1.6;
     }
 
     @media (max-width: 768px) {
@@ -206,7 +196,7 @@ import ServiceCard from '../../components/ServiceCard.astro';
         }
 
         .services-grid,
-        .benefits-grid {
+        .features-grid {
             grid-template-columns: 1fr;
         }
     }

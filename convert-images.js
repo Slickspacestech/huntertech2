@@ -1,8 +1,12 @@
-const sharp = require('sharp');
-const fs = require('fs');
-const path = require('path');
+import sharp from 'sharp';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const imagesDir = path.join(__dirname, 'public', 'images');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const imagesDir = path.join(__dirname, 'public', 'images', 'bim');
 
 // Get all image files
 const imageFiles = fs.readdirSync(imagesDir).filter(file => {
@@ -10,58 +14,36 @@ const imageFiles = fs.readdirSync(imagesDir).filter(file => {
     return ['.jpg', '.jpeg', '.png'].includes(ext);
 });
 
-console.log(`Found ${imageFiles.length} image files to check`);
+console.log(`Found ${imageFiles.length} image files to convert in BIM folder`);
 
 // Convert each image to webp
 async function convertImages() {
-    let foundZeroByteFiles = false;
-    
     for (const file of imageFiles) {
         const inputPath = path.join(imagesDir, file);
         const outputPath = path.join(imagesDir, `${path.parse(file).name}.webp`);
         
-        // Check if webp already exists and is 0 bytes
-        if (fs.existsSync(outputPath)) {
-            const stats = fs.statSync(outputPath);
-            console.log(`Checking ${file} -> ${path.basename(outputPath)} (${stats.size} bytes)`);
+        console.log(`Converting ${file} to WebP...`);
+        try {
+            await sharp(inputPath)
+                .webp({ 
+                    quality: 80,
+                    effort: 6, // Higher effort for better compression
+                    lossless: false
+                })
+                .toFile(outputPath);
             
+            // Verify the new file
+            const stats = fs.statSync(outputPath);
             if (stats.size === 0) {
-                foundZeroByteFiles = true;
-                console.log(`Found 0 byte webp for ${file}, attempting conversion again...`);
-                try {
-                    // Remove the 0 byte file
-                    fs.unlinkSync(outputPath);
-                    
-                    // Try conversion with different settings
-                    await sharp(inputPath)
-                        .webp({ 
-                            quality: 80,
-                            effort: 6, // Higher effort for better compression
-                            lossless: false
-                        })
-                        .toFile(outputPath);
-                    
-                    // Verify the new file
-                    const newStats = fs.statSync(outputPath);
-                    if (newStats.size === 0) {
-                        console.error(`Failed to convert ${file} - output file is still 0 bytes`);
-                    } else {
-                        console.log(`Successfully converted ${file} to webp (${newStats.size} bytes)`);
-                    }
-                } catch (error) {
-                    console.error(`Error converting ${file}:`, error.message);
-                    // Log additional error details
-                    if (error.code) console.error(`Error code: ${error.code}`);
-                    if (error.errno) console.error(`Error number: ${error.errno}`);
-                }
+                console.error(`Failed to convert ${file} - output file is 0 bytes`);
+            } else {
+                console.log(`Successfully converted ${file} to webp (${stats.size} bytes)`);
             }
-        } else {
-            console.log(`No webp file found for ${file}`);
+        } catch (error) {
+            console.error(`Error converting ${file}:`, error.message);
+            if (error.code) console.error(`Error code: ${error.code}`);
+            if (error.errno) console.error(`Error number: ${error.errno}`);
         }
-    }
-    
-    if (!foundZeroByteFiles) {
-        console.log('No 0-byte webp files found to convert.');
     }
 }
 

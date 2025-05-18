@@ -2,18 +2,22 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import SolutionsCTA from '../../components/SolutionsCTA.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
 import Headphones from '../../components/icons/headphones.astro';
 ---
 
 <Layout title="Managed IT Services & Support | Huntertech">
     <Header />
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Managed IT Services & Support</h1>
-                <p class="subtitle">Enterprise IT tailored for your small business.</p>
-            </div>
-        </section>
+    <main class="service-page">
+        <Hero 
+            title="Managed IT Support"
+            subtitle="Proactive IT management and support for your business"
+            backgroundImage="/images/it-support.webp"
+            ctaText="Get Started"
+            ctaLink="/contact"
+        />
 
         <section class="intro">
             <div class="managed-it-container">
@@ -218,11 +222,6 @@ import Headphones from '../../components/icons/headphones.astro';
         font-size: 3rem;
         margin-bottom: 1rem;
         color: var(--white);
-    }
-
-    .subtitle {
-        font-size: 1.25rem;
-        opacity: 0.9;
     }
 
     .intro {

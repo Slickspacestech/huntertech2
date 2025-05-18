@@ -3,6 +3,19 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
+import MapMarker from '../components/icons/map-marker.astro';
+import Phone from '../components/icons/phone.astro';
+import Envelope from '../components/icons/envelope.astro';
+import Laptop from '../components/icons/laptop.astro';
+import Shield from '../components/icons/shield.astro';
+import Cloud2 from '../components/icons/cloud2.astro';
+import NetworkWired from '../components/icons/network-wired.astro';
+import Clock from '../components/icons/clock.astro';
+import Certificate from '../components/icons/certificate.astro';
+import Handshake from '../components/icons/handshake.astro';
+import ChartLine from '../components/icons/chart-line.astro';
+import Hero from '../components/Hero.astro';
+import LocalPin from '../components/icons/local-pin.astro';
 
 const title = "IT Services Vancouver | Managed IT Support & Cybersecurity Solutions";
 const description = "Expert IT services in Vancouver. 24/7 managed IT support, cybersecurity solutions, and cloud services for businesses. Local IT experts serving Vancouver and surrounding areas.";
@@ -27,12 +40,14 @@ const description = "Expert IT services in Vancouver. 24/7 managed IT support, c
     />
     <Header />
     <main>
-        <section class="hero">
-            <div class="container">
-                <h1>IT Services Vancouver</h1>
-                <p>Your trusted IT partner in Vancouver for managed services, cybersecurity, and cloud solutions</p>
-            </div>
-        </section>
+
+        <Hero 
+            title="Vancouver IT Services"
+            subtitle="Expert IT solutions for businesses in Vancouver"
+            backgroundImage="/images/vancouver-bg.webp"
+            ctaText="Get Started"
+            ctaLink="/contact"
+        />
 
         <section class="location-info">
             <div class="container">
@@ -41,21 +56,21 @@ const description = "Expert IT services in Vancouver. 24/7 managed IT support, c
                         <h2>Vancouver's Premier IT Service Provider</h2>
                         <div class="contact-card">
                             <div class="contact-item">
-                                <i class="fas fa-map-marker-alt"></i>
+                                <MapMarker color="var(--button-color)" />
                                 <div>
                                     <h3>Address</h3>
                                     <p>Vancouver, BC</p>
                                 </div>
                             </div>
                             <div class="contact-item">
-                                <i class="fas fa-phone"></i>
+                                <Phone color="var(--button-color)" />
                                 <div>
                                     <h3>Phone</h3>
                                     <p>778 819 7411</p>
                                 </div>
                             </div>
                             <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
+                                <Envelope color="var(--button-color)" />
                                 <div>
                                     <h3>Email</h3>
                                     <p>info@huntertech.ca</p>
@@ -82,22 +97,22 @@ const description = "Expert IT services in Vancouver. 24/7 managed IT support, c
                 <h2>Comprehensive IT Services in Vancouver</h2>
                 <div class="services-grid">
                     <div class="service-card">
-                        <i class="fas fa-laptop"></i>
+                        <Laptop color="var(--button-color)" />
                         <h3>Managed IT Support</h3>
                         <p>Friendly, local IT support and monitoring for Vancouver businesses</p>
                     </div>
                     <div class="service-card">
-                        <i class="fas fa-shield-alt"></i>
+                        <Shield color="var(--button-color)" />
                         <h3>Cybersecurity Solutions</h3>
                         <p>Advanced security solutions to protect your Vancouver business</p>
                     </div>
                     <div class="service-card">
-                        <i class="fas fa-cloud"></i>
+                        <Cloud2 color="var(--button-color)" />
                         <h3>Cloud Services</h3>
                         <p>Secure and scalable cloud infrastructure for Vancouver companies</p>
                     </div>
                     <div class="service-card">
-                        <i class="fas fa-network-wired"></i>
+                        <NetworkWired color="var(--button-color)" />
                         <h3>Network Solutions</h3>
                         <p>Reliable and efficient network infrastructure in Vancouver</p>
                     </div>
@@ -110,22 +125,22 @@ const description = "Expert IT services in Vancouver. 24/7 managed IT support, c
                 <h2>Why Choose Our IT Services in Vancouver?</h2>
                 <div class="benefits-grid">
                     <div class="benefit-card">
-                        <i class="fas fa-clock"></i>
+                        <LocalPin color="var(--button-color)" />
                         <h3>Local, Friendly Support</h3>
                         <p>Personal IT support from our Vancouver-based team who knows your business</p>
                     </div>
                     <div class="benefit-card">
-                        <i class="fas fa-certificate"></i>
+                        <Certificate color="var(--button-color)" />
                         <h3>Certified Experts</h3>
                         <p>Highly qualified IT professionals serving Vancouver businesses</p>
                     </div>
                     <div class="benefit-card">
-                        <i class="fas fa-handshake"></i>
-                        <h3>Local Partnership</h3>
-                        <p>We're your neighbors, dedicated to Vancouver's business community growth</p>
+                        <Handshake color="var(--button-color)" />
+                        <h3>Industry Specialties</h3>
+                        <p>We dont just support the IT stuff, we support the business.</p>
                     </div>
                     <div class="benefit-card">
-                        <i class="fas fa-chart-line"></i>
+                        <ChartLine color="var(--button-color)" />
                         <h3>Proven Results</h3>
                         <p>Track record of successful IT implementations in Vancouver</p>
                     </div>
@@ -152,10 +167,6 @@ const description = "Expert IT services in Vancouver. 24/7 managed IT support, c
         text-align: center;
     }
 
-    .hero h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-    }
 
     .location-info {
         padding: 4rem 0;
