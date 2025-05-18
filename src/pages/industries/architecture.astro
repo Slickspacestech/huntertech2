@@ -8,15 +8,106 @@ import Cloud2 from '../../components/icons/cloud2.astro';
 import Rocket from '../../components/icons/rocket.astro';
 import Users from '../../components/icons/users.astro';
 import Hero from '../../components/Hero.astro';
+import SEO from '../../components/SEO.astro';
+
+const title = "IT Services for Architecture Firms | Professional Design Technology Solutions - HunterTech";
+const description = "Specialized IT services for architecture firms in Calgary and Vancouver. Expert support for CAD software, project management tools, and technical computing. Get reliable technology solutions from certified experts who understand the unique needs of architecture professionals.";
+const keywords = [
+    "architecture IT services",
+    "design technology solutions",
+    "CAD software support",
+    "BIM software support",
+    "architecture firm IT",
+    "Calgary architecture IT",
+    "Vancouver architecture IT",
+    "Revit support",
+    "design software optimization",
+    "architecture cloud solutions"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "IT Services for Architecture Firms",
+    "description": description,
+    "provider": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "areaServed": [
+        {
+            "@type": "City",
+            "name": "Calgary",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "AB",
+                "addressCountry": "CA"
+            }
+        },
+        {
+            "@type": "City",
+            "name": "Vancouver",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "BC",
+                "addressCountry": "CA"
+            }
+        }
+    ],
+    "serviceType": [
+        "Architecture IT Services",
+        "Design Technology Solutions",
+        "CAD/BIM Software Support",
+        "Revit Optimization",
+        "Architecture Cloud Solutions"
+    ],
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Architecture IT Services",
+        "itemListElement": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "CAD/BIM Software Support"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Revit Optimization"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Design Software Integration"
+                }
+            }
+        ]
+    }
+};
 ---
 
-<Layout title="IT Services for Architecture Firms - HunterTech">
+<Layout title={title} description={description}>
+    <SEO
+        title={title}
+        description={description}
+        canonicalURL="https://huntertech.ca/industries/architecture"
+        keywords={keywords}
+        type="website"
+        image="/images/architecture.webp"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <Header />
     <main class="service-page">
         <Hero 
             title="IT Services for Architecture Firms"
-            subtitle="Specialized technology solutions for architectural practices"
-            backgroundImage="/images/architect_engineer_tech.avif"
+            subtitle="Specialized technology solutions for architecture professionals"
+            backgroundImage="/images/architecture.webp"
             ctaText="Get Started"
             ctaLink="/contact"
         />

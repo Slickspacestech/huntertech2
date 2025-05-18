@@ -7,9 +7,101 @@ import Shield from '../../components/icons/shield.astro';
 import Invoice from '../../components/icons/invoice.astro';
 import Cloud2 from '../../components/icons/cloud2.astro';
 import Dollar from '../../components/icons/dollar.astro';
+import Lock from '../../components/icons/lock.astro';
+import SEO from '../../components/SEO.astro';
+
+const title = "IT Services for Accounting Firms | Professional Financial Technology Solutions - HunterTech";
+const description = "Specialized IT services for accounting firms in Calgary and Vancouver. Secure financial data management, software integration, and cloud solutions. Get reliable technology support from certified experts who understand the unique needs of accounting professionals.";
+const keywords = [
+    "accounting IT services",
+    "financial technology solutions",
+    "accounting software support",
+    "secure financial data",
+    "cloud accounting solutions",
+    "accounting firm IT support",
+    "Calgary accounting IT",
+    "Vancouver accounting IT",
+    "financial data security",
+    "accounting software integration"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "IT Services for Accounting Firms",
+    "description": description,
+    "provider": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "areaServed": [
+        {
+            "@type": "City",
+            "name": "Calgary",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "AB",
+                "addressCountry": "CA"
+            }
+        },
+        {
+            "@type": "City",
+            "name": "Vancouver",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "BC",
+                "addressCountry": "CA"
+            }
+        }
+    ],
+    "serviceType": [
+        "Accounting IT Services",
+        "Financial Technology Solutions",
+        "Accounting Software Support",
+        "Financial Data Security",
+        "Cloud Accounting Solutions"
+    ],
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Accounting IT Services",
+        "itemListElement": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Financial Data Security"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Accounting Software Integration"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Cloud Accounting Solutions"
+                }
+            }
+        ]
+    }
+};
 ---
 
-<Layout title="IT Services for Accounting Firms - HunterTech">
+<Layout title={title} description={description}>
+    <SEO
+        title={title}
+        description={description}
+        canonicalURL="https://huntertech.ca/industries/accounting"
+        keywords={keywords}
+        type="website"
+        image="/images/accounting.webp"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <Header />
     <main class="service-page">
         <Hero 

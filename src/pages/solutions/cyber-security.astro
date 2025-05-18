@@ -11,7 +11,7 @@ import GraduationHat from '../../components/icons/graduation-hat.astro';
 import SEO from '../../components/SEO.astro';
 
 const title = "Cyber Security Solutions | Managed IT Security Services in Calgary & Vancouver";
-const description = "Comprehensive cybersecurity solutions for businesses in Calgary and Vancouver. Protect your data with advanced threat protection, identity management, and network security services.";
+const description = "Comprehensive cybersecurity solutions for businesses in Calgary and Vancouver. Protect your data with advanced threat protection, identity management, and network security services. Our expert team provides 24/7 monitoring, security training, and proactive defense against evolving cyber threats.";
 const keywords = [
     "Cybersecurity solutions",
     "IT security services",
@@ -63,14 +63,13 @@ const structuredData = {
 ---
 
 <Layout title={title} description={description}>
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-    <SEO 
+    <SEO
         title={title}
         description={description}
-        canonicalURL="/solutions/cyber-security"
+        canonicalURL="https://huntertech.ca/solutions/cyber-security"
         keywords={keywords}
         type="website"
-        image="/images/cybersecurity.webp"
+        image="/images/cyber-security.webp"
     />
     <Header />
     <main class="service-page">

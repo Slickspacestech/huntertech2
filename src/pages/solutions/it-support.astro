@@ -10,9 +10,72 @@ import Certificate from '../../components/icons/certificate.astro';
 import ChartLine from '../../components/icons/chart-line.astro';
 import Handshake from '../../components/icons/handshake2.astro';
 import Lock from '@/components/icons/lock.astro';
+import SEO from '../../components/SEO.astro';
+
+const title = "Professional IT Support Services | Managed IT Solutions in Calgary & Vancouver";
+const description = "Expert IT support services for businesses in Calgary and Vancouver. Get reliable, responsive technical assistance with local help desk support, proactive maintenance, and comprehensive hardware/software solutions. Trust our certified experts to keep your business running smoothly.";
+const keywords = [
+    "IT support services",
+    "Managed IT solutions",
+    "Business IT support",
+    "Technical support",
+    "IT help desk",
+    "IT maintenance",
+    "Cloud services support",
+    "Hardware support",
+    "Software support",
+    "IT procurement",
+    "IT support Calgary",
+    "IT support Vancouver"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Professional IT Support Services",
+    "provider": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "description": description,
+    "areaServed": [
+        {
+            "@type": "City",
+            "name": "Calgary",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "AB",
+                "addressCountry": "CA"
+            }
+        },
+        {
+            "@type": "City",
+            "name": "Vancouver",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "BC",
+                "addressCountry": "CA"
+            }
+        }
+    ],
+    "serviceType": ["IT Support", "Technical Support", "Managed IT Services"],
+    "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+    }
+};
 ---
 
-<Layout title="IT Support - HunterTech">
+<Layout title={title} description={description}>
+    <SEO
+        title={title}
+        description={description}
+        canonicalURL="https://huntertech.ca/solutions/it-support"
+        keywords={keywords}
+        type="website"
+        image="/images/it-support.webp"
+    />
     <Header />
     <main class="service-page">
         <Hero 

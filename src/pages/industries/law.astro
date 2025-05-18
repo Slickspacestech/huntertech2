@@ -8,9 +8,100 @@ import Invoice from '../../components/icons/invoice.astro';
 import Cloud2 from '../../components/icons/cloud2.astro';
 import Lock from '../../components/icons/lock.astro';
 import MapleLeaf from '../../components/icons/maple-leaf.astro';
+import SEO from '../../components/SEO.astro';
+
+const title = "IT Services for Law Firms | Professional Legal Technology Solutions - HunterTech";
+const description = "Specialized IT services for law firms in Calgary and Vancouver. Secure document management, legal software support, and client data protection. Get reliable technology solutions from certified experts who understand the unique needs of legal professionals.";
+const keywords = [
+    "law firm IT services",
+    "legal technology solutions",
+    "legal software support",
+    "law firm data security",
+    "legal document management",
+    "Calgary law firm IT",
+    "Vancouver law firm IT",
+    "legal cloud solutions",
+    "law practice management",
+    "legal data protection"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "IT Services for Law Firms",
+    "description": description,
+    "provider": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "areaServed": [
+        {
+            "@type": "City",
+            "name": "Calgary",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "AB",
+                "addressCountry": "CA"
+            }
+        },
+        {
+            "@type": "City",
+            "name": "Vancouver",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "BC",
+                "addressCountry": "CA"
+            }
+        }
+    ],
+    "serviceType": [
+        "Law Firm IT Services",
+        "Legal Technology Solutions",
+        "Legal Software Support",
+        "Legal Document Management",
+        "Law Firm Data Security"
+    ],
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Law Firm IT Services",
+        "itemListElement": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Legal Document Management"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Legal Software Support"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Client Data Protection"
+                }
+            }
+        ]
+    }
+};
 ---
 
-<Layout title="IT Solutions for Law Firms | Huntertech">
+<Layout title={title} description={description}>
+    <SEO
+        title={title}
+        description={description}
+        canonicalURL="https://huntertech.ca/industries/law"
+        keywords={keywords}
+        type="website"
+        image="/images/law.webp"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <Header />
     <main class="service-page">
         <Hero 

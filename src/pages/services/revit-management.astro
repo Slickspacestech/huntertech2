@@ -5,9 +5,69 @@ import Footer from '../../components/Footer.astro';
 import Hero from '../../components/Hero.astro';
 import ChartLine from '../../components/icons/chart-line.astro';
 import Tasks from '../../components/icons/tasks.astro';
+import SEO from '../../components/SEO.astro';
+
+const title = "Revit Management Services | Professional BIM Solutions - HunterTech";
+const description = "Expert Revit management services for architecture and construction firms in Calgary and Vancouver. Get professional BIM solutions, model optimization, training, and support from certified Revit specialists.";
+const keywords = [
+    "Revit management",
+    "BIM solutions",
+    "Revit training",
+    "Model optimization",
+    "Architecture software",
+    "Construction technology",
+    "Revit services Calgary",
+    "Revit services Vancouver"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Revit Management Services",
+    "provider": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "description": description,
+    "areaServed": [
+        {
+            "@type": "City",
+            "name": "Calgary",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "AB",
+                "addressCountry": "CA"
+            }
+        },
+        {
+            "@type": "City",
+            "name": "Vancouver",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "BC",
+                "addressCountry": "CA"
+            }
+        }
+    ],
+    "serviceType": ["Revit Management", "BIM Solutions", "Software Training"],
+    "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+    }
+};
 ---
 
-<Layout title="Revit Management - HunterTech">
+<Layout title={title} description={description}>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <SEO 
+        title={title}
+        description={description}
+        canonicalURL="/services/revit-management"
+        keywords={keywords}
+        type="website"
+        image="/images/revit-bg.webp"
+    />
     <Header />
     <main class="service-page">
         <Hero 

@@ -6,9 +6,69 @@ import Hero from '../../components/Hero.astro';
 import SolutionsCTA from '../../components/SolutionsCTA.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import Headphones from '../../components/icons/headphones.astro';
+import SEO from '../../components/SEO.astro';
+
+const title = "Managed IT Services & Support | Professional IT Management in Calgary & Vancouver";
+const description = "Comprehensive managed IT services and support for businesses in Calgary and Vancouver. Get proactive IT management, 24/7 monitoring, cybersecurity, and expert technical support from certified IT professionals.";
+const keywords = [
+    "Managed IT services",
+    "IT support",
+    "IT management",
+    "Cybersecurity",
+    "Network monitoring",
+    "Technical support",
+    "IT services Calgary",
+    "IT services Vancouver"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Managed IT Services & Support",
+    "provider": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "description": description,
+    "areaServed": [
+        {
+            "@type": "City",
+            "name": "Calgary",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "AB",
+                "addressCountry": "CA"
+            }
+        },
+        {
+            "@type": "City",
+            "name": "Vancouver",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "BC",
+                "addressCountry": "CA"
+            }
+        }
+    ],
+    "serviceType": ["Managed IT Services", "IT Support", "Cybersecurity"],
+    "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+    }
+};
 ---
 
-<Layout title="Managed IT Services & Support | Huntertech">
+<Layout title={title} description={description}>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <SEO 
+        title={title}
+        description={description}
+        canonicalURL="/services/managed-it-support"
+        keywords={keywords}
+        type="website"
+        image="/images/it-support.webp"
+    />
     <Header />
     <main class="service-page">
         <Hero 

@@ -8,9 +8,100 @@ import Server from '../../components/icons/server.astro';
 import Shield from '../../components/icons/shield.astro';
 import Users from '../../components/icons/users.astro';
 import Rocket from '../../components/icons/rocket.astro';
+import SEO from '../../components/SEO.astro';
+
+const title = "IT Services for Engineering Firms | Professional Engineering Technology Solutions - HunterTech";
+const description = "Specialized IT services for engineering firms in Calgary and Vancouver. Expert support for CAD software, project management tools, and technical computing. Get reliable technology solutions from certified experts who understand the unique needs of engineering professionals.";
+const keywords = [
+    "engineering IT services",
+    "engineering technology solutions",
+    "CAD software support",
+    "engineering firm IT",
+    "technical computing support",
+    "Calgary engineering IT",
+    "Vancouver engineering IT",
+    "engineering cloud solutions",
+    "project management tools",
+    "engineering data security"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "IT Services for Engineering Firms",
+    "description": description,
+    "provider": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "areaServed": [
+        {
+            "@type": "City",
+            "name": "Calgary",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "AB",
+                "addressCountry": "CA"
+            }
+        },
+        {
+            "@type": "City",
+            "name": "Vancouver",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "BC",
+                "addressCountry": "CA"
+            }
+        }
+    ],
+    "serviceType": [
+        "Engineering IT Services",
+        "Engineering Technology Solutions",
+        "CAD Software Support",
+        "Technical Computing Support",
+        "Engineering Cloud Solutions"
+    ],
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Engineering IT Services",
+        "itemListElement": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "CAD Software Support"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Technical Computing Support"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Project Management Tools"
+                }
+            }
+        ]
+    }
+};
 ---
 
-<Layout title="IT Services for Engineering Firms - HunterTech">
+<Layout title={title} description={description}>
+    <SEO
+        title={title}
+        description={description}
+        canonicalURL="https://huntertech.ca/industries/engineering"
+        keywords={keywords}
+        type="website"
+        image="/images/engineer_tech.webp"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <Header />
     <main class="service-page">
         <Hero 

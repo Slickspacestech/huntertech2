@@ -18,7 +18,7 @@ import GraduationHat from '../../components/icons/graduation-hat.astro';
 import SEO from '../../components/SEO.astro';
 
 const title = "Microsoft 365 Solutions | Cloud Productivity Services in Calgary & Vancouver";
-const description = "Comprehensive Microsoft 365 solutions for businesses in Calgary and Vancouver. Enhance productivity with cloud-based collaboration, security, and business applications.";
+const description = "Comprehensive Microsoft 365 solutions for businesses in Calgary and Vancouver. Enhance productivity with cloud-based collaboration, security, and business applications. Our expert team provides setup, migration, and ongoing support to maximize your Microsoft 365 investment.";
 const keywords = [
     "Microsoft 365",
     "Office 365",
@@ -69,14 +69,13 @@ const structuredData = {
 ---
 
 <Layout title={title} description={description}>
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-    <SEO 
+    <SEO
         title={title}
         description={description}
-        canonicalURL="/solutions/microsoft-365"
+        canonicalURL="https://huntertech.ca/solutions/microsoft-365"
         keywords={keywords}
         type="website"
-        image="/images/microsoft-365-bg.webp"
+        image="/images/microsoft-365.webp"
     />
     <Header />
     <main class="service-page">

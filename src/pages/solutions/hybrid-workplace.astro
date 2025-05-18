@@ -12,7 +12,7 @@ import Cogs from '../../components/icons/Cogs.astro';
 import SEO from '../../components/SEO.astro';
 
 const title = "Hybrid Workplace Solutions | Remote Work Technology Services in Calgary & Vancouver";
-const description = "Expert hybrid workplace solutions for businesses in Calgary and Vancouver. Enable seamless remote work with secure access, collaboration tools, and workflow automation.";
+const description = "Expert hybrid workplace solutions for businesses in Calgary and Vancouver. Enable seamless remote work with secure access, collaboration tools, and workflow automation. Our comprehensive services ensure your team stays productive and connected from anywhere.";
 const keywords = [
     "Hybrid workplace solutions",
     "Remote work technology",
@@ -63,14 +63,13 @@ const structuredData = {
 ---
 
 <Layout title={title} description={description}>
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <SEO 
         title={title}
         description={description}
-        canonicalURL="/solutions/hybrid-workplace"
+        canonicalURL="https://huntertech.ca/solutions/hybrid-workplace"
         keywords={keywords}
         type="website"
-        image="/images/hybrid-work-bg.webp"
+        image="/images/hybrid-workplace.webp"
     />
     <Header />
     <main class="service-page">

@@ -9,18 +9,33 @@ import Globe from '../../components/icons/globe.astro';
 import ChartLine from '../../components/icons/chart-line.astro';
 import Shield from '../../components/icons/shield.astro';
 import Dollar from '../../components/icons/dollar.astro';
+import SEO from '../../components/SEO.astro';
 
-const title = "IT Services & Network Solutions in Calgary & Vancouver | Huntertech";
-const description = "Leading IT services provider in Calgary and Vancouver. Expert network solutions, managed IT services, and IT management for businesses. Get reliable, scalable IT infrastructure support.";
+const title = "Computer Networking Solutions | Professional Network Infrastructure in Calgary & Vancouver";
+const description = "Expert computer networking solutions for businesses in Calgary and Vancouver. Get comprehensive network design, infrastructure setup, security, and managed IT support. Our certified team delivers reliable, scalable network solutions tailored to your business needs.";
+const keywords = [
+    "Computer networking",
+    "Network infrastructure",
+    "IT infrastructure",
+    "Network security",
+    "Managed IT services",
+    "Network design",
+    "IT solutions",
+    "Network monitoring",
+    "Business networking",
+    "Network support",
+    "IT services Calgary",
+    "IT services Vancouver"
+];
 
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "IT Services & Network Solutions",
+    "name": "Computer Networking Solutions",
     "provider": {
         "@type": "Organization",
         "name": "Huntertech",
-        "url": "https://huntertech.com.au"
+        "url": "https://huntertech.ca"
     },
     "description": description,
     "areaServed": [
@@ -43,7 +58,7 @@ const structuredData = {
             }
         }
     ],
-    "serviceType": ["IT Services", "Network Solutions", "Managed IT"],
+    "serviceType": ["Computer Networking", "Network Infrastructure", "IT Services"],
     "offers": {
         "@type": "Offer",
         "availability": "https://schema.org/InStock"
@@ -52,7 +67,14 @@ const structuredData = {
 ---
 
 <Layout title={title} description={description}>
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <SEO
+        title={title}
+        description={description}
+        canonicalURL="https://huntertech.ca/solutions/computer-networking"
+        keywords={keywords}
+        type="website"
+        image="/images/network.webp"
+    />
     <Header />
     <main class="service-page">
         <Hero 
