@@ -8,9 +8,70 @@ import ServiceCard from '../../components/ServiceCard.astro';
 import ChartPie from '../../components/icons/chart-pie.astro';
 import Sync from '../../components/icons/sync.astro';
 import GraduationHat from '../../components/icons/graduation-hat.astro';
+import SEO from '../../components/SEO.astro';
+
+const title = "Cyber Security Solutions | Managed IT Security Services in Calgary & Vancouver";
+const description = "Comprehensive cybersecurity solutions for businesses in Calgary and Vancouver. Protect your data with advanced threat protection, identity management, and network security services.";
+const keywords = [
+    "Cybersecurity solutions",
+    "IT security services",
+    "Threat protection",
+    "Network security",
+    "Data protection",
+    "Identity management",
+    "Security training",
+    "Cybersecurity Calgary",
+    "Cybersecurity Vancouver"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Cyber Security Solutions",
+    "provider": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "description": description,
+    "areaServed": [
+        {
+            "@type": "City",
+            "name": "Calgary",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "AB",
+                "addressCountry": "CA"
+            }
+        },
+        {
+            "@type": "City",
+            "name": "Vancouver",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "BC",
+                "addressCountry": "CA"
+            }
+        }
+    ],
+    "serviceType": ["Cybersecurity", "IT Security", "Network Security"],
+    "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+    }
+};
 ---
 
-<Layout title="Cyber Security - HunterTech">
+<Layout title={title} description={description}>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <SEO 
+        title={title}
+        description={description}
+        canonicalURL="/solutions/cyber-security"
+        keywords={keywords}
+        type="website"
+        image="/images/cybersecurity.webp"
+    />
     <Header />
     <main class="service-page">
         <Hero 
@@ -32,22 +93,18 @@ import GraduationHat from '../../components/icons/graduation-hat.astro';
                             <h3>Security Services</h3>
                             <div class="services-grid">
                                 <ServiceCard 
-                                    icon="fa-shield-alt"
                                     title="Threat Protection"
                                     description="Advanced protection against malware, ransomware, and other cyber threats"
                                 />
                                 <ServiceCard 
-                                    icon="fa-user-shield"
                                     title="Identity Management"
                                     description="Secure user authentication and access control systems"
                                 />
                                 <ServiceCard 
-                                    icon="fa-network-wired"
                                     title="Network Security"
                                     description="Comprehensive network protection and monitoring"
                                 />
                                 <ServiceCard 
-                                    icon="fa-lock"
                                     title="Data Protection"
                                     description="Encryption and secure data storage solutions"
                                 />
@@ -58,17 +115,17 @@ import GraduationHat from '../../components/icons/graduation-hat.astro';
                         <div class="features-grid">
                             <div class="feature-card">
                                 <ChartPie color="var(--primary-color)" />
-                                <h3>Risk Assessment</h3>
+                                <h4>Risk Assessment</h4>
                                 <p>Comprehensive evaluation of your security posture and vulnerabilities.</p>
                             </div>
                             <div class="feature-card">
                                 <Sync color="var(--primary-color)" />
-                                <h3>Continuous Monitoring</h3>
+                                <h4>Continuous Monitoring</h4>
                                 <p>24/7 monitoring and threat detection to keep your systems secure.</p>
                             </div>
                             <div class="feature-card">
                                 <GraduationHat color="var(--primary-color)" />
-                                <h3>Security Training</h3>
+                                <h4>Security Training</h4>
                                 <p>Employee training programs to build a security-first culture.</p>
                             </div>
                         </div>

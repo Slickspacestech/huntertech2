@@ -6,9 +6,71 @@ import Handshake from '../components/icons/handshake2.astro';
 import Lightbulb from '../components/icons/lightbulb.astro';
 import Users from '../components/icons/users.astro';
 import Star from '../components/icons/star.astro';
+import Hero from '../components/Hero.astro';
+import SolutionsCTA from '../components/SolutionsCTA.astro';
+import SEO from '../components/SEO.astro';
+
+const title = "About Huntertech | IT Services & Technology Solutions in Calgary & Vancouver";
+const description = "Learn about Huntertech's mission to provide exceptional IT services and technology solutions. With over 15 years of experience, we help businesses in Calgary and Vancouver achieve their technology goals.";
+const keywords = [
+    "About Huntertech",
+    "IT services company",
+    "Technology solutions",
+    "IT consulting firm",
+    "Managed IT services",
+    "Business technology",
+    "IT company Calgary",
+    "IT company Vancouver"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Huntertech",
+    "url": "https://huntertech.ca",
+    "logo": "https://huntertech.ca/images/logo.webp",
+    "description": description,
+    "address": [
+        {
+            "@type": "PostalAddress",
+            "addressLocality": "Calgary",
+            "addressRegion": "AB",
+            "addressCountry": "CA"
+        },
+        {
+            "@type": "PostalAddress",
+            "addressLocality": "Vancouver",
+            "addressRegion": "BC",
+            "addressCountry": "CA"
+        }
+    ],
+    "contactPoint": [
+        {
+            "@type": "ContactPoint",
+            "telephone": "+1-403-555-0123",
+            "contactType": "customer service",
+            "areaServed": "CA",
+            "availableLanguage": ["English"]
+        }
+    ],
+    "sameAs": [
+        "https://www.linkedin.com/company/huntertech",
+        "https://www.facebook.com/huntertech",
+        "https://twitter.com/huntertech"
+    ]
+};
 ---
 
-<Layout title="About Us - Huntertech">
+<Layout title={title} description={description}>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <SEO 
+        title={title}
+        description={description}
+        canonicalURL="/about"
+        keywords={keywords}
+        type="website"
+        image="/images/about-bg.webp"
+    />
     <Header />
     <main>
         <section class="hero">

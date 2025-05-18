@@ -9,9 +9,69 @@ import Lock from '../../components/icons/lock.astro';
 import Tachometer from '../../components/icons/tachometer.astro';
 import Handshake from '../../components/icons/handshake2.astro';
 import Cogs from '../../components/icons/Cogs.astro';
+import SEO from '../../components/SEO.astro';
+
+const title = "Hybrid Workplace Solutions | Remote Work Technology Services in Calgary & Vancouver";
+const description = "Expert hybrid workplace solutions for businesses in Calgary and Vancouver. Enable seamless remote work with secure access, collaboration tools, and workflow automation.";
+const keywords = [
+    "Hybrid workplace solutions",
+    "Remote work technology",
+    "Virtual collaboration",
+    "Remote access",
+    "Team management",
+    "Workflow integration",
+    "Hybrid work Calgary",
+    "Hybrid work Vancouver"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Hybrid Workplace Solutions",
+    "provider": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "description": description,
+    "areaServed": [
+        {
+            "@type": "City",
+            "name": "Calgary",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "AB",
+                "addressCountry": "CA"
+            }
+        },
+        {
+            "@type": "City",
+            "name": "Vancouver",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "BC",
+                "addressCountry": "CA"
+            }
+        }
+    ],
+    "serviceType": ["Hybrid Workplace", "Remote Work", "Collaboration Tools"],
+    "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+    }
+};
 ---
 
-<Layout title="Hybrid Workplace - HunterTech">
+<Layout title={title} description={description}>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <SEO 
+        title={title}
+        description={description}
+        canonicalURL="/solutions/hybrid-workplace"
+        keywords={keywords}
+        type="website"
+        image="/images/hybrid-work-bg.webp"
+    />
     <Header />
     <main class="service-page">
         <Hero 
@@ -33,22 +93,18 @@ import Cogs from '../../components/icons/Cogs.astro';
                             <h3>Hybrid Work Solutions</h3>
                             <div class="services-grid">
                                 <ServiceCard 
-                                    icon="fa-video"
                                     title="Virtual Collaboration"
                                     description="Advanced video conferencing and team collaboration tools"
                                 />
                                 <ServiceCard 
-                                    icon="fa-mobile-alt"
                                     title="Remote Access"
                                     description="Secure remote access to company resources from any device"
                                 />
                                 <ServiceCard 
-                                    icon="fa-users"
                                     title="Team Management"
                                     description="Tools for managing and coordinating distributed teams"
                                 />
                                 <ServiceCard 
-                                    icon="fa-sync"
                                     title="Workflow Integration"
                                     description="Seamless integration between office and remote work"
                                 />
@@ -59,22 +115,22 @@ import Cogs from '../../components/icons/Cogs.astro';
                         <div class="features-grid">
                             <div class="feature-card">
                                 <Lock color="var(--primary-color)" />
-                                <h3>Secure Access</h3>
+                                <h4>Secure Access</h4>
                                 <p>Secure remote access to your business resources.</p>
                             </div>
                             <div class="feature-card">
                                 <Tachometer color="var(--primary-color)" />
-                                <h3>Performance Optimization</h3>
+                                <h4>Performance Optimization</h4>
                                 <p>Optimized solutions for seamless remote work.</p>
                             </div>
                             <div class="feature-card">
                                 <Handshake color="var(--primary-color)" />
-                                <h3>Collaboration Tools</h3>
+                                <h4>Collaboration Tools</h4>
                                 <p>Advanced tools for team collaboration.</p>
                             </div>
                             <div class="feature-card">
                                 <Cogs color="var(--primary-color)" />
-                                <h3>Workflow Automation</h3>
+                                <h4>Workflow Automation</h4>
                                 <p>Automated processes for increased efficiency.</p>
                             </div>
                         </div>
@@ -175,7 +231,7 @@ import Cogs from '../../components/icons/Cogs.astro';
         margin-bottom: 1rem;
     }
 
-    .feature-card h3 {
+    .feature-card h4 {
         color: var(--primary-color);
         margin-bottom: 0.5rem;
         font-size: 1.2rem;

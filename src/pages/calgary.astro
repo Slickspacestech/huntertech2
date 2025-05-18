@@ -16,27 +16,71 @@ import Handshake from '../components/icons/handshake.astro';
 import ChartLine from '../components/icons/chart-line.astro';
 import Hero from '../components/Hero.astro';
 import LocalPin from '../components/icons/local-pin.astro';
+import SolutionsCTA from '../components/SolutionsCTA.astro';
 
-const title = "IT Services Calgary | Managed IT Support & Cybersecurity Solutions";
-const description = "Expert IT services in Calgary. 24/7 managed IT support, cybersecurity solutions, and cloud services for businesses. Local IT experts serving Calgary and surrounding areas.";
+const title = "IT Services Calgary | Managed IT Support & Technology Solutions";
+const description = "Expert IT services in Calgary. Local managed IT support, cybersecurity, cloud services, and network solutions for businesses. Get reliable technology support from certified experts.";
+const keywords = [
+    "IT services Calgary",
+    "Managed IT support Calgary",
+    "IT support Calgary",
+    "Cybersecurity Calgary",
+    "Cloud services Calgary",
+    "Network solutions Calgary",
+    "IT consulting Calgary",
+    "Business IT support Calgary"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Huntertech Calgary",
+    "image": "https://huntertech.ca/images/calgary-office.webp",
+    "url": "https://huntertech.ca/calgary",
+    "telephone": "+1-403-555-0123",
+    "priceRange": "$$",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1234 17th Avenue SW",
+        "addressLocality": "Calgary",
+        "addressRegion": "AB",
+        "postalCode": "T2T 0B4",
+        "addressCountry": "CA"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 51.0447,
+        "longitude": -114.0719
+    },
+    "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "17:00"
+    },
+    "sameAs": [
+        "https://www.linkedin.com/company/huntertech",
+        "https://www.facebook.com/huntertech",
+        "https://twitter.com/huntertech"
+    ]
+};
 ---
 
-<Layout title={title}>
+<Layout title={title} description={description}>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <SEO 
         title={title}
         description={description}
         canonicalURL="/calgary"
-        location="Calgary"
-        keywords={[
-            "IT Services Calgary",
-            "Managed IT Services Calgary",
-            "IT Support Calgary",
-            "Cybersecurity Calgary",
-            "Cloud Services Calgary",
-            "Business IT Support Calgary",
-            "IT Consulting Calgary",
-            "Network Security Calgary"
-        ]}
+        keywords={keywords}
+        type="website"
+        image="/images/calgary-office.webp"
     />
     <Header />
     <main>
@@ -98,22 +142,22 @@ const description = "Expert IT services in Calgary. 24/7 managed IT support, cyb
                 <div class="services-grid">
                     <div class="service-card">
                         <Laptop color="var(--button-color)" />
-                        <h3>Managed IT Support</h3>
+                        <h4>Managed IT Support</h4>
                         <p>Friendly, local IT support and monitoring for Calgary businesses</p>
                     </div>
                     <div class="service-card">
                         <Shield color="var(--button-color)" />
-                        <h3>Cybersecurity Solutions</h3>
+                        <h4>Cybersecurity Solutions</h4>
                         <p>Advanced security solutions to protect your Calgary business</p>
                     </div>
                     <div class="service-card">
                         <Cloud2 color="var(--button-color)" />
-                        <h3>Cloud Services</h3>
+                        <h4>Cloud Services</h4>
                         <p>Secure and scalable cloud infrastructure for Calgary companies</p>
                     </div>
                     <div class="service-card">
                         <NetworkWired color="var(--button-color)" />
-                        <h3>Network Solutions</h3>
+                        <h4>Network Solutions</h4>
                         <p>Reliable and efficient network infrastructure in Calgary</p>
                     </div>
                 </div>
@@ -126,22 +170,22 @@ const description = "Expert IT services in Calgary. 24/7 managed IT support, cyb
                 <div class="benefits-grid">
                     <div class="benefit-card">
                         <LocalPin color="var(--button-color)" />
-                        <h3>Local, Friendly Support</h3>
+                        <h4>Local, Friendly Support</h4>
                         <p>Personal IT support from our Calgary-based team who knows your business</p>
                     </div>
                     <div class="benefit-card">
                         <Certificate color="var(--button-color)" />
-                        <h3>Certified Experts</h3>
+                        <h4>Certified Experts</h4>
                         <p>Highly qualified IT professionals serving Calgary businesses</p>
                     </div>
                     <div class="benefit-card">
                         <Handshake color="var(--button-color)" />
-                        <h3>Industry Specialties</h3>
+                        <h4>Industry Specialties</h4>
                         <p>We dont just support the IT stuff, we support the business.</p>
                     </div>
                     <div class="benefit-card">
                         <ChartLine color="var(--button-color)" />
-                        <h3>Proven Results</h3>
+                        <h4>Proven Results</h4>
                         <p>Track record of successful IT implementations in Calgary</p>
                     </div>
                 </div>
@@ -252,7 +296,7 @@ const description = "Expert IT services in Calgary. 24/7 managed IT support, cyb
         margin-bottom: 1rem;
     }
 
-    .service-card h3 {
+    .service-card h4 {
         margin-bottom: 1rem;
         color: var(--secondary-heading);
     }
@@ -293,7 +337,7 @@ const description = "Expert IT services in Calgary. 24/7 managed IT support, cyb
         margin-bottom: 1rem;
     }
 
-    .benefit-card h3 {
+    .benefit-card h4 {
         margin-bottom: 1rem;
         color: var(--secondary-heading);
     }

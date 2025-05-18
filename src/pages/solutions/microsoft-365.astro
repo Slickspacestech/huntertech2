@@ -15,9 +15,69 @@ import Shield from '../../components/icons/shield.astro';
 import Cogs from '../../components/icons/Cogs.astro';
 import Users from '../../components/icons/users.astro';
 import GraduationHat from '../../components/icons/graduation-hat.astro';
+import SEO from '../../components/SEO.astro';
+
+const title = "Microsoft 365 Solutions | Cloud Productivity Services in Calgary & Vancouver";
+const description = "Comprehensive Microsoft 365 solutions for businesses in Calgary and Vancouver. Enhance productivity with cloud-based collaboration, security, and business applications.";
+const keywords = [
+    "Microsoft 365",
+    "Office 365",
+    "Cloud productivity",
+    "Microsoft Teams",
+    "SharePoint Online",
+    "OneDrive for Business",
+    "Microsoft 365 Calgary",
+    "Microsoft 365 Vancouver"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Microsoft 365 Solutions",
+    "provider": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "description": description,
+    "areaServed": [
+        {
+            "@type": "City",
+            "name": "Calgary",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "AB",
+                "addressCountry": "CA"
+            }
+        },
+        {
+            "@type": "City",
+            "name": "Vancouver",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "BC",
+                "addressCountry": "CA"
+            }
+        }
+    ],
+    "serviceType": ["Microsoft 365", "Cloud Productivity", "Business Applications"],
+    "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+    }
+};
 ---
 
-<Layout title="Microsoft 365 - HunterTech">
+<Layout title={title} description={description}>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <SEO 
+        title={title}
+        description={description}
+        canonicalURL="/solutions/microsoft-365"
+        keywords={keywords}
+        type="website"
+        image="/images/microsoft-365-bg.webp"
+    />
     <Header />
     <main class="service-page">
         <Hero 
@@ -39,22 +99,18 @@ import GraduationHat from '../../components/icons/graduation-hat.astro';
                             <h3>Our Microsoft 365 Services</h3>
                             <div class="services-grid">
                                 <ServiceCard 
-                                    icon={Cogs}
                                     title="Implementation & Setup"
                                     description="Seamless migration and configuration of Microsoft 365 services"
                                 />
                                 <ServiceCard 
-                                    icon={Users}
                                     title="User Management"
                                     description="Comprehensive user setup, licensing, and access control"
                                 />
                                 <ServiceCard 
-                                    icon={Shield}
                                     title="Security & Compliance"
                                     description="Advanced security features and compliance management"
                                 />
                                 <ServiceCard 
-                                    icon={GraduationHat}
                                     title="Training & Support"
                                     description="User training and ongoing technical support"
                                 />

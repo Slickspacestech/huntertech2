@@ -9,6 +9,7 @@ import Clock from '../../components/icons/clock.astro';
 import Certificate from '../../components/icons/certificate.astro';
 import ChartLine from '../../components/icons/chart-line.astro';
 import Handshake from '../../components/icons/handshake2.astro';
+import Lock from '@/components/icons/lock.astro';
 ---
 
 <Layout title="IT Support - HunterTech">
@@ -33,32 +34,26 @@ import Handshake from '../../components/icons/handshake2.astro';
                             <h3>What We Offer</h3>
                             <div class="services-grid">
                                 <ServiceCard 
-                                    icon="fa-headset"
                                     title="Local Help Desk Support"
                                     description="We don't offshore our helpdesk, which means you are talking to the same friendly knowledgable team every day, just like you had hired in house."
                                 />
                                 <ServiceCard 
-                                    icon="fa-tools"
                                     title="Proactive Maintenance"
                                     description="Regular system checks and updates to prevent issues"
                                 />
                                 <ServiceCard 
-                                    icon="fa-cloud"
                                     title="Cloud Services Support"
                                     description="Expert assistance with cloud infrastructure and applications"
                                 />
                                 <ServiceCard 
-                                    icon="fa-laptop"
                                     title="Hardware Support"
                                     description="Comprehensive support for all your business hardware"
                                 />
                                 <ServiceCard 
-                                    icon="fa-solid fa-window-maximize"
                                     title="Software Support"
                                     description="Comprehensive support for all your business software and licensing"
                                 />
                                 <ServiceCard 
-                                    icon="fa-shopping-cart"
                                     title="IT Procurement"
                                     description="Whether it's hardware, software, subscription, cloud we can help you purchase your next IT investment"
                                 />
@@ -68,23 +63,23 @@ import Handshake from '../../components/icons/handshake2.astro';
                         <h3>Why Choose Our IT Support?</h3>
                         <div class="features-grid">
                             <div class="feature-card">
-                                <Clock color="var(--primary-color)" />
-                                <h3>24/7 Support</h3>
-                                <p>Round-the-clock technical support for your business needs.</p>
+                                <Lock color="var(--primary-color)" />
+                                <h4>Security Conscious</h4>
+                                <p>Good security is everyone's responsibility.  We will always ensure your data our admin accounts are protected.  We don't re-use passwords ensuring that password leaks don't impact your business</p>
                             </div>
                             <div class="feature-card">
                                 <Certificate color="var(--primary-color)" />
-                                <h3>Certified Experts</h3>
-                                <p>Highly qualified IT professionals at your service.</p>
+                                <h4>Certified Experts</h4>
+                                <p>Highly qualified IT professionals at your service.  Continuous learning ensures we are keeping up to date on emerging trends.</p>
                             </div>
                             <div class="feature-card">
                                 <ChartLine color="var(--primary-color)" />
-                                <h3>Performance Monitoring</h3>
-                                <p>Proactive monitoring to prevent issues before they occur.</p>
+                                <h4>Systems Monitoring</h4>
+                                <p>Proactive monitoring help us quickly identify and resolve issues before they impact your business.</p>
                             </div>
                             <div class="feature-card">
                                 <Handshake color="var(--primary-color)" />
-                                <h3>Dedicated Support</h3>
+                                <h4>Dedicated Support</h4>
                                 <p>Personalized attention and reliable service delivery.</p>
                             </div>
                         </div>
@@ -164,6 +159,12 @@ import Handshake from '../../components/icons/handshake2.astro';
     }
 
     .feature-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .feature-card h4 {
         color: var(--primary-color);
         margin-bottom: 0.5rem;
         font-size: 1.2rem;

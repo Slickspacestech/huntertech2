@@ -1,6 +1,6 @@
 ---
 interface Props {
-    icon: any;
+    icon?: any;
     title: string;
     description: string;
 }
@@ -9,9 +9,11 @@ const { icon: Icon, title, description } = Astro.props;
 ---
 
 <div class="service-card">
-    <div class="custom-icon">
-        <Icon color="var(--primary-color)" />
-    </div>
+    {Icon && (
+        <div class="custom-icon">
+            <Icon color="var(--primary-color)" />
+        </div>
+    )}
     <div class="service-content">
         <h4>{title}</h4>
         <p>{description}</p>
@@ -41,6 +43,10 @@ const { icon: Icon, title, description } = Astro.props;
     .service-card .custom-icon svg {
         width: 1.5rem;
         height: 1.5rem;
+    }
+
+    .service-content {
+        flex: 1;
     }
 
     .service-content h4 {
