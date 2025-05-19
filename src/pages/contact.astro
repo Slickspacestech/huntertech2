@@ -22,9 +22,60 @@ const keywords = [
     "IT Services email",
     "IT Services address"
 ];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Huntertech",
+    "url": "https://huntertech.ca",
+    "logo": "https://huntertech.ca/images/logo.webp",
+    "description": description,
+    "areaServed": [
+        {
+            "@type": "City",
+            "name": "Calgary",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "AB",
+                "addressCountry": "CA"
+            }
+        },
+        {
+            "@type": "City",
+            "name": "Vancouver",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "BC",
+                "addressCountry": "CA"
+            }
+        }
+    ],
+    "contactPoint": [
+        {
+            "@type": "ContactPoint",
+            "telephone": "+1-825-415-6990",
+            "contactType": "customer service",
+            "areaServed": "CA-AB",
+            "availableLanguage": ["English"]
+        },
+        {
+            "@type": "ContactPoint",
+            "telephone": "+1-778-819-7411",
+            "contactType": "customer service",
+            "areaServed": "CA-BC",
+            "availableLanguage": ["English"]
+        }
+    ],
+    "sameAs": [
+        "https://www.linkedin.com/company/huntertech",
+        "https://www.facebook.com/huntertech",
+        "https://twitter.com/huntertech"
+    ]
+};
 ---
 
 <Layout title={title} description={description}>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <SEO 
         title={title}
         description={description}
@@ -43,15 +94,22 @@ const keywords = [
                         <div class="info-item">
                             <MapPin color="var(--primary-color)" />
                             <div>
-                                <h3>Address</h3>
-                                <p>123 Business Street<br>Calgary, AB T2P 1J9</p>
+                                <h3>Service Areas</h3>
+                                <p>Calgary, AB<br>Vancouver, BC</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <Phone color="var(--primary-color)" />
                             <div>
-                                <h3>Phone</h3>
-                                <p><a href="tel:+14035551234">(403) 555-1234</a></p>
+                                <h3>Calgary Phone</h3>
+                                <p><a href="tel:+18254156990">(825) 415-6990</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <Phone color="var(--primary-color)" />
+                            <div>
+                                <h3>Vancouver Phone</h3>
+                                <p><a href="tel:+17788197411">(778) 819-7411</a></p>
                             </div>
                         </div>
                         <div class="info-item">

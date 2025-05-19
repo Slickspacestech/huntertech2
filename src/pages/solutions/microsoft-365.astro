@@ -16,6 +16,8 @@ import Cogs from '../../components/icons/Cogs.astro';
 import Users from '../../components/icons/users.astro';
 import GraduationHat from '../../components/icons/graduation-hat.astro';
 import SEO from '../../components/SEO.astro';
+import { Image } from 'astro:assets';
+import m365Hero from '../../assets/images/m365.webp';
 
 const title = "Microsoft 365 Solutions | Cloud Productivity Services in Calgary & Vancouver";
 const description = "Comprehensive Microsoft 365 solutions for businesses in Calgary and Vancouver. Enhance productivity with cloud-based collaboration, security, and business applications. Our expert team provides setup, migration, and ongoing support to maximize your Microsoft 365 investment.";
@@ -37,7 +39,43 @@ const structuredData = {
     "provider": {
         "@type": "Organization",
         "name": "Huntertech",
-        "url": "https://huntertech.ca"
+        "url": "https://huntertech.ca",
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Calgary",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressRegion": "AB",
+                    "addressCountry": "CA"
+                }
+            },
+            {
+                "@type": "City",
+                "name": "Vancouver",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressRegion": "BC",
+                    "addressCountry": "CA"
+                }
+            }
+        ],
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "telephone": "+1-825-415-6990",
+                "contactType": "customer service",
+                "areaServed": "CA-AB",
+                "availableLanguage": ["English"]
+            },
+            {
+                "@type": "ContactPoint",
+                "telephone": "+1-778-819-7411",
+                "contactType": "customer service",
+                "areaServed": "CA-BC",
+                "availableLanguage": ["English"]
+            }
+        ]
     },
     "description": description,
     "areaServed": [
@@ -75,14 +113,15 @@ const structuredData = {
         canonicalURL="https://huntertech.ca/solutions/microsoft-365"
         keywords={keywords}
         type="website"
-        image="/images/microsoft-365.webp"
+        image={m365Hero.src}
     />
     <Header />
     <main class="service-page">
         <Hero 
             title="Microsoft 365"
             subtitle="Empower your business with Microsoft 365's comprehensive suite of productivity tools"
-            backgroundImage="/images/m365.webp"
+            backgroundImage={m365Hero}
+            backgroundImageAlt="Microsoft 365 productivity tools"
             ctaText="Get Started"
             ctaLink="/contact"
         />

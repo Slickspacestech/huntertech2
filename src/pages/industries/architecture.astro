@@ -9,6 +9,9 @@ import Rocket from '../../components/icons/rocket.astro';
 import Users from '../../components/icons/users.astro';
 import Hero from '../../components/Hero.astro';
 import SEO from '../../components/SEO.astro';
+import { Image } from 'astro:assets';
+import architectHero from '../../assets/images/architect_engineer_tech.webp';
+import videoCover from '../../assets/images/Huntertech-video-cover.webp';
 
 const title = "IT Services for Architecture Firms | Professional Design Technology Solutions - HunterTech";
 const description = "Specialized IT services for architecture firms in Calgary and Vancouver. Revit support, training, BIM Management, and managed IT services. Get reliable technology solutions from certified experts who understand the unique needs of architecture professionals.";
@@ -33,7 +36,43 @@ const structuredData = {
     "provider": {
         "@type": "Organization",
         "name": "Huntertech",
-        "url": "https://huntertech.ca"
+        "url": "https://huntertech.ca",
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Calgary",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressRegion": "AB",
+                    "addressCountry": "CA"
+                }
+            },
+            {
+                "@type": "City",
+                "name": "Vancouver",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressRegion": "BC",
+                    "addressCountry": "CA"
+                }
+            }
+        ],
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "telephone": "+1-825-415-6990",
+                "contactType": "customer service",
+                "areaServed": "CA-AB",
+                "availableLanguage": ["English"]
+            },
+            {
+                "@type": "ContactPoint",
+                "telephone": "+1-778-819-7411",
+                "contactType": "customer service",
+                "areaServed": "CA-BC",
+                "availableLanguage": ["English"]
+            }
+        ]
     },
     "areaServed": [
         {
@@ -99,7 +138,7 @@ const structuredData = {
         canonicalURL="https://huntertech.ca/industries/architecture"
         keywords={keywords}
         type="website"
-        image="/images/architect_engineer_tech.avif"
+        image={architectHero.src}
     />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <Header />
@@ -107,7 +146,8 @@ const structuredData = {
         <Hero 
             title="IT Services for Architecture Firms"
             subtitle="Specialized technology solutions for architecture professionals"
-            backgroundImage="/images/architect_engineer_tech.avif"
+            backgroundImage={architectHero}
+            backgroundImageAlt="Architect and engineer working with technology"
             ctaText="Get a Free Assessment"
             ctaLink="/contact"
         />
@@ -183,7 +223,7 @@ const structuredData = {
                     <video 
                         controls
                         preload="metadata"
-                        poster="/images/Huntertech-video-cover.webp"
+                        poster={videoCover.src}
                         class="featured-video"
                         title="Huntertech IT Solutions for Architecture Firms"
                         aria-label="Video showcasing Huntertech's IT solutions for architecture firms"

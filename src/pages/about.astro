@@ -33,26 +33,39 @@ const structuredData = {
     "url": "https://huntertech.ca",
     "logo": "https://huntertech.ca/images/logo.webp",
     "description": description,
-    "address": [
+    "areaServed": [
         {
-            "@type": "PostalAddress",
-            "addressLocality": "Calgary",
-            "addressRegion": "AB",
-            "addressCountry": "CA"
+            "@type": "City",
+            "name": "Calgary",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "AB",
+                "addressCountry": "CA"
+            }
         },
         {
-            "@type": "PostalAddress",
-            "addressLocality": "Vancouver",
-            "addressRegion": "BC",
-            "addressCountry": "CA"
+            "@type": "City",
+            "name": "Vancouver",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "BC",
+                "addressCountry": "CA"
+            }
         }
     ],
     "contactPoint": [
         {
             "@type": "ContactPoint",
-            "telephone": "+1-403-555-0123",
+            "telephone": "+1-825-415-6990",
             "contactType": "customer service",
-            "areaServed": "CA",
+            "areaServed": "CA-AB",
+            "availableLanguage": ["English"]
+        },
+        {
+            "@type": "ContactPoint",
+            "telephone": "+1-778-819-7411",
+            "contactType": "customer service",
+            "areaServed": "CA-BC",
             "availableLanguage": ["English"]
         }
     ],

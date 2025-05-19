@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const imagesDir = path.join(__dirname, 'public', 'images');
+const imagesDir = path.join(__dirname, 'src', 'assets', 'images');
 
 // Convert m365.png to WebP
 async function convertM365ToWebP() {
@@ -102,7 +102,7 @@ async function convertCybersecurityToAvif() {
 
 // Convert specific images to WebP
 async function convertSpecificImages() {
-    const imagesToConvert = ['buildex-huntertech.jpg', 'handshake.jpg'];
+    const imagesToConvert = ['buildex-huntertech.jpg', 'handshake.jpg', 'pontem-case-study.png'];
     
     for (const image of imagesToConvert) {
         const inputPath = path.join(imagesDir, image);
@@ -177,6 +177,47 @@ async function runAllConversions() {
     await convertCybersecurityToAvif();
     await convertSpecificImages();
     await convertBackgroundImages();
+}
+
+// Utility to convert a single image to WebP
+async function convertSingleImage(imagePath) {
+    try {
+        if (!fs.existsSync(imagePath)) {
+            console.error(`File not found: ${imagePath}`);
+            process.exit(1);
+        }
+        const ext = path.extname(imagePath).toLowerCase();
+        if (!['.jpg', '.jpeg', '.png'].includes(ext)) {
+            console.error('Only .jpg, .jpeg, and .png files are supported.');
+            process.exit(1);
+        }
+        const outputPath = path.join(path.dirname(imagePath), `${path.parse(imagePath).name}.webp`);
+        console.log(`Converting ${imagePath} to WebP...`);
+        
+        await sharp(imagePath)
+            .webp({ quality: 80, effort: 6, lossless: false })
+            .toFile(outputPath);
+        
+        const stats = fs.statSync(outputPath);
+        if (stats.size === 0) {
+            console.error('Output file is 0 bytes!');
+            process.exit(1);
+        }
+        console.log(`Successfully converted to ${outputPath} (${stats.size} bytes)`);
+    } catch (error) {
+        console.error('Error converting image:', error.message);
+        process.exit(1);
+    }
+}
+
+// Entry point
+const userArg = process.argv[2];
+if (userArg) {
+    // If a path is provided, convert just that image
+    convertSingleImage(path.resolve(userArg));
+} else {
+    console.log('Usage: node convert-images.js <image-path>');
+    process.exit(0);
 }
 
 // Run the conversion

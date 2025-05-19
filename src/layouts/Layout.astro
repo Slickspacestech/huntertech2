@@ -63,26 +63,40 @@ import Favicons from '../components/Favicons.astro';
             "url": "https://www.huntertech.ca",
             "logo": "https://www.huntertech.ca/images/logo.png",
             "description": "Professional IT solutions and Revit management services for businesses in Calgary and Vancouver",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "4121 23b St NE",
-                "addressLocality": "Calgary",
-                "addressRegion": "AB",
-                "postalCode": "T2E 7V9",
-                "addressCountry": "CA"
-            },
+            "areaServed": [
+                {
+                    "@type": "City",
+                    "name": "Calgary",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressRegion": "AB",
+                        "addressCountry": "CA"
+                    }
+                },
+                {
+                    "@type": "City",
+                    "name": "Vancouver",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressRegion": "BC",
+                        "addressCountry": "CA"
+                    }
+                }
+            ],
             "contactPoint": [
                 {
                     "@type": "ContactPoint",
                     "telephone": "+1-825-415-6990",
                     "contactType": "customer service",
-                    "areaServed": "Calgary"
+                    "areaServed": "CA-AB",
+                    "availableLanguage": ["English"]
                 },
                 {
                     "@type": "ContactPoint",
                     "telephone": "+1-778-819-7411",
                     "contactType": "customer service",
-                    "areaServed": "Vancouver"
+                    "areaServed": "CA-BC",
+                    "availableLanguage": ["English"]
                 }
             ],
             "sameAs": [
@@ -93,24 +107,30 @@ import Favicons from '../components/Favicons.astro';
         
         <script type="application/ld+json" set:html={JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "LocalBusiness",
+            "@type": "Service",
             "name": "Huntertech",
             "image": "https://www.huntertech.ca/images/huntertech_logo.png",
             "priceRange": "$$",
-            "telephone": "+1-825-415-6990",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "4121 23b St NE",
-                "addressLocality": "Calgary",
-                "addressRegion": "AB",
-                "postalCode": "T2E 7V9",
-                "addressCountry": "CA"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": "51.0935",
-                "longitude": "-113.9783"
-            },
+            "areaServed": [
+                {
+                    "@type": "City",
+                    "name": "Calgary",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressRegion": "AB",
+                        "addressCountry": "CA"
+                    }
+                },
+                {
+                    "@type": "City",
+                    "name": "Vancouver",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressRegion": "BC",
+                        "addressCountry": "CA"
+                    }
+                }
+            ],
             "openingHoursSpecification": {
                 "@type": "OpeningHoursSpecification",
                 "dayOfWeek": [
@@ -120,7 +140,7 @@ import Favicons from '../components/Favicons.astro';
                     "Thursday",
                     "Friday"
                 ],
-                "opens": "08:30",
+                "opens": "08:00",
                 "closes": "17:00"
             }
         })} />

@@ -1,10 +1,22 @@
+import type { ImageMetadata } from 'astro';
+import pontemCaseStudyImg from '../assets/images/blog/pontem-case-study.webp';
+import phishingAttacksImg from '../assets/images/blog/phishing-attacks.webp';
+import passwordManagerImg from '../assets/images/blog/password-manager.webp';
+import cybersecurityImg from '../assets/images/blog/cybersecurity.webp';
+import adminRightsImg from '../assets/images/blog/admin-rights.webp';
+import scanToEmailImg from '../assets/images/blog/scan-to-email.webp';
+import emailVerificationImg from '../assets/images/blog/email-verification.webp';
+import itServicesGuideImg from '../assets/images/blog/AdobeStock_535677380.webp';
+import revitBimBenefitsImg from '../assets/images/blog/cybersecurity2.webp';
+import inHouseVsOutsourcedImg from '../assets/images/blog/in-house-vs-outsourced.webp';
+
 export interface BlogPost {
     slug: string;
     title: string;
     date: string;
     author: string;
     category: string;
-    image: string;
+    image: ImageMetadata;
     content: string;
     tags: string[];
 }
@@ -16,7 +28,7 @@ export const posts: BlogPost[] = [
         date: "2025-03-10",
         author: "John Smith",
         category: "Cybersecurity",
-        image: "/images/blog/phishing-attacks.jpg",
+        image: phishingAttacksImg,
         content: `
             <p>Learn about the increasing threat of phishing attacks in Canada and how to protect your business from cyber fraud.</p>
         `,
@@ -28,7 +40,7 @@ export const posts: BlogPost[] = [
         date: "2025-03-21",
         author: "John Smith",
         category: "Cybersecurity",
-        image: "/images/blog/password-manager.jpg",
+        image: passwordManagerImg,
         content: `
             <p>Learn why password managers are essential for business security and what features to look for when choosing one.</p>
         `,
@@ -40,7 +52,7 @@ export const posts: BlogPost[] = [
         date: "2025-03-20",
         author: "John Smith",
         category: "Cybersecurity",
-        image: "/images/blog/cybersecurity.jpg",
+        image: cybersecurityImg,
         content: `
             <p>Learn how to protect your small business from cyber threats with expert advice and practical tips.</p>
         `,
@@ -52,7 +64,7 @@ export const posts: BlogPost[] = [
         date: "2025-09-12",
         author: "John Smith",
         category: "IT Support",
-        image: "/images/blog/admin-rights.jpg",
+        image: adminRightsImg,
         content: `
             <p>Learn about the implications of granting administrative rights to employees and how to implement proper access controls in your business.</p>
         `,
@@ -64,7 +76,7 @@ export const posts: BlogPost[] = [
         date: "2025-08-16",
         author: "John Smith",
         category: "IT Support",
-        image: "/images/blog/scan-to-email.jpg",
+        image: scanToEmailImg,
         content: `
             <p>Learn how to set up scan-to-email functionality on your office printer using Microsoft 365 or Google Workspace. A simple 5-minute guide.</p>
         `,
@@ -76,7 +88,7 @@ export const posts: BlogPost[] = [
         date: "2025-07-29",
         author: "John Smith",
         category: "IT Support",
-        image: "/images/blog/email-verification.jpg",
+        image: emailVerificationImg,
         content: `
             <p>Learn how to fix unverified email issues and properly set up DMARC, DKIM, and SPF records for your business email system.</p>
         `,
@@ -84,87 +96,23 @@ export const posts: BlogPost[] = [
     },
     {
         slug: 'it-services-calgary-vancouver',
-        title: 'Top IT Service Providers in Calgary & Vancouver: A Complete Guide for Businesses 2025',
+        title: 'IT Service Providers in Calgary & Vancouver: A Guide for Businesses 2025',
         date: '2025-03-20',
         author: 'Huntertech Team',
         category: 'IT Services',
-        image: '/images/blog/it-services-guide.jpg',
+        image: itServicesGuideImg,
         content: `
-            <p>As businesses in Calgary and Vancouver continue to embrace digital transformation, finding the right IT service provider has become crucial for success. In this comprehensive guide, we'll explore what makes a great IT service provider and how to choose the right partner for your business needs.</p>
-
-            <h2>Why Local IT Support Matters in Calgary and Vancouver</h2>
-            <p>When it comes to IT services, having a local provider in Calgary or Vancouver offers significant advantages:</p>
-            <ul>
-                <li>Faster response times for on-site support</li>
-                <li>Better understanding of local business regulations and compliance requirements</li>
-                <li>Face-to-face meetings and personalized service</li>
-                <li>Knowledge of local infrastructure and connectivity options</li>
-            </ul>
-
-            <h2>Essential IT Services Every Business Needs</h2>
-            <p>Whether you're in Calgary's booming energy sector or Vancouver's diverse business landscape, these core IT services are essential:</p>
-            <ul>
-                <li><strong>Managed IT Services:</strong> Proactive monitoring and maintenance of your IT infrastructure</li>
-                <li><strong>24/7 Help Desk Support:</strong> Round-the-clock technical assistance for your team</li>
-                <li><strong>Network Security:</strong> Protection against cyber threats and data breaches</li>
-                <li><strong>Cloud Solutions:</strong> Scalable and secure cloud infrastructure</li>
-                <li><strong>Business Continuity:</strong> Disaster recovery and backup solutions</li>
-            </ul>
-
-            <h2>What to Look for in an IT Service Provider</h2>
-            <p>When choosing an IT service provider in Calgary or Vancouver, consider these key factors:</p>
-            <ul>
-                <li><strong>Local Presence:</strong> Physical office and support team in your city</li>
-                <li><strong>Industry Experience:</strong> Track record in your specific sector</li>
-                <li><strong>Service Level Agreements:</strong> Clear response times and resolution guarantees</li>
-                <li><strong>Certifications:</strong> Industry-recognized qualifications and partnerships</li>
-                <li><strong>Scalability:</strong> Ability to grow with your business</li>
-            </ul>
-
-            <h2>IT Support Trends in Calgary and Vancouver</h2>
-            <p>Stay ahead of the curve with these emerging IT support trends in Western Canada:</p>
-            <ul>
-                <li>Hybrid work environment support</li>
-                <li>AI-powered IT service management</li>
-                <li>Enhanced cybersecurity measures</li>
-                <li>Cloud-first strategies</li>
-                <li>Green IT initiatives</li>
-            </ul>
-
-            <h2>Cost Considerations for IT Services</h2>
-            <p>Understanding the cost structure of IT services in Calgary and Vancouver:</p>
-            <ul>
-                <li>Per-user pricing models</li>
-                <li>Fixed-fee vs. time-and-materials billing</li>
-                <li>ROI of managed IT services</li>
-                <li>Hidden costs to watch out for</li>
-            </ul>
-
-            <h2>Making the Right Choice for Your Business</h2>
-            <p>Choosing the right IT service provider is a critical decision for your business. Consider your specific needs, budget, and growth plans when making your selection. A good IT partner should not only solve your current IT challenges but also help you prepare for future technological needs.</p>
-
-            <h2>Why Choose Huntertech for IT Services in Calgary and Vancouver</h2>
-            <p>As a leading IT service provider in both Calgary and Vancouver, we offer:</p>
-            <ul>
-                <li>Local presence in both cities with dedicated support teams</li>
-                <li>24/7 help desk support with guaranteed response times</li>
-                <li>Comprehensive managed IT services tailored to your business</li>
-                <li>Proactive monitoring and maintenance</li>
-                <li>Expert cybersecurity solutions</li>
-                <li>Scalable cloud services</li>
-            </ul>
-
-            <p>Contact us today to learn how our IT services can help your business thrive in Calgary or Vancouver's competitive market.</p>
+            <p>As businesses in Calgary and Vancouver continue to embrace digital transformation, finding the right IT service provider has become crucial for success. In this guide, we'll explore what makes a great IT service provider and how to choose the right partner for your business needs.</p>
         `,
-        tags: []
+        tags: ['IT strategy', 'IT outsourcing', 'managed IT services', 'small business IT', 'IT management', 'IT support', 'business technology']
     },
     {
         slug: 'pontem-group-case-study',
-        title: "Case Study: How Pontem Group Transformed Their IT Infrastructure and Saved $50,000 Annually",
+        title: "Case Study: How Pontem Group Transformed Their IT Infrastructure and Saved 3000 hours Annually",
         date: "2025-04-20",
         author: "Huntertech Team",
         category: "Case Studies",
-        image: "/images/blog/pontem-case-study.jpg",
+        image: pontemCaseStudyImg,
         content: `<p>Pontem Group, a leading fire suppression and CP code consulting firm in Calgary, faced significant IT challenges before partnering with Huntertech. With 20 staff members and four principals managing IT responsibilities, their technology infrastructure was becoming a liability rather than an asset. Here's how we helped them transform their IT operations and achieve substantial cost savings.</p>`,
         tags: []
     },
@@ -173,7 +121,7 @@ export const posts: BlogPost[] = [
         slug: "revit-bim-benefits",
         date: "2024-03-20",
         category: "Revit & BIM",
-        image: "/images/blog/revit-bim-benefits.jpg",
+        image: revitBimBenefitsImg,
         content: "In today's rapidly evolving construction industry, Building Information Modeling (BIM) and Revit have become indispensable tools for architects and project managers. These technologies are not just changing how we design buildings—they're revolutionizing the entire construction process, from initial concept to final delivery.",
         author: "Huntertech Team",
         tags: ["Revit", "BIM", "Architecture", "Construction", "Project Management"]
@@ -184,7 +132,7 @@ export const posts: BlogPost[] = [
         date: '2024-03-25',
         author: 'Huntertech Team',
         category: 'IT Services',
-        image: '/images/blog/in-house-vs-outsourced.webp',
+        image: inHouseVsOutsourcedImg,
         content: "Making the right choice between building an in-house IT team and outsourcing is crucial for business success. This guide explores the pros and cons of each approach, from the benefits of dedicated IT staff to the risks of having non-technical employees handle IT responsibilities. Learn how to make an informed decision that aligns with your business goals and budget.",
         tags: ['IT strategy', 'in-house IT team', 'IT outsourcing', 'managed IT services', 'small business IT', 'IT management', 'IT support', 'business technology']
     }
