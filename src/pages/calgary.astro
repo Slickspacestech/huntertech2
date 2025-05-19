@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -17,6 +18,7 @@ import ChartLine from '../components/icons/chart-line.astro';
 import Hero from '../components/Hero.astro';
 import LocalPin from '../components/icons/local-pin.astro';
 import SolutionsCTA from '../components/SolutionsCTA.astro';
+import calgaryBg from '../assets/images/calgary-bg.webp';
 
 const title = "IT Services Calgary | Professional Managed IT Support & Technology Solutions";
 const description = "Expert IT services in Calgary. Local managed IT support, cybersecurity, cloud services, and network solutions for businesses. Get reliable technology support from certified experts who understand Calgary's unique business environment and technology needs.";
@@ -80,14 +82,15 @@ const structuredData = {
         canonicalURL="/calgary"
         keywords={keywords}
         type="website"
-        image="/images/calgary-office.webp"
+        image={calgaryBg.src}
     />
     <Header />
     <main>
         <Hero 
             title="Calgary IT Services"
             subtitle="Expert IT solutions for businesses in Calgary"
-            backgroundImage="/images/calgary-bg.webp"
+            backgroundImage={calgaryBg}
+            backgroundImageAlt="Calgary cityscape with mountains"
             ctaText="Get Started"
             ctaLink="/contact"
         />

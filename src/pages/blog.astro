@@ -1,10 +1,13 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
+import HeroBlog from '../components/HeroBlog.astro';
 import { posts } from '../data/blog-posts';
 import { formatDate } from '../utils/date';
+import blogHero from '../assets/images/Huntertech-video-cover.webp';
 
 const title = "IT Services Blog | Expert IT Insights for Calgary and Vancouver Businesses";
 const description = "Stay informed with the latest IT insights, cybersecurity tips, and technology trends for businesses in Calgary and Vancouver. Expert advice from your local IT service provider.";
@@ -25,16 +28,17 @@ const description = "Stay informed with the latest IT insights, cybersecurity ti
             "Small business IT tips",
             "Technology trends"
         ]}
+        type="website"
+        image={blogHero.src}
     />
     <Header />
     <main>
-        <section class="hero">
-            <div class="hero-overlay"></div>
-            <div class="container">
-                <h1>Tech Tips</h1>
-                <p class="subtitle">Expert insights and tips for your business technology needs</p>
-            </div>
-        </section>
+        <HeroBlog 
+            title="Tech Tips"
+            subtitle="Expert insights and tips for your business technology needs"
+            backgroundImage={blogHero}
+            backgroundImageAlt="Huntertech blog header image"
+        />
 
         <section class="blog-posts">
             <div class="container">
@@ -42,7 +46,13 @@ const description = "Stay informed with the latest IT insights, cybersecurity ti
                     {posts.map(post => (
                         <article class="post-card">
                             <div class="post-image">
-                                <img src={post.image.replace(/\.(jpg|jpeg)$/i, '.webp')} alt={post.title} />
+                                <Image 
+                                    src={post.image.replace(/\.(jpg|jpeg)$/i, '.webp')}
+                                    alt={post.title}
+                                    width={600}
+                                    height={400}
+                                    class="post-img"
+                                />
                             </div>
                             <div class="post-content">
                                 <h2>{post.title}</h2>
@@ -63,10 +73,6 @@ const description = "Stay informed with the latest IT insights, cybersecurity ti
 </Layout>
 
 <style>
-    .hero {
-        background: linear-gradient(45deg, rgba(44,62,80,0.8), rgba(52,152,219,0.7)), url('/images/blog-bg.webp');
-    }
-
     .blog-posts {
         padding: 4rem 0;
     }
@@ -95,7 +101,7 @@ const description = "Stay informed with the latest IT insights, cybersecurity ti
         overflow: hidden;
     }
 
-    .post-image img {
+    .post-img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -151,14 +157,6 @@ const description = "Stay informed with the latest IT insights, cybersecurity ti
     }
 
     @media (max-width: 768px) {
-        .blog-hero {
-            padding: 3rem 0;
-        }
-
-        .blog-hero h1 {
-            font-size: 2rem;
-        }
-
         .posts-grid {
             grid-template-columns: 1fr;
         }

@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -9,6 +10,8 @@ import Star from '../components/icons/star.astro';
 import Hero from '../components/Hero.astro';
 import SolutionsCTA from '../components/SolutionsCTA.astro';
 import SEO from '../components/SEO.astro';
+import aboutBg from '../assets/images/about-bg.webp';
+import buildexHero from '../assets/images/buildex-huntertech.webp';
 
 const title = "About Huntertech | IT Services & Technology Solutions in Calgary & Vancouver";
 const description = "Learn about Huntertech's mission to provide exceptional IT services and technology solutions. With over 15 years of experience, we help businesses in Calgary and Vancouver achieve their technology goals.";
@@ -69,16 +72,18 @@ const structuredData = {
         canonicalURL="/about"
         keywords={keywords}
         type="website"
-        image="/images/about-bg.webp"
+        image={aboutBg.src}
     />
     <Header />
     <main>
-        <section class="hero">
-            <div class="container">
-                <h1>About Huntertech</h1>
-                <p>Your trusted partner in technology solutions</p>
-            </div>
-        </section>
+        <Hero 
+            title="About Huntertech"
+            subtitle="Your trusted partner in technology solutions"
+            backgroundImage={buildexHero}
+            backgroundImageAlt="Huntertech team at Buildex"
+            ctaText="Contact Us"
+            ctaLink="/contact"
+        />
 
         <section class="overview">
             <div class="container">
@@ -157,13 +162,6 @@ const structuredData = {
 </Layout>
 
 <style>
-    .hero {
-        background: var(--primary-color);
-        color: var(--white);
-        padding: 4rem 0;
-        text-align: center;
-    }
-
     .overview, .mission, .team {
         padding: 4rem 0;
     }
@@ -353,10 +351,6 @@ const structuredData = {
     }
 
     @media (max-width: 768px) {
-        .hero h1 {
-            font-size: 2rem;
-        }
-
         .stats-grid {
             grid-template-columns: 1fr 1fr;
         }

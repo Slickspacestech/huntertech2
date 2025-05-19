@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import { formatDate } from '../../utils/date';
 import CTABox from '../../components/CTABox.astro';
@@ -50,7 +51,15 @@ const structuredData = {
     <Header />
     
     <main class="blog-post">
-        <div class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/blog/it-services-guide.webp');">
+        <div class="hero">
+            <div class="hero-overlay"></div>
+            <Image 
+                src="/images/blog/it-services-guide.webp"
+                alt="IT Services Guide"
+                width={1920}
+                height={1080}
+                class="hero-image"
+            />
             <div class="container">
                 <div class="meta">
                     <span class="category">{category}</span>
@@ -233,15 +242,35 @@ const structuredData = {
     }
 
     .hero {
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        position: relative;
         color: white;
         padding: 120px 0;
         margin-bottom: 60px;
+        overflow: hidden;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+    }
+
+    .hero-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .hero .container {
+        position: relative;
+        z-index: 2;
         max-width: 800px;
         margin: 0 auto;
         padding: 0 20px;
@@ -263,7 +292,6 @@ const structuredData = {
     .date {
         color: rgba(255, 255, 255, 0.8);
     }
-
 
     .author {
         color: rgba(255, 255, 255, 0.8);

@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
@@ -7,6 +8,12 @@ import SolutionsCTA from '../../components/SolutionsCTA.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import Headphones from '../../components/icons/headphones.astro';
 import SEO from '../../components/SEO.astro';
+import itSupport from '../../assets/images/it-support.webp';
+import cybersecurity from '../../assets/images/cybersecurity.webp';
+import hybridWork from '../../assets/images/hybrid-work.webp';
+import procurement from '../../assets/images/procurement.webp';
+import networking from '../../assets/images/networking.webp';
+import mattHeadshot from '../../assets/images/Matt-Headshot.webp';
 
 const title = "Managed IT Services & Support | Professional IT Management in Calgary & Vancouver";
 const description = "Comprehensive managed IT services and support for businesses in Calgary and Vancouver. Get proactive IT management, 24/7 monitoring, cybersecurity, and expert technical support from certified IT professionals.";
@@ -67,14 +74,14 @@ const structuredData = {
         canonicalURL="/services/managed-it-support"
         keywords={keywords}
         type="website"
-        image="/images/it-support.webp"
+        image={itSupport.src}
     />
     <Header />
     <main class="service-page">
         <Hero 
             title="Managed IT Support"
             subtitle="Proactive IT management and support for your business"
-            backgroundImage="/images/it-support.webp"
+            backgroundImage={itSupport}
             ctaText="Get Started"
             ctaLink="/contact"
         />
@@ -135,7 +142,13 @@ const structuredData = {
                         </blockquote>
                     </div>
                     <div class="quote-image">
-                        <img src="/images/Matt-Headshot.webp" alt="Mathew Hunter, Owner & CTO" />
+                        <Image 
+                            src={mattHeadshot}
+                            alt="Mathew Hunter, Owner & CTO"
+                            width={300}
+                            height={300}
+                            class="headshot"
+                        />
                     </div>
                 </div>
             </div>
@@ -159,7 +172,13 @@ const structuredData = {
                         </ul>
                     </div>
                     <div class="service-image">
-                        <img src="/images/it-support.webp" alt="IT Support Services" />
+                        <Image 
+                            src={itSupport}
+                            alt="IT Support Services"
+                            width={600}
+                            height={400}
+                            class="service-img"
+                        />
                     </div>
                 </div>
 
@@ -181,7 +200,13 @@ const structuredData = {
                         </ul>
                     </div>
                     <div class="service-image">
-                        <img src="/images/cybersecurity.webp" alt="Cybersecurity Services" />
+                        <Image 
+                            src={cybersecurity}
+                            alt="Cybersecurity Services"
+                            width={600}
+                            height={400}
+                            class="service-img"
+                        />
                     </div>
                 </div>
 
@@ -202,7 +227,13 @@ const structuredData = {
                         </ul>
                     </div>
                     <div class="service-image">
-                        <img src="/images/hybrid-work.webp" alt="Hybrid Workplace Solutions" />
+                        <Image 
+                            src={hybridWork}
+                            alt="Hybrid Workplace Solutions"
+                            width={600}
+                            height={400}
+                            class="service-img"
+                        />
                     </div>
                 </div>
 
@@ -224,11 +255,17 @@ const structuredData = {
                         </ul>
                     </div>
                     <div class="service-image">
-                        <img src="/images/procurement.webp" alt="Hardware and Software Management" />
+                        <Image 
+                            src={procurement}
+                            alt="Hardware and Software Management"
+                            width={600}
+                            height={400}
+                            class="service-img"
+                        />
                     </div>
                 </div>
 
-                    <div class="service-item">
+                <div class="service-item">
                     <div class="service-content">
                         <h2>Computer Networking</h2>
                         <p>We design, implement, and manage robust computer networks that ensure reliable connectivity and optimal performance for your business. We also provide ongoing monitoring and support to quickly address any network issues, ensuring minimal downtime and seamless operations.</p>
@@ -246,7 +283,13 @@ const structuredData = {
                         </ul>
                     </div>
                     <div class="service-image">
-                        <img src="/images/networking.webp" alt="Computer Networking Services" />
+                        <Image 
+                            src={networking}
+                            alt="Computer Networking Services"
+                            width={600}
+                            height={400}
+                            class="service-img"
+                        />
                     </div>
                 </div>
             </div>

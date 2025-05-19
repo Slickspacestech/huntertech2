@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -17,6 +18,8 @@ import ChartLine from '../components/icons/chart-line.astro';
 import Hero from '../components/Hero.astro';
 import LocalPin from '../components/icons/local-pin.astro';
 import SolutionsCTA from '../components/SolutionsCTA.astro';
+import mattHeadshot from '../assets/images/Matt-Headshot.webp';
+import vancouverBg from '../assets/images/vancouver-bg.webp';
 
 const title = "IT Services Vancouver | Professional Managed IT Support & Technology Solutions";
 const description = "Expert IT services in Vancouver. Local managed IT support, cybersecurity, cloud services, and network solutions for businesses. Get reliable technology support from certified experts who understand Vancouver's unique business environment and technology needs.";
@@ -80,7 +83,7 @@ const structuredData = {
         canonicalURL="/vancouver"
         keywords={keywords}
         type="website"
-        image="/images/vancouver-office.webp"
+        image={vancouverBg.src}
     />
     <Header />
     <main>
@@ -88,10 +91,33 @@ const structuredData = {
         <Hero 
             title="Vancouver IT Services"
             subtitle="Expert IT solutions for businesses in Vancouver"
-            backgroundImage="/images/vancouver-bg.webp"
+            backgroundImage={vancouverBg}
+            backgroundImageAlt="Vancouver cityscape with mountains"
             ctaText="Get Started"
             ctaLink="/contact"
         />
+
+        <section class="quote">
+            <div class="managed-it-container">
+                <div class="quote-content">
+                    <div class="quote-text">
+                        <blockquote>
+                            "What makes us different is we don't just fix what's broken. We have a proactive approach that involves creating a strategy plan with you that aligns with your business goals."
+                            <cite>— Mathew Hunter, Owner & Chief Technology Officer</cite>
+                        </blockquote>
+                    </div>
+                    <div class="quote-image">
+                        <Image 
+                            src={mattHeadshot}
+                            alt="Mathew Hunter, Owner & CTO"
+                            width={300}
+                            height={300}
+                            class="headshot"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section class="location-info">
             <div class="container">
@@ -204,14 +230,7 @@ const structuredData = {
 </Layout>
 
 <style>
-    .hero {
-        background: var(--primary-color);
-        color: var(--white);
-        padding: 6rem 0 4rem;
-        text-align: center;
-    }
-
-
+    
     .location-info {
         padding: 4rem 0;
     }

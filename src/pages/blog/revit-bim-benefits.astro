@@ -1,9 +1,11 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import SEO from '../../components/SEO.astro';
 import { posts, type BlogPost } from '../../data/blog-posts';
+import { formatDate } from '../../utils/date';
 
 const post = posts.find(p => p.slug === 'revit-bim-benefits') as BlogPost;
 if (!post) {
@@ -14,6 +16,34 @@ const title = post.title;
 const description = "Discover how Revit and Building Information Modeling (BIM) are revolutionizing architecture and large-scale construction projects through improved collaboration, efficiency, and project outcomes.";
 const publishDate = new Date('2024-03-20');
 const author = "Huntertech Team";
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "image": post.image,
+    "author": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://huntertech.ca/images/logo.png"
+        }
+    },
+    "datePublished": post.date,
+    "dateModified": post.date,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://huntertech.ca/blog/${post.slug}`
+    },
+    "keywords": "Revit BIM, Building Information Modeling, construction technology, Revit benefits, BIM implementation, construction efficiency, Revit training, BIM consulting"
+};
 ---
 
 <Layout 
@@ -27,23 +57,25 @@ const author = "Huntertech Team";
     canonicalURL={`/blog/${post.slug}`}
     keywords={post.tags}
   />
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   <Header />
   <main>
     <div class="hero">
-      <div class="hero-content">
-        <div class="container">
-          <h1>{title}</h1>
-          <div class="post-meta">
-            <time datetime={post.date}>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-            <span class="category">{post.category}</span>
-            <span class="author">By {post.author}</span>
-          </div>
-          <div class="post-tags">
-            {post.tags.map(tag => (
-              <span class="tag">{tag}</span>
-            ))}
-          </div>
+      <div class="hero-overlay"></div>
+      <Image 
+        src={post.image.replace(/\.(jpg|jpeg)$/i, '.webp')}
+        alt={post.title}
+        width={1920}
+        height={1080}
+        class="hero-image"
+      />
+      <div class="container">
+        <div class="meta">
+          <span class="category">{post.category}</span>
+          <span class="date">{formatDate(post.date)}</span>
         </div>
+        <h1>{post.title}</h1>
+        <div class="author">By {post.author}</div>
       </div>
     </div>
 
@@ -210,49 +242,96 @@ const author = "Huntertech Team";
 
 <style>
   .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/blog/revit-bim-benefits.jpg');
-    background-size: cover;
-    background-position: center;
-    color: var(--white);
-    padding: var(--spacing-2xl) 0;
-    margin-bottom: var(--spacing-xl);
+    position: relative;
+    color: white;
+    padding: 120px 0;
+    margin-bottom: 60px;
+    overflow: hidden;
   }
 
-  .hero-content {
-    text-align: center;
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
   }
 
-
-  .hero .post-meta {
-    color: var(--white);
-    font-size: 1.1rem;
-    margin-bottom: var(--spacing-md);
+  .hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
-  .hero .post-meta time {
-    margin-right: var(--spacing-md);
+  .hero .container {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
   }
 
-  .hero .post-tags {
-    margin-top: var(--spacing-md);
+  .meta {
+    margin-bottom: 20px;
   }
 
-  .hero .tag {
+  .category {
     background: var(--accent-color);
-    color: var(--white);
-    padding: 4px 12px;
-    border-radius: 15px;
-    font-size: 0.9rem;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    margin-right: 15px;
   }
 
-  @media (max-width: 768px) {
-    .hero h1 {
-      font-size: 2rem;
-    }
+  .date {
+    color: rgba(255, 255, 255, 0.8);
+  }
 
-    .hero .post-meta {
-      font-size: 1rem;
-    }
+  .author {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1em;
+  }
+
+  .content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+    line-height: 1.8;
+  }
+
+  .post-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  .post-content h2 {
+    color: var(--primary-color);
+    margin: 2rem 0 1rem;
+  }
+
+  .post-content h3 {
+    color: var(--secondary-color);
+    margin: 1.5rem 0 1rem;
+  }
+
+  .post-content ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .post-content li {
+    margin-bottom: 0.5rem;
+  }
+
+  .post-content strong {
+    color: var(--primary-color);
   }
 
   .blog-post {
@@ -277,83 +356,6 @@ const author = "Huntertech Team";
 
   .post-meta time {
     margin-right: var(--spacing-md);
-  }
-
-  .post-content {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.1rem;
-    line-height: 1.8;
-  }
-
-  .lead {
-    font-size: 1.3rem;
-    color: var(--text-color);
-    margin-bottom: var(--spacing-xl);
-  }
-
-  h2 {
-    color: var(--primary-color);
-    font-size: 2rem;
-    margin: var(--spacing-xl) 0 var(--spacing-lg);
-  }
-
-  h3 {
-    color: var(--secondary-color);
-    font-size: 1.5rem;
-    margin: var(--spacing-lg) 0 var(--spacing-md);
-  }
-
-  p {
-    margin-bottom: var(--spacing-lg);
-  }
-
-  ul {
-    margin-bottom: var(--spacing-lg);
-    padding-left: var(--spacing-lg);
-  }
-
-  li {
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .cta-section {
-    background: var(--secondary-bg);
-    padding: var(--spacing-xl);
-    border-radius: var(--radius-lg);
-    margin-top: var(--spacing-xl);
-    text-align: center;
-  }
-
-  .cta-section h3 {
-    color: var(--primary-color);
-    margin-bottom: var(--spacing-md);
-  }
-
-  .cta-section p {
-    margin-bottom: var(--spacing-lg);
-  }
-
-  @media (max-width: 768px) {
-    .post-header h1 {
-      font-size: 2rem;
-    }
-
-    .post-content {
-      font-size: 1rem;
-    }
-
-    .lead {
-      font-size: 1.2rem;
-    }
-
-    h2 {
-      font-size: 1.75rem;
-    }
-
-    h3 {
-      font-size: 1.3rem;
-    }
   }
 
   .post-tags {
@@ -404,17 +406,58 @@ const author = "Huntertech Team";
     opacity: 0.2;
   }
 
+  .cta-section {
+    background: var(--secondary-bg);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    margin-top: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .cta-section h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cta-section p {
+    margin-bottom: var(--spacing-lg);
+  }
+
   @media (max-width: 768px) {
-    .quote-card {
-      padding: var(--spacing-md);
+    .blog-post {
+      padding: 2rem 0;
     }
 
-    .quote-card blockquote {
-      font-size: 1.1rem;
+    .hero {
+      padding: 80px 0;
     }
 
-    .quote-icon {
-      font-size: 1.5rem;
+    .hero h1 {
+      font-size: 2em;
+    }
+
+    .content {
+      padding: 0 15px 40px;
+    }
+
+    .post-header h1 {
+      font-size: 2rem;
+    }
+
+    .post-content {
+      font-size: 1rem;
+    }
+
+    .lead {
+      font-size: 1.2rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    h3 {
+      font-size: 1.3rem;
     }
   }
 </style> 

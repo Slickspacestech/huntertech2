@@ -1,19 +1,24 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import { posts } from '../../data/blog-posts';
 import { formatDate } from '../../utils/date';
+import CTABox from '../../components/CTABox.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
 
-const post = posts.find(p => p.slug === 'in-house-vs-outsourced-it');
-if (!post) return Astro.redirect('/404');
+const title = "Choosing the Right IT Strategy: Build In-House or Share the Hat?";
+const description = "Discover the pros and cons of building an in-house IT team versus outsourcing. Learn about the hidden risks of having non-IT staff handle technology and how to make the right choice for your business.";
+const date = "2024-03-25";
+const author = "Huntertech Team";
+const category = "IT Services";
+const image = "/images/blog/in-house-vs-outsourced.jpg";
+const keywords = "IT strategy, in-house IT team, IT outsourcing, managed IT services, small business IT, IT management, IT support, business technology";
 
-const title = post.title;
-const description = "Discover the true costs of managing IT in-house vs outsourcing to professionals. Learn why many Calgary and Vancouver businesses choose managed IT services over DIY solutions.";
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": title,
-    "description": description,
-    "image": post.image,
+    "image": image,
     "author": {
         "@type": "Organization",
         "name": "Huntertech",
@@ -24,79 +29,353 @@ const structuredData = {
         "name": "Huntertech",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://huntertech.ca/images/logo.png"
+            "url": "https://huntertech.ca/logo.png"
         }
     },
-    "datePublished": post.date,
-    "dateModified": post.date,
+    "datePublished": date,
+    "dateModified": date,
+    "description": description,
+    "keywords": keywords,
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `https://huntertech.ca/blog/${post.slug}`
+        "@id": `https://huntertech.ca/blog/in-house-vs-outsourced-it`
     },
-    "keywords": "IT outsourcing vs in-house, small business IT management, IT support costs, managed IT services, IT management comparison, business IT solutions, IT support Calgary, IT support Vancouver"
+    "articleSection": "IT Services",
+    "inLanguage": "en-CA"
 };
 ---
 
-<Layout title={title} description={description}>
+<Layout 
+    title={title}
+    description={description}
+    image={image}
+>
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     
-    <main class="blog-post">
-        <div class="container">
-            <article>
-                <header class="post-header">
-                    <h1>{post.title}</h1>
-                    <div class="post-meta">
-                        <span class="date">{formatDate(post.date)}</span>
-                        <span class="author">By {post.author}</span>
-                        <span class="category">{post.category}</span>
-                    </div>
-                </header>
+    <Header />
+    
+    <div class="blog-post">
+        <div class="hero">
+            <div class="hero-overlay"></div>
+            <Image 
+                src="/images/blog/in-house-vs-outsourced.webp"
+                alt="In-House vs Outsourced IT Strategy"
+                width={1920}
+                height={1080}
+                class="hero-image"
+            />
+            <div class="container">
+                <div class="meta">
+                    <span class="category">{category}</span>
+                    <span class="date">{formatDate(date)}</span>
+                </div>
+                <h1>{title}</h1>
+                <div class="author">By {author}</div>
+            </div>
+        </div>
 
-                <div class="post-content" set:html={post.content} />
+        <div class="container">
+            <article class="content">
+                <p class="lead">When it comes to managing your business's IT infrastructure, one of the most important decisions you'll face is how to structure your IT support. Larger businesses may consider building a dedicated in-house IT team, while smaller organizations often lean on existing staff to "wear the IT hat" alongside their regular roles. Both paths come with unique challenges and risks.</p>
+
+                <div class="quote-card">
+                    <div class="quote-icon">💡</div>
+                    <blockquote>
+                        "IT isn't just a back-office function anymore—it's a foundational part of your business strategy. Whether you're building an in-house team or outsourcing to trusted experts, make sure your approach reduces risk, increases efficiency, and supports your team."
+                    </blockquote>
+                </div>
+
+                <h2>Part 1: Building an In-House IT Team</h2>
+
+                <h3>The Benefits</h3>
+                <p>Creating an in-house IT department means hiring employees who are solely focused on your business's technology infrastructure. For larger organizations or those with complex systems, this can offer strong benefits:</p>
+                <ul>
+                    <li><strong>Immediate on-site support</strong> when technical issues arise</li>
+                    <li><strong>Deeper understanding</strong> of your internal processes and goals</li>
+                    <li><strong>Direct control</strong> over project timelines and IT priorities</li>
+                    <li><strong>Integration with your company culture</strong> and long-term vision</li>
+                </ul>
+
+                <h3>The Drawbacks</h3>
+                <p>However, building and maintaining an in-house team is not without its drawbacks:</p>
+                <ul>
+                    <li><strong>High fixed costs</strong>, including salaries, benefits, and ongoing training</li>
+                    <li><strong>Limited range of expertise</strong>, especially in areas like cybersecurity or cloud migration</li>
+                    <li><strong>Vulnerability to turnover</strong>, sick leave, or vacation-related gaps</li>
+                    <li><strong>Challenges keeping up</strong> with rapidly evolving technologies and certifications</li>
+                </ul>
+
+                <div class="info-card">
+                    <h4>When In-House Makes Sense</h4>
+                    <p>An in-house team makes sense if:</p>
+                    <ul>
+                        <li>Your business has <strong>sufficient budget</strong> for recruitment, training, and retention</li>
+                        <li>You operate in a <strong>regulated industry</strong> requiring strict compliance</li>
+                        <li>You need <strong>tight control</strong> over sensitive data or proprietary systems</li>
+                    </ul>
+                </div>
+
+                <h2>Part 2: When Staff "Wear the IT Hat" — Risks for Smaller Businesses</h2>
+                <p>For many small or mid-sized businesses, hiring a dedicated IT person may feel out of reach. Instead, IT responsibilities often fall to someone in operations, admin, or finance who is "tech savvy." While this may seem cost-effective, it can introduce serious risk.</p>
+
+                <h3>The Hidden Risks</h3>
+                <div class="risk-grid">
+                    <div class="risk-card">
+                        <h4>Lack of Proper Tools</h4>
+                        <p>These staff members typically lack access to professional-grade IT tools—like remote monitoring, patch management platforms, and cybersecurity solutions—leaving your systems exposed.</p>
+                    </div>
+                    <div class="risk-card">
+                        <h4>Limited Expertise</h4>
+                        <p>Even if someone is good with Excel or basic troubleshooting, they may not be equipped to handle complex issues like data backups, ransomware threats, or network failures.</p>
+                    </div>
+                    <div class="risk-card">
+                        <h4>Low Priority, High Stress</h4>
+                        <p>IT becomes a secondary task, often tackled only when something breaks. This reactive approach increases downtime and risk—and creates frustration for both the employee and the team relying on them.</p>
+                    </div>
+                    <div class="risk-card">
+                        <h4>Burnout and Job Dissatisfaction</h4>
+                        <p>Asking non-IT employees to take on IT duties can lead to decreased job satisfaction. They're pulled in multiple directions, unable to do their core job well, and unprepared for the stress of resolving critical tech failures.</p>
+                    </div>
+                </div>
+
+                <h2>Outsourcing: A Scalable Solution</h2>
+                <p>If hiring an internal IT pro isn't feasible, partnering with a <strong>Managed IT Service Provider (MSP)</strong> can offer the support your business needs—without overwhelming your staff.</p>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <h4>Expert Access</h4>
+                        <p>Access to expert technicians with a range of specialties</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>Predictable Costs</h4>
+                        <p>Predictable monthly costs for support, security, and maintenance</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>24/7 Monitoring</h4>
+                        <p>Round-the-clock monitoring and proactive issue resolution</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>Scalable Solutions</h4>
+                        <p>Solutions that grow with your business</p>
+                    </div>
+                </div>
+
+                <h2>Finding the Right Fit</h2>
+                <p>When deciding how to manage IT, consider:</p>
+                <ul>
+                    <li><strong>Business size and growth plans</strong></li>
+                    <li><strong>Budget and risk tolerance</strong></li>
+                    <li><strong>Industry regulations and data sensitivity</strong></li>
+                    <li><strong>Internal capacity to manage IT systems effectively</strong></li>
+                </ul>
+
+                <div class="hybrid-section">
+                    <h3>The Hybrid Approach</h3>
+                    <p>For many companies, a <strong>hybrid model</strong>—with internal staff handling day-to-day tech needs and an MSP managing cybersecurity, compliance, and large projects—offers the best of both worlds.</p>
+                </div>
+
+                <CTABox 
+                    title="Ready to Optimize Your IT Strategy?"
+                    description="At Huntertech, we help businesses across Calgary and Vancouver find the right IT support strategy. Whether you need to outsource fully, augment your current staff, or offload IT tasks from overwhelmed employees, we offer flexible, scalable solutions tailored to your goals."
+                    buttonText="Contact Us Today"
+                    buttonLink="/contact"
+                />
             </article>
         </div>
-    </main>
+    </div>
+
+    <Footer />
 </Layout>
 
 <style>
     .blog-post {
-        padding: 4rem 0;
+        background: var(--primary-bg);
     }
 
-    .post-header {
-        text-align: center;
-        margin-bottom: 3rem;
+    .hero {
+        position: relative;
+        color: var(--white);
+        padding: 120px 0;
+        margin-bottom: 60px;
+        overflow: hidden;
     }
 
-    .post-header h1 {
-        font-size: 2.5rem;
-        color: var(--primary-color);
-        margin-bottom: 1rem;
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(56, 66, 88, 0.8);
+        z-index: 1;
     }
 
-    .post-meta {
-        color: var(--text-light);
-        font-size: 0.9rem;
+    .hero-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
-    .post-meta span {
-        margin: 0 0.5rem;
-    }
-
-    .post-content {
+    .hero .container {
+        position: relative;
+        z-index: 2;
         max-width: 800px;
         margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .meta {
+        margin-bottom: 20px;
+    }
+
+    .category {
+        background: var(--button-color);
+        color: var(--white);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.9em;
+        margin-right: 15px;
+    }
+
+    .date {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .author {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.1em;
+    }
+
+    .content {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px 60px;
         line-height: 1.8;
     }
 
+    .lead {
+        font-size: 1.3em;
+        color: var(--text-color);
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+
+    .quote-card {
+        background: var(--secondary-bg);
+        border-left: 4px solid var(--button-color);
+        padding: 2rem;
+        margin: 2rem 0;
+        border-radius: var(--radius-md);
+        position: relative;
+    }
+
+    .quote-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: var(--button-color);
+    }
+
+    .quote-card blockquote {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: var(--text-color);
+        margin: 0;
+        font-style: italic;
+    }
+
+    .info-card {
+        background: var(--secondary-bg);
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        margin: 2rem 0;
+        border: 1px solid var(--border-color);
+    }
+
+    .info-card h4 {
+        color: var(--primary-heading);
+        margin-bottom: 1rem;
+    }
+
+    .risk-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .risk-card {
+        background: var(--white);
+        padding: 1.5rem;
+        border-radius: var(--radius-md);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: transform var(--transition-normal);
+    }
+
+    .risk-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .risk-card h4 {
+        color: var(--primary-heading);
+        margin-bottom: 1rem;
+    }
+
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .benefit-card {
+        background: var(--secondary-bg);
+        padding: 1.5rem;
+        border-radius: var(--radius-md);
+        text-align: center;
+        transition: transform var(--transition-normal);
+    }
+
+    .benefit-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .benefit-card h4 {
+        color: var(--primary-heading);
+        margin-bottom: 0.5rem;
+    }
+
+    .hybrid-section {
+        background: var(--primary-bg);
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        margin: 2rem 0;
+        border: 1px solid var(--border-color);
+    }
+
+    .hybrid-section h3 {
+        color: var(--primary-heading);
+        margin-bottom: 1rem;
+    }
+
     .post-content h2 {
-        color: var(--primary-color);
-        margin: 2rem 0 1rem;
+        color: var(--primary-heading);
+        margin: 2.5rem 0 1.5rem;
+        font-size: 1.8rem;
     }
 
     .post-content h3 {
-        color: var(--secondary-color);
+        color: var(--secondary-heading);
+        margin: 2rem 0 1rem;
+        font-size: 1.4rem;
+    }
+
+    .post-content h4 {
+        color: var(--primary-heading);
         margin: 1.5rem 0 1rem;
+        font-size: 1.2rem;
     }
 
     .post-content ul {
@@ -105,11 +384,11 @@ const structuredData = {
     }
 
     .post-content li {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.8rem;
     }
 
     .post-content strong {
-        color: var(--primary-color);
+        color: var(--primary-heading);
     }
 
     @media (max-width: 768px) {
@@ -117,12 +396,21 @@ const structuredData = {
             padding: 2rem 0;
         }
 
-        .post-header h1 {
-            font-size: 2rem;
+        .hero {
+            padding: 80px 0;
         }
 
-        .post-content {
-            padding: 0 1rem;
+        .hero h1 {
+            font-size: 2em;
+        }
+
+        .content {
+            padding: 0 15px 40px;
+        }
+
+        .risk-grid,
+        .benefits-grid {
+            grid-template-columns: 1fr;
         }
     }
 </style> 

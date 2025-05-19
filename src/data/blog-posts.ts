@@ -177,6 +177,16 @@ export const posts: BlogPost[] = [
         content: "In today's rapidly evolving construction industry, Building Information Modeling (BIM) and Revit have become indispensable tools for architects and project managers. These technologies are not just changing how we design buildings—they're revolutionizing the entire construction process, from initial concept to final delivery.",
         author: "Huntertech Team",
         tags: ["Revit", "BIM", "Architecture", "Construction", "Project Management"]
+    },
+    {
+        slug: 'in-house-vs-outsourced-it',
+        title: 'Choosing the Right IT Strategy: Build In-House or Share the Hat?',
+        date: '2024-03-25',
+        author: 'Huntertech Team',
+        category: 'IT Services',
+        image: '/images/blog/in-house-vs-outsourced.webp',
+        content: "Making the right choice between building an in-house IT team and outsourcing is crucial for business success. This guide explores the pros and cons of each approach, from the benefits of dedicated IT staff to the risks of having non-technical employees handle IT responsibilities. Learn how to make an informed decision that aligns with your business goals and budget.",
+        tags: ['IT strategy', 'in-house IT team', 'IT outsourcing', 'managed IT services', 'small business IT', 'IT management', 'IT support', 'business technology']
     }
 ];
 

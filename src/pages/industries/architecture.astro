@@ -11,7 +11,7 @@ import Hero from '../../components/Hero.astro';
 import SEO from '../../components/SEO.astro';
 
 const title = "IT Services for Architecture Firms | Professional Design Technology Solutions - HunterTech";
-const description = "Specialized IT services for architecture firms in Calgary and Vancouver. Expert support for CAD software, project management tools, and technical computing. Get reliable technology solutions from certified experts who understand the unique needs of architecture professionals.";
+const description = "Specialized IT services for architecture firms in Calgary and Vancouver. Revit support, training, BIM Management, and managed IT services. Get reliable technology solutions from certified experts who understand the unique needs of architecture professionals.";
 const keywords = [
     "architecture IT services",
     "design technology solutions",
@@ -58,7 +58,7 @@ const structuredData = {
     "serviceType": [
         "Architecture IT Services",
         "Design Technology Solutions",
-        "CAD/BIM Software Support",
+        "BIM Software Support & Management",
         "Revit Optimization",
         "Architecture Cloud Solutions"
     ],
@@ -70,7 +70,7 @@ const structuredData = {
                 "@type": "Offer",
                 "itemOffered": {
                     "@type": "Service",
-                    "name": "CAD/BIM Software Support"
+                    "name": "BIM Software Support"
                 }
             },
             {
@@ -99,7 +99,7 @@ const structuredData = {
         canonicalURL="https://huntertech.ca/industries/architecture"
         keywords={keywords}
         type="website"
-        image="/images/architecture.webp"
+        image="/images/architect_engineer_tech.avif"
     />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <Header />
@@ -107,8 +107,8 @@ const structuredData = {
         <Hero 
             title="IT Services for Architecture Firms"
             subtitle="Specialized technology solutions for architecture professionals"
-            backgroundImage="/images/architecture.webp"
-            ctaText="Get Started"
+            backgroundImage="/images/architect_engineer_tech.avif"
+            ctaText="Get a Free Assessment"
             ctaLink="/contact"
         />
 
@@ -224,14 +224,7 @@ const structuredData = {
 </Layout>
 
 <style>
-    .hero {
-        background: linear-gradient(45deg, rgba(44,62,80,0.8), rgba(52,152,219,0.7)), url('/images/architect_engineer_tech.avif');
-        background-size: cover;
-        background-position: center;
-        color: var(--white);
-        padding: 8rem 0 4rem;
-        text-align: center;
-    }
+
 
     .container {
         max-width: 1200px;

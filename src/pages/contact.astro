@@ -1,24 +1,40 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Hero from '../components/Hero.astro';
 import MapPin from '../components/icons/map-pin.astro';
 import Phone from '../components/icons/phone.astro';
 import Envelope from '../components/icons/envelope.astro';
 import Clock from '../components/icons/clock.astro';
+import SEO from '../components/SEO.astro';
+import contactBg from '../assets/images/contact-bg.webp';
+
+const title = "Contact Huntertech | IT Services in Calgary & Vancouver";
+const description = "Get in touch with Huntertech for professional IT services in Calgary and Vancouver. Contact us for managed IT support, cybersecurity solutions, and technology consulting.";
+const keywords = [
+    "Contact Huntertech",
+    "IT Services contact",
+    "IT Support contact",
+    "Calgary IT contact",
+    "Vancouver IT contact",
+    "IT Services phone",
+    "IT Services email",
+    "IT Services address"
+];
 ---
 
-<Layout title="Contact Us - HunterTech">
+<Layout title={title} description={description}>
+    <SEO 
+        title={title}
+        description={description}
+        canonicalURL="/contact"
+        keywords={keywords}
+        type="website"
+        image={contactBg.src}
+    />
     <Header />
-    <main class="service-page">
-        <Hero 
-            title="Contact Us"
-            subtitle="Get in touch with our team for expert IT solutions"
-            backgroundImage="/images/contact-bg.webp"
-            ctaText="Send Message"
-            ctaLink="#contact-form"
-        />
+    <main class="contact-page">
         <section class="contact-section">
             <div class="container">
                 <div class="contact-grid">
@@ -71,21 +87,11 @@ import Clock from '../components/icons/clock.astro';
         padding-top: 80px;
     }
 
-    .hero {
-        background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('/images/contact-bg.jpg');
-        background-size: cover;
-        background-position: center;
-        color: var(--white);
-        padding: 4rem 1rem;
-        text-align: center;
-    }
-
     .container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 1rem;
     }
-
 
     .contact-section {
         padding: 4rem 1rem;
@@ -156,10 +162,6 @@ import Clock from '../components/icons/clock.astro';
     }
 
     @media (max-width: 768px) {
-        .hero h1 {
-            font-size: 2rem;
-        }
-
         .contact-grid {
             grid-template-columns: 1fr;
             gap: 2rem;

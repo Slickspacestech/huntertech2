@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
@@ -13,734 +14,754 @@ import Cloud from '../components/icons/cloud.astro';
 import NetworkWired from '../components/icons/network-wired.astro';
 import ArrowRight from '../components/icons/arrow-right.astro';
 import Work from '../components/icons/work.astro';
+import SEO from '../components/SEO.astro';
+import logo from '../assets/images/huntertech_logo.png';
+import heroBg from '../assets/images/architect_engineer_tech.webp';
+
+const title = "Huntertech - IT Services, Security For Calgary and Vancouver";
+const description = "Professional IT services tailored for businesses in Calgary and Vancouver. Expert support, cloud solutions, and security services to help your business thrive. Get reliable technology solutions from certified experts who understand your local needs.";
 ---
 
-<Layout 
-  title="Huntertech - IT Services, Security For Calgary and Vancouver"
-  description="Professional IT services tailored for businesses in Calgary and Vancouver. Expert support, cloud solutions, and security services to help your business thrive. Get reliable technology solutions from certified experts who understand your local needs."
-  image="/images/huntertech_logo.png"
->
-  <Header />
-  <main>
-    <Hero 
-      title="Transform Your Business with Expert IT Solutions"
-      subtitle="Professional IT support, cloud solutions, and Revit management services tailored to your needs"
-      ctaText="Get Started"
-      ctaLink="/contact"
-      backgroundImage="/images/architect_engineer_tech.webp"
+<Layout title={title} description={description}>
+    <SEO 
+        title={title}
+        description={description}
+        canonicalURL="/"
+        keywords={[
+            "IT Services Calgary",
+            "IT Services Vancouver",
+            "Managed IT Support",
+            "Cloud Solutions",
+            "Cybersecurity",
+            "Business IT Support",
+            "IT Consulting",
+            "Technology Solutions"
+        ]}
+        type="website"
+        image={logo.src}
     />
+    <Header />
+    <main>
+        <Hero 
+            title="Transform Your Business with Expert IT Solutions"
+            subtitle="Professional IT support, cloud solutions, and Revit management services tailored to your needs"
+            ctaText="Get Started"
+            ctaLink="/contact"
+            backgroundImage={heroBg}
+            backgroundImageAlt="Architect and engineer working with technology"
+        />
 
-    <section class="peace-of-mind">
-      <div class="container">
-        <div class="peace-of-mind-grid">
-          <div class="peace-of-mind-heading">
-            <h2>BUSINESS PEACE OF MIND</h2>
-          </div>
-          <div class="peace-of-mind-content">
-            <p>We are an IT managed services provider and consultant who delivers enterprise IT solutions uniquely designed for small and medium businesses in the building industry. For almost 20 years we have been helping our clients manage their IT environments, optimizing work performance through secure, efficient, and reliable systems and responsive client service. As your trusted IT partner servicing Vancouver and Calgary, we are here to take the full IT responsibility off your plate so you can focus on your core business.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <section class="peace-of-mind">
+            <div class="container">
+                <div class="peace-of-mind-grid">
+                    <div class="peace-of-mind-heading">
+                        <h2>BUSINESS PEACE OF MIND</h2>
+                    </div>
+                    <div class="peace-of-mind-content">
+                        <p>We are an IT managed services provider and consultant who delivers enterprise IT solutions uniquely designed for small and medium businesses in the building industry. For almost 20 years we have been helping our clients manage their IT environments, optimizing work performance through secure, efficient, and reliable systems and responsive client service. As your trusted IT partner servicing Vancouver and Calgary, we are here to take the full IT responsibility off your plate so you can focus on your core business.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section class="features">
-      <div class="container">
-        <h2>Why Choose Us</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <Shield />
-            <h3>Enterprise-Grade Security</h3>
-            <p>We provide the same level of security and protection that large enterprises use, tailored for your business needs.</p>
-          </div>
-          <div class="feature-card">
-            <Headphones color="var(--primary-color)" />
-            <h3>Friendly Supprt</h3>
-            <p>Our team is known for being approachable and helpful, making technology support a pleasant experience.</p>
-          </div>
-          <div class="feature-card">
-            <ChartLine color="var(--primary-color)" />
-            <h3>Proactive Solutions</h3>
-            <p>We prevent issues before they occur, keeping your business running smoothly and efficiently.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <section class="features">
+            <div class="container">
+                <h2>Why Choose Us</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <Shield />
+                        <h3>Enterprise-Grade Security</h3>
+                        <p>We provide the same level of security and protection that large enterprises use, tailored for your business needs.</p>
+                    </div>
+                    <div class="feature-card">
+                        <Headphones color="var(--primary-color)" />
+                        <h3>Friendly Supprt</h3>
+                        <p>Our team is known for being approachable and helpful, making technology support a pleasant experience.</p>
+                    </div>
+                    <div class="feature-card">
+                        <ChartLine color="var(--primary-color)" />
+                        <h3>Proactive Solutions</h3>
+                        <p>We prevent issues before they occur, keeping your business running smoothly and efficiently.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section id="solutions" class="services">
-      <div class="container">
-        <h2>Our Solutions</h2>
-        <div class="services-grid">
-          <div class="service-card">
-            <MapleLeaf color="var(--primary-color)" />
-            <h3>Local IT Support</h3>
-            <p>Professional IT support services to keep your business running smoothly. From help desk to network management.</p>
-            <a href="/solutions/it-support" class="service-link">Learn More <ArrowRight /></a>
-          </div>
-          <div class="service-card">
-            <Shield color="var(--primary-color)"/>
-            <h3>Cyber Security</h3>
-            <p>Comprehensive security solutions to protect your business from threats and ensure data safety.</p>
-            <a href="/solutions/cyber-security" class="service-link">Learn More <ArrowRight /></a>
-          </div>
-          <div class="service-card">
-            <Work color="var(--primary-color)" />
-            <h3>Hybrid Workplace</h3>
-            <p>Enable seamless remote and hybrid work environments with our modern workplace solutions.</p>
-            <a href="/solutions/hybrid-workplace" class="service-link">Learn More <ArrowRight /></a>
-          </div>
-          <div class="service-card">
-            <Cloud color="var(--primary-color)" />
-            <h3>Microsoft 365</h3>
-            <p>Expert implementation and support for Microsoft 365 to enhance productivity and collaboration.</p>
-            <a href="/solutions/microsoft-365" class="service-link">Learn More <ArrowRight /></a>
-          </div>
-          <div class="service-card">
-            <NetworkWired color="var(--primary-color)" />
-            <h3>Computer Networking</h3>
-            <p>Design, implementation, and management of robust network infrastructure for your business.</p>
-            <a href="/solutions/computer-networking" class="service-link">Learn More <ArrowRight /></a>
-          </div>
-        </div>
-      </div>
-    </section>
+        <section id="solutions" class="services">
+            <div class="container">
+                <h2>Our Solutions</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <MapleLeaf color="var(--primary-color)" />
+                        <h3>Local IT Support</h3>
+                        <p>Professional IT support services to keep your business running smoothly. From help desk to network management.</p>
+                        <a href="/solutions/it-support" class="service-link">Learn More <ArrowRight /></a>
+                    </div>
+                    <div class="service-card">
+                        <Shield color="var(--primary-color)"/>
+                        <h3>Cyber Security</h3>
+                        <p>Comprehensive security solutions to protect your business from threats and ensure data safety.</p>
+                        <a href="/solutions/cyber-security" class="service-link">Learn More <ArrowRight /></a>
+                    </div>
+                    <div class="service-card">
+                        <Work color="var(--primary-color)" />
+                        <h3>Hybrid Workplace</h3>
+                        <p>Enable seamless remote and hybrid work environments with our modern workplace solutions.</p>
+                        <a href="/solutions/hybrid-workplace" class="service-link">Learn More <ArrowRight /></a>
+                    </div>
+                    <div class="service-card">
+                        <Cloud color="var(--primary-color)" />
+                        <h3>Microsoft 365</h3>
+                        <p>Expert implementation and support for Microsoft 365 to enhance productivity and collaboration.</p>
+                        <a href="/solutions/microsoft-365" class="service-link">Learn More <ArrowRight /></a>
+                    </div>
+                    <div class="service-card">
+                        <NetworkWired color="var(--primary-color)" />
+                        <h3>Computer Networking</h3>
+                        <p>Design, implementation, and management of robust network infrastructure for your business.</p>
+                        <a href="/solutions/computer-networking" class="service-link">Learn More <ArrowRight /></a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section class="why-msp" style="background-image: linear-gradient(rgba(56, 66, 88, 0.9), rgba(56, 66, 88, 0.9)), url('/images/architect_engineer_tech.webp')">
-      <div class="container">
-        <h2 class="section-title">Why You Need an IT Managed Service Provider</h2>
-        <div class="msp-content">
-          <blockquote class="msp-quote">
-            <p>"You could service your own car, but unless you have the right tools, knowledge, and time most people take it to a mechanic. This is also true for an IT Managed Services Provider."</p>
-          </blockquote>
-          <div class="benefits">
-            <h3>Benefits of Managed IT Services:</h3>
-            <ul class="benefits-list">
-              <li><Checkmark color="var(--button-color)" /> Peace of Mind</li>
-              <li><Checkmark color="var(--button-color)" /> Save Time</li>
-              <li><Checkmark color="var(--button-color)" /> Increase Productivity</li>
-              <li><Checkmark color="var(--button-color)" /> Increase Reliability</li>
-              <li><Checkmark color="var(--button-color)" /> Employee Satisfaction</li>
-              <li><Checkmark color="var(--button-color)" /> Focus On Your Business</li>
-              <li><Checkmark color="var(--button-color)" /> Technical Expertise</li>
-              <li><Checkmark color="var(--button-color)" /> Cost Savings</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+        <section class="why-msp" style="background-image: linear-gradient(rgba(56, 66, 88, 0.9), rgba(56, 66, 88, 0.9)), url('/images/architect_engineer_tech.webp')">
+            <div class="container">
+                <h2 class="section-title">Why You Need an IT Managed Service Provider</h2>
+                <div class="msp-content">
+                    <blockquote class="msp-quote">
+                        <p>"You could service your own car, but unless you have the right tools, knowledge, and time most people take it to a mechanic. This is also true for an IT Managed Services Provider."</p>
+                    </blockquote>
+                    <div class="benefits">
+                        <h3>Benefits of Managed IT Services:</h3>
+                        <ul class="benefits-list">
+                            <li><Checkmark color="var(--button-color)" /> Peace of Mind</li>
+                            <li><Checkmark color="var(--button-color)" /> Save Time</li>
+                            <li><Checkmark color="var(--button-color)" /> Increase Productivity</li>
+                            <li><Checkmark color="var(--button-color)" /> Increase Reliability</li>
+                            <li><Checkmark color="var(--button-color)" /> Employee Satisfaction</li>
+                            <li><Checkmark color="var(--button-color)" /> Focus On Your Business</li>
+                            <li><Checkmark color="var(--button-color)" /> Technical Expertise</li>
+                            <li><Checkmark color="var(--button-color)" /> Cost Savings</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section class="testimonials">
-      <div class="container">
-        <h2 class="section-title">What clients are saying</h2>
-        <div class="testimonials-carousel">
-          <div class="testimonials-track">
-            <div class="testimonial-card">
-              <blockquote>
-                <p>"I have been in the engineering consulting field for over 50 years and have never found an IT professional as good as Mathew Hunter. Huntertech responds quickly to minimize downtime, improves the efficiency of your systems, and is dedicated to creating a safe, secure, and reliable IT environment for your business."</p>
-                <footer>
-                  <cite>— Barry Thorson, TCCP Thorson Consulting Certified Professionals</cite>
-                </footer>
-              </blockquote>
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">What clients are saying</h2>
+                <div class="testimonials-carousel">
+                    <div class="testimonials-track">
+                        <div class="testimonial-card">
+                            <blockquote>
+                                <p>"I have been in the engineering consulting field for over 50 years and have never found an IT professional as good as Mathew Hunter. Huntertech responds quickly to minimize downtime, improves the efficiency of your systems, and is dedicated to creating a safe, secure, and reliable IT environment for your business."</p>
+                                <footer>
+                                    <cite>— Barry Thorson, TCCP Thorson Consulting Certified Professionals</cite>
+                                </footer>
+                            </blockquote>
+                        </div>
+                        <div class="testimonial-card">
+                            <blockquote>
+                                <p>"Huntertech has been instrumental in securing our network and finding cost-effective solutions. Their response time is outstanding, and they genuinely listen to our concerns and provide customized solutions that fit our specific needs. It's reassuring to work with an IT team that consistently goes the extra mile."</p>
+                                <footer>
+                                    <cite>— Moises De Alba, FirstLight Energy Solutions</cite>
+                                </footer>
+                            </blockquote>
+                        </div>
+                        <div class="testimonial-card">
+                            <blockquote>
+                                <p>"If you want honest and trustworthy service, Huntertech is the company for you. You can trust them to keep your information and network safe and provide you with the most suitable products and solutions for your specific needs. Furthermore, their quick, efficient, and helpful service minimizes downtime in the rare event of IT disruptions."</p>
+                                <footer>
+                                    <cite>— Danielle Lawson, DLA Architecture Studio</cite>
+                                </footer>
+                            </blockquote>
+                        </div>
+                        <div class="testimonial-card">
+                            <blockquote>
+                                <p>"Huntertech has been exceptional in providing our IT services. Their team is professional, responsive, and truly understands our unique needs. They offer tailor-made solutions that keep our systems running smoothly and securely. Anytime we've had a question or needed support, Huntertech has been right there to help. Highly recommend their services to anyone looking for a dedicated and skilled IT provider!"</p>
+                                <footer>
+                                    <cite>— Jack Hui, Pontem Group</cite>
+                                </footer>
+                            </blockquote>
+                        </div>
+                        <div class="testimonial-card">
+                            <blockquote>
+                                <p>"I have been in the engineering consulting field for over 50 years and have never found an IT professional as good as Mathew Hunter. Huntertech responds quickly to minimize downtime, improves the efficiency of your systems, and is dedicated to creating a safe, secure, and reliable IT environment for your business."</p>
+                                <footer>
+                                    <cite>— Barry Thorson, TCCP Thorson Consulting Certified Professionals</cite>
+                                </footer>
+                            </blockquote>
+                        </div>
+                        <div class="testimonial-card">
+                            <blockquote>
+                                <p>"Huntertech has been instrumental in securing our network and finding cost-effective solutions. Their response time is outstanding, and they genuinely listen to our concerns and provide customized solutions that fit our specific needs. It's reassuring to work with an IT team that consistently goes the extra mile."</p>
+                                <footer>
+                                    <cite>— Moises De Alba, FirstLight Energy Solutions</cite>
+                                </footer>
+                            </blockquote>
+                        </div>
+                        <div class="testimonial-card">
+                            <blockquote>
+                                <p>"If you want honest and trustworthy service, Huntertech is the company for you. You can trust them to keep your information and network safe and provide you with the most suitable products and solutions for your specific needs. Furthermore, their quick, efficient, and helpful service minimizes downtime in the rare event of IT disruptions."</p>
+                                <footer>
+                                    <cite>— Danielle Lawson, DLA Architecture Studio</cite>
+                                </footer>
+                            </blockquote>
+                        </div>
+                        <div class="testimonial-card">
+                            <blockquote>
+                                <p>"Huntertech has been exceptional in providing our IT services. Their team is professional, responsive, and truly understands our unique needs. They offer tailor-made solutions that keep our systems running smoothly and securely. Anytime we've had a question or needed support, Huntertech has been right there to help. Highly recommend their services to anyone looking for a dedicated and skilled IT provider!"</p>
+                                <footer>
+                                    <cite>— Jack Hui, Pontem Group</cite>
+                                </footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="testimonial-card">
-              <blockquote>
-                <p>"Huntertech has been instrumental in securing our network and finding cost-effective solutions. Their response time is outstanding, and they genuinely listen to our concerns and provide customized solutions that fit our specific needs. It's reassuring to work with an IT team that consistently goes the extra mile."</p>
-                <footer>
-                  <cite>— Moises De Alba, FirstLight Energy Solutions</cite>
-                </footer>
-              </blockquote>
-            </div>
-            <div class="testimonial-card">
-              <blockquote>
-                <p>"If you want honest and trustworthy service, Huntertech is the company for you. You can trust them to keep your information and network safe and provide you with the most suitable products and solutions for your specific needs. Furthermore, their quick, efficient, and helpful service minimizes downtime in the rare event of IT disruptions."</p>
-                <footer>
-                  <cite>— Danielle Lawson, DLA Architecture Studio</cite>
-                </footer>
-              </blockquote>
-            </div>
-            <div class="testimonial-card">
-              <blockquote>
-                <p>"Huntertech has been exceptional in providing our IT services. Their team is professional, responsive, and truly understands our unique needs. They offer tailor-made solutions that keep our systems running smoothly and securely. Anytime we've had a question or needed support, Huntertech has been right there to help. Highly recommend their services to anyone looking for a dedicated and skilled IT provider!"</p>
-                <footer>
-                  <cite>— Jack Hui, Pontem Group</cite>
-                </footer>
-              </blockquote>
-            </div>
-            <div class="testimonial-card">
-              <blockquote>
-                <p>"I have been in the engineering consulting field for over 50 years and have never found an IT professional as good as Mathew Hunter. Huntertech responds quickly to minimize downtime, improves the efficiency of your systems, and is dedicated to creating a safe, secure, and reliable IT environment for your business."</p>
-                <footer>
-                  <cite>— Barry Thorson, TCCP Thorson Consulting Certified Professionals</cite>
-                </footer>
-              </blockquote>
-            </div>
-            <div class="testimonial-card">
-              <blockquote>
-                <p>"Huntertech has been instrumental in securing our network and finding cost-effective solutions. Their response time is outstanding, and they genuinely listen to our concerns and provide customized solutions that fit our specific needs. It's reassuring to work with an IT team that consistently goes the extra mile."</p>
-                <footer>
-                  <cite>— Moises De Alba, FirstLight Energy Solutions</cite>
-                </footer>
-              </blockquote>
-            </div>
-            <div class="testimonial-card">
-              <blockquote>
-                <p>"If you want honest and trustworthy service, Huntertech is the company for you. You can trust them to keep your information and network safe and provide you with the most suitable products and solutions for your specific needs. Furthermore, their quick, efficient, and helpful service minimizes downtime in the rare event of IT disruptions."</p>
-                <footer>
-                  <cite>— Danielle Lawson, DLA Architecture Studio</cite>
-                </footer>
-              </blockquote>
-            </div>
-            <div class="testimonial-card">
-              <blockquote>
-                <p>"Huntertech has been exceptional in providing our IT services. Their team is professional, responsive, and truly understands our unique needs. They offer tailor-made solutions that keep our systems running smoothly and securely. Anytime we've had a question or needed support, Huntertech has been right there to help. Highly recommend their services to anyone looking for a dedicated and skilled IT provider!"</p>
-                <footer>
-                  <cite>— Jack Hui, Pontem Group</cite>
-                </footer>
-              </blockquote>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section class="faq">
-      <div class="container">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <div class="faq-grid">
-          <div class="faq-item">
-            <h3>Do you charge project fees?</h3>
-            <p>We don't believe in charging project-based fees. Instead, we offer our services for a simple monthly rate. This approach allows us to focus on delivering the best solutions and proactively developing a strategic IT roadmap for your business. Project fees often tie technology decisions to budget constraints, which can delay adoption, reduce productivity, and increase the risk of failures or security vulnerabilities.</p>
-          </div>
-          <div class="faq-item">
-            <h3>What's the difference between Huntertech and the other IT managed service providers?</h3>
-            <ul>
-              <li>We have 15 years of experience managing IT environments for architects, engineers, and other related professions. And because we understand the software and systems that are unique to your industry, we know what needs to be done for your business to succeed, requiring less of your time explaining what you need. In other words, we can hit the ground running.</li>
-              <li>Our business ethic is centred around providing high quality service to our clients. That means when an issue arises, we work directly with vendors on your behalf to troubleshoot and remediate. We take ownership rather than engage in finger pointing which can result in delay or leaving the issue unresolved.</li>
-              <li>We take the time to understand your unique business needs. As your IT advisor, we make sure your technology environment suits you and not someone else. Ill-fitted technology can result in increased costs, as well as products and infrastructure that impede your productivity.</li>
-              <li>We provide predictable monthly pricing and don't charge extra for labour on projects.</li>
-            </ul>
-          </div>
-          <div class="faq-item">
-            <h3>What services do you provide?</h3>
-            <p>We're here to take care of all your IT needs, whether it's IT support, IT security, networking, cloud services, hardware procurement and management, or keeping track of software licenses and renewals. We also handle new system implementations and migrations from an old system. If it runs on electricity, we're likely able to lend a hand!</p>
-            <p>We also offer Revit management services to make modeling easier and more efficient for your team. This includes Revit model review, Revit model health checks, parametric family creation, Revit training, automation, and customized configuration.</p>
-            <p>If you are interested marketing services for the building industry, visit www.huntermarketing.ca.</p>
-          </div>
-          <div class="faq-item">
-            <h3>What is onboarding like?</h3>
-            <p>We aim to make things as smooth as possible for you. We'll sit down together to understand your needs and identify any potential risks or gaps in your technology. Once we have a clear picture of the technology you use, we'll create a roadmap showing where you are now and where we think you should be headed, along with how we'll help you get there. And don't worry, there's no onboarding fee, so you can trust that our suggestions are genuinely in your best interest, not just to fill project hours.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <section class="faq">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>Do you charge project fees?</h3>
+                        <p>We don't believe in charging project-based fees. Instead, we offer our services for a simple monthly rate. This approach allows us to focus on delivering the best solutions and proactively developing a strategic IT roadmap for your business. Project fees often tie technology decisions to budget constraints, which can delay adoption, reduce productivity, and increase the risk of failures or security vulnerabilities.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What's the difference between Huntertech and the other IT managed service providers?</h3>
+                        <ul>
+                            <li>We have 15 years of experience managing IT environments for architects, engineers, and other related professions. And because we understand the software and systems that are unique to your industry, we know what needs to be done for your business to succeed, requiring less of your time explaining what you need. In other words, we can hit the ground running.</li>
+                            <li>Our business ethic is centred around providing high quality service to our clients. That means when an issue arises, we work directly with vendors on your behalf to troubleshoot and remediate. We take ownership rather than engage in finger pointing which can result in delay or leaving the issue unresolved.</li>
+                            <li>We take the time to understand your unique business needs. As your IT advisor, we make sure your technology environment suits you and not someone else. Ill-fitted technology can result in increased costs, as well as products and infrastructure that impede your productivity.</li>
+                            <li>We provide predictable monthly pricing and don't charge extra for labour on projects.</li>
+                        </ul>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What services do you provide?</h3>
+                        <p>We're here to take care of all your IT needs, whether it's IT support, IT security, networking, cloud services, hardware procurement and management, or keeping track of software licenses and renewals. We also handle new system implementations and migrations from an old system. If it runs on electricity, we're likely able to lend a hand!</p>
+                        <p>We also offer Revit management services to make modeling easier and more efficient for your team. This includes Revit model review, Revit model health checks, parametric family creation, Revit training, automation, and customized configuration.</p>
+                        <p>If you are interested marketing services for the building industry, visit www.huntermarketing.ca.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What is onboarding like?</h3>
+                        <p>We aim to make things as smooth as possible for you. We'll sit down together to understand your needs and identify any potential risks or gaps in your technology. Once we have a clear picture of the technology you use, we'll create a roadmap showing where you are now and where we think you should be headed, along with how we'll help you get there. And don't worry, there's no onboarding fee, so you can trust that our suggestions are genuinely in your best interest, not just to fill project hours.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section class="cta">
-      <div class="container">
-        <div class="cta-content">
-          <h2>Ready to Transform Your Business?</h2>
-          <p>Get in touch with us today for a free consultation and discover how we can help your business grow.</p>
-          <a href="/contact" class="btn btn-primary">
-            Contact Us
-            <ArrowRight />
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <Footer />
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Transform Your Business?</h2>
+                    <p>Get in touch with us today for a free consultation and discover how we can help your business grow.</p>
+                    <a href="/contact" class="btn btn-primary">
+                        Contact Us
+                        <ArrowRight />
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
 </Layout>
 
 <style>
-  .section-title {
-    text-align: center;
-    margin-bottom: var(--spacing-xl);
-    position: relative;
-  }
+    .section-title {
+        text-align: center;
+        margin-bottom: var(--spacing-xl);
+        position: relative;
+    }
 
-  .section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background-color: var(--secondary-color);
-    margin: var(--spacing-md) auto 0;
-    border-radius: 2px;
-  }
+    .section-title::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 4px;
+        background-color: var(--secondary-color);
+        margin: var(--spacing-md) auto 0;
+        border-radius: 2px;
+    }
 
-  .features {
-    padding: 4rem 0;
-    background: var(--secondary-bg);
-  }
+    .features {
+        padding: 4rem 0;
+        background: var(--secondary-bg);
+    }
 
-  .features h2 {
-    text-align: center;
-    color: var(--primary-color);
-    font-size: 2rem;
-    margin-bottom: 3rem;
-  }
+    .features h2 {
+        text-align: center;
+        color: var(--primary-color);
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
 
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .feature-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-  }
-
-  .feature-card:hover {
-    transform: translateY(-5px);
-  }
-
-  .feature-card i {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-  }
-
-  .feature-card h3 {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .feature-card p {
-    color: var(--text-color);
-    line-height: 1.6;
-  }
-
-  @media (max-width: 768px) {
     .features-grid {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
     }
-  }
 
-  .services {
-    padding: 4rem 0;
-    background: var(--white);
-  }
+    .feature-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
 
-  .services h2 {
-    text-align: center;
-    color: var(--primary-color);
-    font-size: 2rem;
-    margin-bottom: 3rem;
-  }
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
 
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+    .feature-card i {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+    }
 
-  .service-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-    flex-direction: column;
-    height: 100%;
-  }
+    .feature-card h3 {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
 
-  .service-card:hover {
-    transform: translateY(-5px);
-  }
+    .feature-card p {
+        color: var(--text-color);
+        line-height: 1.6;
+    }
 
-  .service-card i {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-  }
+    @media (max-width: 768px) {
+        .features-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
 
-  .service-card h3 {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
+    .services {
+        padding: 4rem 0;
+        background: var(--white);
+    }
 
-  .service-card p {
-    color: var(--text-color);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
-  }
+    .services h2 {
+        text-align: center;
+        color: var(--primary-color);
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
 
-  .service-link {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: color 0.3s ease;
-  }
-
-  .service-link:hover {
-    color: var(--button-hover);
-  }
-
-  .service-link i {
-    font-size: 1rem;
-    margin: 0;
-    transition: transform 0.3s ease;
-  }
-
-  .service-link:hover i {
-    transform: translateX(5px);
-  }
-
-  @media (max-width: 768px) {
     .services-grid {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
     }
-  }
 
-  .cta {
-    padding: var(--spacing-xl) 0;
-    background-size: cover;
-    background-position: center;
-    color: var(--white);
-    text-align: center;
-  }
-
-  .cta-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .cta h2 {
-    color: var(--white);
-    margin-bottom: var(--spacing-md);
-  }
-
-  .cta p {
-    font-size: 1.2rem;
-    margin-bottom: var(--spacing-lg);
-    opacity: 0.9;
-  }
-
-  @media (max-width: 768px) {
     .service-card {
-      grid-template-columns: 1fr;
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+        flex-direction: column;
+        height: 100%;
     }
 
-    .service-image {
-      height: 300px;
+    .service-card:hover {
+        transform: translateY(-5px);
     }
-  }
 
-  .peace-of-mind {
-    padding: var(--spacing-xl) 0;
-    background-color: var(--white);
-  }
+    .service-card i {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+    }
 
-  .peace-of-mind-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: var(--spacing-xl);
-    align-items: center;
-  }
+    .service-card h3 {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
 
-  .peace-of-mind-heading {
-    text-align: right;
-  }
+    .service-card p {
+        color: var(--text-color);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        flex-grow: 1;
+    }
 
-  .peace-of-mind h2 {
-    color: var(--secondary-heading);
-    font-size: 2rem;
-    font-weight: 600;
-    margin: 0;
-  }
+    .service-link {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: color 0.3s ease;
+    }
 
-  .peace-of-mind-content {
-    max-width: 800px;
-  }
+    .service-link:hover {
+        color: var(--button-hover);
+    }
 
-  .peace-of-mind p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--text-color);
-    margin: 0;
-  }
+    .service-link i {
+        font-size: 1rem;
+        margin: 0;
+        transition: transform 0.3s ease;
+    }
 
-  @media (max-width: 768px) {
+    .service-link:hover i {
+        transform: translateX(5px);
+    }
+
+    @media (max-width: 768px) {
+        .services-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+
+    .cta {
+        padding: var(--spacing-xl) 0;
+        background-size: cover;
+        background-position: center;
+        color: var(--white);
+        text-align: center;
+    }
+
+    .cta-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .cta h2 {
+        color: var(--white);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .cta p {
+        font-size: 1.2rem;
+        margin-bottom: var(--spacing-lg);
+        opacity: 0.9;
+    }
+
+    @media (max-width: 768px) {
+        .service-card {
+            grid-template-columns: 1fr;
+        }
+
+        .service-image {
+            height: 300px;
+        }
+    }
+
+    .peace-of-mind {
+        padding: var(--spacing-xl) 0;
+        background-color: var(--white);
+    }
+
     .peace-of-mind-grid {
-      grid-template-columns: 1fr;
-      gap: var(--spacing-lg);
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: var(--spacing-xl);
+        align-items: center;
     }
 
     .peace-of-mind-heading {
-      text-align: center;
+        text-align: right;
     }
 
     .peace-of-mind h2 {
-      font-size: 1.75rem;
+        color: var(--secondary-heading);
+        font-size: 2rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .peace-of-mind-content {
+        max-width: 800px;
     }
 
     .peace-of-mind p {
-      font-size: 1rem;
-      text-align: center;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--text-color);
+        margin: 0;
     }
-  }
 
-  .testimonials {
-    padding: var(--spacing-xl) 0;
-    background-color: var(--secondary-bg);
-    overflow: hidden;
-  }
+    @media (max-width: 768px) {
+        .peace-of-mind-grid {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
 
-  .testimonials-carousel {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    padding: var(--spacing-lg) 0;
-  }
+        .peace-of-mind-heading {
+            text-align: center;
+        }
 
-  .testimonials-track {
-    display: flex;
-    gap: var(--spacing-lg);
-    animation: scroll 40s linear infinite;
-    width: max-content;
-  }
+        .peace-of-mind h2 {
+            font-size: 1.75rem;
+        }
 
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
+        .peace-of-mind p {
+            font-size: 1rem;
+            text-align: center;
+        }
     }
-    100% {
-      transform: translateX(calc(-100% / 2));
+
+    .testimonials {
+        padding: var(--spacing-xl) 0;
+        background-color: var(--secondary-bg);
+        overflow: hidden;
     }
-  }
 
-  .testimonial-card {
-    background: var(--white);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    min-width: 300px;
-    max-width: 400px;
-    flex: 0 0 auto;
-  }
+    .testimonials-carousel {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding: var(--spacing-lg) 0;
+    }
 
-  .testimonial-card:hover {
-    animation-play-state: paused;
-  }
+    .testimonials-track {
+        display: flex;
+        gap: var(--spacing-lg);
+        animation: scroll 40s linear infinite;
+        width: max-content;
+    }
 
-  .testimonial-card blockquote {
-    margin: 0;
-  }
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-100% / 2));
+        }
+    }
 
-  .testimonial-card p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--text-color);
-    margin-bottom: var(--spacing-md);
-    font-style: italic;
-  }
-
-  .testimonial-card footer {
-    margin-top: var(--spacing-md);
-  }
-
-  .testimonial-card cite {
-    color: var(--secondary-heading);
-    font-weight: 500;
-    font-style: normal;
-  }
-
-  @media (max-width: 768px) {
     .testimonial-card {
-      min-width: 280px;
-      padding: var(--spacing-md);
+        background: var(--white);
+        padding: var(--spacing-lg);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        min-width: 300px;
+        max-width: 400px;
+        flex: 0 0 auto;
+    }
+
+    .testimonial-card:hover {
+        animation-play-state: paused;
+    }
+
+    .testimonial-card blockquote {
+        margin: 0;
     }
 
     .testimonial-card p {
-      font-size: 1rem;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--text-color);
+        margin-bottom: var(--spacing-md);
+        font-style: italic;
     }
-  }
 
-  .why-msp {
-    padding: var(--spacing-xl) 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: var(--white);
-  }
+    .testimonial-card footer {
+        margin-top: var(--spacing-md);
+    }
 
-  .why-msp .section-title {
-    color: var(--white);
-  }
+    .testimonial-card cite {
+        color: var(--secondary-heading);
+        font-weight: 500;
+        font-style: normal;
+    }
 
-  .why-msp .section-title::after {
-    background-color: var(--white);
-  }
+    @media (max-width: 768px) {
+        .testimonial-card {
+            min-width: 280px;
+            padding: var(--spacing-md);
+        }
 
-  .msp-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-  }
+        .testimonial-card p {
+            font-size: 1rem;
+        }
+    }
 
-  .msp-quote {
-    margin-bottom: var(--spacing-xl);
-  }
+    .why-msp {
+        padding: var(--spacing-xl) 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: var(--white);
+    }
 
-  .msp-quote p {
-    font-size: 1.4rem;
-    line-height: 1.6;
-    color: var(--white);
-    font-style: italic;
-    font-weight: 500;
-  }
+    .why-msp .section-title {
+        color: var(--white);
+    }
 
-  .benefits {
-    margin-top: var(--spacing-xl);
-  }
+    .why-msp .section-title::after {
+        background-color: var(--white);
+    }
 
-  .benefits h3 {
-    color: var(--white);
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-lg);
-  }
+    .msp-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
 
-  .benefits-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-md);
-  }
+    .msp-quote {
+        margin-bottom: var(--spacing-xl);
+    }
 
-  .benefits-list li {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    font-size: 1.1rem;
-    color: var(--white);
-  }
-
-  .benefits-list i {
-    color: var(--button-color);
-    font-size: 1.2rem;
-  }
-
-  @media (max-width: 768px) {
     .msp-quote p {
-      font-size: 1.2rem;
+        font-size: 1.4rem;
+        line-height: 1.6;
+        color: var(--white);
+        font-style: italic;
+        font-weight: 500;
+    }
+
+    .benefits {
+        margin-top: var(--spacing-xl);
     }
 
     .benefits h3 {
-      font-size: 1.3rem;
+        color: var(--white);
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-lg);
     }
 
     .benefits-list {
-      grid-template-columns: 1fr;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-md);
     }
 
     .benefits-list li {
-      font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        font-size: 1.1rem;
+        color: var(--white);
     }
-  }
 
-  .faq {
-    padding: var(--spacing-xl) 0;
-    background-color: var(--white);
-  }
+    .benefits-list i {
+        color: var(--button-color);
+        font-size: 1.2rem;
+    }
 
-  .faq-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+    @media (max-width: 768px) {
+        .msp-quote p {
+            font-size: 1.2rem;
+        }
 
-  .faq-item {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    height: 100%;
-  }
+        .benefits h3 {
+            font-size: 1.3rem;
+        }
 
-  .faq-item h3 {
-    color: var(--primary-color);
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-  }
+        .benefits-list {
+            grid-template-columns: 1fr;
+        }
 
-  .faq-item p {
-    color: var(--text-color);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
+        .benefits-list li {
+            font-size: 1rem;
+        }
+    }
 
-  .faq-item ul {
-    list-style: disc;
-    margin-left: 1.5rem;
-    margin-bottom: 1rem;
-  }
+    .faq {
+        padding: var(--spacing-xl) 0;
+        background-color: var(--white);
+    }
 
-  .faq-item li {
-    color: var(--text-color);
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-  }
-
-  @media (max-width: 768px) {
     .faq-grid {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
     .faq-item {
-      padding: 1.5rem;
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        height: 100%;
     }
 
     .faq-item h3 {
-      font-size: 1.2rem;
+        color: var(--primary-color);
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
     }
-  }
 
-  html {
-    scroll-behavior: smooth;
-  }
+    .faq-item p {
+        color: var(--text-color);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
 
-  .hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-      image-set(
-        url('/images/architect_engineer_tech.avif') type('image/avif'),
-        url('/images/architect_engineer_tech.webp') type('image/webp'),
-        url('/images/architect_engineer_tech.jpeg') type('image/jpeg')
-      );
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
+    .faq-item ul {
+        list-style: disc;
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+    }
 
-  .why-msp {
-    background-image: linear-gradient(rgba(56, 66, 88, 0.9), rgba(56, 66, 88, 0.9)), 
-      image-set(
-        url('/images/architect_engineer_tech.avif') type('image/avif'),
-        url('/images/architect_engineer_tech.webp') type('image/webp'),
-        url('/images/architect_engineer_tech.jpeg') type('image/jpeg')
-      );
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
+    .faq-item li {
+        color: var(--text-color);
+        line-height: 1.6;
+        margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .faq-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .faq-item {
+            padding: 1.5rem;
+        }
+
+        .faq-item h3 {
+            font-size: 1.2rem;
+        }
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .hero {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+            image-set(
+                url('/images/architect_engineer_tech.avif') type('image/avif'),
+                url('/images/architect_engineer_tech.webp') type('image/webp'),
+                url('/images/architect_engineer_tech.jpeg') type('image/jpeg')
+            );
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .why-msp {
+        background-image: linear-gradient(rgba(56, 66, 88, 0.9), rgba(56, 66, 88, 0.9)), 
+            image-set(
+                url('/images/architect_engineer_tech.avif') type('image/avif'),
+                url('/images/architect_engineer_tech.webp') type('image/webp'),
+                url('/images/architect_engineer_tech.jpeg') type('image/jpeg')
+            );
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 </style>
