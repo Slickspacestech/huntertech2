@@ -7,7 +7,6 @@ import adminRightsImg from '../assets/images/blog/admin-rights.webp';
 import scanToEmailImg from '../assets/images/blog/scan-to-email.webp';
 import emailVerificationImg from '../assets/images/blog/email-verification.webp';
 import itServicesGuideImg from '../assets/images/blog/AdobeStock_535677380.webp';
-import revitBimBenefitsImg from '../assets/images/blog/cybersecurity2.webp';
 import inHouseVsOutsourcedImg from '../assets/images/blog/in-house-vs-outsourced.webp';
 
 export interface BlogPost {
@@ -115,16 +114,6 @@ export const posts: BlogPost[] = [
         image: pontemCaseStudyImg,
         content: `<p>Pontem Group, a leading fire suppression and CP code consulting firm in Calgary, faced significant IT challenges before partnering with Huntertech. With 20 staff members and four principals managing IT responsibilities, their technology infrastructure was becoming a liability rather than an asset. Here's how we helped them transform their IT operations and achieve substantial cost savings.</p>`,
         tags: []
-    },
-    {
-        title: "The Transformative Benefits of Revit and BIM in Architecture and Large Projects",
-        slug: "revit-bim-benefits",
-        date: "2024-03-20",
-        category: "Revit & BIM",
-        image: revitBimBenefitsImg,
-        content: "In today's rapidly evolving construction industry, Building Information Modeling (BIM) and Revit have become indispensable tools for architects and project managers. These technologies are not just changing how we design buildings—they're revolutionizing the entire construction process, from initial concept to final delivery.",
-        author: "Huntertech Team",
-        tags: ["Revit", "BIM", "Architecture", "Construction", "Project Management"]
     },
     {
         slug: 'in-house-vs-outsourced-it',
