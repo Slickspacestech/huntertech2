@@ -1,176 +1,269 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import SEO from '../../components/SEO.astro';
+import { formatDate } from '../../utils/date';
 import CTABox from '../../components/CTABox.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import HeroBlog from '../../components/HeroBlog.astro';
+import phishingAttacksImg from '../../assets/images/blog/phishing-attacks.webp';
 
-const title = "Phishing Attacks Rising in Canada | How to Protect Your Business";
-const description = "Learn about the increasing threat of phishing attacks in Canada and how to protect your business. Expert advice on technical and non-technical prevention strategies.";
+const title = "Phishing Attacks Rising in Canada";
+const description = "Learn about the increasing threat of phishing attacks in Canada and how to protect your business from cyber fraud.";
+const date = "2025-03-10";
+const author = "John Smith";
+const category = "Cybersecurity";
+const image = phishingAttacksImg;
+const keywords = "phishing attacks, cybersecurity, cyber fraud, business security, IT security, cyber threats, email security, Canada cybersecurity";
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "image": image.src,
+    "author": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://huntertech.ca/logo.png"
+        }
+    },
+    "datePublished": date,
+    "dateModified": date,
+    "description": description,
+    "keywords": keywords,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://huntertech.ca/blog/phishing-attacks-canada`
+    },
+    "articleSection": "Cybersecurity",
+    "inLanguage": "en-CA"
+};
 ---
 
-<Layout title={title}>
-    <SEO 
-        title={title}
-        description={description}
-        canonicalURL="/blog/phishing-attacks-canada"
-        type="article"
-        keywords={[
-            "Phishing attacks Canada",
-            "Business cybersecurity",
-            "Email security",
-            "Cyber fraud prevention",
-            "IT security Calgary",
-            "IT security Vancouver",
-            "Business email compromise",
-            "Payment fraud prevention"
-        ]}
-    />
+<Layout 
+    title={title}
+    description={description}
+    image={image.src}
+>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    
     <Header />
-    <main>
-        <article class="blog-post">
-            <div class="container">
-                <header class="post-header">
-                    <h1>Phishing Attacks Rising in Canada</h1>
-                    <div class="post-meta">
-                        <time datetime="2024-03-10">March 10, 2024</time>
-                        <span class="reading-time">5 min read</span>
-                    </div>
-                </header>
+    
+    <div class="blog-post">
+        <HeroBlog 
+            title={title}
+            subtitle={`By ${author} • ${formatDate(date)}`}
+            backgroundImage={image}
+            backgroundImageAlt={title}
+        />
 
-                <div class="post-content">
-                    <h2>What you can do to prevent them</h2>
-                    <p>Cybercrime is on the rise in Canada, including cyber fraud which has almost doubled since 2019 according to Statistics Canada's 2023 police-reported data. In the first half of 2024 alone, fraud has accounted for 56% of cybercrime violations.</p>
+        <div class="container">
+            <article class="content">
+                <div class="article-meta">
+                    <span class="category">{category}</span>
+                    <span class="date">{formatDate(date)}</span>
+                </div>
+
+                <div class="article-content">
+                    <p class="lead">Cybercrime is on the rise in Canada, including cyber fraud which has almost doubled since 2019 according to Statistics Canada's 2023 police-reported data. In the first half of 2024 alone, fraud has accounted for 56% of cybercrime violations.</p>
 
                     <p>One of the most common types of cyber fraud is phishing where attackers send deceptive emails or messages that trick employees or business owners into sharing information that will give them access to your system. These attacks often involve an impersonation scam where criminals pretend to be real businesses or people to tempt you into sending money.</p>
 
-                    <p>This threat is not only affecting large firms, but <strong>increasingly small businesses are also becoming victims of phishing</strong>. In the building industry, we are seeing phishing attacks with an end goal of intercepting payment.</p>
+                    <p>This threat is not only affecting large firms, but increasingly small businesses are also becoming victims of phishing. In the building industry, we are seeing phishing attacks with an end goal of intercepting payment.</p>
 
-                    <h3>How Phishing Attacks Work</h3>
+                    <h2>How Phishing Attacks Work</h2>
                     <p>Here is an example of how this type of phishing attack plays out:</p>
-                    <ul>
+
+                    <ol class="attack-steps">
                         <li>The scammers send an email designed to trick you into handing over your login credentials to them.</li>
                         <li>With your login information, the scammers exploit holes in the multi-factor requirements to gain access to your inbox.</li>
                         <li>The scammers are then able to monitor your mailbox (sometimes for several months) learning client names, project names, and payment dates so they could craft a fake request that is convincing.</li>
                         <li>Once they've collected sufficient information, they send emails from your mailbox (impersonating you) to your clients requesting they pay your next invoice via a new payment method.</li>
                         <li>If your client obliges the request, they send payment directly to the scammer instead of you.</li>
-                    </ul>
+                    </ol>
 
                     <p>This type of attack is not only damaging to you financially with possible legal implications but has the potential to damage your relationship and reputation with clients.</p>
 
-                    <h3>Real-World Example</h3>
-                    <p>A very similar attack was used to target MacEwen University in Edmonton. In 2017, a scammer impersonated a trusted vendor and requested changes to banking information. The university staff, believing the emails to be legitimate, transferred $11.8 million to the fraudulent accounts. Fortunately, MacEwen managed to recover $10.9 million, but only after extensive legal efforts.</p>
+                    <div class="case-study">
+                        <h3>Real-World Example: MacEwan University</h3>
+                        <p>A very similar attack was used to target MacEwen University in Edmonton. In 2017, a scammer impersonated a trusted vendor and requested changes to banking information. The university staff, believing the emails to be legitimate, transferred $11.8 million to the fraudulent accounts. Fortunately, MacEwen managed to recover $10.9 million, but only after extensive legal efforts.</p>
+                        <a href="https://edmontonjournal.com/news/local-news/11-8-million-transferred-from-macewan-university-accounts-in-phishing-attack" target="_blank" rel="noopener noreferrer" class="source-link">Read the full story in the Edmonton Journal →</a>
+                    </div>
 
-                    <h2>How do we prevent it?</h2>
+                    <h2>How to Prevent Phishing Attacks</h2>
                     <p>Prevention requires a combination of technical and non-technical approaches to fortify your business from attackers.</p>
 
-                    <h3>Technical approach—prevention and early detection</h3>
+                    <h3>Technical Approach—Prevention and Early Detection</h3>
                     <p>An IT managed services provider committed to your cybersecurity is your first line of defence. To be effective, your IT group should employ the following strategies:</p>
-                    <ul>
-                        <li><strong>Managed detection and response products</strong> from leading security companies, such as Huntress, provide your IT group with information that will allow them to respond quickly to threats. Ideally, these products monitor your business 24/7, including sign-ins, country of origin, and suspicious activity such as mail rule generation which can detect malicious access.</li>
-                        <li><strong>Phishing and spam protection email products</strong> recommended by your IT group can also lower your risk of attack by filtering incoming emails, thereby reducing the instances that staff could be fooled by login credential phishing attempts.</li>
-                        <li>Another form of protection is a <strong>strong conditional access policy</strong> that limits the ability of bad actors to even attempt to use your login credentials even if they were freely given. Combined with mobile device management, you can restrict access to your Microsoft 365 account to only selected devices that are approved by your IT group.</li>
+
+                    <ul class="strategy-list">
+                        <li>
+                            <strong>Managed Detection and Response:</strong> Products from leading security companies, such as Huntress, provide your IT group with information that will allow them to respond quickly to threats. Ideally, these products monitor your business 24/7, including sign-ins, country of origin, and suspicious activity such as mail rule generation which can detect malicious access.
+                        </li>
+                        <li>
+                            <strong>Email Protection:</strong> Phishing and spam protection email products recommended by your IT group can also lower your risk of attack by filtering incoming emails, thereby reducing the instances that staff could be fooled by login credential phishing attempts.
+                        </li>
+                        <li>
+                            <strong>Access Control:</strong> Another form of protection is a strong conditional access policy that limits the ability of bad actors to even attempt to use your login credentials even if they were freely given. Combined with mobile device management, you can restrict access to your Microsoft 365 account to only selected devices that are approved by your IT group.
+                        </li>
                     </ul>
 
-                    <h3>Non-technical approach</h3>
+                    <h3>Non-Technical Approach</h3>
                     <p>As your last line of defence, your accounting team should have strict rules about how you validate changes in payment information with existing clients, consultants, and vendors. The most effective rule would be to simply contact your client directly to validate the requested change before processing. You could also make it a requirement that multiple sign offs from internal stakeholders are needed before payment information can be changed.</p>
 
                     <p>These approaches, when used in combination, will create a robust system that protects your business from successful phishing attacks.</p>
 
-                    <p>By staying informed and implementing these security measures, you can significantly reduce your risk of falling victim to phishing attacks. Remember, the best defense is a combination of awareness, skepticism, and proper security tools.</p>
-
+                    <div class="cta-box">
+                        <p>Don't let your business be vulnerable to cyber fraud. We take cybersecurity seriously—contact us today to find out more about our cybersecurity strategies designed to protect your business from attacks.</p>
+                    </div>
                     <CTABox 
-                        title="Need Help with Phishing Protection?"
-                        description="Contact our team for expert advice on implementing comprehensive security measures to protect your business from phishing attacks."
-                        buttonText="Get Expert Help"
-                        buttonLink="/contact"
-                    />
+                    title="Need Help with Phishing Protection?"
+                    description="Contact our team for expert advice on implementing comprehensive security measures to protect your business from phishing attacks."
+                    buttonText="Get Expert Help"
+                    buttonLink="/contact"
+                />
                 </div>
-            </div>
-        </article>
-    </main>
+            </article>
+        </div>
+    </div>
+
+
     <Footer />
 </Layout>
 
 <style>
     .blog-post {
-        padding: 4rem 0;
+        min-height: 100vh;
     }
 
-    .post-header {
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-
-    .post-header h1 {
-        font-size: 2.5rem;
-        color: var(--primary-heading);
-        margin-bottom: 1rem;
-    }
-
-    .post-meta {
-        color: var(--text-color);
-        font-size: 0.9rem;
-    }
-
-    .post-meta time {
-        margin-right: 1rem;
-    }
-
-    .post-content {
+    .content {
         max-width: 800px;
         margin: 0 auto;
+        padding: 4rem 2rem;
+        line-height: 1.6;
     }
 
-    .post-content h2 {
-        color: var(--primary-heading);
+    .article-meta {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .category {
+        background: var(--accent-color);
+        padding: 0.25rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        color: white;
+    }
+
+    .date {
+        color: var(--text-muted);
+    }
+
+    .article-content {
+        font-size: 1.1rem;
+    }
+
+    .lead {
+        font-size: 1.3rem;
+        line-height: 1.6;
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin: 2.5rem 0 1.5rem;
+        color: var(--heading-color);
+    }
+
+    h3 {
+        font-size: 1.5rem;
         margin: 2rem 0 1rem;
-        font-size: 1.8rem;
+        color: var(--heading-color);
     }
 
-    .post-content h3 {
-        color: var(--secondary-heading);
-        margin: 1.5rem 0 1rem;
-        font-size: 1.4rem;
-    }
-
-    .post-content p {
+    p {
         margin-bottom: 1.5rem;
-        line-height: 1.6;
     }
 
-    .post-content ul, .post-content ol {
-        margin-bottom: 1.5rem;
+    .attack-steps {
+        list-style-type: decimal;
         padding-left: 1.5rem;
-    }
-
-    .post-content li {
-        margin-bottom: 0.5rem;
-        line-height: 1.6;
-    }
-
-    .post-content li strong {
-        color: var(--primary-heading);
-    }
-
-    .post-content blockquote {
-        background: var(--secondary-bg);
-        padding: 1.5rem;
-        border-left: 4px solid var(--button-color);
         margin: 1.5rem 0;
     }
 
+    .attack-steps li {
+        margin-bottom: 1rem;
+        padding-left: 0.5rem;
+    }
+
+    .case-study {
+        background: var(--bg-secondary);
+        padding: 2rem;
+        border-radius: 8px;
+        margin: 2rem 0;
+    }
+
+    .source-link {
+        display: inline-block;
+        margin-top: 1rem;
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .source-link:hover {
+        text-decoration: underline;
+    }
+
+    .strategy-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+    }
+
+    .strategy-list li {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .strategy-list li:before {
+        content: "•";
+        color: var(--accent-color);
+        position: absolute;
+        left: 0;
+        font-size: 1.5rem;
+    }
+
     @media (max-width: 768px) {
-        .blog-post {
-            padding: 2rem 0;
+        .content {
+            padding: 2rem 1rem;
         }
 
-        .post-header h1 {
-            font-size: 2rem;
+        .lead {
+            font-size: 1.2rem;
         }
 
-        .post-content {
-            padding: 0 1rem;
+        h2 {
+            font-size: 1.75rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+        }
+
+        .case-study {
+            padding: 1.5rem;
         }
     }
 </style> 

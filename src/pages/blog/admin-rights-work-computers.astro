@@ -4,40 +4,82 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import SEO from '../../components/SEO.astro';
 import CTABox from '../../components/CTABox.astro';
+import HeroBlog from '../../components/HeroBlog.astro';
+import { formatDate } from '../../utils/date';
+import adminRightsImg from '../../assets/images/blog/admin-rights.webp';
 
 const title = "Should Employees Have Admin Rights on Their Work Computers? | IT Security Best Practices";
 const description = "Learn about the implications of granting administrative rights to employees and how to implement proper access controls in your business. Expert advice on IT security and software management.";
+const date = "2024-09-12";
+const author = "Huntertech Team";
+const category = "IT Security";
+const image = adminRightsImg;
+const keywords = [
+    "Employee admin rights",
+    "IT security best practices",
+    "Work computer security",
+    "Software management",
+    "IT security Calgary",
+    "IT security Vancouver",
+    "Business IT policies",
+    "Software licensing compliance"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "image": image.src,
+    "author": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://huntertech.ca/logo.png"
+        }
+    },
+    "datePublished": date,
+    "dateModified": date,
+    "description": description,
+    "keywords": keywords.join(", "),
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://huntertech.ca/blog/admin-rights-work-computers"
+    },
+    "articleSection": "IT Security",
+    "inLanguage": "en-CA"
+};
 ---
 
-<Layout title={title}>
+<Layout 
+    title={title}
+    description={description}
+    image={image.src}
+>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <SEO 
         title={title}
         description={description}
         canonicalURL="/blog/admin-rights-work-computers"
         type="article"
-        keywords={[
-            "Employee admin rights",
-            "IT security best practices",
-            "Work computer security",
-            "Software management",
-            "IT security Calgary",
-            "IT security Vancouver",
-            "Business IT policies",
-            "Software licensing compliance"
-        ]}
+        keywords={keywords}
     />
     <Header />
     <main>
         <article class="blog-post">
-            <div class="container">
-                <header class="post-header">
-                    <h1>Should Employees Have Admin Rights on Their Work Computers?</h1>
-                    <div class="post-meta">
-                        <time datetime="2024-09-12">September 12, 2024</time>
-                        <span class="reading-time">5 min read</span>
-                    </div>
-                </header>
+            <HeroBlog 
+                title={title}
+                subtitle={`By ${author} • ${formatDate(date)}`}
+                backgroundImage={image}
+                backgroundImageAlt="Admin Rights on Work Computers"
+            />
 
+            <div class="container">
                 <div class="post-content">
                     <p>While there are certainly a variety of opinions concerning administrative rights on workplace computers, I believe it's crucial to consider several factors before reaching a decision. For those seeking a quick answer, it's conditional; however, generally speaking, the larger the organization, the more it tends to be advisable to restrict these rights.</p>
 
@@ -81,56 +123,29 @@ const description = "Learn about the implications of granting administrative rig
 
 <style>
     .blog-post {
-        padding: 4rem 0;
-    }
-
-    .post-header {
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-
-    .post-header h1 {
-        font-size: 2.5rem;
-        color: var(--primary-heading);
-        margin-bottom: 1rem;
-    }
-
-    .post-meta {
-        color: var(--text-color);
-        font-size: 0.9rem;
-    }
-
-    .post-meta time {
-        margin-right: 1rem;
+        background: var(--bg-color);
     }
 
     .post-content {
         max-width: 800px;
         margin: 0 auto;
+        padding: 0 20px 60px;
+        line-height: 1.8;
     }
 
     .post-content h2 {
-        color: var(--primary-heading);
-        margin: 2rem 0 1rem;
-        font-size: 1.8rem;
+        color: var(--text-color);
+        margin: 40px 0 20px;
+        font-size: 1.8em;
     }
 
     .post-content p {
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
+        margin-bottom: 20px;
     }
 
     @media (max-width: 768px) {
-        .blog-post {
-            padding: 2rem 0;
-        }
-
-        .post-header h1 {
-            font-size: 2rem;
-        }
-
         .post-content {
-            padding: 0 1rem;
+            padding: 0 15px 40px;
         }
     }
 </style> 

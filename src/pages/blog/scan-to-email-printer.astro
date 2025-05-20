@@ -4,40 +4,82 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import SEO from '../../components/SEO.astro';
 import CTABox from '../../components/CTABox.astro';
+import HeroBlog from '../../components/HeroBlog.astro';
+import { formatDate } from '../../utils/date';
+import scanToEmailImg from '../../assets/images/blog/scan-to-email.webp';
 
 const title = "Scan to Email on Your Office Printer with Microsoft 365 or Google Workspace | Easy Setup Guide";
 const description = "Learn how to set up scan-to-email functionality on your office printer using Microsoft 365 or Google Workspace. A simple 5-minute guide to get your printer sending emails.";
+const date = "2024-08-16";
+const author = "Huntertech Team";
+const category = "IT Guides";
+const image = scanToEmailImg;
+const keywords = [
+    "Scan to email setup",
+    "Office printer configuration",
+    "Microsoft 365 printer setup",
+    "Google Workspace printer setup",
+    "SMTP2GO setup",
+    "Printer email configuration",
+    "Office printer email",
+    "Business printer setup"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "image": image.src,
+    "author": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://huntertech.ca/logo.png"
+        }
+    },
+    "datePublished": date,
+    "dateModified": date,
+    "description": description,
+    "keywords": keywords.join(", "),
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://huntertech.ca/blog/scan-to-email-printer"
+    },
+    "articleSection": "IT Guides",
+    "inLanguage": "en-CA"
+};
 ---
 
-<Layout title={title}>
+<Layout 
+    title={title}
+    description={description}
+    image={image.src}
+>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <SEO 
         title={title}
         description={description}
         canonicalURL="/blog/scan-to-email-printer"
         type="article"
-        keywords={[
-            "Scan to email setup",
-            "Office printer configuration",
-            "Microsoft 365 printer setup",
-            "Google Workspace printer setup",
-            "SMTP2GO setup",
-            "Printer email configuration",
-            "Office printer email",
-            "Business printer setup"
-        ]}
+        keywords={keywords}
     />
     <Header />
     <main>
         <article class="blog-post">
-            <div class="container">
-                <header class="post-header">
-                    <h1>Scan to Email on Your Office Printer with Microsoft 365 or Google Workspace</h1>
-                    <div class="post-meta">
-                        <time datetime="2024-08-16">August 16, 2024</time>
-                        <span class="reading-time">5 min read</span>
-                    </div>
-                </header>
+            <HeroBlog 
+                title={title}
+                subtitle={`By ${author} • ${formatDate(date)}`}
+                backgroundImage={image}
+                backgroundImageAlt="Scan to Email Printer Setup"
+            />
 
+            <div class="container">
                 <div class="post-content">
                     <p>If you've recently purchased a multi-function printer, or perhaps you want to finally set up scan to email on a soccer free Saturday, then this is the guide to help you do it in 5 minutes and stop pulling your hair out.</p>
 
@@ -92,53 +134,33 @@ const description = "Learn how to set up scan-to-email functionality on your off
 
 <style>
     .blog-post {
-        padding: 4rem 0;
-    }
-
-    .post-header {
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-
-    .post-header h1 {
-        font-size: 2.5rem;
-        color: var(--primary-heading);
-        margin-bottom: 1rem;
-    }
-
-    .post-meta {
-        color: var(--text-color);
-        font-size: 0.9rem;
-    }
-
-    .post-meta time {
-        margin-right: 1rem;
+        background: var(--bg-color);
     }
 
     .post-content {
         max-width: 800px;
         margin: 0 auto;
+        padding: 0 20px 60px;
+        line-height: 1.8;
     }
 
     .post-content h2 {
-        color: var(--primary-heading);
-        margin: 2rem 0 1rem;
-        font-size: 1.8rem;
+        color: var(--text-color);
+        margin: 40px 0 20px;
+        font-size: 1.8em;
     }
 
     .post-content p {
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
+        margin-bottom: 20px;
     }
 
     .post-content ol, .post-content ul {
-        margin-bottom: 1.5rem;
-        padding-left: 1.5rem;
+        margin-bottom: 20px;
+        padding-left: 20px;
     }
 
     .post-content li {
-        margin-bottom: 0.5rem;
-        line-height: 1.6;
+        margin-bottom: 10px;
     }
 
     .post-content a {
@@ -152,16 +174,8 @@ const description = "Learn how to set up scan-to-email functionality on your off
     }
 
     @media (max-width: 768px) {
-        .blog-post {
-            padding: 2rem 0;
-        }
-
-        .post-header h1 {
-            font-size: 2rem;
-        }
-
         .post-content {
-            padding: 0 1rem;
+            padding: 0 15px 40px;
         }
     }
 </style> 

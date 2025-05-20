@@ -1,5 +1,5 @@
 import type { ImageMetadata } from 'astro';
-import pontemCaseStudyImg from '../assets/images/blog/pontem-case-study.webp';
+import pontemCaseStudyImg from '../assets/images/blog/pontem-16x9.webp';
 import phishingAttacksImg from '../assets/images/blog/phishing-attacks.webp';
 import passwordManagerImg from '../assets/images/blog/password-manager.webp';
 import cybersecurityImg from '../assets/images/blog/cybersecurity.webp';
@@ -117,7 +117,7 @@ export const posts: BlogPost[] = [
     },
     {
         slug: 'in-house-vs-outsourced-it',
-        title: 'Choosing the Right IT Strategy: Build In-House or Share the Hat?',
+        title: 'Choosing the Right IT Strategy: In-House, Share the Hat? Or Outsource?',
         date: '2024-03-25',
         author: 'Huntertech Team',
         category: 'IT Services',

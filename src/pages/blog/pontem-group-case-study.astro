@@ -1,78 +1,63 @@
 ---
-import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import { formatDate } from '../../utils/date';
+import { Image } from 'astro:assets';
 import CTABox from '../../components/CTABox.astro';
+import HeroBlog from '../../components/HeroBlog.astro';
+import { formatDate } from '../../utils/date';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 
-const title = "Case Study: How Huntertech Transformed Pontem Group's IT Operations and Cut Costs";
-const description = "Learn how Huntertech helped Pontem Group, a Vancouver-based fire suppression consulting firm, transform their IT infrastructure, improve security, and achieve significant cost savings. Read our detailed case study on IT transformation success.";
-const date = "2025-04-20";
-const author = "Huntertech Team";
-const category = "Case Studies";
-const image = "/images/blog/pontem-case-study.jpg";
-const keywords = "IT transformation, managed IT services, cybersecurity, Vancouver IT support, fire suppression industry, IT cost reduction, Windows 11 Pro, Azure AD, EDR, ITDR";
+// Import the image
+import pontemImage from '../../assets/images/blog/pontem-16x9.webp';
 
+// Define the article metadata
+const title = "Pontem Group Case Study: IT Transformation Success";
+const description = "How Huntertech helped Pontem Group transform their IT infrastructure, improving efficiency and reducing costs through strategic technology implementation.";
+const date = "2024-03-15";
+const author = "Matt Hunter";
+const category = "Case Studies";
+const keywords = ["IT transformation", "case study", "Pontem Group", "IT infrastructure", "technology implementation", "business efficiency"];
+
+// Create structured data for SEO
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": title,
-    "image": image,
+    "image": "/images/pontem-16x9.webp",
     "author": {
-        "@type": "Organization",
-        "name": "Huntertech",
-        "url": "https://huntertech.ca"
+        "@type": "Person",
+        "name": author
     },
     "publisher": {
         "@type": "Organization",
         "name": "Huntertech",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://huntertech.ca/logo.png"
+            "url": "/images/Huntertech_logo.webp"
         }
     },
     "datePublished": date,
-    "dateModified": date,
     "description": description,
-    "keywords": keywords,
+    "keywords": keywords.join(", "),
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `https://huntertech.ca/blog/pontem-group-case-study`
-    },
-    "articleSection": "Case Studies",
-    "inLanguage": "en-CA"
+        "@id": "https://huntertech.ca/blog/pontem-group-case-study"
+    }
 };
 ---
 
-<Layout 
-    title={title}
-    description={description}
-    image={image}
->
+<Layout title={title} description={description} image="/images/pontem-16x9.webp">
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     
     <Header />
     
     <div class="blog-post">
-        <div class="hero">
-            <div class="hero-overlay"></div>
-            <Image 
-                src="/images/blog/pontem-case-study.webp"
-                alt="Pontem Group Case Study"
-                width={1920}
-                height={1080}
-                class="hero-image"
-            />
-            <div class="container">
-                <div class="meta">
-                    <span class="category">{category}</span>
-                    <span class="date">{formatDate(date)}</span>
-                </div>
-                <h1>{title}</h1>
-                <div class="author">By {author}</div>
-            </div>
-        </div>
+        <HeroBlog 
+            title={title}
+            subtitle={`By ${author} | ${formatDate(date)}`}
+            backgroundImage={pontemImage}
+            backgroundImageAlt="Pontem Group IT Transformation Case Study"
+        />
 
         <div class="container">
             <article class="content">
@@ -335,63 +320,6 @@ const structuredData = {
         background: var(--bg-color);
     }
 
-    .hero {
-        position: relative;
-        color: white;
-        padding: 120px 0;
-        margin-bottom: 60px;
-        overflow: hidden;
-    }
-
-    .hero-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 1;
-    }
-
-    .hero-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .hero .container {
-        position: relative;
-        z-index: 2;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    .meta {
-        margin-bottom: 20px;
-    }
-
-    .category {
-        background: var(--accent-color);
-        color: white;
-        padding: 5px 15px;
-        border-radius: 20px;
-        font-size: 0.9em;
-        margin-right: 15px;
-    }
-
-    .date {
-        color: rgba(255, 255, 255, 0.8);
-    }
-
-    .author {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 1.1em;
-    }
-
     .content {
         max-width: 1000px;
         margin: 0 auto;
@@ -585,14 +513,6 @@ const structuredData = {
     }
 
     @media (max-width: 768px) {
-        .hero {
-            padding: 80px 0;
-        }
-
-        .hero h1 {
-            font-size: 2em;
-        }
-
         .content {
             padding: 0 15px 40px;
         }

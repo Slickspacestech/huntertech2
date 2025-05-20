@@ -5,13 +5,14 @@ import { formatDate } from '../../utils/date';
 import CTABox from '../../components/CTABox.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
-
-const title = "Choosing the Right IT Strategy: Build In-House or Share the Hat?";
+import HeroBlog from '../../components/HeroBlog.astro';
+import inHouseVsOutsourcedImg from '../../assets/images/blog/in-house-vs-outsourced.webp';
+const title = "Choosing the Right IT Strategy: In-House, Share the Hat? Or Outsource?";
 const description = "Discover the pros and cons of building an in-house IT team versus outsourcing. Learn about the hidden risks of having non-IT staff handle technology and how to make the right choice for your business.";
 const date = "2024-03-25";
 const author = "Huntertech Team";
 const category = "IT Services";
-const image = "/images/blog/in-house-vs-outsourced.jpg";
+const image = inHouseVsOutsourcedImg;
 const keywords = "IT strategy, in-house IT team, IT outsourcing, managed IT services, small business IT, IT management, IT support, business technology";
 
 const structuredData = {
@@ -55,14 +56,13 @@ const structuredData = {
     <Header />
     
     <div class="blog-post">
-        <div class="hero">
-            <div class="hero-overlay"></div>
-            <Image 
-                src="/images/blog/in-house-vs-outsourced.webp"
-                alt="In-House vs Outsourced IT Strategy"
-                width={1920}
-                height={1080}
-                class="hero-image"
+        <HeroBlog 
+            title={title}
+            subtitle={`By ${author} • ${formatDate(date)}`}
+            backgroundImage={image}
+            backgroundImageAlt="In-House vs Outsourced IT Strategy"
+        />
+
             />
             <div class="container">
                 <div class="meta">
