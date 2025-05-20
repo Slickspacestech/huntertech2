@@ -36,7 +36,8 @@ const allKeywords = [...new Set([...defaultKeywords, ...keywords])];
 // Structured data for local business
 const structuredData = {
     "@context": "https://schema.org",
-    "@type": "ITService",
+    "@type": "LocalBusiness",
+    "@id": `${siteURL}#organization`,
     "name": "Huntertech",
     "image": `${siteURL}${image}`,
     "description": description,
@@ -55,7 +56,7 @@ const structuredData = {
         "latitude": location === 'Calgary' ? "51.0677" : "49.2827",
         "longitude": location === 'Calgary' ? "-113.9777" : "-123.1207"
     },
-    "openingHoursSpecification": {
+    "openingHoursSpecification": [{
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": [
             "Monday",
@@ -66,11 +67,48 @@ const structuredData = {
         ],
         "opens": "08:00",
         "closes": "17:00"
-    },
+    }],
     "sameAs": [
         "https://www.linkedin.com/company/huntertech",
         "https://www.facebook.com/huntertech"
-    ]
+    ],
+    "areaServed": [
+        {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "51.0677",
+                "longitude": "-113.9777"
+            },
+            "geoRadius": "50000",
+            "name": "Calgary Metropolitan Area"
+        },
+        {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "49.2827",
+                "longitude": "-123.1207"
+            },
+            "geoRadius": "50000",
+            "name": "Vancouver Metropolitan Area"
+        }
+    ],
+    "priceRange": "$$",
+    "currenciesAccepted": "CAD",
+    "paymentAccepted": ["Credit Card", "Debit Card", "Cash"],
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "IT Services",
+        "itemListElement": [{
+            "@type": "Offer",
+            "itemOffered": {
+                "@type": "Service",
+                "name": "IT Services",
+                "description": "Professional IT services including managed IT, cybersecurity, and cloud solutions"
+            }
+        }]
+    }
 };
 ---
 
