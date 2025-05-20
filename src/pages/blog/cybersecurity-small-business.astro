@@ -1,53 +1,45 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import SEO from '../../components/SEO.astro';
+import { formatDate } from '../../utils/date';
 import CTABox from '../../components/CTABox.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
 import HeroBlog from '../../components/HeroBlog.astro';
+import SEO from '../../components/SEO.astro';
+import cybersecurityImage from '../../assets/images/blog/cybersecurity-small-business.webp';
 
-const title = "Essential Cybersecurity Tips for Small Businesses in Calgary and Vancouver";
-const description = "Learn how to protect your small business from cyber threats. Expert cybersecurity advice for Calgary and Vancouver businesses, including practical tips and best practices.";
+const title = "Cybersecurity for Small Business: Essential Protection Guide";
+const description = "Essential cybersecurity guide for small businesses. Learn about data protection, employee training, and security best practices to safeguard your business from cyber threats.";
+const date = "2024-03-05";
+const author = "Huntertech Team";
+const category = "Cybersecurity";
+const keywords = ["small business cybersecurity", "cyber protection", "data security", "business security", "cyber threats", "security best practices", "IT security"];
 ---
 
-<Layout title={title}>
-    <SEO 
+<Layout title={title} description={description}>
+    <SEO
         title={title}
         description={description}
-        canonicalURL="/blog/cybersecurity-small-business"
+        canonicalURL="https://huntertech.ca/blog/cybersecurity-small-business"
+        keywords={keywords}
         type="article"
-        keywords={[
-            "Cybersecurity for small businesses",
-            "Small business IT security",
-            "Business cybersecurity tips",
-            "IT security Calgary",
-            "IT security Vancouver",
-            "Small business data protection",
-            "Business network security",
-            "Cybersecurity best practices"
-        ]}
+        image={cybersecurityImage.src}
     />
+    
     <Header />
-    <main>
-        <div class="hero">
-            <div class="hero-overlay"></div>
-            <Image 
-                src="/images/blog-bg.webp"
-                alt="Cybersecurity for Small Businesses"
-                width={1920}
-                height={1080}
-                class="hero-image"
-            />
-            <div class="container">
-                <h1>{title}</h1>
-                <p class="subtitle">Expert cybersecurity advice for small businesses</p>
-            </div>
-        </div>
+    
+    <main class="blog-post">
+        <HeroBlog 
+            title={title}
+            subtitle={`By ${author} | ${formatDate(date)}`}
+            backgroundImage={cybersecurityImage}
+            backgroundImageAlt="Cybersecurity for Small Businesses"
+        />
         <article class="blog-post">
             <div class="container">
                 <div class="post-meta">
-                    <time datetime="2024-03-20">March 20, 2024</time>
+                    <time datetime={date}>{formatDate(date)}</time>
                     <span class="reading-time">5 min read</span>
                 </div>
 

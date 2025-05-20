@@ -9,9 +9,11 @@ import Cloud2 from '../../components/icons/cloud2.astro';
 import Dollar from '../../components/icons/dollar.astro';
 import Lock from '../../components/icons/lock.astro';
 import SEO from '../../components/SEO.astro';
+import { Image } from 'astro:assets';
+import accountantImage from '../../assets/images/accountant.webp';
 
-const title = "IT Services for Accounting Firms | Professional Financial Technology Solutions - HunterTech";
-const description = "Specialized IT services for accounting firms in Calgary and Vancouver. Secure financial data management, software integration, and cloud solutions. Get reliable technology support from certified experts who understand the unique needs of accounting professionals.";
+const title = "IT Services for Accounting Firms Calgary & Vancouver | Finance Tech";
+const description = "Expert IT services for accounting firms in Calgary and Vancouver. Specialized support for financial data management, software integration, and cloud solutions.";
 const keywords = [
     "accounting IT services",
     "financial technology solutions",
@@ -99,7 +101,7 @@ const structuredData = {
         canonicalURL="https://huntertech.ca/industries/accounting"
         keywords={keywords}
         type="website"
-        image="/images/accounting.webp"
+        image={accountantImage.src}
     />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <Header />
@@ -107,7 +109,8 @@ const structuredData = {
         <Hero 
             title="IT Services for Accounting Firms"
             subtitle="Streamlined technology solutions for accounting professionals"
-            backgroundImage="/images/accountant.webp"
+            backgroundImage={accountantImage}
+            backgroundImageAlt="Accounting firm technology solutions"
             ctaText="Reach Out"
             ctaLink="/contact"
         />

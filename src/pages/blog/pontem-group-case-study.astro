@@ -6,12 +6,13 @@ import HeroBlog from '../../components/HeroBlog.astro';
 import { formatDate } from '../../utils/date';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
+import SEO from '../../components/SEO.astro';
 
 // Import the image
 import pontemImage from '../../assets/images/blog/pontem-16x9.webp';
 
 // Define the article metadata
-const title = "Pontem Group Case Study: IT Transformation Success";
+const title = "How Pontem Group Saved 3,000 Hours with IT Transformation";
 const description = "How Huntertech helped Pontem Group transform their IT infrastructure, improving efficiency and reducing costs through strategic technology implementation.";
 const date = "2024-03-15";
 const author = "Matt Hunter";
@@ -46,8 +47,15 @@ const structuredData = {
 };
 ---
 
-<Layout title={title} description={description} image="/images/pontem-16x9.webp">
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<Layout title={title}>
+    <SEO 
+        title={title}
+        description={description}
+        image="/images/pontem-16x9.webp"
+        type="article"
+        keywords={keywords}
+        location="Vancouver"
+    />
     
     <Header />
     
@@ -77,7 +85,7 @@ const structuredData = {
                         </div>
                         <div class="info-item">
                             <h3>Employees</h3>
-                            <p>20</p>
+                            <p>30</p>
                         </div>
                     </div>
                 </div>
@@ -99,6 +107,7 @@ const structuredData = {
                     <li><strong>Inconsistent User Experience:</strong> Different Windows versions, configurations, and app versions across staff devices.</li>
                     <li><strong>Unmanaged Admin Access:</strong> Users were local admins and expected to handle their own software installations and updates.</li>
                     <li><strong>Network Access Issues:</strong> Critical network equipment was installed by a third party, and no internal staff had administrative access.</li>
+                    <li><strong>Frequent phishing email attempts:</strong> Staff were targeted for phishing emails on a regular basis.</li>
                 </ul>
 
                 <h2>The Solution</h2>
@@ -128,7 +137,7 @@ const structuredData = {
                             <li>Added EDR and ITDR systems</li>
                             <li>Encrypted all devices with BitLocker</li>
                             <li>Removed local admin rights</li>
-                            <li>Deployed spam filtering</li>
+                            <li>Deployed spam/phishing filtering with a clear escalation policy to engage Huntertech if something suspicious slips through</li>
                         </ul>
                     </div>
                     <div class="solution-card">
@@ -301,7 +310,7 @@ const structuredData = {
                 <div class="cta-section">
                     <CTABox 
                         title="Ready to Transform Your IT?"
-                        description="Whether you're overwhelmed by DIY IT, facing security risks, or just want to modernize your systems, Huntertech is here to help."
+                        description="Whether you're overwhelmed by DIY IT, facing security risks, applying for cyber insurance, or just want to modernize your systems, Huntertech is here to help."
                         buttonText="Contact Us Today"
                         buttonLink="/contact"
                     />

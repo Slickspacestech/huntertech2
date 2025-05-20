@@ -1,35 +1,26 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import SEO from '../../components/SEO.astro';
-import CTABox from '../../components/CTABox.astro';
-import HeroBlog from '../../components/HeroBlog.astro';
 import { formatDate } from '../../utils/date';
-import emailVerificationImg from '../../assets/images/blog/email-verification.webp';
+import CTABox from '../../components/CTABox.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import HeroBlog from '../../components/HeroBlog.astro';
+import SEO from '../../components/SEO.astro';
+import dmarcImg from '../../assets/images/blog/email-verification.webp';
 
-const title = "Help! Emails I Send from Our Email Blast System are Showing Up as Unverified | Email Authentication Guide";
-const description = "Learn how to fix unverified email issues and properly set up DMARC, DKIM, and SPF records for your business email system. Expert guide to email authentication.";
-const date = "2024-07-29";
+const title = "Email Verification & DMARC: Protect Your Business Email";
+const description = "Essential guide to implementing DMARC, SPF, and DKIM for business email security. Learn how to protect your email from spoofing and phishing attacks.";
+const date = "2024-03-12";
 const author = "Huntertech Team";
-const category = "Email Security";
-const image = emailVerificationImg;
-const keywords = [
-    "Email verification",
-    "DMARC setup",
-    "DKIM records",
-    "SPF records",
-    "Email authentication",
-    "Email deliverability",
-    "Email security",
-    "Business email setup"
-];
+const category = "Cybersecurity";
+const keywords = ["DMARC", "email security", "SPF", "DKIM", "email authentication", "email spoofing", "phishing protection", "email verification"];
 
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": title,
-    "image": image.src,
+    "image": dmarcImg.src,
     "author": {
         "@type": "Organization",
         "name": "Huntertech",
@@ -56,111 +47,108 @@ const structuredData = {
 };
 ---
 
-<Layout 
-    title={title}
-    description={description}
-    image={image.src}
->
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<Layout title={title}>
     <SEO 
         title={title}
         description={description}
-        canonicalURL="/blog/email-verification-dmarc"
+        image={dmarcImg.src}
         type="article"
         keywords={keywords}
+        location="Vancouver"
     />
+    
     <Header />
-    <main>
-        <article class="blog-post">
-            <HeroBlog 
-                title={title}
-                subtitle={`By ${author} • ${formatDate(date)}`}
-                backgroundImage={image}
-                backgroundImageAlt="Email Verification and DMARC Setup Guide"
-            />
+    
+    <main class="blog-post">
+        <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+        <HeroBlog 
+            title={title}
+            subtitle={`By ${author} • ${formatDate(date)}`}
+            backgroundImage={dmarcImg}
+            backgroundImageAlt="Email Verification and DMARC Setup Guide"
+        />
 
-            <div class="container">
-                <div class="post-content">
-                    <p>I've been seeing a common issue faced by many companies. They send emails through a bulk email provider like Mailchimp, Ticketmaster, Brevo, Hubspot, etc. and their emails are getting flagged as possible spam or as unverified.</p>
+        <div class="container">
+            <div class="post-content">
+                <p>I've been seeing a common issue faced by many companies. They send emails through a bulk email provider like Mailchimp, Ticketmaster, Brevo, Hubspot, etc. and their emails are getting flagged as possible spam or as unverified.</p>
 
-                    <h2>Understanding the Problem</h2>
-                    <p>Let's break this down to show what's happening. When a company sends email using their Mailchimp Account, it should be legitimate, right? Let's check the mail header to understand what's going wrong.</p>
+                <h2>Understanding the Problem</h2>
+                <p>Let's break this down to show what's happening. When a company sends email using their Mailchimp Account, it should be legitimate, right? Let's check the mail header to understand what's going wrong.</p>
 
-                    <blockquote>
-                        Authentication-Results: spf=pass (sender IP is 198.2.144.59) smtp.mailfrom=mail59.atl301.rsgsv.net; dkim=pass (signature was verified) header.d=mailchimpapp.net; dmarc=fail action=none header.from=deploydepot.ca; compauth=fail reason=001
-                    </blockquote>
+                <blockquote>
+                    Authentication-Results: spf=pass (sender IP is 198.2.144.59) smtp.mailfrom=mail59.atl301.rsgsv.net; dkim=pass (signature was verified) header.d=mailchimpapp.net; dmarc=fail action=none header.from=deploydepot.ca; compauth=fail reason=001
+                </blockquote>
 
-                    <p>Pulling out the important info:</p>
-                    <ul>
-                        <li>SPF Passed</li>
-                        <li>DKIM Passed</li>
-                        <li>DMARC Failed</li>
-                        <li>Fail reason = 001</li>
-                    </ul>
+                <p>Pulling out the important info:</p>
+                <ul>
+                    <li>SPF Passed</li>
+                    <li>DKIM Passed</li>
+                    <li>DMARC Failed</li>
+                    <li>Fail reason = 001</li>
+                </ul>
 
-                    <h2>What is DMARC, DKIM, and SPF?</h2>
-                    <p>DMARC (Domain-based Message Authentication, Reporting, and Conformance) builds upon SPF (Sender Policy Framework) and DKIM (DomainKeys Identified Mail). Its goal is to increase email security. Here's how it works:</p>
+                <h2>What is DMARC, DKIM, and SPF?</h2>
+                <p>DMARC (Domain-based Message Authentication, Reporting, and Conformance) builds upon SPF (Sender Policy Framework) and DKIM (DomainKeys Identified Mail). Its goal is to increase email security. Here's how it works:</p>
 
-                    <h3>Authentication Standards</h3>
-                    <ul>
-                        <li><strong>SPF</strong>: Checks if the sender's IP address is authorized to send emails on behalf of a domain. It specifies which servers are allowed to send mail for a domain.</li>
-                        <li><strong>DKIM</strong>: Adds a digital signature to outgoing emails. The recipient's server can verify this signature to ensure the email hasn't been tampered with.</li>
-                    </ul>
+                <h3>Authentication Standards</h3>
+                <ul>
+                    <li><strong>SPF</strong>: Checks if the sender's IP address is authorized to send emails on behalf of a domain. It specifies which servers are allowed to send mail for a domain.</li>
+                    <li><strong>DKIM</strong>: Adds a digital signature to outgoing emails. The recipient's server can verify this signature to ensure the email hasn't been tampered with.</li>
+                </ul>
 
-                    <h3>DMARC Implementation</h3>
-                    <ul>
-                        <li>DMARC allows domain owners to set policies for handling emails that fail authentication checks.</li>
-                        <li>An organization can publish a DMARC policy that says, "If you send mail from my domain, it must pass SPF and DKIM checks."</li>
-                        <li>DMARC creates a feedback loop between the sender and receiver. If an email fails authentication, the receiver can send a report back to the sender, detailing why it failed.</li>
-                    </ul>
+                <h3>DMARC Implementation</h3>
+                <ul>
+                    <li>DMARC allows domain owners to set policies for handling emails that fail authentication checks.</li>
+                    <li>An organization can publish a DMARC policy that says, "If you send mail from my domain, it must pass SPF and DKIM checks."</li>
+                    <li>DMARC creates a feedback loop between the sender and receiver. If an email fails authentication, the receiver can send a report back to the sender, detailing why it failed.</li>
+                </ul>
 
-                    <h2>How to Fix the Issue</h2>
-                    <p>In the Mailchimp example, the CNAME record you create is actually pointing at their TXT record which holds the public key used to verify the DKIM signature applied by the Mailchimp mail server.</p>
+                <h2>How to Fix the Issue</h2>
+                <p>In the Mailchimp example, the CNAME record you create is actually pointing at their TXT record which holds the public key used to verify the DKIM signature applied by the Mailchimp mail server.</p>
 
-                    <p>A proper TXT record should be formatted like this:</p>
-                    <pre>[selector]._domainkey.[domain]</pre>
+                <p>A proper TXT record should be formatted like this:</p>
+                <pre>[selector]._domainkey.[domain]</pre>
 
-                    <p>With a value of:</p>
-                    <pre>v=DKIM1; p=[insert public key here]</pre>
+                <p>With a value of:</p>
+                <pre>v=DKIM1; p=[insert public key here]</pre>
 
-                    <h3>Step 1: Find the Selector</h3>
-                    <p>In your email, you need to open the message details or header (in Outlook you can right-click -> View -> Message Details). Scroll to the DKIM-Signature section of the header and take note of these important items:</p>
-                    <ul>
-                        <li>d= is the Domain (e.g., mailchimpapp.net)</li>
-                        <li>s= is the Selector (e.g., k3)</li>
-                        <li>v= is the version</li>
-                        <li>a= is the algorithm used to apply the DKIM signature</li>
-                    </ul>
+                <h3>Step 1: Find the Selector</h3>
+                <p>In your email, you need to open the message details or header (in Outlook you can right-click -> View -> Message Details). Scroll to the DKIM-Signature section of the header and take note of these important items:</p>
+                <ul>
+                    <li>d= is the Domain (e.g., mailchimpapp.net)</li>
+                    <li>s= is the Selector (e.g., k3)</li>
+                    <li>v= is the version</li>
+                    <li>a= is the algorithm used to apply the DKIM signature</li>
+                </ul>
 
-                    <h3>Step 2: Create the DNS Records</h3>
-                    <p>Head over to www.mxtoolbox.com and use their Super Tool. Select the DKIM Lookup from the dropdown and enter the d value and s value separated by a colon (:) - example: mailchimpapp.net:k3</p>
+                <h3>Step 2: Create the DNS Records</h3>
+                <p>Head over to www.mxtoolbox.com and use their Super Tool. Select the DKIM Lookup from the dropdown and enter the d value and s value separated by a colon (:) - example: mailchimpapp.net:k3</p>
 
-                    <p>This will show you the DKIM record for your email provider. When you create your CNAME record, this is what you are pointing to. This has the public key used to verify the DKIM signature.</p>
+                <p>This will show you the DKIM record for your email provider. When you create your CNAME record, this is what you are pointing to. This has the public key used to verify the DKIM signature.</p>
 
-                    <h2>Setting Up DMARC Records</h2>
-                    <p>The last piece of the puzzle is setting up your DMARC records. You should create a mailbox or distribution list to collect DMARC reports and set your DNS DMARC to reject or quarantine emails that don't pass DMARC. Or you can use a service like <a href="https://www.uriports.com" target="_blank">https://www.uriports.com</a> to collect the reports for you.</p>
+                <h2>Setting Up DMARC Records</h2>
+                <p>The last piece of the puzzle is setting up your DMARC records. You should create a mailbox or distribution list to collect DMARC reports and set your DNS DMARC to reject or quarantine emails that don't pass DMARC. Or you can use a service like <a href="https://www.uriports.com" target="_blank">https://www.uriports.com</a> to collect the reports for you.</p>
 
-                    <p>Example DMARC TXT DNS record:</p>
-                    <pre>v=DMARC1; p=quarantine; adkim=s; aspf=s; rua=mailto:dmarcfailure@yourdomain.ca</pre>
+                <p>Example DMARC TXT DNS record:</p>
+                <pre>v=DMARC1; p=quarantine; adkim=s; aspf=s; rua=mailto:dmarcfailure@yourdomain.ca</pre>
 
-                    <p>What this means:</p>
-                    <ul>
-                        <li><strong>v=DMARC1</strong>: Indicates this is a DMARC policy</li>
-                        <li><strong>p=quarantine</strong>: Email servers should "quarantine" emails that fail DKIM and SPF</li>
-                        <li><strong>adkim=s</strong>: DKIM checks are "strict"</li>
-                        <li><strong>aspf=s</strong>: SPF checks are "strict"</li>
-                        <li><strong>rua=mailto:xxxx</strong>: Sends DMARC reports to this email address</li>
-                    </ul>
+                <p>What this means:</p>
+                <ul>
+                    <li><strong>v=DMARC1</strong>: Indicates this is a DMARC policy</li>
+                    <li><strong>p=quarantine</strong>: Email servers should "quarantine" emails that fail DKIM and SPF</li>
+                    <li><strong>adkim=s</strong>: DKIM checks are "strict"</li>
+                    <li><strong>aspf=s</strong>: SPF checks are "strict"</li>
+                    <li><strong>rua=mailto:xxxx</strong>: Sends DMARC reports to this email address</li>
+                </ul>
 
-                    <CTABox 
-                        title="Need Help with Email Authentication?"
-                        description="Contact our team for expert assistance with email verification and DMARC setup for your business."
-                        buttonText="Get Expert Help"
-                        buttonLink="/contact"
-                    />
-                </div>
+                <CTABox 
+                    title="Need Help with Email Authentication?"
+                    description="Contact our team for expert assistance with email verification and DMARC setup for your business."
+                    buttonText="Get Expert Help"
+                    buttonLink="/contact"
+                />
             </div>
-        </article>
+        </div>
     </main>
     <Footer />
 </Layout>

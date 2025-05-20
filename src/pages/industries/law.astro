@@ -9,9 +9,11 @@ import Cloud2 from '../../components/icons/cloud2.astro';
 import Lock from '../../components/icons/lock.astro';
 import MapleLeaf from '../../components/icons/maple-leaf.astro';
 import SEO from '../../components/SEO.astro';
+import { Image } from 'astro:assets';
+import lawImage from '../../assets/images/law.webp';
 
-const title = "IT Services for Law Firms | Professional Legal Technology Solutions - HunterTech";
-const description = "Specialized IT services for law firms in Calgary and Vancouver. Secure document management, legal software support, and client data protection. Get reliable technology solutions from certified experts who understand the unique needs of legal professionals.";
+const title = "IT Services for Law Firms Calgary & Vancouver | Legal Tech";
+const description = "Expert IT services for law firms in Calgary and Vancouver. Specialized support for document management, legal software, and client data protection from certified professionals.";
 const keywords = [
     "law firm IT services",
     "legal technology solutions",
@@ -99,7 +101,7 @@ const structuredData = {
         canonicalURL="https://huntertech.ca/industries/law"
         keywords={keywords}
         type="website"
-        image="/images/law.webp"
+        image={lawImage.src}
     />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <Header />
@@ -107,7 +109,8 @@ const structuredData = {
         <Hero 
             title="IT Services for Law Firms"
             subtitle="Specialized technology solutions for legal professionals"
-            backgroundImage="/images/law.webp"
+            backgroundImage={lawImage}
+            backgroundImageAlt="Law firm technology solutions"
             ctaText="Get Started"
             ctaLink="/contact"
         />

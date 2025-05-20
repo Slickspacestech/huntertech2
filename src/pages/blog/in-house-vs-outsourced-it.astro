@@ -6,14 +6,16 @@ import CTABox from '../../components/CTABox.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import HeroBlog from '../../components/HeroBlog.astro';
+import SEO from '../../components/SEO.astro';
 import inHouseVsOutsourcedImg from '../../assets/images/blog/in-house-vs-outsourced.webp';
-const title = "Choosing the Right IT Strategy: In-House, Share the Hat? Or Outsource?";
+
+const title = "In-House vs Outsourced IT: Which is Right for Your Business?";
 const description = "Discover the pros and cons of building an in-house IT team versus outsourcing. Learn about the hidden risks of having non-IT staff handle technology and how to make the right choice for your business.";
 const date = "2024-03-25";
 const author = "Huntertech Team";
 const category = "IT Services";
-const keywords = "IT strategy, in-house IT team, IT outsourcing, managed IT services, small business IT, IT management, IT support, business technology";
 const image = inHouseVsOutsourcedImg;
+const keywords = ["IT strategy", "in-house IT team", "IT outsourcing", "managed IT services", "small business IT", "IT management", "IT support", "business technology"];
 
 const structuredData = {
     "@context": "https://schema.org",
@@ -46,12 +48,15 @@ const structuredData = {
 };
 ---
 
-<Layout 
-    title={title}
-    description={description}
-    image={inHouseVsOutsourcedImg.src}
->
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<Layout title={title}>
+    <SEO 
+        title={title}
+        description={description}
+        image={image.src}
+        type="article"
+        keywords={keywords}
+        location="Calgary"
+    />
     
     <Header />
     

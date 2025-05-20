@@ -9,9 +9,11 @@ import Shield from '../../components/icons/shield.astro';
 import Users from '../../components/icons/users.astro';
 import Rocket from '../../components/icons/rocket.astro';
 import SEO from '../../components/SEO.astro';
+import { Image } from 'astro:assets';
+import engineerTech from '../../assets/images/engineer_tech.webp';
 
-const title = "IT Services for Engineering Firms | Professional Engineering Technology Solutions - HunterTech";
-const description = "Specialized IT services for engineering firms in Calgary and Vancouver. Expert support for energy modelling, BIM Software and Bluebeam. Get reliable technology solutions from certified experts who understand the unique needs of engineering professionals.";
+const title = "IT Services for Engineering Firms Calgary & Vancouver | Tech Solutions";
+const description = "Expert IT services for engineering firms in Calgary and Vancouver. Specialized support for energy modelling, BIM Software, and Bluebeam from certified professionals.";
 const keywords = [
     "engineering IT services",
     "engineering technology solutions",
@@ -99,7 +101,7 @@ const structuredData = {
         canonicalURL="https://huntertech.ca/industries/engineering"
         keywords={keywords}
         type="website"
-        image="/images/engineer_tech.webp"
+        image={engineerTech.src}
     />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <Header />
@@ -107,7 +109,8 @@ const structuredData = {
         <Hero 
             title="IT Services for Engineering Firms"
             subtitle="Advanced technology solutions for engineering professionals"
-            backgroundImage="/images/engineer_tech.webp"
+            backgroundImage={engineerTech}
+            backgroundImageAlt="Engineering technology solutions"
             ctaText="Get Started"
             ctaLink="/contact"
         />

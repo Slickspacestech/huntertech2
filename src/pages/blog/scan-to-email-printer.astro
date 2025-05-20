@@ -1,35 +1,26 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import SEO from '../../components/SEO.astro';
-import CTABox from '../../components/CTABox.astro';
-import HeroBlog from '../../components/HeroBlog.astro';
 import { formatDate } from '../../utils/date';
-import scanToEmailImg from '../../assets/images/blog/scan-to-email.webp';
+import CTABox from '../../components/CTABox.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import HeroBlog from '../../components/HeroBlog.astro';
+import SEO from '../../components/SEO.astro';
+import scanToEmailImage from '../../assets/images/blog/scan-to-email.webp';
 
-const title = "Scan to Email on Your Office Printer with Microsoft 365 or Google Workspace | Easy Setup Guide";
-const description = "Learn how to set up scan-to-email functionality on your office printer using Microsoft 365 or Google Workspace. A simple 5-minute guide to get your printer sending emails.";
-const date = "2024-08-16";
+const title = "Scan to Email Printer Setup: Complete Guide for Business";
+const description = "Complete guide to setting up scan to email on your business printer. Learn how to configure settings, troubleshoot issues, and ensure secure document scanning.";
+const date = "2024-03-15";
 const author = "Huntertech Team";
-const category = "IT Guides";
-const image = scanToEmailImg;
-const keywords = [
-    "Scan to email setup",
-    "Office printer configuration",
-    "Microsoft 365 printer setup",
-    "Google Workspace printer setup",
-    "SMTP2GO setup",
-    "Printer email configuration",
-    "Office printer email",
-    "Business printer setup"
-];
+const category = "IT Services";
+const keywords = ["scan to email", "printer setup", "document scanning", "business printer", "printer configuration", "scan to email setup", "printer troubleshooting", "document management"];
 
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": title,
-    "image": image.src,
+    "image": scanToEmailImage.src,
     "author": {
         "@type": "Organization",
         "name": "Huntertech",
@@ -40,7 +31,7 @@ const structuredData = {
         "name": "Huntertech",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://huntertech.ca/logo.png"
+            "url": "https://huntertech.ca/images/Huntertech_logo.webp"
         }
     },
     "datePublished": date,
@@ -56,78 +47,75 @@ const structuredData = {
 };
 ---
 
-<Layout 
-    title={title}
-    description={description}
-    image={image.src}
->
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-    <SEO 
+<Layout title={title} description={description}>
+    <SEO
         title={title}
         description={description}
-        canonicalURL="/blog/scan-to-email-printer"
-        type="article"
+        canonicalURL="https://huntertech.ca/blog/scan-to-email-printer"
         keywords={keywords}
+        type="article"
+        image={scanToEmailImage.src}
     />
+    
     <Header />
-    <main>
-        <article class="blog-post">
-            <HeroBlog 
-                title={title}
-                subtitle={`By ${author} • ${formatDate(date)}`}
-                backgroundImage={image}
-                backgroundImageAlt="Scan to Email Printer Setup"
-            />
+    
+    <main class="blog-post">
+        <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+        <HeroBlog 
+            title={title}
+            subtitle={`By ${author} • ${formatDate(date)}`}
+            backgroundImage={scanToEmailImage}
+            backgroundImageAlt="Scan to Email Printer Setup"
+        />
 
-            <div class="container">
-                <div class="post-content">
-                    <p>If you've recently purchased a multi-function printer, or perhaps you want to finally set up scan to email on a soccer free Saturday, then this is the guide to help you do it in 5 minutes and stop pulling your hair out.</p>
+        <div class="container">
+            <div class="post-content">
+                <p>If you've recently purchased a multi-function printer, or perhaps you want to finally set up scan to email on a soccer free Saturday, then this is the guide to help you do it in 5 minutes and stop pulling your hair out.</p>
 
-                    <h2>Forget Trying to Read Through Super Technical Instructions</h2>
-                    <p>Microsoft announced they are retiring the old school methods of app passwords and basic auth and all those things that hackers used to exploit their customers so they could scan to email. It was a bad idea anyway, so I applaud them for making it right. So what to do about all those annoying devices, software that wants to send alerts etc?</p>
+                <h2>Forget Trying to Read Through Super Technical Instructions</h2>
+                <p>Microsoft announced they are retiring the old school methods of app passwords and basic auth and all those things that hackers used to exploit their customers so they could scan to email. It was a bad idea anyway, so I applaud them for making it right. So what to do about all those annoying devices, software that wants to send alerts etc?</p>
 
-                    <h2>Introducing SMTP2GO</h2>
-                    <p>This wonderful service deserves your money even if you would never have a chance of exceeding their free email delivery tier. What you'll need to get started:</p>
+                <h2>Introducing SMTP2GO</h2>
+                <p>This wonderful service deserves your money even if you would never have a chance of exceeding their free email delivery tier. What you'll need to get started:</p>
 
-                    <ol>
-                        <li>Your login for your domain registrar/DNS provider (not sure who you bought it from? You can search your domain up here: <a href="https://lookup.icann.org/" target="_blank" rel="noopener">ICANN Lookup</a> and then look for the registrar, 99% of websites use their registrar for DNS records).</li>
-                        <li>A SMTP2GO account, sign up here: <a href="https://www.smtp2go.com/" target="_blank" rel="noopener">SMTP2GO: Reliable & Scalable Email Delivery Service</a> (The free tier is probably just fine for most)</li>
-                    </ol>
+                <ol>
+                    <li>Your login for your domain registrar/DNS provider (not sure who you bought it from? You can search your domain up here: <a href="https://lookup.icann.org/" target="_blank" rel="noopener">ICANN Lookup</a> and then look for the registrar, 99% of websites use their registrar for DNS records).</li>
+                    <li>A SMTP2GO account, sign up here: <a href="https://www.smtp2go.com/" target="_blank" rel="noopener">SMTP2GO: Reliable & Scalable Email Delivery Service</a> (The free tier is probably just fine for most)</li>
+                </ol>
 
-                    <h2>Setup Your Domain as a Verified Sender</h2>
-                    <p>Sign into your new SMTP2GO account and on the left menu, expand Sending, and click Verified Senders. On the right side of the page, click Add Sender Domain. Type in your domain name (example.com for example).</p>
+                <h2>Setup Your Domain as a Verified Sender</h2>
+                <p>Sign into your new SMTP2GO account and on the left menu, expand Sending, and click Verified Senders. On the right side of the page, click Add Sender Domain. Type in your domain name (example.com for example).</p>
 
-                    <p>Take note of the next screen! These DNS records need to be entered into your DNS settings wherever your DNS records are located. Key information is the _type_ which are CNAME records, Hostname, and Value.</p>
+                <p>Take note of the next screen! These DNS records need to be entered into your DNS settings wherever your DNS records are located. Key information is the _type_ which are CNAME records, Hostname, and Value.</p>
 
-                    <p>Add in all 3 records. Click Verify on the SMTP2GO DNS screen. If it doesn't verify then you may have to wait up to 48hrs depending on your DNS provider. Good ones take a couple minutes.</p>
+                <p>Add in all 3 records. Click Verify on the SMTP2GO DNS screen. If it doesn't verify then you may have to wait up to 48hrs depending on your DNS provider. Good ones take a couple minutes.</p>
 
-                    <h2>Create the SMTP User</h2>
-                    <p>After you've been verified, hop on over to SMTP users on the left menu. Click Add SMTP User on the right side. Create the username and password (pick a strong one, or use their auto generated one). These will later be entered into your printer to setup SMTP.</p>
+                <h2>Create the SMTP User</h2>
+                <p>After you've been verified, hop on over to SMTP users on the left menu. Click Add SMTP User on the right side. Create the username and password (pick a strong one, or use their auto generated one). These will later be entered into your printer to setup SMTP.</p>
 
-                    <h2>Configure Your Printer</h2>
-                    <p>Every printer is a bit different here. In your email settings you'll likely have Authentication Method. This is going to be SMTP Auth.</p>
+                <h2>Configure Your Printer</h2>
+                <p>Every printer is a bit different here. In your email settings you'll likely have Authentication Method. This is going to be SMTP Auth.</p>
 
-                    <p>Username is going to match the username you created in the Add SMTP User step above (printer@yourdomain.com). The password will be the password from the above step.</p>
+                <p>Username is going to match the username you created in the Add SMTP User step above (printer@yourdomain.com). The password will be the password from the above step.</p>
 
-                    <p>The right side of the SMTP2GO gives you the rest of the important details:</p>
-                    <ul>
-                        <li>SMTP Server: <strong>mail.smtp2go.com</strong></li>
-                        <li>SMTP Port: <strong>2525</strong></li>
-                        <li>Alternative/TLS Ports: <strong>8025, 587, 80</strong> or <strong>25</strong>. TLS is available on the same ports.</li>
-                        <li>SSL is available on ports: <strong>465, 8465</strong> and <strong>443</strong>.</li>
-                    </ul>
+                <p>The right side of the SMTP2GO gives you the rest of the important details:</p>
+                <ul>
+                    <li>SMTP Server: <strong>mail.smtp2go.com</strong></li>
+                    <li>SMTP Port: <strong>2525</strong></li>
+                    <li>Alternative/TLS Ports: <strong>8025, 587, 80</strong> or <strong>25</strong>. TLS is available on the same ports.</li>
+                    <li>SSL is available on ports: <strong>465, 8465</strong> and <strong>443</strong>.</li>
+                </ul>
 
-                    <p>Once you've entered those in you should be able to test the connection with your printer!</p>
+                <p>Once you've entered those in you should be able to test the connection with your printer!</p>
 
-                    <CTABox 
-                        title="Need Help Setting Up Your Office Printer?"
-                        description="Contact our team for expert assistance with printer configuration and office technology setup."
-                        buttonText="Get Expert Help"
-                        buttonLink="/contact"
-                    />
-                </div>
+                <CTABox 
+                    title="Need Help Setting Up Your Office Printer?"
+                    description="Contact our team for expert assistance with printer configuration and office technology setup."
+                    buttonText="Get Expert Help"
+                    buttonLink="/contact"
+                />
             </div>
-        </article>
+        </div>
     </main>
     <Footer />
 </Layout>
