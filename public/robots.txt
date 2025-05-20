@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://huntertech.ca/sitemap.xml 
+Sitemap: https://huntertech.ca/sitemap-index.xml 
