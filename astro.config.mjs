@@ -17,6 +17,10 @@ export default defineConfig({
                     en: 'en',
                 },
             },
+            filter: (page) => {
+                // Exclude tech-it-blog URLs
+                return !page.includes('tech-it-blog');
+            }
         })
     ],
     site: 'https://huntertech.ca',
