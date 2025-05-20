@@ -12,14 +12,14 @@ const description = "Discover the pros and cons of building an in-house IT team 
 const date = "2024-03-25";
 const author = "Huntertech Team";
 const category = "IT Services";
-const image = inHouseVsOutsourcedImg;
 const keywords = "IT strategy, in-house IT team, IT outsourcing, managed IT services, small business IT, IT management, IT support, business technology";
+const image = inHouseVsOutsourcedImg;
 
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": title,
-    "image": image,
+    "image": image.src,
     "author": {
         "@type": "Organization",
         "name": "Huntertech",
@@ -30,7 +30,7 @@ const structuredData = {
         "name": "Huntertech",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://huntertech.ca/logo.png"
+            "url": "https://huntertech.ca/images/Huntertech_logo.webp"
         }
     },
     "datePublished": date,
@@ -49,7 +49,7 @@ const structuredData = {
 <Layout 
     title={title}
     description={description}
-    image={image}
+    image={inHouseVsOutsourcedImg.src}
 >
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     
@@ -58,21 +58,10 @@ const structuredData = {
     <div class="blog-post">
         <HeroBlog 
             title={title}
-            subtitle={`By ${author} • ${formatDate(date)}`}
+            subtitle={`By ${author} | ${formatDate(date)}`}
             backgroundImage={image}
             backgroundImageAlt="In-House vs Outsourced IT Strategy"
         />
-
-            />
-            <div class="container">
-                <div class="meta">
-                    <span class="category">{category}</span>
-                    <span class="date">{formatDate(date)}</span>
-                </div>
-                <h1>{title}</h1>
-                <div class="author">By {author}</div>
-            </div>
-        </div>
 
         <div class="container">
             <article class="content">
@@ -192,40 +181,7 @@ const structuredData = {
         background: var(--primary-bg);
     }
 
-    .hero {
-        position: relative;
-        color: var(--white);
-        padding: 120px 0;
-        margin-bottom: 60px;
-        overflow: hidden;
-    }
-
-    .hero-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(56, 66, 88, 0.8);
-        z-index: 1;
-    }
-
-    .hero-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .hero .container {
-        position: relative;
-        z-index: 2;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
+   
 
     .meta {
         margin-bottom: 20px;

@@ -5,13 +5,14 @@ import { formatDate } from '../../utils/date';
 import CTABox from '../../components/CTABox.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
+import HeroBlog from '../../components/HeroBlog.astro';
+import itServicesImg from '../../assets/images/blog/it-services-guide.webp';
 
 const title = "How to Choose the Right IT Provider in Calgary or Vancouver";
 const description = "Your comprehensive guide to finding a reliable local IT partner in Western Canada. Learn about managed IT services, local support, and why Huntertech is your trusted IT partner in Calgary and Vancouver.";
 const date = "2025-03-20";
 const author = "Huntertech Team";
 const category = "IT Services";
-const image = "/images/blog/it-services-guide.jpg";
 const keywords = "IT services Calgary, IT support Vancouver, managed IT services, IT service provider, local IT support, business IT solutions, IT consulting Calgary, IT consulting Vancouver, Western Canada IT support";
 
 const structuredData = {
@@ -19,7 +20,7 @@ const structuredData = {
     "@type": "Article",
     "headline": title,
     "description": description,
-    "image": image,
+    "image": itServicesImg.src,
     "author": {
         "@type": "Organization",
         "name": "Huntertech",
@@ -30,7 +31,7 @@ const structuredData = {
         "name": "Huntertech",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://huntertech.ca/images/logo.png"
+            "url": "https://huntertech.ca/images/Huntertech_logo.webp"
         }
     },
     "datePublished": date,
@@ -45,30 +46,22 @@ const structuredData = {
 };
 ---
 
-<Layout title={title} description={description}>
+<Layout 
+    title={title} 
+    description={description}
+    image={itServicesImg.src}
+>
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     
     <Header />
     
     <main class="blog-post">
-        <div class="hero">
-            <div class="hero-overlay"></div>
-            <Image 
-                src="/images/blog/it-services-guide.webp"
-                alt="IT Services Guide"
-                width={1920}
-                height={1080}
-                class="hero-image"
-            />
-            <div class="container">
-                <div class="meta">
-                    <span class="category">{category}</span>
-                    <span class="date">{formatDate(date)}</span>
-                </div>
-                <h1>{title}</h1>
-                <div class="author">By {author}</div>
-            </div>
-        </div>
+        <HeroBlog 
+            title={title}
+            subtitle={`By ${author} | ${formatDate(date)}`}
+            backgroundImage={itServicesImg}
+            backgroundImageAlt="IT Services Guide"
+        />
 
         <div class="container">
             <article class="content">
@@ -241,63 +234,6 @@ const structuredData = {
         background: var(--bg-color);
     }
 
-    .hero {
-        position: relative;
-        color: white;
-        padding: 120px 0;
-        margin-bottom: 60px;
-        overflow: hidden;
-    }
-
-    .hero-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 1;
-    }
-
-    .hero-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .hero .container {
-        position: relative;
-        z-index: 2;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    .meta {
-        margin-bottom: 20px;
-    }
-
-    .category {
-        background: var(--accent-color);
-        color: white;
-        padding: 5px 15px;
-        border-radius: 20px;
-        font-size: 0.9em;
-        margin-right: 15px;
-    }
-
-    .date {
-        color: rgba(255, 255, 255, 0.8);
-    }
-
-    .author {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 1.1em;
-    }
-
     .content {
         max-width: 1000px;
         margin: 0 auto;
@@ -388,14 +324,6 @@ const structuredData = {
     }
 
     @media (max-width: 768px) {
-        .hero {
-            padding: 80px 0;
-        }
-
-        .hero h1 {
-            font-size: 2em;
-        }
-
         .content {
             padding: 0 15px 40px;
         }
