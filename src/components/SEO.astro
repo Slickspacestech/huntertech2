@@ -20,7 +20,9 @@ const {
 } = Astro.props;
 
 const siteURL = 'https://huntertech.ca';
-const fullCanonicalURL = canonicalURL ? `${siteURL}${canonicalURL}` : Astro.url.href;
+const fullCanonicalURL = canonicalURL 
+    ? `${siteURL}${canonicalURL}${canonicalURL.endsWith('/') ? '' : '/'}`
+    : `${Astro.url.href}${Astro.url.href.endsWith('/') ? '' : '/'}`;
 
 // Default keywords based on location
 const defaultKeywords = location === 'Calgary' 
