@@ -9,6 +9,7 @@ import ChartPie from '../../components/icons/chart-pie.astro';
 import Sync from '../../components/icons/sync.astro';
 import GraduationHat from '../../components/icons/graduation-hat.astro';
 import SEO from '../../components/SEO.astro';
+import cybersecurityImage from '../../assets/images/cybersecurity.webp';
 
 const title = "Cybersecurity Services Calgary & Vancouver | Security Solutions";
 const description = "Advanced cybersecurity solutions in Calgary and Vancouver. Endpoint protection, network security, and compliance management to safeguard your business data.";
@@ -69,14 +70,14 @@ const structuredData = {
         canonicalURL="https://huntertech.ca/solutions/cyber-security"
         keywords={keywords}
         type="website"
-        image="/images/cyber-security.webp"
+        image={cybersecurityImage.src}
     />
     <Header />
     <main class="service-page">
         <Hero 
             title="Cyber Security"
             subtitle="Protect your business with comprehensive cybersecurity solutions"
-            backgroundImage="/images/cybersecurity.webp"
+            backgroundImage={cybersecurityImage}
             ctaText="Get Started"
             ctaLink="/contact"
         />

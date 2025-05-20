@@ -11,6 +11,7 @@ import ChartLine from '../../components/icons/chart-line.astro';
 import Handshake from '../../components/icons/handshake2.astro';
 import Lock from '@/components/icons/lock.astro';
 import SEO from '../../components/SEO.astro';
+import itSupportImage from '../../assets/images/it-support.webp';
 
 const title = "IT Support Services Calgary & Vancouver | Professional IT Solutions";
 const description = "Professional IT support solutions in Calgary and Vancouver. Local help desk, network management, and proactive maintenance for reliable business operations.";
@@ -74,14 +75,14 @@ const structuredData = {
         canonicalURL="https://huntertech.ca/solutions/it-support"
         keywords={keywords}
         type="website"
-        image="/images/it-support.webp"
+        image={itSupportImage.src}
     />
     <Header />
     <main class="service-page">
         <Hero 
             title="IT Support"
             subtitle="Reliable IT support services to keep your business running smoothly"
-            backgroundImage="/images/it-support.webp"
+            backgroundImage={itSupportImage}
             ctaText="Get Started"
             ctaLink="/contact"
         />

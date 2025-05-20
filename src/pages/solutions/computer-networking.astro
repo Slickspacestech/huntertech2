@@ -10,6 +10,7 @@ import ChartLine from '../../components/icons/chart-line.astro';
 import Shield from '../../components/icons/shield.astro';
 import Dollar from '../../components/icons/dollar.astro';
 import SEO from '../../components/SEO.astro';
+import networkImage from '../../assets/images/networking_bg.webp';
 
 const title = "Computer Networking Services Calgary & Vancouver | IT Solutions";
 const description = "Expert computer networking solutions in Calgary and Vancouver. Network design, implementation, and management for reliable business connectivity and performance.";
@@ -73,14 +74,14 @@ const structuredData = {
         canonicalURL="https://huntertech.ca/solutions/computer-networking"
         keywords={keywords}
         type="website"
-        image="/images/network.webp"
+        image={networkImage.src}
     />
     <Header />
     <main class="service-page">
         <Hero 
             title="Computer Networking"
             subtitle="Build a robust and secure network infrastructure for your business"
-            backgroundImage="/images/networking_bg.webp"
+            backgroundImage={networkImage}
             ctaText="Get Started"
             ctaLink="/contact"
         />

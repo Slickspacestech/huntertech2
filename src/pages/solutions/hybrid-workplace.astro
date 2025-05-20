@@ -10,6 +10,7 @@ import Tachometer from '../../components/icons/tachometer.astro';
 import Handshake from '../../components/icons/handshake2.astro';
 import Cogs from '../../components/icons/Cogs.astro';
 import SEO from '../../components/SEO.astro';
+import hybridWorkplaceImage from '../../assets/images/hybrid-work-bg.webp';
 
 const title = "Hybrid Workplace Solutions Calgary & Vancouver | Remote Work";
 const description = "Complete hybrid workplace solutions in Calgary and Vancouver. Secure remote access, collaboration tools, and cloud infrastructure for flexible work environments.";
@@ -69,14 +70,14 @@ const structuredData = {
         canonicalURL="https://huntertech.ca/solutions/hybrid-workplace"
         keywords={keywords}
         type="website"
-        image="/images/hybrid-workplace.webp"
+        image={hybridWorkplaceImage.src}
     />
     <Header />
     <main class="service-page">
         <Hero 
             title="Hybrid Workplace"
             subtitle="Seamless technology solutions for the modern hybrid workplace"
-            backgroundImage="/images/hybrid-work-bg.webp"
+            backgroundImage={hybridWorkplaceImage}
             ctaText="Get Started"
             ctaLink="/contact"
         />
