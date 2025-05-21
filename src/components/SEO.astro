@@ -137,7 +137,9 @@ const structuredData = {
 <meta property="twitter:image" content={`${siteURL}${image}`} />
 
 <!-- Structured Data -->
-<script type="application/ld+json" nonce={nonce} set:html={JSON.stringify(structuredData)} />
+<script type="application/ld+json" nonce={nonce}>
+    {JSON.stringify(structuredData)}
+</script>
 
 <!-- Additional Meta Tags -->
 <meta name="robots" content="index, follow" />

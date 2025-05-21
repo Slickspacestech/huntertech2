@@ -26,11 +26,13 @@ import SEO from '../components/SEO.astro';
         <meta http-equiv="Content-Security-Policy" content={`
             default-src 'self';
             script-src 'self' 'nonce-${nonce}' 'unsafe-hashes' https://www.googletagmanager.com https://embed.tawk.to;
+            style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
             font-src 'self' https://fonts.gstatic.com;
             img-src 'self' data: https:;
             connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net;
             frame-src 'self' https://www.google.com;
             base-uri 'self';
+            form-action 'self' 'unsafe-inline';
         `.replace(/\s+/g, ' ').trim()} />
 
         <!-- Google tag (gtag.js) -->
