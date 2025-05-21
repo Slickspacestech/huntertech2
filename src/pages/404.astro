@@ -3,9 +3,18 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Home from '../components/icons/home.astro';
+import SEO from '../components/SEO.astro';
+
+const title = "404 - Page Not Found | Huntertech";
+const description = "The page you're looking for doesn't exist or has been moved. Return to Huntertech's homepage for IT services in Calgary and Vancouver.";
 ---
 
-<Layout title="404 - Page Not Found - HunterTech">
+<Layout title={title} description={description}>
+    <SEO 
+        title={title}
+        description={description}
+        type="website"
+    />
     <Header />
     <main>
         <section class="error-page">

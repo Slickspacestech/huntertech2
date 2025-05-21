@@ -2,21 +2,18 @@
 interface Props {
     title: string;
     description?: string;
-    image?: string;
 }
 
-const {
-    title,
-    description = "Huntertech - Professional IT Solutions & Revit Management Services",
-    image = "/images/Huntertech_logo.png"
-} = Astro.props;
+const { title, description } = Astro.props;
 
 // Generate a cryptographically secure nonce (32 bytes = 256 bits)
 const nonce = crypto.getRandomValues(new Uint8Array(32))
     .reduce((acc, val) => acc + val.toString(16).padStart(2, '0'), '');
 
+// Make nonce available globally
+Astro.locals.nonce = nonce;
+
 import Favicons from '../components/Favicons.astro';
-import SEO from '../components/SEO.astro';
 ---
 
 <!DOCTYPE html>
@@ -25,14 +22,13 @@ import SEO from '../components/SEO.astro';
         <!-- Content Security Policy -->
         <meta http-equiv="Content-Security-Policy" content={`
             default-src 'self';
-            script-src 'self' 'nonce-${nonce}' 'unsafe-hashes' https://www.googletagmanager.com https://embed.tawk.to;
+            script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
             style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-            font-src 'self' https://fonts.gstatic.com;
             img-src 'self' data: https:;
-            connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net;
-            frame-src 'self' https://www.google.com;
-            base-uri 'self';
             form-action 'self' 'unsafe-inline';
+            font-src 'self' data: https://fonts.gstatic.com;
+            connect-src 'self' https:;
+            frame-src 'self' https:;
         `.replace(/\s+/g, ' ').trim()} />
 
         <!-- Google tag (gtag.js) -->
@@ -49,14 +45,6 @@ import SEO from '../components/SEO.astro';
         
         <!-- Favicons -->
         <Favicons />
-        
-        <!-- SEO -->
-        <SEO 
-            title={title}
-            description={description}
-            image={image}
-            nonce={nonce}
-        />
         
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -84,11 +72,13 @@ import SEO from '../components/SEO.astro';
             s1.src='https://embed.tawk.to/682b6ac09c94e2190d83dfb7/1irkpi0h8';
             s1.charset='UTF-8';
             s1.setAttribute('crossorigin','*');
-            s1.setAttribute('nonce',nonce);
+            s1.setAttribute('nonce', '{nonce}');
             s0.parentNode.insertBefore(s1,s0);
             })();
         </script>
         <!--End of Tawk.to Script-->
+
+        <slot name="head" />
     </head>
     <body>
         <slot />

@@ -7,7 +7,6 @@ interface Props {
     type?: 'website' | 'article';
     keywords?: string[];
     location?: 'Calgary' | 'Vancouver';
-    nonce?: string;
 }
 
 const {
@@ -17,9 +16,11 @@ const {
     image = '/images/Huntertech_logo.webp',
     type = 'website',
     keywords = [],
-    location,
-    nonce
+    location
 } = Astro.props;
+
+// Get nonce from Astro.locals
+const nonce = Astro.locals.nonce;
 
 const siteURL = 'https://huntertech.ca';
 const fullCanonicalURL = canonicalURL 
@@ -137,9 +138,7 @@ const structuredData = {
 <meta property="twitter:image" content={`${siteURL}${image}`} />
 
 <!-- Structured Data -->
-<script type="application/ld+json" nonce={nonce}>
-    {JSON.stringify(structuredData)}
-</script>
+<script nonce={nonce} type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
 
 <!-- Additional Meta Tags -->
 <meta name="robots" content="index, follow" />

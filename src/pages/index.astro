@@ -20,9 +20,13 @@ import heroBg from '../assets/images/architect_engineer_tech.avif';
 
 const title = "Huntertech - IT Services, Security For Calgary and Vancouver";
 const description = "Professional IT services tailored for businesses in Calgary and Vancouver. Get reliable technology solutions from certified experts who understand your needs.";
+
+// Generate a cryptographically secure nonce (32 bytes = 256 bits)
+const nonce = crypto.getRandomValues(new Uint8Array(32))
+    .reduce((acc, val) => acc + val.toString(16).padStart(2, '0'), '');
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} nonce={nonce}>
     <SEO 
         title={title}
         description={description}
