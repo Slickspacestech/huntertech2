@@ -6,40 +6,12 @@ interface Props {
 
 const { title, description } = Astro.props;
 
-// Generate a cryptographically secure nonce (32 bytes = 256 bits)
-const nonce = crypto.getRandomValues(new Uint8Array(32))
-    .reduce((acc, val) => acc + val.toString(16).padStart(2, '0'), '');
-
-// Make nonce available globally
-Astro.locals.nonce = nonce;
-
 import Favicons from '../components/Favicons.astro';
 ---
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <!-- Content Security Policy -->
-        <meta http-equiv="Content-Security-Policy" content={`
-            default-src 'self';
-            script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
-            style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-            img-src 'self' data: https:;
-            form-action 'self' 'unsafe-inline';
-            font-src 'self' data: https://fonts.gstatic.com;
-            connect-src 'self' https:;
-            frame-src 'self' https:;
-        `.replace(/\s+/g, ' ').trim()} />
-
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-07H6TWB4QD" nonce={nonce}></script>
-        <script nonce={nonce}>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-07H6TWB4QD');
-        </script>
-
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
@@ -63,8 +35,17 @@ import Favicons from '../components/Favicons.astro';
         </noscript>
         <link rel="sitemap" href="/sitemap-index.xml" />
 
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-07H6TWB4QD"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-07H6TWB4QD');
+        </script>
+
         <!--Start of Tawk.to Script-->
-        <script type="text/javascript" nonce={nonce}>
+        <script type="text/javascript">
             var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
             (function(){
             var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -72,7 +53,6 @@ import Favicons from '../components/Favicons.astro';
             s1.src='https://embed.tawk.to/682b6ac09c94e2190d83dfb7/1irkpi0h8';
             s1.charset='UTF-8';
             s1.setAttribute('crossorigin','*');
-            s1.setAttribute('nonce', '{nonce}');
             s0.parentNode.insertBefore(s1,s0);
             })();
         </script>

@@ -27,7 +27,6 @@ const keywords = [
         description={description}
         keywords={keywords}
         image={contactBg.src}
-        nonce={Astro.props.nonce}
     />
     <Header />
     <main class="contact-page">
@@ -84,7 +83,7 @@ const keywords = [
     <Footer />
 </Layout>
 
-<script src="https://js.hsforms.net/forms/embed/47750250.js" defer nonce={Astro.props.nonce}></script>
+<script src="https://js.hsforms.net/forms/embed/47750250.js" defer></script>
 
 <style>
     .contact-page {

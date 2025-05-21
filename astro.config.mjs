@@ -21,7 +21,7 @@ export default defineConfig({
                 // Exclude tech-it-blog URLs
                 return !page.includes('tech-it-blog');
             }
-        })
+        }),
     ],
     site: 'https://huntertech.ca',
     build: {

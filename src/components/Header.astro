@@ -2,10 +2,10 @@
 import ChevronDown from './icons/chevron-down.astro';
 
 interface Props {
-    nonce?: string;
+    // Remove nonce prop since astro-shield will handle it
 }
 
-const { nonce } = Astro.props;
+const { } = Astro.props;
 ---
 <header class="header">
     <nav class="nav-container">
@@ -342,7 +342,7 @@ const { nonce } = Astro.props;
     }
 </style>
 
-<script nonce={nonce}>
+<script>
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const dropdowns = document.querySelectorAll('.dropdown');

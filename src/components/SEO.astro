@@ -1,26 +1,26 @@
 ---
 interface Props {
     title: string;
-    description: string;
+    description?: string;
     canonicalURL?: string;
-    image?: string;
-    type?: 'website' | 'article';
     keywords?: string[];
+    type?: string;
+    image?: string;
     location?: 'Calgary' | 'Vancouver';
 }
 
 const {
     title,
-    description,
-    canonicalURL,
-    image = '/images/Huntertech_logo.webp',
-    type = 'website',
-    keywords = [],
+    description = "Huntertech provides comprehensive IT services, cybersecurity, and managed IT solutions for businesses in Calgary and Vancouver. Get expert IT support and consulting.",
+    canonicalURL = Astro.url.toString(),
+    keywords = ["IT services", "IT support", "managed IT", "cybersecurity", "Calgary", "Vancouver", "business IT", "IT consulting"],
+    type = "website",
+    image = "https://huntertech.ca/og-image.jpg",
     location
 } = Astro.props;
 
-// Get nonce from Astro.locals
-const nonce = Astro.locals.nonce;
+const siteTitle = "Huntertech";
+const fullTitle = `${title} | ${siteTitle}`;
 
 const siteURL = 'https://huntertech.ca';
 const fullCanonicalURL = canonicalURL 
@@ -115,30 +115,30 @@ const structuredData = {
 ---
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
+<title>{fullTitle}</title>
+<meta name="title" content={fullTitle} />
 <meta name="description" content={description} />
-<meta name="keywords" content={allKeywords.join(', ')} />
-
-<!-- Canonical URL -->
-<link rel="canonical" href={fullCanonicalURL} />
+<meta name="keywords" content={allKeywords.join(", ")} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />
-<meta property="og:url" content={fullCanonicalURL} />
-<meta property="og:title" content={title} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={`${siteURL}${image}`} />
+<meta property="og:image" content={image} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={fullCanonicalURL} />
-<meta property="twitter:title" content={title} />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={fullTitle} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={`${siteURL}${image}`} />
+<meta property="twitter:image" content={image} />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
 
 <!-- Structured Data -->
-<script nonce={nonce} type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
 
 <!-- Additional Meta Tags -->
 <meta name="robots" content="index, follow" />

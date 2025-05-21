@@ -1,8 +1,6 @@
 /// <reference path="../.astro/types.d.ts" />
 /// <reference types="astro/client" />
 
-declare namespace App {
-    interface Locals {
-        nonce: string;
-    }
+interface Locals {
+    // Remove nonce since astro-shield will handle it
 }
