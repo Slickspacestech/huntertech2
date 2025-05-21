@@ -33,50 +33,9 @@ const keywords = [
     "IT consulting Vancouver",
     "Business IT support Vancouver"
 ];
-
-const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Huntertech Vancouver",
-    "image": "https://huntertech.ca/images/vancouver-office.webp",
-    "url": "https://huntertech.ca/vancouver",
-    "telephone": "+1-604-555-0123",
-    "priceRange": "$$",
-    "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "789 West Hastings Street",
-        "addressLocality": "Vancouver",
-        "addressRegion": "BC",
-        "postalCode": "V6C 1A1",
-        "addressCountry": "CA"
-    },
-    "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 49.2827,
-        "longitude": -123.1207
-    },
-    "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday"
-        ],
-        "opens": "08:00",
-        "closes": "17:00"
-    },
-    "sameAs": [
-        "https://www.linkedin.com/company/huntertech",
-        "https://www.facebook.com/huntertech",
-        "https://twitter.com/huntertech"
-    ]
-};
 ---
 
 <Layout title={title} description={description}>
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <SEO 
         title={title}
         description={description}
@@ -84,6 +43,7 @@ const structuredData = {
         keywords={keywords}
         type="website"
         image={vancouverBg.src}
+        location="Vancouver"
     />
     <Header />
     <main>

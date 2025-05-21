@@ -15,36 +15,6 @@ const date = "2025-03-20";
 const author = "Huntertech Team";
 const category = "IT Services";
 const keywords = ["IT services Calgary", "IT support Vancouver", "managed IT services", "IT service provider", "local IT support", "business IT solutions", "IT consulting Calgary", "IT consulting Vancouver", "Western Canada IT support"];
-
-const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": title,
-    "description": description,
-    "image": itServicesImg.src,
-    "author": {
-        "@type": "Organization",
-        "name": "Huntertech",
-        "url": "https://huntertech.ca"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "Huntertech",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "https://huntertech.ca/images/Huntertech_logo.webp"
-        }
-    },
-    "datePublished": date,
-    "dateModified": date,
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": `https://huntertech.ca/blog/it-services-calgary-vancouver`
-    },
-    "keywords": keywords,
-    "articleSection": "IT Services",
-    "inLanguage": "en-CA"
-};
 ---
 
 <Layout title={title}>

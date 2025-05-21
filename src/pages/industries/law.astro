@@ -26,72 +26,6 @@ const keywords = [
     "law practice management",
     "legal data protection"
 ];
-
-const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "IT Services for Law Firms",
-    "description": description,
-    "provider": {
-        "@type": "Organization",
-        "name": "Huntertech",
-        "url": "https://huntertech.ca"
-    },
-    "areaServed": [
-        {
-            "@type": "City",
-            "name": "Calgary",
-            "address": {
-                "@type": "PostalAddress",
-                "addressRegion": "AB",
-                "addressCountry": "CA"
-            }
-        },
-        {
-            "@type": "City",
-            "name": "Vancouver",
-            "address": {
-                "@type": "PostalAddress",
-                "addressRegion": "BC",
-                "addressCountry": "CA"
-            }
-        }
-    ],
-    "serviceType": [
-        "Law Firm IT Services",
-        "Legal Technology Solutions",
-        "Legal Software Support",
-        "Legal Document Management",
-        "Law Firm Data Security"
-    ],
-    "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Law Firm IT Services",
-        "itemListElement": [
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Legal Document Management"
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Legal Software Support"
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Client Data Protection"
-                }
-            }
-        ]
-    }
-};
 ---
 
 <Layout title={title} description={description}>
@@ -103,7 +37,6 @@ const structuredData = {
         type="website"
         image={lawImage.src}
     />
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <Header />
     <main class="service-page">
         <Hero 

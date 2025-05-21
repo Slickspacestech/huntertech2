@@ -18,33 +18,6 @@ const date = "2024-03-15";
 const author = "Matt Hunter";
 const category = "Case Studies";
 const keywords = ["IT transformation", "case study", "Pontem Group", "IT infrastructure", "technology implementation", "business efficiency"];
-
-// Create structured data for SEO
-const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": title,
-    "image": "/images/pontem-16x9.webp",
-    "author": {
-        "@type": "Person",
-        "name": author
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "Huntertech",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "/images/Huntertech_logo.webp"
-        }
-    },
-    "datePublished": date,
-    "description": description,
-    "keywords": keywords.join(", "),
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://huntertech.ca/blog/pontem-group-case-study"
-    }
-};
 ---
 
 <Layout title={title}>

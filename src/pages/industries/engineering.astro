@@ -26,72 +26,6 @@ const keywords = [
     "project management tools",
     "engineering data security"
 ];
-
-const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "IT Services for Engineering Firms",
-    "description": description,
-    "provider": {
-        "@type": "Organization",
-        "name": "Huntertech",
-        "url": "https://huntertech.ca"
-    },
-    "areaServed": [
-        {
-            "@type": "City",
-            "name": "Calgary",
-            "address": {
-                "@type": "PostalAddress",
-                "addressRegion": "AB",
-                "addressCountry": "CA"
-            }
-        },
-        {
-            "@type": "City",
-            "name": "Vancouver",
-            "address": {
-                "@type": "PostalAddress",
-                "addressRegion": "BC",
-                "addressCountry": "CA"
-            }
-        }
-    ],
-    "serviceType": [
-        "Engineering IT Services",
-        "Engineering Technology Solutions",
-        "CAD Software Support",
-        "Technical Computing Support",
-        "Engineering Cloud Solutions"
-    ],
-    "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Engineering IT Services",
-        "itemListElement": [
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "CAD Software Support"
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Technical Computing Support"
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Project Management Tools"
-                }
-            }
-        ]
-    }
-};
 ---
 
 <Layout title={title} description={description}>
@@ -103,7 +37,6 @@ const structuredData = {
         type="website"
         image={engineerTech.src}
     />
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <Header />
     <main class="service-page">
         <Hero 

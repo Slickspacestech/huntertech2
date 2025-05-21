@@ -61,7 +61,6 @@ const structuredData = {
     <Header />
     
     <main class="blog-post">
-        <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
         <HeroBlog 
             title={title}
             subtitle={`By ${author} • ${formatDate(date)}`}

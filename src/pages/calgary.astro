@@ -32,50 +32,9 @@ const keywords = [
     "IT consulting Calgary",
     "Business IT support Calgary"
 ];
-
-const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Huntertech Calgary",
-    "image": "https://huntertech.ca/images/calgary-office.webp",
-    "url": "https://huntertech.ca/calgary",
-    "telephone": "+1-403-555-0123",
-    "priceRange": "$$",
-    "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "1234 17th Avenue SW",
-        "addressLocality": "Calgary",
-        "addressRegion": "AB",
-        "postalCode": "T2T 0B4",
-        "addressCountry": "CA"
-    },
-    "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 51.0447,
-        "longitude": -114.0719
-    },
-    "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday"
-        ],
-        "opens": "08:00",
-        "closes": "17:00"
-    },
-    "sameAs": [
-        "https://www.linkedin.com/company/huntertech",
-        "https://www.facebook.com/huntertech",
-        "https://twitter.com/huntertech"
-    ]
-};
 ---
 
 <Layout title={title} description={description}>
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <SEO 
         title={title}
         description={description}
@@ -83,6 +42,7 @@ const structuredData = {
         keywords={keywords}
         type="website"
         image={calgaryBg.src}
+        location="Calgary"
     />
     <Header />
     <main>

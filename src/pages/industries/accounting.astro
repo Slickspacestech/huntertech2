@@ -26,72 +26,6 @@ const keywords = [
     "financial data security",
     "accounting software integration"
 ];
-
-const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "IT Services for Accounting Firms",
-    "description": description,
-    "provider": {
-        "@type": "Organization",
-        "name": "Huntertech",
-        "url": "https://huntertech.ca"
-    },
-    "areaServed": [
-        {
-            "@type": "City",
-            "name": "Calgary",
-            "address": {
-                "@type": "PostalAddress",
-                "addressRegion": "AB",
-                "addressCountry": "CA"
-            }
-        },
-        {
-            "@type": "City",
-            "name": "Vancouver",
-            "address": {
-                "@type": "PostalAddress",
-                "addressRegion": "BC",
-                "addressCountry": "CA"
-            }
-        }
-    ],
-    "serviceType": [
-        "Accounting IT Services",
-        "Financial Technology Solutions",
-        "Accounting Software Support",
-        "Financial Data Security",
-        "Cloud Accounting Solutions"
-    ],
-    "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Accounting IT Services",
-        "itemListElement": [
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Financial Data Security"
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Accounting Software Integration"
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Cloud Accounting Solutions"
-                }
-            }
-        ]
-    }
-};
 ---
 
 <Layout title={title} description={description}>
@@ -103,7 +37,6 @@ const structuredData = {
         type="website"
         image={accountantImage.src}
     />
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <Header />
     <main class="service-page">
         <Hero 

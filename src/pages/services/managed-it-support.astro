@@ -27,83 +27,9 @@ const keywords = [
     "IT services Calgary",
     "IT services Vancouver"
 ];
-
-const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Managed IT Services & Support",
-    "provider": {
-        "@type": "Organization",
-        "name": "Huntertech",
-        "url": "https://huntertech.ca",
-        "areaServed": [
-            {
-                "@type": "City",
-                "name": "Calgary",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressRegion": "AB",
-                    "addressCountry": "CA"
-                }
-            },
-            {
-                "@type": "City",
-                "name": "Vancouver",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressRegion": "BC",
-                    "addressCountry": "CA"
-                }
-            }
-        ],
-        "contactPoint": [
-            {
-                "@type": "ContactPoint",
-                "telephone": "+1-825-415-6990",
-                "contactType": "customer service",
-                "areaServed": "CA-AB",
-                "availableLanguage": ["English"]
-            },
-            {
-                "@type": "ContactPoint",
-                "telephone": "+1-778-819-7411",
-                "contactType": "customer service",
-                "areaServed": "CA-BC",
-                "availableLanguage": ["English"]
-            }
-        ]
-    },
-    "description": description,
-    "areaServed": [
-        {
-            "@type": "City",
-            "name": "Calgary",
-            "address": {
-                "@type": "PostalAddress",
-                "addressRegion": "AB",
-                "addressCountry": "CA"
-            }
-        },
-        {
-            "@type": "City",
-            "name": "Vancouver",
-            "address": {
-                "@type": "PostalAddress",
-                "addressRegion": "BC",
-                "addressCountry": "CA"
-            }
-        }
-    ],
-    "serviceType": ["Managed IT Services", "IT Support", "Cybersecurity"],
-    "offers": {
-        "@type": "Offer",
-        "availability": "https://schema.org/InStock"
-    }
-};
 ---
 
 <Layout title={title} description={description}>
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <SEO 
         title={title}
         description={description}

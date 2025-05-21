@@ -1,5 +1,11 @@
 ---
 import ChevronDown from './icons/chevron-down.astro';
+
+interface Props {
+    nonce?: string;
+}
+
+const { nonce } = Astro.props;
 ---
 <header class="header">
     <nav class="nav-container">
@@ -336,7 +342,7 @@ import ChevronDown from './icons/chevron-down.astro';
     }
 </style>
 
-<script>
+<script nonce={nonce}>
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const dropdowns = document.querySelectorAll('.dropdown');
@@ -348,8 +354,7 @@ import ChevronDown from './icons/chevron-down.astro';
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-        const target = e.target as Node;
-        if (!navMenu?.contains(target) && !hamburger?.contains(target)) {
+        if (!navMenu?.contains(e.target) && !hamburger?.contains(e.target)) {
             hamburger?.classList.remove('active');
             navMenu?.classList.remove('active');
         }

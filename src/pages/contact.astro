@@ -10,79 +10,24 @@ import Clock from '../components/icons/clock.astro';
 import SEO from '../components/SEO.astro';
 import contactBg from '../assets/images/contact-bg.webp';
 
-const title = "Contact Huntertech | IT Services in Calgary & Vancouver";
-const description = "Get in touch with Huntertech for professional IT services in Calgary and Vancouver. Contact us for managed IT support, cybersecurity solutions, and technology consulting.";
+const title = "Contact Huntertech | IT Services Calgary & Vancouver";
+const description = "Get in touch with Huntertech for expert IT services and technology solutions in Calgary and Vancouver. We're here to help your business succeed.";
 const keywords = [
-    "Contact Huntertech",
-    "IT Services contact",
-    "IT Support contact",
-    "Calgary IT contact",
-    "Vancouver IT contact",
-    "IT Services phone",
-    "IT Services email",
-    "IT Services address"
+    "contact Huntertech",
+    "IT services Calgary",
+    "IT services Vancouver",
+    "technology solutions",
+    "business IT support"
 ];
-
-const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Huntertech",
-    "url": "https://huntertech.ca",
-    "logo": "https://huntertech.ca/images/Huntertech_logo.webp",
-    "description": description,
-    "areaServed": [
-        {
-            "@type": "City",
-            "name": "Calgary",
-            "address": {
-                "@type": "PostalAddress",
-                "addressRegion": "AB",
-                "addressCountry": "CA"
-            }
-        },
-        {
-            "@type": "City",
-            "name": "Vancouver",
-            "address": {
-                "@type": "PostalAddress",
-                "addressRegion": "BC",
-                "addressCountry": "CA"
-            }
-        }
-    ],
-    "contactPoint": [
-        {
-            "@type": "ContactPoint",
-            "telephone": "+1-825-415-6990",
-            "contactType": "customer service",
-            "areaServed": "CA-AB",
-            "availableLanguage": ["English"]
-        },
-        {
-            "@type": "ContactPoint",
-            "telephone": "+1-778-819-7411",
-            "contactType": "customer service",
-            "areaServed": "CA-BC",
-            "availableLanguage": ["English"]
-        }
-    ],
-    "sameAs": [
-        "https://www.linkedin.com/company/huntertech",
-        "https://www.facebook.com/huntertech",
-        "https://twitter.com/huntertech"
-    ]
-};
 ---
 
 <Layout title={title} description={description}>
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <SEO 
         title={title}
         description={description}
-        canonicalURL="/contact"
         keywords={keywords}
-        type="website"
         image={contactBg.src}
+        nonce={Astro.props.nonce}
     />
     <Header />
     <main class="contact-page">
@@ -139,7 +84,7 @@ const structuredData = {
     <Footer />
 </Layout>
 
-<script src="https://js.hsforms.net/forms/embed/47750250.js" defer></script>
+<script src="https://js.hsforms.net/forms/embed/47750250.js" defer nonce={Astro.props.nonce}></script>
 
 <style>
     .contact-page {

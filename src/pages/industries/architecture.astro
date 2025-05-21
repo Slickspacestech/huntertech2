@@ -27,108 +27,6 @@ const keywords = [
     "design software optimization",
     "architecture cloud solutions"
 ];
-
-const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "IT Services for Architecture Firms",
-    "description": description,
-    "provider": {
-        "@type": "Organization",
-        "name": "Huntertech",
-        "url": "https://huntertech.ca",
-        "areaServed": [
-            {
-                "@type": "City",
-                "name": "Calgary",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressRegion": "AB",
-                    "addressCountry": "CA"
-                }
-            },
-            {
-                "@type": "City",
-                "name": "Vancouver",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressRegion": "BC",
-                    "addressCountry": "CA"
-                }
-            }
-        ],
-        "contactPoint": [
-            {
-                "@type": "ContactPoint",
-                "telephone": "+1-825-415-6990",
-                "contactType": "customer service",
-                "areaServed": "CA-AB",
-                "availableLanguage": ["English"]
-            },
-            {
-                "@type": "ContactPoint",
-                "telephone": "+1-778-819-7411",
-                "contactType": "customer service",
-                "areaServed": "CA-BC",
-                "availableLanguage": ["English"]
-            }
-        ]
-    },
-    "areaServed": [
-        {
-            "@type": "City",
-            "name": "Calgary",
-            "address": {
-                "@type": "PostalAddress",
-                "addressRegion": "AB",
-                "addressCountry": "CA"
-            }
-        },
-        {
-            "@type": "City",
-            "name": "Vancouver",
-            "address": {
-                "@type": "PostalAddress",
-                "addressRegion": "BC",
-                "addressCountry": "CA"
-            }
-        }
-    ],
-    "serviceType": [
-        "Architecture IT Services",
-        "Design Technology Solutions",
-        "BIM Software Support & Management",
-        "Revit Optimization",
-        "Architecture Cloud Solutions"
-    ],
-    "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Architecture IT Services",
-        "itemListElement": [
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "BIM Software Support"
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Revit Optimization"
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Design Software Integration"
-                }
-            }
-        ]
-    }
-};
 ---
 
 <Layout title={title} description={description}>
@@ -140,7 +38,6 @@ const structuredData = {
         type="website"
         image={architectHero.src}
     />
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <Header />
     <main class="service-page">
         <Hero 
