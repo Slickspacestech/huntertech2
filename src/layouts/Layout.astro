@@ -16,6 +16,7 @@ const nonce = crypto.getRandomValues(new Uint8Array(32))
     .reduce((acc, val) => acc + val.toString(16).padStart(2, '0'), '');
 
 import Favicons from '../components/Favicons.astro';
+import SEO from '../components/SEO.astro';
 ---
 
 <!DOCTYPE html>
@@ -25,13 +26,11 @@ import Favicons from '../components/Favicons.astro';
         <meta http-equiv="Content-Security-Policy" content={`
             default-src 'self';
             script-src 'self' 'nonce-${nonce}' 'unsafe-hashes' https://www.googletagmanager.com https://embed.tawk.to;
-            style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
             font-src 'self' https://fonts.gstatic.com;
             img-src 'self' data: https:;
             connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net;
             frame-src 'self' https://www.google.com;
             base-uri 'self';
-            form-action 'self';
         `.replace(/\s+/g, ' ').trim()} />
 
         <!-- Google tag (gtag.js) -->
@@ -49,6 +48,14 @@ import Favicons from '../components/Favicons.astro';
         <!-- Favicons -->
         <Favicons />
         
+        <!-- SEO -->
+        <SEO 
+            title={title}
+            description={description}
+            image={image}
+            nonce={nonce}
+        />
+        
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -65,96 +72,6 @@ import Favicons from '../components/Favicons.astro';
             />
         </noscript>
         <link rel="sitemap" href="/sitemap-index.xml" />
-        
-        <!-- Structured Data -->
-        <script type="application/ld+json" nonce={nonce}>
-            {JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                "name": "Huntertech",
-                "url": "https://www.huntertech.ca",
-                "logo": "https://www.huntertech.ca/images/logo.png",
-                "description": "Professional IT solutions and Revit management services for businesses in Calgary and Vancouver",
-                "areaServed": [
-                    {
-                        "@type": "City",
-                        "name": "Calgary",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressRegion": "AB",
-                            "addressCountry": "CA"
-                        }
-                    },
-                    {
-                        "@type": "City",
-                        "name": "Vancouver",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressRegion": "BC",
-                            "addressCountry": "CA"
-                        }
-                    }
-                ],
-                "contactPoint": [
-                    {
-                        "@type": "ContactPoint",
-                        "telephone": "+1-825-415-6990",
-                        "contactType": "customer service",
-                        "areaServed": "CA-AB",
-                        "availableLanguage": ["English"]
-                    },
-                    {
-                        "@type": "ContactPoint",
-                        "telephone": "+1-778-819-7411",
-                        "contactType": "customer service",
-                        "areaServed": "CA-BC",
-                        "availableLanguage": ["English"]
-                    }
-                ],
-                "sameAs": [
-                    "https://www.linkedin.com/company/huntertech",
-                    "https://www.facebook.com/huntertech"
-                ]
-            })}
-        </script>
-        
-        <script type="application/ld+json" nonce={nonce}>
-            {JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "Service",
-                "name": "Huntertech",
-                "image": "https://www.huntertech.ca/images/Huntertech_logo.png",
-                "areaServed": [
-                    {
-                        "@type": "City",
-                        "name": "Calgary",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressRegion": "AB",
-                            "addressCountry": "CA"
-                        }
-                    },
-                    {
-                        "@type": "City",
-                        "name": "Vancouver",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressRegion": "BC",
-                            "addressCountry": "CA"
-                        }
-                    }
-                ]
-            })}
-        </script>
-        
-        <script type="application/ld+json" nonce={nonce}>
-            {JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "WebSite",
-                "name": "Huntertech",
-                "url": "https://www.huntertech.ca"
-            })}
-        </script>
 
         <!--Start of Tawk.to Script-->
         <script type="text/javascript" nonce={nonce}>

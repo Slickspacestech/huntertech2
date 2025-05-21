@@ -7,6 +7,7 @@ interface Props {
     type?: 'website' | 'article';
     keywords?: string[];
     location?: 'Calgary' | 'Vancouver';
+    nonce?: string;
 }
 
 const {
@@ -16,7 +17,8 @@ const {
     image = '/images/Huntertech_logo.webp',
     type = 'website',
     keywords = [],
-    location
+    location,
+    nonce
 } = Astro.props;
 
 const siteURL = 'https://huntertech.ca';
@@ -94,7 +96,6 @@ const structuredData = {
             "name": "Vancouver Metropolitan Area"
         }
     ],
-    "priceRange": "$$",
     "currenciesAccepted": "CAD",
     "paymentAccepted": ["Credit Card", "Debit Card", "Cash"],
     "hasOfferCatalog": {
@@ -136,7 +137,7 @@ const structuredData = {
 <meta property="twitter:image" content={`${siteURL}${image}`} />
 
 <!-- Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<script type="application/ld+json" nonce={nonce} set:html={JSON.stringify(structuredData)} />
 
 <!-- Additional Meta Tags -->
 <meta name="robots" content="index, follow" />
