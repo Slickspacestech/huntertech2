@@ -8,6 +8,7 @@ import scanToEmailImg from '../assets/images/blog/scan-to-email.webp';
 import emailVerificationImg from '../assets/images/blog/email-verification.webp';
 import itServicesGuideImg from '../assets/images/blog/AdobeStock_535677380.webp';
 import inHouseVsOutsourcedImg from '../assets/images/blog/in-house-vs-outsourced.webp';
+import secureVaultScamImg from '../assets/images/blog/SecureVaultScam.png';
 
 export interface BlogPost {
     slug: string;
@@ -21,6 +22,20 @@ export interface BlogPost {
 }
 
 export const posts: BlogPost[] = [
+    {
+        slug: 'construction-industry-phishing-scam',
+        title: "Construction Industry Targeted by Sophisticated Phishing Scam",
+        date: "2024-03-22",
+        author: "Huntertech Team",
+        category: "Cybersecurity",
+        image: secureVaultScamImg,
+        content: `
+            <p>A sophisticated phishing scam is currently targeting construction companies across Canada, 
+            attempting to deceive employees into revealing sensitive information. This article provides 
+            crucial information about the scam and how to protect your business.</p>
+        `,
+        tags: ["phishing scam", "construction industry", "cybersecurity", "business fraud", "email security", "financial fraud", "construction safety", "IT security"]
+    },
     {
         slug: 'phishing-attacks-canada',
         title: "Phishing Attacks Rising in Canada",
