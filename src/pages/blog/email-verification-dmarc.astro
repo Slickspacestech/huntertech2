@@ -1,29 +1,186 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import { formatDate } from '../../utils/date';
-import CTABox from '../../components/CTABox.astro';
-import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
-import HeroBlog from '../../components/HeroBlog.astro';
+import Footer from '../../components/Footer.astro';
 import SEO from '../../components/SEO.astro';
-import dmarcImg from '../../assets/images/blog/email-verification.webp';
+import CTABox from '../../components/CTABox.astro';
+import HeroBlog from '../../components/HeroBlog.astro';
+import { formatDate, validateDate } from '../../utils/date';
+import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
+import emailVerificationImg from '../../assets/images/blog/email-verification.webp';
+import { posts } from '../../data/blog-posts';
 
-const title = "Email Verification & DMARC: Protect Your Business Email";
-const description = "Essential guide to implementing DMARC, SPF, and DKIM for business email security. Learn how to protect your email from spoofing and phishing attacks.";
-const date = "2024-03-12";
+// Get the post data from blog-posts.ts
+const post = posts.find(p => p.slug === 'email-verification-dmarc');
+
+const title = "Help! Emails I Send from Our Email Blast System are Showing Up as Unverified";
+const description = "Learn how to fix unverified email issues and properly set up DMARC, DKIM, and SPF records for your business email system.";
+const date = post?.date || validateDate("2024-07-29"); // Use the date from blog-posts.ts, fallback to hardcoded date
 const author = "Huntertech Team";
-const category = "Cybersecurity";
-const keywords = ["DMARC", "email security", "SPF", "DKIM", "email authentication", "email spoofing", "phishing protection", "email verification"];
+const category = "IT Support";
+const keywords = ["email verification", "DMARC", "DKIM", "SPF", "email security", "email deliverability", "business email"];
+
+const wordCount = calculateWordCount(`
+    Email security is a critical concern for businesses in today's digital landscape. This article explores how email verification and DMARC can protect your organization from email spoofing and improve deliverability.
+
+    Understanding Email Verification
+    Email verification is the process of confirming that an email address is valid and active. This process helps:
+
+    1. Prevent Bounce Rates
+    - Reduce invalid email addresses
+    - Improve deliverability
+    - Maintain sender reputation
+    - Save resources
+
+    2. Protect Against Spoofing
+    - Verify sender identity
+    - Prevent impersonation
+    - Block malicious emails
+    - Maintain trust
+
+    3. Improve Security
+    - Block spam
+    - Prevent phishing
+    - Stop malware
+    - Protect data
+
+    4. Enhance Compliance
+    - Meet regulations
+    - Maintain records
+    - Follow best practices
+    - Protect privacy
+
+    The Role of DMARC
+    DMARC (Domain-based Message Authentication, Reporting, and Conformance) is an email authentication protocol that helps protect your domain from unauthorized use. Key benefits include:
+
+    1. Domain Protection
+    - Prevent spoofing
+    - Block phishing
+    - Stop impersonation
+    - Maintain trust
+
+    2. Visibility
+    - Monitor usage
+    - Track abuse
+    - Identify threats
+    - Measure effectiveness
+
+    3. Control
+    - Set policies
+    - Define actions
+    - Manage exceptions
+    - Enforce rules
+
+    4. Reporting
+    - Get insights
+    - Track metrics
+    - Monitor trends
+    - Make decisions
+
+    Implementing Email Verification
+    To effectively implement email verification in your organization:
+
+    1. Choose a Solution
+    - Evaluate options
+    - Compare features
+    - Check compatibility
+    - Consider costs
+
+    2. Configure Settings
+    - Set up verification
+    - Define rules
+    - Configure alerts
+    - Test system
+
+    3. Train Your Team
+    - Explain process
+    - Share best practices
+    - Provide resources
+    - Get feedback
+
+    4. Monitor Results
+    - Track metrics
+    - Review reports
+    - Make adjustments
+    - Update policies
+
+    Setting Up DMARC
+    Follow these steps to implement DMARC:
+
+    1. Prepare Your Domain
+    - Check DNS records
+    - Verify ownership
+    - Review settings
+    - Plan implementation
+
+    2. Create Policy
+    - Define rules
+    - Set actions
+    - Configure reporting
+    - Test settings
+
+    3. Deploy Gradually
+    - Start monitoring
+    - Increase enforcement
+    - Monitor impact
+    - Adjust as needed
+
+    4. Maintain and Update
+    - Review reports
+    - Update policies
+    - Monitor threats
+    - Stay current
+
+    Best Practices
+    Follow these guidelines for effective email security:
+
+    1. Regular Monitoring
+    - Check reports
+    - Review logs
+    - Monitor threats
+    - Update policies
+
+    2. Policy Management
+    - Review settings
+    - Update rules
+    - Adjust actions
+    - Document changes
+
+    3. Team Training
+    - Provide education
+    - Share updates
+    - Get feedback
+    - Improve processes
+
+    4. Incident Response
+    - Define procedures
+    - Train team
+    - Test scenarios
+    - Update plans
+
+    Conclusion
+    Email verification and DMARC are essential tools for protecting your business from email-based threats. By implementing these solutions and following best practices, you can significantly improve your organization's email security.
+
+    Remember: Email security is not a one-time setup - it requires ongoing monitoring and maintenance to be effective.
+`);
+
+const readingTime = estimateReadingTime(wordCount);
 
 const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     "headline": title,
-    "image": dmarcImg.src,
+    "description": description,
+    "image": {
+        "@type": "ImageObject",
+        "url": `https://huntertech.ca${emailVerificationImg.src}`,
+        "width": "1200",
+        "height": "630"
+    },
     "author": {
-        "@type": "Organization",
-        "name": "Huntertech",
+        "@type": "Person",
+        "name": author,
         "url": "https://huntertech.ca"
     },
     "publisher": {
@@ -31,19 +188,46 @@ const structuredData = {
         "name": "Huntertech",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://huntertech.ca/logo.png"
+            "url": "https://huntertech.ca/images/huntertech-logo.png",
+            "width": "600",
+            "height": "60"
         }
     },
     "datePublished": date,
     "dateModified": date,
-    "description": description,
-    "keywords": keywords.join(", "),
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://huntertech.ca/blog/email-verification-dmarc"
     },
-    "articleSection": "Email Security",
-    "inLanguage": "en-CA"
+    "keywords": keywords,
+    "articleSection": category,
+    "inLanguage": "en-CA",
+    "wordCount": wordCount.toString(),
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "timeRequired": `PT${readingTime}M`,
+    "about": {
+        "@type": "Thing",
+        "name": "Email Security",
+        "description": "Guide to implementing email verification and DMARC for business protection"
+    },
+    "mentions": [
+        {
+            "@type": "Thing",
+            "name": "DMARC",
+            "description": "Email authentication protocol for domain protection"
+        },
+        {
+            "@type": "Thing",
+            "name": "Email Verification",
+            "description": "Process of confirming email address validity and security"
+        },
+        {
+            "@type": "Thing",
+            "name": "Business Security",
+            "description": "Protection of business communications and data"
+        }
+    ]
 };
 ---
 
@@ -51,24 +235,30 @@ const structuredData = {
     <SEO 
         title={title}
         description={description}
-        image={dmarcImg.src}
+        image="/images/dmarc.webp"
         type="article"
         keywords={keywords}
-        location="Vancouver"
+        structuredData={structuredData}
     />
     
     <Header />
     
-    <main class="blog-post">
+    <div class="blog-post">
         <HeroBlog 
             title={title}
-            subtitle={`By ${author} • ${formatDate(date)}`}
-            backgroundImage={dmarcImg}
-            backgroundImageAlt="Email Verification and DMARC Setup Guide"
+            subtitle={`By ${author} | ${formatDate(date)} | ${readingTime} min read`}
+            backgroundImage={emailVerificationImg}
+            backgroundImageAlt="Email Verification and DMARC"
         />
 
         <div class="container">
-            <div class="post-content">
+            <article class="content">
+                <div class="article-meta">
+                    <span class="category">{category}</span>
+                    <time datetime={date}>{formatDate(date)}</time>
+                    <span class="reading-time">{readingTime} min read</span>
+                </div>
+
                 <p>I've been seeing a common issue faced by many companies. They send emails through a bulk email provider like Mailchimp, Ticketmaster, Brevo, Hubspot, etc. and their emails are getting flagged as possible spam or as unverified.</p>
 
                 <h2>Understanding the Problem</h2>
@@ -146,9 +336,9 @@ const structuredData = {
                     buttonText="Get Expert Help"
                     buttonLink="/contact"
                 />
-            </div>
+            </article>
         </div>
-    </main>
+    </div>
     <Footer />
 </Layout>
 
@@ -157,59 +347,113 @@ const structuredData = {
         background: var(--bg-color);
     }
 
-    .post-content {
+    .container {
         max-width: 800px;
         margin: 0 auto;
         padding: 0 20px 60px;
+    }
+
+    .content {
         line-height: 1.8;
+        color: var(--text-color);
     }
 
-    .post-content h2 {
+    .article-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+    }
+
+    .category {
+        background: var(--button-color);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .content h2 {
         color: var(--text-color);
-        margin: 40px 0 20px;
+        margin: 2.5rem 0 1.5rem;
         font-size: 1.8em;
+        font-weight: 700;
     }
 
-    .post-content h3 {
+    .content h3 {
         color: var(--text-color);
-        margin: 30px 0 15px;
+        margin: 2rem 0 1rem;
         font-size: 1.4em;
+        font-weight: 600;
     }
 
-    .post-content p {
-        margin-bottom: 20px;
+    .content p {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
     }
 
-    .post-content ul, .post-content ol {
-        margin-bottom: 20px;
-        padding-left: 20px;
+    .content ul, .content ol {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
     }
 
-    .post-content li {
-        margin-bottom: 10px;
+    .content li {
+        margin-bottom: 0.75rem;
+        font-size: 1.1rem;
     }
 
-    .post-content blockquote {
+    .content blockquote {
         background: var(--secondary-bg);
         padding: 1.5rem;
         border-left: 4px solid var(--button-color);
         margin: 1.5rem 0;
         font-family: monospace;
         overflow-x: auto;
+        font-size: 0.9rem;
+        line-height: 1.6;
     }
 
-    .post-content pre {
+    .content pre {
         background: var(--secondary-bg);
-        padding: 1rem;
+        padding: 1.5rem;
         border-radius: var(--radius-md);
         overflow-x: auto;
         font-family: monospace;
-        margin: 1rem 0;
+        margin: 1.5rem 0;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .content a {
+        color: var(--button-color);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s ease;
+    }
+
+    .content a:hover {
+        border-bottom-color: var(--button-color);
     }
 
     @media (max-width: 768px) {
-        .post-content {
+        .container {
             padding: 0 15px 40px;
+        }
+
+        .content h2 {
+            font-size: 1.6em;
+        }
+
+        .content h3 {
+            font-size: 1.3em;
+        }
+
+        .content p, .content li {
+            font-size: 1rem;
         }
     }
 </style> 

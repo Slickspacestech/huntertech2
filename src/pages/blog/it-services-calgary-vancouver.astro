@@ -1,30 +1,167 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import { formatDate } from '../../utils/date';
-import CTABox from '../../components/CTABox.astro';
-import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
-import HeroBlog from '../../components/HeroBlog.astro';
+import Footer from '../../components/Footer.astro';
 import SEO from '../../components/SEO.astro';
-import itServicesImg from '../../assets/images/blog/it-services-guide.webp';
+import CTABox from '../../components/CTABox.astro';
+import HeroBlog from '../../components/HeroBlog.astro';
+import { formatDate, validateDate } from '../../utils/date';
+import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
+import itServicesGuideImg from '../../assets/images/blog/AdobeStock_535677380.webp';
+import { posts } from '../../data/blog-posts';
 
-const title = "Choosing the Right IT Provider in Calgary & Vancouver 2025";
-const description = "Your comprehensive guide to finding a reliable local IT partner in Western Canada. Learn about managed IT services, local support, and why Huntertech is your trusted IT partner in Calgary and Vancouver.";
-const date = "2025-03-20";
+// Get the post data from blog-posts.ts
+const post = posts.find(p => p.slug === 'it-services-calgary-vancouver');
+
+const title = "IT Service Providers in Calgary & Vancouver: A Guide for Businesses 2025";
+const description = "As businesses in Calgary and Vancouver continue to embrace digital transformation, finding the right IT service provider has become crucial for success.";
+const date = post?.date || validateDate("2025-01-20"); // Use the date from blog-posts.ts, fallback to hardcoded date
 const author = "Huntertech Team";
 const category = "IT Services";
-const keywords = ["IT services Calgary", "IT support Vancouver", "managed IT services", "IT service provider", "local IT support", "business IT solutions", "IT consulting Calgary", "IT consulting Vancouver", "Western Canada IT support"];
+const keywords = ["IT strategy", "IT outsourcing", "managed IT services", "small business IT", "IT management", "IT support", "business technology"];
+
+// Calculate word count from the article content
+const wordCount = calculateWordCount(`
+    Your guide to finding a reliable local IT partner — and why more businesses are turning to Huntertech.
+
+    As digital transformation accelerates, businesses in Calgary and Vancouver are increasingly dependent on reliable, secure, and responsive IT infrastructure. Choosing the right IT service provider isn't just about fixing problems — it's about future-proofing your operations and supporting growth.
+
+    At Huntertech, we specialize in delivering smart, scalable IT solutions with a strong local presence in both Calgary and Vancouver. Here's what to look for when choosing a provider — and why we stand out.
+
+    Why Local IT Support Matters
+    While remote IT services are common, local support delivers clear advantages, especially in Western Canada's fast-paced business environments:
+    - Faster on-site response times for urgent issues
+    - Better understanding of local regulations, including industry compliance and data residency
+    - Face-to-face collaboration and personalized service
+    - Knowledge of local infrastructure, ISPs, and networking challenges
+
+    Essential IT Services for Calgary and Vancouver Businesses
+    No matter your industry — whether engineering, professional services, real estate, or non-profit — your IT partner should offer these foundational services:
+    - Managed IT Services
+    - Customer-Centric Help Desk
+    - Cybersecurity
+    - Cloud Solutions
+    - Backup & Disaster Recovery
+    - Modern Device & Mobile Management
+    - Software Deployment & Vulnerability Management
+
+    What to Look for in an IT Provider
+    When evaluating IT service providers in Calgary or Vancouver, ask these questions:
+    - Do they have a physical presence and a dedicated support team in your city?
+    - Can they demonstrate experience in your industry?
+    - Do they offer clear service level agreements (SLAs) and guaranteed response times?
+    - Are they certified partners with Microsoft, Lenovo, or other industry leaders?
+    - Can their solutions scale with your business?
+    - Are they deploying modern tools like Microsoft Entra ID, Single Sign-On (SSO), and zero-trust security frameworks?
+
+    IT Support Trends in Western Canada
+    The way businesses work is evolving. Your IT provider should be evolving too. Current trends include:
+    - Hybrid Work Support
+    - Cybersecurity-First Approach
+    - Cloud-First Strategies
+    - Customer Experience Focus
+    - Modern Management Tools
+
+    Understanding IT Service Costs
+    Cost should never be a guessing game. Look for transparency in how services are billed:
+    - Per-user pricing is often the simplest and most scalable
+    - Watch for complicated pricing models
+    - Clarify what's included in your monthly fee
+    - Understand the ROI of managed IT
+
+    Making the Right Choice
+    Selecting an IT partner is a strategic decision. You want a provider that:
+    - Understands Your Needs
+    - Offers Local Support
+    - Ensures Security
+    - Partners with You
+
+    Why More Businesses Choose Huntertech
+    At Huntertech, we combine local knowledge with enterprise-grade IT expertise. Here's what sets us apart:
+    - Local Presence
+    - Responsive Support
+    - Proactive Management
+    - Built-in Security
+    - Scalable Solutions
+    - Transparent Pricing
+`);
+
+const readingTime = estimateReadingTime(wordCount);
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "description": description,
+    "image": {
+        "@type": "ImageObject",
+        "url": `https://huntertech.ca${itServicesGuideImg.src}`,
+        "width": "1200",
+        "height": "630"
+    },
+    "author": {
+        "@type": "Organization",
+        "name": author,
+        "url": "https://huntertech.ca"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://huntertech.ca/images/huntertech-logo.png",
+            "width": "600",
+            "height": "60"
+        }
+    },
+    "datePublished": date,
+    "dateModified": date,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://huntertech.ca/blog/${Astro.url.pathname.split('/').pop()}`
+    },
+    "keywords": keywords,
+    "articleSection": category,
+    "inLanguage": "en-CA",
+    "wordCount": wordCount.toString(),
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "timeRequired": `PT${readingTime}M`,
+    "about": {
+        "@type": "Thing",
+        "name": "IT Services in Western Canada",
+        "description": "Guide to choosing IT service providers in Calgary and Vancouver"
+    },
+    "mentions": [
+        {
+            "@type": "Thing",
+            "name": "Managed IT Services",
+            "description": "Comprehensive IT management and support services"
+        },
+        {
+            "@type": "Thing",
+            "name": "Cloud Solutions",
+            "description": "Scalable cloud infrastructure and services"
+        },
+        {
+            "@type": "Thing",
+            "name": "Cybersecurity",
+            "description": "IT security and threat protection services"
+        }
+    ]
+};
 ---
 
 <Layout title={title}>
     <SEO 
         title={title}
         description={description}
-        image={itServicesImg.src}
+        image={itServicesGuideImg.src}
         type="article"
         keywords={keywords}
         location="Calgary"
+        structuredData={structuredData}
     />
     
     <Header />
@@ -32,13 +169,19 @@ const keywords = ["IT services Calgary", "IT support Vancouver", "managed IT ser
     <main class="blog-post">
         <HeroBlog 
             title={title}
-            subtitle={`By ${author} | ${formatDate(date)}`}
-            backgroundImage={itServicesImg}
+            subtitle={`By ${author} | ${formatDate(date)} | ${readingTime} min read`}
+            backgroundImage={itServicesGuideImg}
             backgroundImageAlt="IT Services Guide"
         />
 
         <div class="container">
             <article class="content">
+                <div class="article-meta">
+                    <span class="category">{category}</span>
+                    <time datetime={date}>{formatDate(date)}</time>
+                    <span class="reading-time">{readingTime} min read</span>
+                </div>
+
                 <p class="lead">Your guide to finding a reliable local IT partner — and why more businesses are turning to Huntertech.</p>
 
                 <p>As digital transformation accelerates, businesses in Calgary and Vancouver are increasingly dependent on reliable, secure, and responsive IT infrastructure. Choosing the right IT service provider isn't just about fixing problems — it's about future-proofing your operations and supporting growth.</p>
@@ -308,5 +451,10 @@ const keywords = ["IT services Calgary", "IT support Vancouver", "managed IT ser
         .benefits-grid {
             grid-template-columns: 1fr;
         }
+    }
+
+    .reading-time {
+        color: var(--text-muted);
+        font-size: 0.9rem;
     }
 </style> 

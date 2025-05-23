@@ -1,29 +1,78 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import { formatDate } from '../../utils/date';
-import CTABox from '../../components/CTABox.astro';
-import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
-import HeroBlog from '../../components/HeroBlog.astro';
+import Footer from '../../components/Footer.astro';
 import SEO from '../../components/SEO.astro';
-import scanToEmailImage from '../../assets/images/blog/scan-to-email.webp';
+import CTABox from '../../components/CTABox.astro';
+import HeroBlog from '../../components/HeroBlog.astro';
+import { formatDate, validateDate } from '../../utils/date';
+import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
+import scanToEmailImg from '../../assets/images/blog/scan-to-email.webp';
+import { posts } from '../../data/blog-posts';
 
-const title = "Scan to Email Printer Setup: Complete Guide for Business";
-const description = "Complete guide to setting up scan to email on your business printer. Learn how to configure settings, troubleshoot issues, and ensure secure document scanning.";
-const date = "2024-03-15";
+// Get the post data from blog-posts.ts
+const post = posts.find(p => p.slug === 'scan-to-email-printer');
+
+const title = "Scan to Email on Your Office Printer with Microsoft 365 or Google Workspace";
+const description = "Learn how to set up scan-to-email functionality on your office printer using Microsoft 365 or Google Workspace. A simple 5-minute guide.";
+const date = post?.date || validateDate("2024-08-16"); // Use the date from blog-posts.ts, fallback to hardcoded date
 const author = "Huntertech Team";
-const category = "IT Services";
-const keywords = ["scan to email", "printer setup", "document scanning", "business printer", "printer configuration", "scan to email setup", "printer troubleshooting", "document management"];
+const category = "IT Support";
+const keywords = ["scan to email", "printer setup", "Microsoft 365", "Google Workspace", "office printer", "document scanning"];
+
+// Calculate word count from the article content
+const wordCount = calculateWordCount(`
+    If you've recently purchased a multi-function printer, or perhaps you want to finally set up scan to email on a soccer free Saturday, then this is the guide to help you do it in 5 minutes and stop pulling your hair out.
+
+    Forget Trying to Read Through Super Technical Instructions
+    Microsoft announced they are retiring the old school methods of app passwords and basic auth and all those things that hackers used to exploit their customers so they could scan to email. It was a bad idea anyway, so I applaud them for making it right. So what to do about all those annoying devices, software that wants to send alerts etc?
+
+    Introducing SMTP2GO
+    This wonderful service deserves your money even if you would never have a chance of exceeding their free email delivery tier. What you'll need to get started:
+    - Your login for your domain registrar/DNS provider
+    - A SMTP2GO account
+
+    Setup Your Domain as a Verified Sender
+    Sign into your new SMTP2GO account and on the left menu, expand Sending, and click Verified Senders. On the right side of the page, click Add Sender Domain. Type in your domain name (example.com for example).
+
+    Take note of the next screen! These DNS records need to be entered into your DNS settings wherever your DNS records are located. Key information is the _type_ which are CNAME records, Hostname, and Value.
+
+    Add in all 3 records. Click Verify on the SMTP2GO DNS screen. If it doesn't verify then you may have to wait up to 48hrs depending on your DNS provider. Good ones take a couple minutes.
+
+    Create the SMTP User
+    After you've been verified, hop on over to SMTP users on the left menu. Click Add SMTP User on the right side. Create the username and password (pick a strong one, or use their auto generated one). These will later be entered into your printer to setup SMTP.
+
+    Configure Your Printer
+    Every printer is a bit different here. In your email settings you'll likely have Authentication Method. This is going to be SMTP Auth.
+
+    Username is going to match the username you created in the Add SMTP User step above (printer@yourdomain.com). The password will be the password from the above step.
+
+    The right side of the SMTP2GO gives you the rest of the important details:
+    - SMTP Server: mail.smtp2go.com
+    - SMTP Port: 2525
+    - Alternative/TLS Ports: 8025, 587, 80 or 25. TLS is available on the same ports.
+    - SSL is available on ports: 465, 8465 and 443.
+
+    Once you've entered those in you should be able to test the connection with your printer!
+`);
+
+const readingTime = estimateReadingTime(wordCount);
 
 const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     "headline": title,
-    "image": scanToEmailImage.src,
+    "description": description,
+    "image": {
+        "@type": "ImageObject",
+        "url": `https://huntertech.ca${scanToEmailImg.src}`,
+        "width": "1200",
+        "height": "630"
+    },
     "author": {
         "@type": "Organization",
-        "name": "Huntertech",
+        "name": author,
         "url": "https://huntertech.ca"
     },
     "publisher": {
@@ -31,19 +80,46 @@ const structuredData = {
         "name": "Huntertech",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://huntertech.ca/images/Huntertech_logo.webp"
+            "url": "https://huntertech.ca/images/huntertech-logo.png",
+            "width": "600",
+            "height": "60"
         }
     },
     "datePublished": date,
     "dateModified": date,
-    "description": description,
-    "keywords": keywords.join(", "),
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://huntertech.ca/blog/scan-to-email-printer"
     },
-    "articleSection": "IT Guides",
-    "inLanguage": "en-CA"
+    "keywords": keywords,
+    "articleSection": category,
+    "inLanguage": "en-CA",
+    "wordCount": wordCount.toString(),
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "timeRequired": `PT${readingTime}M`,
+    "about": {
+        "@type": "Thing",
+        "name": "Printer Setup Guide",
+        "description": "Complete guide to setting up scan to email functionality on business printers"
+    },
+    "mentions": [
+        {
+            "@type": "Thing",
+            "name": "SMTP2GO",
+            "description": "Email delivery service for business printers"
+        },
+        {
+            "@type": "Thing",
+            "name": "Microsoft Authentication",
+            "description": "Modern authentication methods for business devices"
+        },
+        {
+            "@type": "Thing",
+            "name": "DNS Configuration",
+            "description": "Domain name system setup for email services"
+        }
+    ]
 };
 ---
 
@@ -54,7 +130,8 @@ const structuredData = {
         canonicalURL="https://huntertech.ca/blog/scan-to-email-printer"
         keywords={keywords}
         type="article"
-        image={scanToEmailImage.src}
+        image={scanToEmailImg.src}
+        structuredData={structuredData}
     />
     
     <Header />
@@ -62,13 +139,19 @@ const structuredData = {
     <main class="blog-post">
         <HeroBlog 
             title={title}
-            subtitle={`By ${author} • ${formatDate(date)}`}
-            backgroundImage={scanToEmailImage}
+            subtitle={`By ${author} • ${formatDate(date)} • ${readingTime} min read`}
+            backgroundImage={scanToEmailImg}
             backgroundImageAlt="Scan to Email Printer Setup"
         />
 
         <div class="container">
             <div class="post-content">
+                <div class="article-meta">
+                    <span class="category">{category}</span>
+                    <time datetime={date}>{formatDate(date)}</time>
+                    <span class="reading-time">{readingTime} min read</span>
+                </div>
+
                 <p>If you've recently purchased a multi-function printer, or perhaps you want to finally set up scan to email on a soccer free Saturday, then this is the guide to help you do it in 5 minutes and stop pulling your hair out.</p>
 
                 <h2>Forget Trying to Read Through Super Technical Instructions</h2>
@@ -164,5 +247,10 @@ const structuredData = {
         .post-content {
             padding: 0 15px 40px;
         }
+    }
+
+    .reading-time {
+        color: var(--text-muted);
+        font-size: 0.9rem;
     }
 </style> 

@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
@@ -20,6 +21,121 @@ const keywords = [
     "Revit services Calgary",
     "Revit services Vancouver"
 ];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Service",
+            "name": "Revit Management Services",
+            "description": description,
+            "provider": {
+                "@type": "Organization",
+                "name": "Huntertech",
+                "url": "https://huntertech.ca",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "/images/huntertech-logo.png"
+                }
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": "Contact for pricing",
+                "priceCurrency": "CAD",
+                "availability": "https://schema.org/InStock"
+            },
+            "audience": {
+                "@type": "Audience",
+                "audienceType": ["Architecture Firms", "Engineering Companies"]
+            },
+            "areaServed": [
+                {
+                    "@type": "GeoCircle",
+                    "geoMidpoint": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "49.2827",
+                        "longitude": "-123.1207"
+                    },
+                    "geoRadius": "50km",
+                    "name": "Vancouver"
+                },
+                {
+                    "@type": "GeoCircle",
+                    "geoMidpoint": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "51.0447",
+                        "longitude": "-114.0719"
+                    },
+                    "geoRadius": "50km",
+                    "name": "Calgary"
+                }
+            ],
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Revit Management Services Catalog",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Revit Model Review",
+                            "description": "Review and optimization of Revit models for performance and standards compliance"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Model Health Checks",
+                            "description": "Regular assessment and maintenance of Revit models to ensure optimal performance"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Parametric Family Creation",
+                            "description": "Custom Revit family creation and optimization for your specific project needs"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Revit Training",
+                            "description": "Customized training for teams of all skill levels, get everyone on the same page and get the most out of Revit"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Workflow Automation",
+                            "description": "Custom automation solutions to streamline your Revit workflows"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://huntertech.ca"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Revit Management",
+                    "item": "https://huntertech.ca/services/revit-management"
+                }
+            ]
+        }
+    ]
+};
 ---
 
 <Layout title={title} description={description}>
@@ -30,6 +146,7 @@ const keywords = [
         keywords={keywords}
         type="website"
         image={revitBg.src}
+        structuredData={structuredData}
     />
     <Header />
     <main class="service-page">

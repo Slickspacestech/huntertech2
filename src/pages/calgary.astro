@@ -32,6 +32,97 @@ const keywords = [
     "IT consulting Calgary",
     "Business IT support Calgary"
 ];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "LocalBusiness",
+            "name": "Huntertech Calgary",
+            "description": description,
+            "url": "https://huntertech.ca/calgary",
+            "telephone": "8254156990",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "4121 23b St NE",
+                "addressLocality": "Calgary",
+                "addressRegion": "AB",
+                "postalCode": "T2E 7V9",
+                "addressCountry": "CA"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "51.0677",
+                "longitude": "-113.9777"
+            },
+            "areaServed": {
+                "@type": "GeoCircle",
+                "geoMidpoint": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "51.0447",
+                    "longitude": "-114.0719"
+                },
+                "geoRadius": "50km",
+                "name": "Calgary"
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "IT Services in Calgary",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Managed IT Support",
+                            "description": "Friendly, local IT support and monitoring for Calgary businesses"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Cybersecurity Solutions",
+                            "description": "Advanced security solutions to protect your Calgary business"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Cloud Services",
+                            "description": "Secure and scalable cloud infrastructure for Calgary companies"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Network Solutions",
+                            "description": "Reliable and efficient network infrastructure in Calgary"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://huntertech.ca"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Calgary",
+                    "item": "https://huntertech.ca/calgary"
+                }
+            ]
+        }
+    ]
+};
 ---
 
 <Layout title={title} description={description}>
@@ -43,6 +134,7 @@ const keywords = [
         type="website"
         image={calgaryBg.src}
         location="Calgary"
+        structuredData={structuredData}
     />
     <Header />
     <main>

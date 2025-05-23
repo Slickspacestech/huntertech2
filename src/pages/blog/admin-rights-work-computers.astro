@@ -6,25 +6,155 @@ import Footer from '../../components/Footer.astro';
 import SEO from '../../components/SEO.astro';
 import CTABox from '../../components/CTABox.astro';
 import HeroBlog from '../../components/HeroBlog.astro';
-import { formatDate } from '../../utils/date';
+import { formatDate, validateDate } from '../../utils/date';
+import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
 import adminRightsImg from '../../assets/images/blog/admin-rights.webp';
 import adminRightsImage from '../../assets/images/blog/admin-rights.webp';
+import { posts } from '../../data/blog-posts';
 
-const title = "Admin Rights on Work Computers: Security Best Practices";
-const description = "Essential guide to managing admin rights on work computers. Learn why restricting access is crucial for security and how to implement proper access controls.";
-const date = "2024-03-08";
-const author = "Huntertech Team";
+// Get the post data from blog-posts.ts
+const post = posts.find(p => p.slug === 'admin-rights-work-computers');
+
+const title = "Why Employees Shouldn't Have Admin Rights on Work Computers";
+const description = "Learn why restricting admin rights on work computers is crucial for business security and how to implement proper access controls.";
+const date = post?.date || validateDate("2024-09-12"); // Use the date from blog-posts.ts, fallback to hardcoded date
+const author = "Matt Hunter";
 const category = "Cybersecurity";
-const keywords = ["admin rights", "work computer security", "access control", "IT security", "business security", "computer permissions", "security best practices"];
+const keywords = ["admin rights", "work computer security", "cybersecurity", "access control", "IT security", "business protection"];
+
+const wordCount = calculateWordCount(`
+    In today's business environment, computer security is more important than ever. One of the most critical security measures is controlling who has administrative rights on work computers. This article explains why restricting admin rights is essential and how to implement proper access controls.
+
+    The Risks of Unrestricted Admin Rights
+    When employees have administrative access to their work computers, several security risks emerge:
+
+    1. Malware Installation
+    - Users can accidentally install malicious software
+    - Security tools can be disabled
+    - System settings can be changed
+    - Unauthorized programs can run
+
+    2. System Instability
+    - Incompatible software installations
+    - System configuration changes
+    - Performance issues
+    - Software conflicts
+
+    3. Data Security
+    - Unauthorized access to sensitive data
+    - Data leakage
+    - Privacy breaches
+    - Compliance violations
+
+    4. Network Security
+    - Unauthorized network changes
+    - Security policy bypass
+    - Network vulnerability
+    - Access to restricted resources
+
+    Benefits of Restricted Admin Rights
+    Implementing proper access controls provides numerous advantages:
+
+    1. Enhanced Security
+    - Reduced malware risk
+    - Controlled software installation
+    - Protected system settings
+    - Monitored system changes
+
+    2. System Stability
+    - Consistent performance
+    - Standardized configurations
+    - Reduced support tickets
+    - Better user experience
+
+    3. Compliance
+    - Meeting security requirements
+    - Maintaining audit trails
+    - Enforcing policies
+    - Protecting sensitive data
+
+    4. Cost Savings
+    - Reduced IT support
+    - Lower security incidents
+    - Fewer system repairs
+    - Better resource utilization
+
+    Implementing Proper Access Controls
+    To effectively manage admin rights in your organization:
+
+    1. Define Access Levels
+    - Standard user accounts
+    - Limited admin access
+    - Full admin access
+    - Special permissions
+
+    2. Create Access Policies
+    - Document requirements
+    - Define approval process
+    - Set review periods
+    - Establish guidelines
+
+    3. Use Management Tools
+    - Group Policy
+    - Access management software
+    - Monitoring tools
+    - Audit systems
+
+    4. Train Your Team
+    - Security awareness
+    - Policy education
+    - Best practices
+    - Incident reporting
+
+    Best Practices for Access Control
+    Follow these guidelines for effective access management:
+
+    1. Regular Reviews
+    - Audit access rights
+    - Update permissions
+    - Remove unnecessary access
+    - Document changes
+
+    2. Monitoring
+    - Track system changes
+    - Monitor user activity
+    - Review security logs
+    - Detect anomalies
+
+    3. Documentation
+    - Maintain access records
+    - Document approvals
+    - Track changes
+    - Update policies
+
+    4. Incident Response
+    - Define procedures
+    - Train response team
+    - Test scenarios
+    - Update plans
+
+    Conclusion
+    Restricting admin rights on work computers is not about limiting employee capabilities - it's about protecting your business from security threats and maintaining system stability. By implementing proper access controls and following best practices, you can significantly improve your organization's security posture.
+
+    Remember: The convenience of admin rights is not worth the security risks. Protect your business by implementing proper access controls today.
+`);
+
+const readingTime = estimateReadingTime(wordCount);
 
 const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     "headline": title,
-    "image": adminRightsImg.src,
+    "description": description,
+    "image": {
+        "@type": "ImageObject",
+        "url": `https://huntertech.ca${adminRightsImage.src}`,
+        "width": "1200",
+        "height": "630"
+    },
     "author": {
-        "@type": "Organization",
-        "name": "Huntertech",
+        "@type": "Person",
+        "name": author,
         "url": "https://huntertech.ca"
     },
     "publisher": {
@@ -32,44 +162,77 @@ const structuredData = {
         "name": "Huntertech",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://huntertech.ca/logo.png"
+            "url": "https://huntertech.ca/images/huntertech-logo.png",
+            "width": "600",
+            "height": "60"
         }
     },
     "datePublished": date,
     "dateModified": date,
-    "description": description,
-    "keywords": keywords.join(", "),
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://huntertech.ca/blog/admin-rights-work-computers"
     },
-    "articleSection": "IT Security",
-    "inLanguage": "en-CA"
+    "keywords": keywords,
+    "articleSection": category,
+    "inLanguage": "en-CA",
+    "wordCount": wordCount.toString(),
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "timeRequired": `PT${readingTime}M`,
+    "about": {
+        "@type": "Thing",
+        "name": "Access Control",
+        "description": "Guide to implementing and managing administrative access rights in business environments"
+    },
+    "mentions": [
+        {
+            "@type": "Thing",
+            "name": "Computer Security",
+            "description": "Protection of computer systems and data from unauthorized access"
+        },
+        {
+            "@type": "Thing",
+            "name": "Access Management",
+            "description": "Control and monitoring of user access to systems and resources"
+        },
+        {
+            "@type": "Thing",
+            "name": "Business Protection",
+            "description": "Measures to safeguard business assets and operations"
+        }
+    ]
 };
 ---
 
-<Layout title={title} description={description}>
-    <SEO
+<Layout title={title}>
+    <SEO 
         title={title}
         description={description}
-        canonicalURL="https://huntertech.ca/blog/admin-rights-work-computers"
-        keywords={keywords}
+        image="/images/admin-rights.webp"
         type="article"
-        image={adminRightsImage.src}
+        keywords={keywords}
+        structuredData={structuredData}
     />
     
     <Header />
     
-    <main class="blog-post">
+    <div class="blog-post">
         <HeroBlog 
             title={title}
-            subtitle={`By ${author} • ${formatDate(date)}`}
-            backgroundImage={adminRightsImg}
-            backgroundImageAlt="Admin Rights on Work Computers"
+            subtitle={`By ${author} | ${formatDate(date)} | ${readingTime} min read`}
+            backgroundImage={adminRightsImage}
+            backgroundImageAlt="Admin Rights Security"
         />
 
         <div class="container">
-            <div class="post-content">
+            <article class="content">
+                <div class="article-meta">
+                    <span class="category">{category}</span>
+                    <time datetime={date}>{formatDate(date)}</time>
+                    <span class="reading-time">{readingTime} min read</span>
+                </div>
+
                 <p>While there are certainly a variety of opinions concerning administrative rights on workplace computers, I believe it's crucial to consider several factors before reaching a decision. For those seeking a quick answer, it's conditional; however, generally speaking, the larger the organization, the more it tends to be advisable to restrict these rights.</p>
 
                 <h2>Company Liability</h2>
@@ -103,9 +266,9 @@ const structuredData = {
                     buttonText="Get Expert Advice"
                     buttonLink="/contact"
                 />
-            </div>
+            </article>
         </div>
-    </main>
+    </div>
     <Footer />
 </Layout>
 
@@ -114,26 +277,113 @@ const structuredData = {
         background: var(--bg-color);
     }
 
-    .post-content {
+    .container {
         max-width: 800px;
         margin: 0 auto;
         padding: 0 20px 60px;
+    }
+
+    .content {
         line-height: 1.8;
-    }
-
-    .post-content h2 {
         color: var(--text-color);
-        margin: 40px 0 20px;
-        font-size: 1.8em;
     }
 
-    .post-content p {
-        margin-bottom: 20px;
+    .article-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+    }
+
+    .category {
+        background: var(--button-color);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .content h2 {
+        color: var(--text-color);
+        margin: 2.5rem 0 1.5rem;
+        font-size: 1.8em;
+        font-weight: 700;
+    }
+
+    .content h3 {
+        color: var(--text-color);
+        margin: 2rem 0 1rem;
+        font-size: 1.4em;
+        font-weight: 600;
+    }
+
+    .content p {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+    }
+
+    .content ul, .content ol {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+    }
+
+    .content li {
+        margin-bottom: 0.75rem;
+        font-size: 1.1rem;
+    }
+
+    .content blockquote {
+        background: var(--secondary-bg);
+        padding: 1.5rem;
+        border-left: 4px solid var(--button-color);
+        margin: 1.5rem 0;
+        font-family: monospace;
+        overflow-x: auto;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .content pre {
+        background: var(--secondary-bg);
+        padding: 1.5rem;
+        border-radius: var(--radius-md);
+        overflow-x: auto;
+        font-family: monospace;
+        margin: 1.5rem 0;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .content a {
+        color: var(--button-color);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s ease;
+    }
+
+    .content a:hover {
+        border-bottom-color: var(--button-color);
     }
 
     @media (max-width: 768px) {
-        .post-content {
+        .container {
             padding: 0 15px 40px;
+        }
+
+        .content h2 {
+            font-size: 1.6em;
+        }
+
+        .content h3 {
+            font-size: 1.3em;
+        }
+
+        .content p, .content li {
+            font-size: 1rem;
         }
     }
 </style> 

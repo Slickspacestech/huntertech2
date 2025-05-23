@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import { formatDate, getTodayDateString } from '../../utils/date';
+import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
 import CTABox from '../../components/CTABox.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
@@ -19,26 +20,60 @@ const keywords = ["keyword1", "keyword2", "keyword3"];
 // Import your article's featured image
 import featuredImage from '../../assets/images/blog/your-image.webp';
 
+// Calculate word count and reading time
+const content = `
+    <!-- Your article content -->
+    <p class="lead">Your lead paragraph goes here. Make it compelling and summarize the key points of your article.</p>
+
+    <h2>First Section Heading</h2>
+    <p>Your first section content goes here. Use proper HTML structure and semantic elements.</p>
+
+    <h2>Second Section Heading</h2>
+    <p>Continue with your content, using appropriate headings and paragraphs.</p>
+`;
+
+const wordCount = calculateWordCount(content);
+const readingTime = estimateReadingTime(wordCount);
+
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": title,
     "description": description,
-    "image": "/images/blog/your-image.jpg",
-    "datePublished": date,
-    "dateModified": date,
+    "image": {
+        "@type": "ImageObject",
+        "url": `/images/blog/${featuredImage.src.split('/').pop()}`,
+        "width": "1200",
+        "height": "630"
+    },
     "author": {
         "@type": "Organization",
-        "name": author
+        "name": author,
+        "url": "https://huntertech.ca"
     },
     "publisher": {
         "@type": "Organization",
         "name": "Huntertech",
         "logo": {
             "@type": "ImageObject",
-            "url": "/images/logo.png"
+            "url": "https://huntertech.ca/images/huntertech-logo.png",
+            "width": "600",
+            "height": "60"
         }
-    }
+    },
+    "datePublished": date,
+    "dateModified": date,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://huntertech.ca/blog/${Astro.url.pathname.split('/').pop()}`
+    },
+    "keywords": keywords,
+    "articleSection": category,
+    "inLanguage": "en-CA",
+    "wordCount": wordCount.toString(),
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "timeRequired": `PT${readingTime}M`
 };
 ---
 
@@ -50,6 +85,7 @@ const structuredData = {
         keywords={keywords}
         type="article"
         image={featuredImage.src}
+        structuredData={structuredData}
     />
     
     <Header />
@@ -57,30 +93,21 @@ const structuredData = {
     <main class="blog-post">
         <HeroBlog 
             title={title}
-            subtitle={`By ${author} • ${formatDate(date)}`}
+            subtitle={`By ${author} • ${formatDate(date)} • ${readingTime} min read`}
             backgroundImage={featuredImage}
             backgroundImageAlt={title}
         />
 
         <article class="container">
             <div class="post-content">
-                <!-- Article content goes here -->
                 <div class="article-meta">
                     <span class="category">{category}</span>
                     <time datetime={date}>{formatDate(date)}</time>
+                    <span class="reading-time">{readingTime} min read</span>
                 </div>
 
                 <div class="content">
-                    <!-- Your article content -->
-                    <p class="lead">Your lead paragraph goes here. Make it compelling and summarize the key points of your article.</p>
-
-                    <h2>First Section Heading</h2>
-                    <p>Your first section content goes here. Use proper HTML structure and semantic elements.</p>
-
-                    <h2>Second Section Heading</h2>
-                    <p>Continue with your content, using appropriate headings and paragraphs.</p>
-
-                    <!-- Add more sections as needed -->
+                    {content}
                 </div>
             </div>
         </article>
@@ -243,5 +270,10 @@ const structuredData = {
         .post-content {
             padding: 1.5rem 0;
         }
+    }
+
+    .reading-time {
+        color: var(--text-muted);
+        font-size: 0.9rem;
     }
 </style> 

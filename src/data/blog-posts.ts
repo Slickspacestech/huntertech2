@@ -25,7 +25,7 @@ export const posts: BlogPost[] = [
     {
         slug: 'construction-industry-phishing-scam',
         title: "Construction Industry Targeted by Sophisticated Phishing Scam",
-        date: "2024-03-22",
+        date: "2025-05-22",
         author: "Huntertech Team",
         category: "Cybersecurity",
         image: secureVaultScamImg,
@@ -40,7 +40,7 @@ export const posts: BlogPost[] = [
         slug: 'phishing-attacks-canada',
         title: "Phishing Attacks Rising in Canada",
         date: "2025-03-10",
-        author: "John Smith",
+        author: "Huntertech Team",
         category: "Cybersecurity",
         image: phishingAttacksImg,
         content: `
@@ -52,7 +52,7 @@ export const posts: BlogPost[] = [
         slug: 'password-manager',
         title: "Why You Should Use a Password Manager",
         date: "2025-03-21",
-        author: "John Smith",
+        author: "Huntertech Team",
         category: "Cybersecurity",
         image: passwordManagerImg,
         content: `
@@ -64,7 +64,7 @@ export const posts: BlogPost[] = [
         slug: 'cybersecurity-small-business',
         title: "Essential Cybersecurity Tips for Small Businesses",
         date: "2025-03-20",
-        author: "John Smith",
+        author: "Huntertech Team",
         category: "Cybersecurity",
         image: cybersecurityImg,
         content: `
@@ -75,8 +75,8 @@ export const posts: BlogPost[] = [
     {
         slug: 'admin-rights-work-computers',
         title: "Should Employees Have Admin Rights on Their Work Computers?",
-        date: "2025-09-12",
-        author: "John Smith",
+        date: "2024-09-12",
+        author: "Huntertech Team",
         category: "IT Support",
         image: adminRightsImg,
         content: `
@@ -87,8 +87,8 @@ export const posts: BlogPost[] = [
     {
         slug: 'scan-to-email-printer',
         title: "Scan to Email on Your Office Printer with Microsoft 365 or Google Workspace",
-        date: "2025-08-16",
-        author: "John Smith",
+        date: "2024-08-16",
+        author: "Huntertech Team",
         category: "IT Support",
         image: scanToEmailImg,
         content: `
@@ -99,8 +99,8 @@ export const posts: BlogPost[] = [
     {
         slug: 'email-verification-dmarc',
         title: "Help! Emails I Send from Our Email Blast System are Showing Up as Unverified",
-        date: "2025-07-29",
-        author: "John Smith",
+        date: "2024-07-29",
+        author: "Huntertech Team",
         category: "IT Support",
         image: emailVerificationImg,
         content: `
@@ -111,7 +111,7 @@ export const posts: BlogPost[] = [
     {
         slug: 'it-services-calgary-vancouver',
         title: 'IT Service Providers in Calgary & Vancouver: A Guide for Businesses 2025',
-        date: '2025-03-20',
+        date: '2025-01-20',
         author: 'Huntertech Team',
         category: 'IT Services',
         image: itServicesGuideImg,
@@ -133,7 +133,7 @@ export const posts: BlogPost[] = [
     {
         slug: 'in-house-vs-outsourced-it',
         title: 'Choosing the Right IT Strategy: In-House, Share the Hat? Or Outsource?',
-        date: '2024-03-25',
+        date: '2024-10-25',
         author: 'Huntertech Team',
         category: 'IT Services',
         image: inHouseVsOutsourcedImg,

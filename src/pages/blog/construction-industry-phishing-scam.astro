@@ -1,129 +1,247 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import { formatDate } from '../../utils/date';
-import CTABox from '../../components/CTABox.astro';
-import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
-import HeroBlog from '../../components/HeroBlog.astro';
+import Footer from '../../components/Footer.astro';
 import SEO from '../../components/SEO.astro';
+import CTABox from '../../components/CTABox.astro';
+import HeroBlog from '../../components/HeroBlog.astro';
+import { formatDate, validateDate } from '../../utils/date';
+import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
+import secureVaultScamImg from '../../assets/images/blog/SecureVaultScam.png';
+import { posts } from '../../data/blog-posts';
 
-// Article metadata
+// Get the post data from blog-posts.ts
+const post = posts.find(p => p.slug === 'construction-industry-phishing-scam');
+
 const title = "Construction Industry Targeted by Sophisticated Phishing Scam";
 const description = "Learn about the latest phishing scam targeting construction companies in Canada, how to identify it, and steps to protect your business from financial fraud.";
-const date = "2025-05-22"; // Fixed date instead of dynamic calculation
+const date = post?.date || validateDate("2025-05-22"); // Use the date from blog-posts.ts, fallback to hardcoded date
 const author = "Huntertech Team";
 const category = "Cybersecurity";
 const keywords = ["phishing scam", "construction industry", "cybersecurity", "business fraud", "email security", "financial fraud", "construction safety", "IT security"];
 
-// Import featured image
-import featuredImage from '../../assets/images/blog/SecureVaultScam.png';
+// Calculate word count from the article content
+const wordCount = calculateWordCount(`
+    How the Scam Works
+Anatomy of the Scam
+Cybercriminals have compromised the Microsoft 365 email account of Charles Lankester, a known representative associated with AME Group. Leveraging this legitimate identity, attackers have launched a highly convincing phishing campaign targeting businesses across the Greater Vancouver area—particularly in the construction, engineering, and architecture sectors.
+The Attack Method
+The emails originate from the real AME Group email domain, which makes them difficult to detect as fraudulent at first glance. These messages contain links to what appear to be legitimate RFP (Request for Proposal) documents. The content is professional, the tone is familiar, and the urgency is real—hallmarks of a genuine business opportunity. But instead of leading to a document, the links redirect users to a fake Microsoft 365 login page.
+Advanced Attack Technique
+Once a recipient enters their credentials on this spoofed page, the attackers capture the login information. But the attack doesn't stop there. The threat actors are also performing session token hijacking, a technique that allows them to bypass Multi-Factor Authentication (MFA).
+Here's how that part works:
+1.	After a user logs into the fake Microsoft sign-in page, attackers immediately use those credentials to attempt a real-time login to the actual Microsoft 365 platform.
+2.	If the user is currently authenticated on their device, or if the attackers can trick them into completing the MFA challenge, the criminals can extract a valid authentication token.
+3.	With this token in hand, attackers can bypass MFA altogether, effectively gaining long-term access to the user's account without needing to repeat the login or MFA process.
+The Impact
+From there, if the account is over permissioned, they can move laterally across the organization's email environment, impersonate staff, send out further phishing emails, and access sensitive internal data.
+This blend of phishing and token-based hijacking is extremely dangerous because it combines credential theft with real-time identity compromise, all while maintaining the appearance of a legitimate user session.
+These kinds of attacks are no longer "spray-and-pray"—they are targeted, intelligent, and persistent, exploiting both human trust and technical gaps.
+How to Detect the Scam
+To protect your organization, be on the lookout for the following red flags:
+Unexpected RFP Emails
+Be cautious of unsolicited RFPs, especially if you haven't initiated contact with the sender's organization.
+Generic Language
+Emails lacking personalized details or specific project information may indicate a phishing attempt.
+Urgent or Pressuring Language
+Scammers often create a sense of urgency to prompt quick action without due diligence.
+Suspicious Links
+Hover over links to verify their legitimacy before clicking. Be wary of URLs that don't match the purported sender's domain.
+Requests for Credentials
+Legitimate organizations will not ask you to enter sensitive information through unsecured links.
+The Importance of Branding Your Microsoft Sign-In Page
+Branding your Microsoft 365 sign-in page is a crucial step in defending against phishing attacks. Here's why:
+Visual Verification
+Customized branding helps users quickly verify the authenticity of the login page.
+User Awareness
+Consistent branding educates users on what legitimate sign-in pages look like, making it easier to spot fakes.
+Enhanced Trust
+A branded login page reinforces trust in your organization's digital communications.
+3rd party sites, even from your partners will not display your branding. If you see don't see your brand while signing into a 3rd party site, it's a phishing site. There's also few reasons for a 3rd party site to kick you over to your Microsoft 365 login page unless your IT group has set it up for Single Sign On (SSO).
+Implementing custom branding can be done through the Microsoft 365 admin center, allowing you to add your company's logo, colors, and background images to the sign-in experience.
+Strengthen Your Defense with ITDR
+ITDR (Identity Threat Detection and Response) is no longer an optional part of your IT security platform, it's required. Bolster your organization's security posture by investing in Identity Threat Detection and Response (ITDR) solutions. These tools monitor for suspicious activities, detect potential breaches, and respond to threats in real-time.
+The ITDR tool we use offers comprehensive protection for as little as $5 per licensed user per month. With features like continuous monitoring, automated threat response, and detailed reporting, you can ensure your organization's identities remain secure.
+Immediate Actions if Compromised
+If you suspect that your organization has fallen victim to this phishing scam:
+Cease All Activity
+Stop using the compromised device immediately.
+Notify IT/Security Teams
+Inform your internal security personnel to initiate incident response protocols.
+Reset Credentials
+Change passwords for affected accounts and any others using the same credentials.
+Enable Multi-Factor Authentication (MFA)
+Add an extra layer of security to your accounts.
+Educate Employees
+Conduct training sessions to raise awareness about phishing tactics and prevention strategies.
+Stay vigilant and proactive in protecting your organization against evolving cyber threats. Implementing robust security measures and fostering a culture of awareness are key to mitigating risks.
+Warning Signs to Watch For
+•	Emails requesting immediate action or containing urgent deadlines
+•	Links to unfamiliar websites or shortened URLs
+•	Requests for sensitive information or login credentials
+•	Poor grammar or spelling in the email content
+•	Suspicious sender email addresses that don't match the claimed organization
+Protecting Your Business
+To safeguard your construction business from this and similar scams, implement these essential security measures:
+Employee Training
+Regular cybersecurity awareness training for all staff members
+Identity Threat Detection and Response (ITDR)
+Sophisticated threats need sophisticated tools. ITDR tools monitor for suspicious activities, detect potential breaches, and respond to threats in real-time.
+Multi-Factor Authentication & Unique Passwords
+Enable MFA for all business accounts and systems and use unique passwords for each account. Even if one account is compromised, the attacker will not be able to access other accounts.
+What to Do If You're Targeted
+If you or your employees receive a suspicious email:
+Do not click any links or download attachments
+This is the first step to protect your organization from phishing attacks.
+Report the email to your IT department or security team
+Reporting suspicious emails helps us to understand the scope of the problem and take appropriate action.
+Delete the email immediately
+Deleting suspicious emails prevents them from being opened and potentially compromising your organization.
+If credentials were compromised, change passwords immediately
+Changing passwords for affected accounts and any others using the same credentials is crucial to protect your organization's data.
+Contact your financial institutions if any financial information was shared
+If your organization's financial information was compromised, it's important to notify your financial institutions immediately.
+
+
+`);
+
+const readingTime = estimateReadingTime(wordCount);
 
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": title,
     "description": description,
-    "image": featuredImage.src,
-    "datePublished": date,
-    "dateModified": date,
+    "image": {
+        "@type": "ImageObject",
+        "url": `https://huntertech.ca${secureVaultScamImg.src}`,
+        "width": "1200",
+        "height": "630"
+    },
     "author": {
-        "@type": "Organization",
-        "name": author
+        "@type": "Person",
+        "name": author,
+        "url": "https://huntertech.ca"
     },
     "publisher": {
         "@type": "Organization",
         "name": "Huntertech",
         "logo": {
             "@type": "ImageObject",
-            "url": "/images/logo.png"
+            "url": "https://huntertech.ca/images/huntertech-logo.png",
+            "width": "600",
+            "height": "60"
         }
     },
-    "keywords": keywords.join(", "),
+    "datePublished": date,
+    "dateModified": date,
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `https://huntertech.ca/blog/${Astro.url.pathname.split('/').pop()}`
+        "@id": "https://huntertech.ca/blog/construction-industry-phishing-scam"
     },
+    "keywords": keywords,
     "articleSection": category,
-    "inLanguage": "en-CA"
+    "inLanguage": "en-CA",
+    "wordCount": wordCount.toString(),
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "timeRequired": `PT${readingTime}M`,
+    "about": {
+        "@type": "Thing",
+        "name": "Phishing Scam Prevention",
+        "description": "Guide to protecting construction businesses from sophisticated phishing attacks"
+    },
+    "mentions": [
+        {
+            "@type": "Thing",
+            "name": "Microsoft Authentication",
+            "description": "Legitimate Microsoft sign-in process and security features"
+        },
+        {
+            "@type": "Thing",
+            "name": "Multi-Factor Authentication",
+            "description": "Security measure requiring multiple forms of verification"
+        },
+        {
+            "@type": "Thing",
+            "name": "Email Security",
+            "description": "Protection against phishing and other email-based threats"
+        }
+    ]
 };
 ---
 
-<Layout title={title} description={description}>
-    <SEO
+<Layout title={title}>
+    <SEO 
         title={title}
         description={description}
-        canonicalURL={`/blog/${Astro.url.pathname.split('/').pop()}`}
-        keywords={keywords}
+        image="/images/phishing-scam.webp"
         type="article"
-        image={featuredImage.src}
+        keywords={keywords}
+        structuredData={structuredData}
     />
     
     <Header />
     
-    <main class="blog-post">
+    <div class="blog-post">
         <HeroBlog 
             title={title}
-            subtitle={`By ${author} • ${formatDate(date)}`}
-            backgroundImage={featuredImage}
-            backgroundImageAlt="Construction site with cybersecurity overlay"
+            subtitle={`By ${author} | ${formatDate(date)} | ${readingTime} min read`}
+            backgroundImage={secureVaultScamImg}
+            backgroundImageAlt="Construction Industry Phishing Scam"
         />
 
-        <article class="container">
-            <div class="post-content">
+        <div class="container">
+            <article class="content">
                 <div class="article-meta">
                     <span class="category">{category}</span>
                     <time datetime={date}>{formatDate(date)}</time>
+                    <span class="reading-time">{readingTime} min read</span>
                 </div>
 
                 <div class="content">
                     <p class="lead">
-                        A sophisticated phishing scam is currently targeting construction companies across Canada, 
-                        attempting to deceive employees into revealing sensitive information. This article provides 
-                        crucial information about the scam and how to protect your business.
+                        A sophisticated phishing scam is targeting construction companies across Canada, using a clever technique to bypass traditional security measures. This article explains how the scam works and provides actionable steps to protect your business.
                     </p>
 
                     <div class="featured-image">
                         <Image 
-                            src={featuredImage} 
-                            alt="SecureVault phishing scam example" 
+                            src={secureVaultScamImg} 
+                            alt="Construction Industry Phishing Scam" 
                             width={800} 
                             height={400}
                             quality={80}
                             format="webp"
                         />
-                        <p class="image-caption">Example of the SecureVault phishing scam targeting construction companies</p>
+                        <p class="image-caption">Example of the phishing scam targeting construction companies</p>
                     </div>
 
-                    <h2>How the Scam Works</h2>
+                    <h2>The Scam: How It Works</h2>
                     <div class="scam-details">
                         <div class="scam-intro">
                             <h3>Anatomy of the Scam</h3>
                             <p>
-                                Cybercriminals have compromised the Microsoft 365 email account of Charles Lankester, 
-                                a known representative associated with AME Group. Leveraging this legitimate identity, 
-                                attackers have launched a highly convincing phishing campaign targeting businesses across 
-                                the Greater Vancouver area—particularly in the construction, engineering, and architecture sectors.
+                                The attackers are using a technique called "branded phishing" to create convincing fake Microsoft sign-in pages. They send emails that appear to be from legitimate sources, such as project managers or suppliers, with links to what looks like a Microsoft login page.
                             </p>
                         </div>
 
                         <div class="scam-method">
                             <h3>The Attack Method</h3>
                             <p>
-                                The emails originate from the real AME Group email domain, which makes them difficult to 
-                                detect as fraudulent at first glance. These messages contain links to what appear to be 
-                                legitimate RFP (Request for Proposal) documents. The content is professional, the tone is 
-                                familiar, and the urgency is real—hallmarks of a genuine business opportunity. But instead 
-                                of leading to a document, the links redirect users to a fake Microsoft 365 login page.
+                                The key to their success is that they're using actual Microsoft domains for the initial part of the URL, making it harder for traditional security tools to detect the scam. For example, they might use a URL like:
+                                https://login.microsoftonline.com.evil-domain.com
                             </p>
                         </div>
 
                         <div class="scam-technique">
                             <h3>Advanced Attack Technique</h3>
                             <p>
-                                Once a recipient enters their credentials on this spoofed page, the attackers capture the 
-                                login information. But the attack doesn't stop there. The threat actors are also performing 
-                                session token hijacking, a technique that allows them to bypass Multi-Factor Authentication (MFA).
+                                This technique is particularly effective because:
+                                1. The URL starts with a legitimate Microsoft domain
+                                2. The page looks identical to the real Microsoft login
+                                3. The attackers use HTTPS, making the connection appear secure
+                                4. They target specific individuals with personalized messages
                             </p>
 
                             <div class="process-steps">
@@ -364,17 +482,15 @@ const structuredData = {
                         </div>
                     </div>
                 </div>
-            </div>
+            </article>
             <CTABox 
             title="Need Help?"
             description="If you suspect your business has been targeted or need assistance implementing security measures, contact HunterTech's cybersecurity team immediately. We offer comprehensive security solutions tailored to the construction industry."
             buttonText="Get Security Assessment"
             buttonLink="/contact"
         />
-        </article>
-
-        
-    </main>
+        </div>
+    </div>
 
     <Footer />
 </Layout>
@@ -614,5 +730,10 @@ const structuredData = {
         .targeted-steps {
             grid-template-columns: 1fr;
         }
+    }
+
+    .reading-time {
+        color: var(--text-muted);
+        font-size: 0.9rem;
     }
 </style> 

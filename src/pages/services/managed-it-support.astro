@@ -27,6 +27,121 @@ const keywords = [
     "IT services Calgary",
     "IT services Vancouver"
 ];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Service",
+            "name": "Managed IT Services",
+            "description": description,
+            "provider": {
+                "@type": "Organization",
+                "name": "Huntertech",
+                "url": "https://huntertech.ca",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "/images/huntertech-logo.png"
+                }
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": "Contact for pricing",
+                "priceCurrency": "CAD",
+                "availability": "https://schema.org/InStock"
+            },
+            "audience": {
+                "@type": "Audience",
+                "audienceType": ["Architecture Firms", "Engineering Companies", "Accounting Firms", "Law Firms"]
+            },
+            "areaServed": [
+                {
+                    "@type": "GeoCircle",
+                    "geoMidpoint": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "49.2827",
+                        "longitude": "-123.1207"
+                    },
+                    "geoRadius": "50km",
+                    "name": "Vancouver"
+                },
+                {
+                    "@type": "GeoCircle",
+                    "geoMidpoint": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "51.0447",
+                        "longitude": "-114.0719"
+                    },
+                    "geoRadius": "50km",
+                    "name": "Calgary"
+                }
+            ],
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Managed IT Services Catalog",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Responsive IT Support",
+                            "description": "Local friendly technical support and assistance for all your IT needs"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Cybersecurity & Vulnerability Management",
+                            "description": "Comprehensive security solutions to protect your business"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Hybrid Workplace IT Solutions",
+                            "description": "Solutions for seamless remote and in-office work"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Hardware & Software Management",
+                            "description": "Complete lifecycle management of IT assets"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Computer Networking",
+                            "description": "Design, implementation, and management of business networks"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://huntertech.ca"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Managed IT Support",
+                    "item": "https://huntertech.ca/services/managed-it-support"
+                }
+            ]
+        }
+    ]
+};
 ---
 
 <Layout title={title} description={description}>
@@ -37,6 +152,7 @@ const keywords = [
         keywords={keywords}
         type="website"
         image={itSupport.src}
+        structuredData={structuredData}
     />
     <Header />
     <main class="service-page">
