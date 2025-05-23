@@ -102,6 +102,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-HunterTech - [info@huntertech.ca](mailto:info@huntertech.ca)
+Huntertech - [info@huntertech.ca](mailto:info@huntertech.ca)
 
 Project Link: [https://github.com/yourusername/huntertech-website](https://github.com/yourusername/huntertech-website) 
