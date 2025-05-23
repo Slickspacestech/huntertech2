@@ -22,6 +22,127 @@ import revitManagement from '../assets/images/revit.webp';
 
 const title = "Huntertech - IT Services, Security For Calgary and Vancouver";
 const description = "Professional IT services tailored for businesses in Calgary and Vancouver. Get reliable technology solutions from certified experts who understand your needs.";
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": "https://huntertech.ca",
+            "name": "Huntertech",
+            "url": "https://huntertech.ca",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://huntertech.ca/images/huntertech-logo.png",
+                "width": "600",
+                "height": "60"
+            },
+            "sameAs": [
+                "https://www.linkedin.com/company/huntertech",
+                "https://www.facebook.com/huntertech"
+            ],
+            "contactPoint": [
+                {
+                    "@type": "ContactPoint",
+                    "telephone": "825-415-6990",
+                    "contactType": "customer service",
+                    "areaServed": "CA",
+                    "availableLanguage": "English"
+                },
+                {
+                    "@type": "ContactPoint",
+                    "telephone": "778-819-7411",
+                    "contactType": "customer service",
+                    "areaServed": "CA",
+                    "availableLanguage": "English"
+                }
+            ]
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://huntertech.ca",
+            "url": "https://huntertech.ca",
+            "name": "Huntertech",
+            "publisher": {"@id": "https://huntertech.ca"}
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": "https://huntertech.ca",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://huntertech.ca"
+                }
+            ]
+        },
+        {
+            "@type": "Service",
+            "@id": "https://huntertech.ca/services/managed-it-support",
+            "name": "Managed IT Services",
+            "provider": {"@id": "https://huntertech.ca"},
+            "description": "Comprehensive IT management and support for your business. From proactive monitoring to responsive support, we handle all your technology needs.",
+            "serviceType": "IT Support",
+            "areaServed": ["Calgary", "Vancouver"],
+            "offers": {
+                "@type": "Offer",
+                "availability": "https://schema.org/InStock"
+            }
+        },
+        {
+            "@type": "Service",
+            "@id": "https://huntertech.ca/services/revit-management",
+            "name": "Revit Management Services",
+            "provider": {"@id": "https://huntertech.ca"},
+            "description": "Specialized Revit support and optimization for architecture and engineering firms. Enhance your BIM workflow and project efficiency.",
+            "serviceType": "Revit Support",
+            "areaServed": ["Calgary", "Vancouver"],
+            "offers": {
+                "@type": "Offer",
+                "availability": "https://schema.org/InStock"
+            }
+        },
+        {
+            "@type": "LocalBusiness",
+            "@id": "https://huntertech.ca",
+            "name": "Huntertech",
+            "image": "https://huntertech.ca/images/huntertech-logo.png",
+            "url": "https://huntertech.ca",
+            "telephone": "825-415-6990",
+            "priceRange": "$$",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "4121 23b St NE",
+                "addressLocality": "Calgary",
+                "addressRegion": "AB",
+                "postalCode": "T2E 7V9",
+                "addressCountry": "CA"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "51.0677",
+                "longitude": "-113.9777"
+            },
+            "openingHoursSpecification": [{
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ],
+                "opens": "08:00",
+                "closes": "17:00"
+            }],
+            "sameAs": [
+                "https://www.linkedin.com/company/huntertech",
+                "https://www.facebook.com/huntertech"
+            ]
+        }
+    ]
+};
 ---
 
 <Layout title={title} description={description}>
@@ -41,6 +162,7 @@ const description = "Professional IT services tailored for businesses in Calgary
         ]}
         type="website"
         image={logo.src}
+        structuredData={structuredData}
     />
     <Header />
     <main>
