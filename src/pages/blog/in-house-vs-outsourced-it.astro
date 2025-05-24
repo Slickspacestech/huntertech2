@@ -1,17 +1,22 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import { formatDate } from '../../utils/date';
-import CTABox from '../../components/CTABox.astro';
-import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
-import HeroBlog from '../../components/HeroBlog.astro';
+import Footer from '../../components/Footer.astro';
 import SEO from '../../components/SEO.astro';
+import CTABox from '../../components/CTABox.astro';
+import HeroBlog from '../../components/HeroBlog.astro';
+import { formatDate, validateDate } from '../../utils/date';
+import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
 import inHouseVsOutsourcedImg from '../../assets/images/blog/in-house-vs-outsourced.webp';
+import { posts } from '../../data/blog-posts';
 
-const title = "In-House vs Outsourced IT: Which is Right for Your Business?";
-const description = "Discover the pros and cons of building an in-house IT team versus outsourcing. Learn about the hidden risks of having non-IT staff handle technology and how to make the right choice for your business.";
-const date = "2024-03-25";
+// Get the post data from blog-posts.ts
+const post = posts.find(p => p.slug === 'in-house-vs-outsourced-it');
+
+const title = "IT Strategy: In-House Share the Hat? Outsource? | Huntertech";
+const description = "Making the right choice between building an in-house IT team and outsourcing is crucial for business success. This guide explores the pros and cons of each approach.";
+const date = post?.date || validateDate("2024-10-25"); // Use the date from blog-posts.ts, fallback to hardcoded date
 const author = "Huntertech Team";
 const category = "IT Services";
 const image = inHouseVsOutsourcedImg;
@@ -41,7 +46,7 @@ const structuredData = {
     "keywords": keywords,
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `https://huntertech.ca/blog/in-house-vs-outsourced-it`
+        "@id": `https://huntertech.ca/blog/in-house-vs-outsourced-it/`
     },
     "articleSection": "IT Services",
     "inLanguage": "en-CA"
@@ -172,7 +177,7 @@ const structuredData = {
                     title="Ready to Optimize Your IT Strategy?"
                     description="At Huntertech, we help businesses across Calgary and Vancouver find the right IT support strategy. Whether you need to outsource fully, augment your current staff, or offload IT tasks from overwhelmed employees, we offer flexible, scalable solutions tailored to your goals."
                     buttonText="Contact Us Today"
-                    buttonLink="/contact"
+                    buttonLink="/contact/"
                 />
             </article>
         </div>

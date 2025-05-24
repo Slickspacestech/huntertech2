@@ -1,0 +1,256 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import { formatDate } from '../../utils/date';
+import CTABox from '../../components/CTABox.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import HeroBlog from '../../components/HeroBlog.astro';
+import SEO from '../../components/SEO.astro';
+
+// Replace these with your article's content
+const title = "Your Article Title";
+const description = "A compelling description of your article that will appear in search results and social shares. Keep it between 110-160 characters.";
+const today = new Date();
+const date = today.toISOString().split('T')[0]; // Format: YYYY-MM-DD
+const author = "Huntertech Team";
+const category = "Category"; // e.g., "Cybersecurity", "IT Services", "Technology"
+const keywords = ["keyword1", "keyword2", "keyword3", "keyword4", "keyword5"];
+
+// Import your article's featured image
+import featuredImage from '../../assets/images/blog/your-image.webp';
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "image": featuredImage.src,
+    "author": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://huntertech.ca/images/Huntertech_logo.webp"
+        }
+    },
+    "datePublished": date,
+    "dateModified": date,
+    "description": description,
+    "keywords": keywords.join(", "),
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://huntertech.ca/blog/${Astro.url.pathname.split('/').pop()}`
+    },
+    "articleSection": category,
+    "inLanguage": "en-CA"
+};
+---
+
+<Layout title={title} description={description}>
+    <SEO
+        title={title}
+        description={description}
+        canonicalURL={`/blog/${Astro.url.pathname.split('/').pop()}`}
+        keywords={keywords}
+        type="article"
+        image={featuredImage.src}
+    />
+    
+    <Header />
+    
+    <main class="blog-post">
+        <HeroBlog 
+            title={title}
+            subtitle={`By ${author} • ${formatDate(date)}`}
+            backgroundImage={featuredImage}
+            backgroundImageAlt={title}
+        />
+
+        <article class="container">
+            <div class="post-content">
+                <!-- Article content goes here -->
+                <div class="article-meta">
+                    <span class="category">{category}</span>
+                    <time datetime={date}>{formatDate(date)}</time>
+                </div>
+
+                <div class="content">
+                    <!-- Your article content -->
+                    <p class="lead">Your lead paragraph goes here. Make it compelling and summarize the key points of your article.</p>
+
+                    <h2>First Section Heading</h2>
+                    <p>Your first section content goes here. Use proper HTML structure and semantic elements.</p>
+
+                    <h2>Second Section Heading</h2>
+                    <p>Continue with your content, using appropriate headings and paragraphs.</p>
+
+                    <!-- Add more sections as needed -->
+                </div>
+            </div>
+        </article>
+
+        <CTABox 
+            title="Need Help with Your IT Infrastructure?"
+            description="Contact our team for expert advice and solutions tailored to your business needs."
+            buttonText="Get Expert Help"
+            buttonLink="/contact/"
+        />
+    </main>
+
+    <Footer />
+</Layout>
+
+<style>
+    .blog-post {
+        min-height: 100vh;
+        background: var(--bg-color);
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+
+    .post-content {
+        padding: 3rem 0;
+    }
+
+    .article-meta {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .category {
+        background: var(--accent-color);
+        color: white;
+        padding: 0.25rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+    }
+
+    .content {
+        font-size: clamp(1rem, 3vw, 1.1rem);
+        line-height: 1.8;
+    }
+
+    .lead {
+        font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+        line-height: 1.6;
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        margin: 2.5rem 0 1.5rem;
+        color: var(--heading-color);
+    }
+
+    p {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Lists styling */
+    ul, ol {
+        margin: 1.5rem 0;
+        padding-left: 1.5rem;
+    }
+
+    li {
+        margin-bottom: 0.75rem;
+    }
+
+    /* Blockquotes */
+    blockquote {
+        border-left: 4px solid var(--accent-color);
+        padding-left: 1.5rem;
+        margin: 2rem 0;
+        font-style: italic;
+        color: var(--text-muted);
+    }
+
+    /* Code blocks */
+    pre {
+        background: var(--bg-secondary);
+        padding: 1.5rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+    }
+
+    code {
+        font-family: monospace;
+        background: var(--bg-secondary);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+    }
+
+    /* Links */
+    a {
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: var(--accent-hover);
+        text-decoration: underline;
+    }
+
+    /* Images */
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 2rem 0;
+    }
+
+    /* Tables */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 2rem 0;
+    }
+
+    th, td {
+        padding: 0.75rem;
+        border: 1px solid var(--border-color);
+    }
+
+    th {
+        background: var(--bg-secondary);
+    }
+
+    @media (max-width: 768px) {
+        .post-content {
+            padding: 2rem 0;
+        }
+
+        .container {
+            padding: 0 1rem;
+        }
+
+        .article-meta {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            padding: 0 0.75rem;
+        }
+
+        .post-content {
+            padding: 1.5rem 0;
+        }
+    }
+</style> 

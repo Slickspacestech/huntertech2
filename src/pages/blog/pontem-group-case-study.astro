@@ -3,21 +3,129 @@ import Layout from '../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import CTABox from '../../components/CTABox.astro';
 import HeroBlog from '../../components/HeroBlog.astro';
-import { formatDate } from '../../utils/date';
+import { formatDate, validateDate } from '../../utils/date';
+import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import SEO from '../../components/SEO.astro';
+import pontemCaseStudyImg from '../../assets/images/blog/pontem-16x9.webp';
+import { posts } from '../../data/blog-posts';
 
-// Import the image
-import pontemImage from '../../assets/images/blog/pontem-16x9.webp';
+// Get the post data from blog-posts.ts
+const post = posts.find(p => p.slug === 'pontem-group-case-study');
 
 // Define the article metadata
-const title = "How Pontem Group Saved 3,000 Hours with IT Transformation";
-const description = "How Huntertech helped Pontem Group transform their IT infrastructure, improving efficiency and reducing costs through strategic technology implementation.";
-const date = "2024-03-15";
-const author = "Matt Hunter";
+const title = "How Pontem Group Saved 3,000 Hours per year with Huntertech";
+const description = "Pontem Group, a leading fire suppression and CP code consulting firm in Calgary, faced significant IT challenges before partnering with Huntertech.";
+const date = post?.date || validateDate("2025-04-20"); // Use the date from blog-posts.ts, fallback to hardcoded date
+const author = "Huntertech Team";
 const category = "Case Studies";
 const keywords = ["IT transformation", "case study", "Pontem Group", "IT infrastructure", "technology implementation", "business efficiency"];
+
+// Calculate word count from the article content
+const wordCount = calculateWordCount(`
+    Pontem Group, a leading fire suppression and code consulting firm in Vancouver, was grappling with growing IT challenges. With four principals sharing IT responsibilities across a 20-person team, technology was becoming a liability rather than a competitive advantage.
+
+    That changed when they partnered with Huntertech for comprehensive IT management and transformation.
+
+    Before engaging with Huntertech, Pontem Group faced serious IT pain points that were impacting their business operations and security:
+
+    Decentralized IT Management: Four principals juggled IT duties, leading to inconsistent systems and oversight.
+    Licensing Issues: Software was either over-licensed or under-licensed due to lack of centralized tracking.
+    Security Risks: Work computers had non-business apps, games, and missing security updates.
+    Password Mismanagement: Shared credentials, unsecured text files, and no single sign-on system.
+    Hardware Inefficiencies: Staff used high-powered gaming laptops that were too heavy to travel with, overheated easily, and lacked sufficient memory.
+    Inadequate Docking Stations: Consumer-grade hardware used displaylink-based docks that caused performance issues.
+    Data Protection Gaps: Devices were unencrypted, and there was no centralized data security.
+    Inconsistent User Experience: Different Windows versions, configurations, and app versions across staff devices.
+    Unmanaged Admin Access: Users were local admins and expected to handle their own software installations and updates.
+    Network Access Issues: Critical network equipment was installed by a third party, and no internal staff had administrative access.
+    Frequent phishing email attempts: Staff were targeted for phishing emails on a regular basis.
+
+    Huntertech implemented a complete IT transformation plan, tailored to Pontem Group's specific needs and industry requirements.
+
+    After implementing our comprehensive IT transformation plan, Pontem Group achieved remarkable improvements in their operations and security:
+
+    Time Savings: 3,000 hours/year recovered from IT tasks
+    Productivity: 20% increase in employee productivity
+    Security: 100% reduction in incidents
+    Hardware Downtime: 90% reduction in related tickets
+    License Costs: 20% reduction through optimization
+    Support Tickets: 40% drop in help desk requests
+    Data Security: 100% encryption coverage
+
+    The transformation delivered significant benefits to both leadership and staff.
+`);
+
+const readingTime = estimateReadingTime(wordCount);
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CaseStudy",
+    "headline": title,
+    "description": description,
+    "image": {
+        "@type": "ImageObject",
+        "url": `https://huntertech.ca${pontemCaseStudyImg.src}`,
+        "width": "1200",
+        "height": "630"
+    },
+    "author": {
+        "@type": "Person",
+        "name": author,
+        "url": "https://huntertech.ca"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://huntertech.ca/images/huntertech-logo.png",
+            "width": "600",
+            "height": "60"
+        }
+    },
+    "datePublished": date,
+    "dateModified": date,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://huntertech.ca/blog/pontem-group-case-study/"
+    },
+    "keywords": keywords,
+    "articleSection": category,
+    "inLanguage": "en-CA",
+    "wordCount": wordCount.toString(),
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "timeRequired": `PT${readingTime}M`,
+    "about": {
+        "@type": "Thing",
+        "name": "IT Transformation Case Study",
+        "description": "How Pontem Group achieved significant time savings and efficiency improvements through IT transformation"
+    },
+    "mentions": [
+        {
+            "@type": "Thing",
+            "name": "Pontem Group",
+            "description": "Fire suppression and code consulting firm in Vancouver"
+        },
+        {
+            "@type": "Thing",
+            "name": "IT Infrastructure",
+            "description": "Technology systems and services supporting business operations"
+        },
+        {
+            "@type": "Thing",
+            "name": "Business Efficiency",
+            "description": "Improvements in operational productivity and cost reduction"
+        }
+    ],
+    "result": {
+        "@type": "Thing",
+        "name": "IT Transformation Results",
+        "description": "3,000 hours saved annually, 20% productivity increase, 100% security improvement"
+    }
+};
 ---
 
 <Layout title={title}>
@@ -28,6 +136,7 @@ const keywords = ["IT transformation", "case study", "Pontem Group", "IT infrast
         type="article"
         keywords={keywords}
         location="Vancouver"
+        structuredData={structuredData}
     />
     
     <Header />
@@ -35,13 +144,19 @@ const keywords = ["IT transformation", "case study", "Pontem Group", "IT infrast
     <div class="blog-post">
         <HeroBlog 
             title={title}
-            subtitle={`By ${author} | ${formatDate(date)}`}
-            backgroundImage={pontemImage}
+            subtitle={`By ${author} | ${formatDate(date)} | ${readingTime} min read`}
+            backgroundImage={pontemCaseStudyImg}
             backgroundImageAlt="Pontem Group IT Transformation Case Study"
         />
 
         <div class="container">
             <article class="content">
+                <div class="article-meta">
+                    <span class="category">{category}</span>
+                    <time datetime={date}>{formatDate(date)}</time>
+                    <span class="reading-time">{readingTime} min read</span>
+                </div>
+
                 <div class="client-info">
                     <div class="info-grid">
                         <div class="info-item">
@@ -285,11 +400,11 @@ const keywords = ["IT transformation", "case study", "Pontem Group", "IT infrast
                         title="Ready to Transform Your IT?"
                         description="Whether you're overwhelmed by DIY IT, facing security risks, applying for cyber insurance, or just want to modernize your systems, Huntertech is here to help."
                         buttonText="Contact Us Today"
-                        buttonLink="/contact"
+                        buttonLink="/contact/"
                     />
                 </div>
 
-                <p class="related-article">For more information about essential cybersecurity measures for businesses, check out our article on <a href="/blog/cybersecurity-small-business">Essential Cybersecurity Tips for Small Businesses</a>.</p>
+                <p class="related-article">For more information about essential cybersecurity measures for businesses, check out our article on <a href="/blog/cybersecurity-small-business/">Essential Cybersecurity Tips for Small Businesses</a>.</p>
             </article>
         </div>
     </div>
@@ -492,6 +607,11 @@ const keywords = ["IT transformation", "case study", "Pontem Group", "IT infrast
         margin-top: 40px;
         padding-top: 20px;
         border-top: 1px solid var(--border-color);
+    }
+
+    .reading-time {
+        color: var(--text-muted);
+        font-size: 0.9rem;
     }
 
     @media (max-width: 768px) {

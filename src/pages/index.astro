@@ -17,9 +17,132 @@ import Work from '../components/icons/work.astro';
 import SEO from '../components/SEO.astro';
 import logo from '../assets/images/Huntertech_logo.png';
 import heroBg from '../assets/images/architect_engineer_tech.avif';
+import itSupport from '../assets/images/it-support.webp';
+import revitManagement from '../assets/images/revit.webp';
 
 const title = "Huntertech - IT Services, Security For Calgary and Vancouver";
 const description = "Professional IT services tailored for businesses in Calgary and Vancouver. Get reliable technology solutions from certified experts who understand your needs.";
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": "https://huntertech.ca",
+            "name": "Huntertech",
+            "url": "https://huntertech.ca",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://huntertech.ca/images/huntertech-logo.png",
+                "width": "600",
+                "height": "60"
+            },
+            "sameAs": [
+                "https://www.linkedin.com/company/huntertech",
+                "https://www.facebook.com/huntertech"
+            ],
+            "contactPoint": [
+                {
+                    "@type": "ContactPoint",
+                    "telephone": "825-415-6990",
+                    "contactType": "customer service",
+                    "areaServed": "CA",
+                    "availableLanguage": "English"
+                },
+                {
+                    "@type": "ContactPoint",
+                    "telephone": "778-819-7411",
+                    "contactType": "customer service",
+                    "areaServed": "CA",
+                    "availableLanguage": "English"
+                }
+            ]
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://huntertech.ca",
+            "url": "https://huntertech.ca",
+            "name": "Huntertech",
+            "publisher": {"@id": "https://huntertech.ca"}
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": "https://huntertech.ca",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://huntertech.ca"
+                }
+            ]
+        },
+        {
+            "@type": "Service",
+            "@id": "https://huntertech.ca/services/managed-it-support",
+            "name": "Managed IT Services",
+            "provider": {"@id": "https://huntertech.ca"},
+            "description": "Comprehensive IT management and support for your business. From proactive monitoring to responsive support, we handle all your technology needs.",
+            "serviceType": "IT Support",
+            "areaServed": ["Calgary", "Vancouver"],
+            "offers": {
+                "@type": "Offer",
+                "availability": "https://schema.org/InStock"
+            }
+        },
+        {
+            "@type": "Service",
+            "@id": "https://huntertech.ca/services/revit-management",
+            "name": "Revit Management Services",
+            "provider": {"@id": "https://huntertech.ca"},
+            "description": "Specialized Revit support and optimization for architecture and engineering firms. Enhance your BIM workflow and project efficiency.",
+            "serviceType": "Revit Support",
+            "areaServed": ["Calgary", "Vancouver"],
+            "offers": {
+                "@type": "Offer",
+                "availability": "https://schema.org/InStock"
+            }
+        },
+        {
+            "@type": "LocalBusiness",
+            "@id": "https://huntertech.ca",
+            "name": "Huntertech",
+            "image": "https://huntertech.ca/images/huntertech-logo.png",
+            "url": "https://huntertech.ca",
+            "telephone": "825-415-6990",
+            "priceRange": "$$",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "4121 23b St NE",
+                "addressLocality": "Calgary",
+                "addressRegion": "AB",
+                "postalCode": "T2E 7V9",
+                "addressCountry": "CA"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "51.0677",
+                "longitude": "-113.9777"
+            },
+            "openingHoursSpecification": [{
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ],
+                "opens": "08:00",
+                "closes": "17:00"
+            }],
+            "sameAs": [
+                "https://www.linkedin.com/company/huntertech",
+                "https://www.facebook.com/huntertech"
+            ]
+        }
+    ]
+};
 ---
 
 <Layout title={title} description={description}>
@@ -39,6 +162,7 @@ const description = "Professional IT services tailored for businesses in Calgary
         ]}
         type="website"
         image={logo.src}
+        structuredData={structuredData}
     />
     <Header />
     <main>
@@ -46,7 +170,7 @@ const description = "Professional IT services tailored for businesses in Calgary
             title="Transform Your Business with Expert IT Solutions"
             subtitle="Professional IT support, cloud solutions, and Revit management services tailored to your needs"
             ctaText="Get Started"
-            ctaLink="/contact"
+            ctaLink="/contact/"
             backgroundImage={heroBg}
             backgroundImageAlt="Architect and engineer working with technology"
         />
@@ -63,6 +187,64 @@ const description = "Professional IT services tailored for businesses in Calgary
                 </div>
             </div>
         </section>
+        <section class="main-services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-content">
+                            <h3>Managed IT Services</h3>
+                            <p>Comprehensive IT management and support for your business. From proactive monitoring to responsive support, we handle all your technology needs.</p>
+                            <ul>
+                                <li>Local Friendly IT Support</li>
+                                <li>Cybersecurity & Protection</li>
+                                <li>Network Management</li>
+                                <li>Cloud Solutions</li>
+                                <li>Hardware & Software Management</li>
+                            </ul>
+                            <a href="/services/managed-it-support" class="service-link">Learn More <ArrowRight /></a>
+                        </div>
+                        <div class="service-image">
+                            <Image 
+                                src={itSupport}
+                                alt="Managed IT Services"
+                                width={600}
+                                height={400}
+                                quality={80}
+                                format="webp"
+                                class="service-img"
+                            />
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-content">
+                            <h3>Revit Management Services</h3>
+                            <p>Specialized Revit support and optimization for architecture and engineering firms. Enhance your BIM workflow and project efficiency.</p>
+                            <ul>
+                                <li>Revit Model Review</li>
+                                <li>Model Health Checks</li>
+                                <li>Parametric Family Creation</li>
+                                <li>Revit Training</li>
+                                <li>Workflow Automation</li>
+                            </ul>
+                            <a href="/services/revit-management" class="service-link">Learn More <ArrowRight /></a>
+                        </div>
+                        <div class="service-image">
+                            <Image 
+                                src={revitManagement}
+                                alt="Revit Management Services"
+                                width={600}
+                                height={400}
+                                quality={80}
+                                format="webp"
+                                class="service-img"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <section class="features">
             <div class="container">
@@ -87,6 +269,80 @@ const description = "Professional IT services tailored for businesses in Calgary
             </div>
         </section>
 
+        <section class="industries">
+            <div class="container">
+                <h2>Industries We Serve</h2>
+                <div class="industries-grid">
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Architecture</h3>
+                        <p>Specialized IT support and Revit management for architectural practices. We understand the unique technology needs of modern architecture firms.</p>
+                        <a href="/industries/architecture/" class="industry-link">Learn More <ArrowRight /></a>
+                    </div>
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <path d="M2 17l10 5 10-5"></path>
+                                <path d="M2 12l10 5 10-5"></path>
+                            </svg>
+                        </div>
+                        <h3>Engineering</h3>
+                        <p>Comprehensive IT solutions for engineering firms, including specialized support for engineering software and project management tools.</p>
+                        <a href="/industries/engineering/" class="industry-link">Learn More <ArrowRight /></a>
+                    </div>
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Law</h3>
+                        <p>Secure and reliable IT solutions for law firms, ensuring data protection and compliance while maintaining efficient operations.</p>
+                        <a href="/industries/law/" class="industry-link">Learn More <ArrowRight /></a>
+                    </div>
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <h3>Accounting</h3>
+                        <p>Tailored IT services for accounting firms, focusing on data security, compliance, and efficient financial software management.</p>
+                        <a href="/industries/accounting/" class="industry-link">Learn More <ArrowRight /></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="why-msp" style="background-image: linear-gradient(rgba(56, 66, 88, 0.9), rgba(56, 66, 88, 0.9))">
+            <div class="container">
+                <h2 class="section-title">Why You Need an IT Managed Service Provider</h2>
+                <div class="msp-content">
+                    <blockquote class="msp-quote">
+                        <p>"You could service your own car, but unless you have the right tools, knowledge, and time most people take it to a mechanic. This is also true for an IT Managed Services Provider."</p>
+                    </blockquote>
+                    <div class="benefits">
+                        <h3>Benefits of Managed IT Services:</h3>
+                        <ul class="benefits-list">
+                            <li><Checkmark color="var(--button-color)" /> Peace of Mind</li>
+                            <li><Checkmark color="var(--button-color)" /> Save Time</li>
+                            <li><Checkmark color="var(--button-color)" /> Increase Productivity</li>
+                            <li><Checkmark color="var(--button-color)" /> Increase Reliability</li>
+                            <li><Checkmark color="var(--button-color)" /> Employee Satisfaction</li>
+                            <li><Checkmark color="var(--button-color)" /> Focus On Your Business</li>
+                            <li><Checkmark color="var(--button-color)" /> Technical Expertise</li>
+                            <li><Checkmark color="var(--button-color)" /> Cost Savings</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section id="solutions" class="services">
             <div class="container">
                 <h2>Our Solutions</h2>
@@ -125,29 +381,7 @@ const description = "Professional IT services tailored for businesses in Calgary
             </div>
         </section>
 
-        <section class="why-msp" style="background-image: linear-gradient(rgba(56, 66, 88, 0.9), rgba(56, 66, 88, 0.9))">
-            <div class="container">
-                <h2 class="section-title">Why You Need an IT Managed Service Provider</h2>
-                <div class="msp-content">
-                    <blockquote class="msp-quote">
-                        <p>"You could service your own car, but unless you have the right tools, knowledge, and time most people take it to a mechanic. This is also true for an IT Managed Services Provider."</p>
-                    </blockquote>
-                    <div class="benefits">
-                        <h3>Benefits of Managed IT Services:</h3>
-                        <ul class="benefits-list">
-                            <li><Checkmark color="var(--button-color)" /> Peace of Mind</li>
-                            <li><Checkmark color="var(--button-color)" /> Save Time</li>
-                            <li><Checkmark color="var(--button-color)" /> Increase Productivity</li>
-                            <li><Checkmark color="var(--button-color)" /> Increase Reliability</li>
-                            <li><Checkmark color="var(--button-color)" /> Employee Satisfaction</li>
-                            <li><Checkmark color="var(--button-color)" /> Focus On Your Business</li>
-                            <li><Checkmark color="var(--button-color)" /> Technical Expertise</li>
-                            <li><Checkmark color="var(--button-color)" /> Cost Savings</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
 
         <section class="testimonials">
             <div class="container">
@@ -259,7 +493,7 @@ const description = "Professional IT services tailored for businesses in Calgary
                 <div class="cta-content">
                     <h2>Ready to Transform Your Business?</h2>
                     <p>Get in touch with us today for a free consultation and discover how we can help your business grow.</p>
-                    <a href="/contact" class="btn btn-primary">
+                    <a href="/contact/" class="btn btn-primary">
                         Contact Us
                         <ArrowRight />
                     </a>
@@ -758,5 +992,192 @@ const description = "Professional IT services tailored for businesses in Calgary
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+    }
+
+    .main-services {
+        padding: 4rem 0;
+        background-color: var(--white);
+    }
+
+    .main-services h2 {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--secondary-heading);
+    }
+
+    .main-services .services-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .main-services .service-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .main-services .service-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .main-services .service-content {
+        padding: 2rem;
+    }
+
+    .main-services .service-content h3 {
+        color: var(--secondary-heading);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .main-services .service-content p {
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .main-services .service-content ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    .main-services .service-content li {
+        margin-bottom: 0.5rem;
+        padding-left: 0;
+        position: relative;
+        text-align: left;
+    }
+
+    .main-services .service-content li:before {
+        display: none;
+    }
+
+    .main-services .service-image {
+        height: 100%;
+        min-height: 300px;
+    }
+
+    .main-services .service-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .main-services .service-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--button-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: gap 0.3s ease;
+    }
+
+    .main-services .service-link:hover {
+        gap: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+        .main-services .service-card {
+            grid-template-columns: 1fr;
+        }
+
+        .main-services .service-image {
+            order: -1;
+            min-height: 200px;
+        }
+
+        .main-services .service-content {
+            padding: 1.5rem;
+        }
+    }
+
+    .industries {
+        padding: 4rem 0;
+        background: var(--white);
+    }
+
+    .industries h2 {
+        text-align: center;
+        color: var(--primary-color);
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .industries-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .industry-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .industry-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .industry-icon {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 1.5rem;
+        color: var(--primary-color);
+    }
+
+    .industry-icon svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .industry-card h3 {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .industry-card p {
+        color: var(--text-color);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        flex-grow: 1;
+    }
+
+    .industry-link {
+        color: var(--button-color);
+        text-decoration: none;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: gap 0.3s ease;
+    }
+
+    .industry-link:hover {
+        gap: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+        .industries-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
     }
 </style>

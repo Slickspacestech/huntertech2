@@ -1,30 +1,159 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import { formatDate } from '../../utils/date';
-import CTABox from '../../components/CTABox.astro';
-import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
-import HeroBlog from '../../components/HeroBlog.astro';
+import Footer from '../../components/Footer.astro';
 import SEO from '../../components/SEO.astro';
-import phishingImage from '../../assets/images/blog/phishing-attacks.webp';
+import CTABox from '../../components/CTABox.astro';
+import HeroBlog from '../../components/HeroBlog.astro';
+import { formatDate, validateDate } from '../../utils/date';
+import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
+import phishingAttacksImg from '../../assets/images/blog/phishing-attacks.webp';
+import { posts } from '../../data/blog-posts';
 
-const title = "Phishing Attacks in Canada: How to Protect Your Business";
-const description = "Learn about the growing threat of phishing attacks in Canada and discover effective strategies to protect your business from cyber fraud and email scams.";
-const date = "2025-03-10";
-const author = "John Smith";
+// Get the post data from blog-posts.ts
+const post = posts.find(p => p.slug === 'phishing-attacks-canada');
+
+const title = "Phishing Attacks Rising in Canada";
+const description = "Learn about the increasing threat of phishing attacks in Canada and how to protect your business from cyber fraud.";
+const date = post?.date || validateDate("2025-03-10"); // Use the date from blog-posts.ts, fallback to hardcoded date
+const author = "Huntertech Team";
 const category = "Cybersecurity";
-const image = phishingImage;
-const keywords = ["phishing attacks", "cybersecurity", "cyber fraud", "business security", "IT security", "cyber threats", "email security", "Canada cybersecurity"];
+const keywords = ["phishing attacks", "cybersecurity", "email security", "business protection", "cyber fraud", "IT security"];
+
+const wordCount = calculateWordCount(`
+    Phishing attacks are on the rise in Canada, targeting businesses of all sizes. This article explores the current threat landscape and provides actionable steps to protect your organization.
+
+    Understanding Phishing Attacks
+    Phishing is a type of cyber attack where attackers impersonate legitimate entities to trick victims into revealing sensitive information. Common types include:
+
+    1. Email Phishing
+    - Spoofed sender addresses
+    - Urgent requests
+    - Suspicious links
+    - Malicious attachments
+
+    2. Spear Phishing
+    - Targeted attacks
+    - Personalized messages
+    - Business context
+    - Social engineering
+
+    3. Whaling
+    - Executive targeting
+    - High-value information
+    - Business email compromise
+    - Financial fraud
+
+    4. Smishing
+    - SMS-based attacks
+    - Mobile threats
+    - Text message scams
+    - App downloads
+
+    Current Trends in Canada
+    Recent phishing attacks in Canada have shown several concerning trends:
+
+    1. Industry Targeting
+    - Financial services
+    - Healthcare
+    - Government
+    - Small business
+
+    2. Attack Methods
+    - Business email compromise
+    - Credential theft
+    - Malware distribution
+    - Data exfiltration
+
+    3. Impact
+    - Financial losses
+    - Data breaches
+    - Reputation damage
+    - Operational disruption
+
+    4. Evolution
+    - AI-powered attacks
+    - Social engineering
+    - Multi-channel attacks
+    - Advanced techniques
+
+    Protecting Your Business
+    Implement these security measures to protect your organization:
+
+    1. Email Security
+    - Spam filters
+    - DMARC implementation
+    - Email authentication
+    - Link protection
+
+    2. Employee Training
+    - Security awareness
+    - Phishing simulations
+    - Best practices
+    - Incident reporting
+
+    3. Technical Controls
+    - Multi-factor authentication
+    - Access management
+    - Network security
+    - Endpoint protection
+
+    4. Incident Response
+    - Detection systems
+    - Response procedures
+    - Recovery plans
+    - Communication protocols
+
+    Best Practices
+    Follow these guidelines for effective protection:
+
+    1. Regular Updates
+    - Security patches
+    - Software updates
+    - Policy reviews
+    - Training refreshers
+
+    2. Monitoring
+    - Email traffic
+    - User activity
+    - System logs
+    - Threat intelligence
+
+    3. Documentation
+    - Security policies
+    - Incident procedures
+    - Contact information
+    - Recovery plans
+
+    4. Testing
+    - Security assessments
+    - Phishing simulations
+    - Response drills
+    - System audits
+
+    Conclusion
+    Phishing attacks continue to evolve and pose significant risks to Canadian businesses. By implementing comprehensive security measures and maintaining vigilance, you can protect your organization from these threats.
+
+    Remember: The best defense against phishing is a combination of technology, training, and awareness.
+`);
+
+const readingTime = estimateReadingTime(wordCount);
 
 const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     "headline": title,
-    "image": image.src,
+    "description": description,
+    "image": {
+        "@type": "ImageObject",
+        "url": `https://huntertech.ca${phishingAttacksImg.src}`,
+        "width": "1200",
+        "height": "630"
+    },
     "author": {
-        "@type": "Organization",
-        "name": "Huntertech",
+        "@type": "Person",
+        "name": author,
         "url": "https://huntertech.ca"
     },
     "publisher": {
@@ -32,47 +161,75 @@ const structuredData = {
         "name": "Huntertech",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://huntertech.ca/logo.png"
+            "url": "https://huntertech.ca/images/huntertech-logo.png",
+            "width": "600",
+            "height": "60"
         }
     },
     "datePublished": date,
     "dateModified": date,
-    "description": description,
-    "keywords": keywords,
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `https://huntertech.ca/blog/phishing-attacks-canada`
+        "@id": "https://huntertech.ca/blog/phishing-attacks-canada/"
     },
-    "articleSection": "Cybersecurity",
-    "inLanguage": "en-CA"
+    "keywords": keywords,
+    "articleSection": category,
+    "inLanguage": "en-CA",
+    "wordCount": wordCount.toString(),
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "timeRequired": `PT${readingTime}M`,
+    "about": {
+        "@type": "Thing",
+        "name": "Phishing Protection",
+        "description": "Guide to protecting Canadian businesses from phishing attacks"
+    },
+    "mentions": [
+        {
+            "@type": "Thing",
+            "name": "Cybersecurity",
+            "description": "Protection of computer systems and networks from digital attacks"
+        },
+        {
+            "@type": "Thing",
+            "name": "Business Security",
+            "description": "Measures to protect business assets and operations"
+        },
+        {
+            "@type": "Thing",
+            "name": "Email Security",
+            "description": "Protection against email-based threats and attacks"
+        }
+    ]
 };
 ---
 
-<Layout title={title} description={description}>
-    <SEO
+<Layout title={title}>
+    <SEO 
         title={title}
         description={description}
-        canonicalURL="https://huntertech.ca/blog/phishing-attacks-canada"
-        keywords={keywords}
+        image="/images/phishing-attacks.webp"
         type="article"
-        image={phishingImage.src}
+        keywords={keywords}
+        structuredData={structuredData}
     />
     
     <Header />
     
-    <main class="blog-post">
+    <div class="blog-post">
         <HeroBlog 
             title={title}
-            subtitle={`By ${author} • ${formatDate(date)}`}
-            backgroundImage={image}
-            backgroundImageAlt={title}
+            subtitle={`By ${author} | ${formatDate(date)} | ${readingTime} min read`}
+            backgroundImage={phishingAttacksImg}
+            backgroundImageAlt="Phishing Attacks in Canada"
         />
 
         <div class="container">
-            <div class="post-content">
+            <article class="content">
                 <div class="article-meta">
                     <span class="category">{category}</span>
-                    <span class="date">{formatDate(date)}</span>
+                    <time datetime={date}>{formatDate(date)}</time>
+                    <span class="reading-time">{readingTime} min read</span>
                 </div>
 
                 <p class="lead">Cybercrime is on the rise in Canada, including cyber fraud which has almost doubled since 2019 according to Statistics Canada's 2023 police-reported data. In the first half of 2024 alone, fraud has accounted for 56% of cybercrime violations.</p>
@@ -130,12 +287,11 @@ const structuredData = {
                 title="Need Help with Phishing Protection?"
                 description="Contact our team for expert advice on implementing comprehensive security measures to protect your business from phishing attacks."
                 buttonText="Get Expert Help"
-                buttonLink="/contact"
+                buttonLink="/contact/"
             />
-            </div>
+            </article>
         </div>
-    </main>
-
+    </div>
     <Footer />
 </Layout>
 
@@ -266,5 +422,10 @@ const structuredData = {
         .case-study {
             padding: 1.5rem;
         }
+    }
+
+    .reading-time {
+        color: var(--text-muted);
+        font-size: 0.9rem;
     }
 </style> 

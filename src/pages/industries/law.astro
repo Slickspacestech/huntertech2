@@ -17,25 +17,133 @@ const description = "Expert IT services for law firms in Calgary and Vancouver. 
 const keywords = [
     "law firm IT services",
     "legal technology solutions",
+    "document management systems",
+    "law firm IT support",
     "legal software support",
-    "law firm data security",
-    "legal document management",
     "Calgary law firm IT",
     "Vancouver law firm IT",
     "legal cloud solutions",
-    "law practice management",
-    "legal data protection"
+    "case management systems",
+    "legal data security"
 ];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Service",
+            "name": "IT Services for Law Firms",
+            "description": description,
+            "provider": {
+                "@type": "Organization",
+                "name": "Huntertech",
+                "url": "https://huntertech.ca",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "/images/huntertech-logo.png"
+                }
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": "Contact for pricing",
+                "priceCurrency": "CAD",
+                "availability": "https://schema.org/InStock"
+            },
+            "audience": {
+                "@type": "Audience",
+                "audienceType": ["Law Firms"]
+            },
+            "areaServed": [
+                {
+                    "@type": "GeoCircle",
+                    "geoMidpoint": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "49.2827",
+                        "longitude": "-123.1207"
+                    },
+                    "geoRadius": "50km",
+                    "name": "Vancouver"
+                },
+                {
+                    "@type": "GeoCircle",
+                    "geoMidpoint": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "51.0447",
+                        "longitude": "-114.0719"
+                    },
+                    "geoRadius": "50km",
+                    "name": "Calgary"
+                }
+            ],
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Law Firm IT Services Catalog",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Document Management",
+                            "description": "Secure document management and storage solutions for legal files"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Case Management",
+                            "description": "Integrated case management and time tracking systems"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Client Portal",
+                            "description": "Secure client communication and document sharing portals"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Compliance & Security",
+                            "description": "Industry-specific security and compliance solutions"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://huntertech.ca"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Law",
+                    "item": "https://huntertech.ca/industries/law/"
+                }
+            ]
+        }
+    ]
+};
 ---
 
 <Layout title={title} description={description}>
     <SEO
         title={title}
         description={description}
-        canonicalURL="https://huntertech.ca/industries/law"
+        canonicalURL="https://huntertech.ca/industries/law/"
         keywords={keywords}
         type="website"
         image={lawImage.src}
+        structuredData={structuredData}
     />
     <Header />
     <main class="service-page">
@@ -45,7 +153,7 @@ const keywords = [
             backgroundImage={lawImage}
             backgroundImageAlt="Law firm technology solutions"
             ctaText="Get Started"
-            ctaLink="/contact"
+            ctaLink="/contact/"
         />
 
         <section class="features">
@@ -115,7 +223,7 @@ const keywords = [
             <div class="container">
                 <h2>Ready to Protect Your Law Practice?</h2>
                 <p>Contact us today to discuss your technology needs</p>
-                <a href="/contact" class="cta-button">Contact Us</a>
+                <a href="/contact/" class="cta-button">Contact Us</a>
             </div>
         </section>
     </main>

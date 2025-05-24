@@ -1,30 +1,169 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import { formatDate } from '../../utils/date';
-import CTABox from '../../components/CTABox.astro';
-import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
-import HeroBlog from '../../components/HeroBlog.astro';
+import Footer from '../../components/Footer.astro';
 import SEO from '../../components/SEO.astro';
-import cybersecurityImage from '../../assets/images/blog/cybersecurity-small-business.webp';
+import CTABox from '../../components/CTABox.astro';
+import HeroBlog from '../../components/HeroBlog.astro';
+import { formatDate, validateDate } from '../../utils/date';
+import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
+import cybersecurityImg from '../../assets/images/blog/cybersecurity.webp';
+import { posts } from '../../data/blog-posts';
 
-const title = "Cybersecurity for Small Business: Essential Protection Guide";
-const description = "Essential cybersecurity guide for small businesses. Learn about data protection, employee training, and security best practices to safeguard your business from cyber threats.";
-const date = "2024-03-05";
+// Get the post data from blog-posts.ts
+const post = posts.find(p => p.slug === 'cybersecurity-small-business');
+
+const title = "Essential Cybersecurity Tips for Small Businesses";
+const description = "Learn how to protect your small business from cyber threats with expert advice and practical tips.";
+const date = post?.date || validateDate("2025-03-20"); // Use the date from blog-posts.ts, fallback to hardcoded date
 const author = "Huntertech Team";
 const category = "Cybersecurity";
-const keywords = ["small business cybersecurity", "cyber protection", "data security", "business security", "cyber threats", "security best practices", "IT security"];
+const keywords = ["cybersecurity", "small business", "IT security", "cyber threats", "business protection", "data security"];
+
+// Calculate word count from the article content
+const wordCount = calculateWordCount(`
+    Why Small Businesses Need Cybersecurity
+    Small businesses in Calgary and Vancouver are increasingly becoming targets for cyber attacks. In fact, 43% of all cyber attacks target small businesses. This article will help you understand the essential cybersecurity measures your business needs to implement.
+
+    Essential Cybersecurity Measures
+    Regular Software Updates
+    Keep all your software, including operating systems and applications, up to date. Regular updates patch security vulnerabilities that hackers could exploit.
+
+    Strong Password Policies
+    Implement and enforce strong password policies:
+    Require passwords to be at least 12 characters long
+    Include a mix of uppercase, lowercase, numbers, and special characters
+    Never reuse passwords across different accounts or services
+    Use a password manager to securely store and generate unique passwords
+    Never share passwords or write them down, especially in unencrypted files on your computer
+
+    Employee Training
+    Your employees are your first line of defense. Regular training on:
+    Identifying phishing emails
+    Safe browsing practices
+    Data handling procedures
+    Reporting suspicious activities
+
+    Data Backup Solutions
+    Implement the 3-2-1 backup rule:
+    3 copies of your data
+    2 different storage types
+    1 off-site backup
+
+    Advanced Threat Protection
+    Modern businesses need more than just antivirus software. Implement these advanced security solutions:
+    Endpoint Detection and Response (EDR)
+    Huntress EDR provides advanced threat detection and response capabilities:
+    24/7 managed detection and response by security experts
+    Automated threat hunting and investigation
+    Ransomware and malware detection with instant alerts
+    Persistent foothold detection to identify compromised systems
+    Automated remediation of detected threats
+    Detailed security reports and visibility into your environment
+    Integration with Microsoft Defender and other security tools
+
+    Identity Threat Detection and Response (ITDR)
+    Huntress ITDR provides comprehensive identity protection and monitoring:
+    24/7 monitoring of Microsoft 365 and Entra ID (Azure AD) environments
+    Detection of compromised accounts and suspicious sign-in activities
+    Automated investigation of identity-based threats
+    Alerting on unauthorized access attempts and privilege escalation
+    Monitoring of admin account activities and changes
+    Integration with existing security tools and workflows
+    Detailed reporting on identity-related security events
+
+    DNS Web Filtering
+    DNS web filtering provides an additional layer of security by blocking access to malicious websites and controlling web usage:
+    Block access to known malicious websites and phishing domains
+    Prevent employees from visiting inappropriate or non-work-related sites
+    Protect against malware and ransomware by blocking malicious downloads
+    Filter content based on categories
+    Enforce safe search settings across all devices
+    Detailed reporting on web usage and blocked attempts
+    Works across all devices and locations, including remote workers
+
+    Local IT Support in Calgary and Vancouver
+    As your local IT service provider in Calgary and Vancouver, we offer comprehensive cybersecurity solutions tailored to small businesses. Our team can help you implement these security measures and provide ongoing support to keep your business protected.
+
+    By implementing these cybersecurity measures, you're not just protecting your business – you're building trust with your customers and creating a foundation for sustainable growth. Remember, in today's digital world, cybersecurity isn't just an IT concern; it's a business imperative.
+`);
+
+const readingTime = estimateReadingTime(wordCount);
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "description": description,
+    "image": {
+        "@type": "ImageObject",
+        "url": `https://huntertech.ca${cybersecurityImg.src}`,
+        "width": "1200",
+        "height": "630"
+    },
+    "author": {
+        "@type": "Organization",
+        "name": author,
+        "url": "https://huntertech.ca"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://huntertech.ca/images/huntertech-logo.png",
+            "width": "600",
+            "height": "60"
+        }
+    },
+    "datePublished": date,
+    "dateModified": date,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://huntertech.ca/blog/cybersecurity-small-business/"
+    },
+    "keywords": keywords,
+    "articleSection": category,
+    "inLanguage": "en-CA",
+    "wordCount": wordCount.toString(),
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "timeRequired": `PT${readingTime}M`,
+    "about": {
+        "@type": "Thing",
+        "name": "Small Business Cybersecurity",
+        "description": "Essential cybersecurity measures and best practices for small businesses"
+    },
+    "mentions": [
+        {
+            "@type": "Thing",
+            "name": "Password Security",
+            "url": "https://huntertech.ca/blog/password-manager"
+        },
+        {
+            "@type": "Thing",
+            "name": "Endpoint Detection and Response",
+            "description": "Advanced threat detection and response capabilities"
+        },
+        {
+            "@type": "Thing",
+            "name": "Identity Threat Detection",
+            "description": "Comprehensive identity protection and monitoring"
+        }
+    ]
+};
 ---
 
 <Layout title={title} description={description}>
     <SEO
         title={title}
         description={description}
-        canonicalURL="https://huntertech.ca/blog/cybersecurity-small-business"
+        canonicalURL="https://huntertech.ca/blog/cybersecurity-small-business/"
         keywords={keywords}
         type="article"
-        image={cybersecurityImage.src}
+        image={cybersecurityImg.src}
+        structuredData={structuredData}
     />
     
     <Header />
@@ -32,15 +171,15 @@ const keywords = ["small business cybersecurity", "cyber protection", "data secu
     <main class="blog-post">
         <HeroBlog 
             title={title}
-            subtitle={`By ${author} | ${formatDate(date)}`}
-            backgroundImage={cybersecurityImage}
+            subtitle={`By ${author} | ${formatDate(date)} | ${readingTime} min read`}
+            backgroundImage={cybersecurityImg}
             backgroundImageAlt="Cybersecurity for Small Businesses"
         />
         <article class="blog-post">
             <div class="container">
                 <div class="post-meta">
                     <time datetime={date}>{formatDate(date)}</time>
-                    <span class="reading-time">5 min read</span>
+                    <span class="reading-time">{readingTime} min read</span>
                 </div>
 
                 <div class="post-content">
@@ -60,7 +199,7 @@ const keywords = ["small business cybersecurity", "cyber protection", "data secu
                         <li>Use a password manager to securely store and generate unique passwords</li>
                         <li>Never share passwords or write them down, especially in unencrypted files on your computer</li>
                     </ul>
-                    <p>For more detailed information about password security, check out our article on <a href="/blog/password-manager">Why You Should Use a Password Manager</a>.</p>
+                    <p>For more detailed information about password security, check out our article on <a href="/blog/password-manager/">Why You Should Use a Password Manager</a>.</p>
 
                     <h3>3. Employee Training</h3>
                     <p>Your employees are your first line of defense. Regular training on:</p>
@@ -137,7 +276,7 @@ const keywords = ["small business cybersecurity", "cyber protection", "data secu
                         title="Need Help with Business Cybersecurity?"
                         description="Contact our team for expert advice on implementing comprehensive security measures to protect your business from cyber threats."
                         buttonText="Get Expert Help"
-                        buttonLink="/contact"
+                        buttonLink="/contact/"
                     />
                 </div>
             </div>
@@ -259,6 +398,11 @@ const keywords = ["small business cybersecurity", "cyber protection", "data secu
         padding: 1.5rem;
         border-left: 4px solid var(--button-color);
         margin: 1.5rem 0;
+    }
+
+    .reading-time {
+        color: var(--text-muted);
+        font-size: 0.9rem;
     }
 
     @media (max-width: 768px) {

@@ -7,6 +7,7 @@ interface Props {
     type?: string;
     image?: string;
     location?: 'Calgary' | 'Vancouver';
+    structuredData?: any;
 }
 
 const {
@@ -16,7 +17,8 @@ const {
     keywords = ["IT services", "IT support", "managed IT", "cybersecurity", "Calgary", "Vancouver", "business IT", "IT consulting"],
     type = "website",
     image = "https://huntertech.ca/og-image.jpg",
-    location
+    location,
+    structuredData: customStructuredData
 } = Astro.props;
 
 const siteTitle = "Huntertech";
@@ -36,8 +38,8 @@ const defaultKeywords = location === 'Calgary'
 
 const allKeywords = [...new Set([...defaultKeywords, ...keywords])];
 
-// Structured data for local business
-const structuredData = {
+// Default structured data for local business - only used if no custom data is provided
+const defaultStructuredData = location ? {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${siteURL}#organization`,
@@ -49,7 +51,7 @@ const structuredData = {
     "address": {
         "@type": "PostalAddress",
         "streetAddress": location === 'Calgary' ? "4121 23b St NE" : "",
-        "addressLocality": location || "Calgary",
+        "addressLocality": location,
         "addressRegion": location === 'Calgary' ? "AB" : "BC",
         "postalCode": location === 'Calgary' ? "T2E 7V9" : "",
         "addressCountry": "CA"
@@ -111,7 +113,10 @@ const structuredData = {
             }
         }]
     }
-};
+} : null;
+
+// Use custom structured data if provided, otherwise use default
+const structuredData = customStructuredData || defaultStructuredData;
 ---
 
 <!-- Primary Meta Tags -->
@@ -138,7 +143,7 @@ const structuredData = {
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+{structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>}
 
 <!-- Additional Meta Tags -->
 <meta name="robots" content="index, follow" />

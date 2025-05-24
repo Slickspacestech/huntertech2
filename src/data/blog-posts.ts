@@ -8,6 +8,7 @@ import scanToEmailImg from '../assets/images/blog/scan-to-email.webp';
 import emailVerificationImg from '../assets/images/blog/email-verification.webp';
 import itServicesGuideImg from '../assets/images/blog/AdobeStock_535677380.webp';
 import inHouseVsOutsourcedImg from '../assets/images/blog/in-house-vs-outsourced.webp';
+import secureVaultScamImg from '../assets/images/blog/SecureVaultScam.png';
 
 export interface BlogPost {
     slug: string;
@@ -22,10 +23,24 @@ export interface BlogPost {
 
 export const posts: BlogPost[] = [
     {
-        slug: 'phishing-attacks-canada',
+        slug: 'construction-industry-phishing-scam/',
+        title: "Construction Industry Targeted by Sophisticated Phishing Scam",
+        date: "2025-05-22",
+        author: "Huntertech Team",
+        category: "Cybersecurity",
+        image: secureVaultScamImg,
+        content: `
+            <p>A sophisticated phishing scam is currently targeting construction companies across Canada, 
+            attempting to deceive employees into revealing sensitive information. This article provides 
+            crucial information about the scam and how to protect your business.</p>
+        `,
+        tags: ["phishing scam", "construction industry", "cybersecurity", "business fraud", "email security", "financial fraud", "construction safety", "IT security"]
+    },
+    {
+        slug: 'phishing-attacks-canada/',
         title: "Phishing Attacks Rising in Canada",
         date: "2025-03-10",
-        author: "John Smith",
+        author: "Huntertech Team",
         category: "Cybersecurity",
         image: phishingAttacksImg,
         content: `
@@ -34,10 +49,10 @@ export const posts: BlogPost[] = [
         tags: []
     },
     {
-        slug: 'password-manager',
+        slug: 'password-manager/',
         title: "Why You Should Use a Password Manager",
         date: "2025-03-21",
-        author: "John Smith",
+        author: "Huntertech Team",
         category: "Cybersecurity",
         image: passwordManagerImg,
         content: `
@@ -46,10 +61,10 @@ export const posts: BlogPost[] = [
         tags: []
     },
     {
-        slug: 'cybersecurity-small-business',
+        slug: 'cybersecurity-small-business/',
         title: "Essential Cybersecurity Tips for Small Businesses",
         date: "2025-03-20",
-        author: "John Smith",
+        author: "Huntertech Team",
         category: "Cybersecurity",
         image: cybersecurityImg,
         content: `
@@ -58,10 +73,10 @@ export const posts: BlogPost[] = [
         tags: []
     },
     {
-        slug: 'admin-rights-work-computers',
+        slug: 'admin-rights-work-computers/',
         title: "Should Employees Have Admin Rights on Their Work Computers?",
-        date: "2025-09-12",
-        author: "John Smith",
+        date: "2024-09-12",
+        author: "Huntertech Team",
         category: "IT Support",
         image: adminRightsImg,
         content: `
@@ -70,10 +85,10 @@ export const posts: BlogPost[] = [
         tags: []
     },
     {
-        slug: 'scan-to-email-printer',
+        slug: 'scan-to-email-printer/',
         title: "Scan to Email on Your Office Printer with Microsoft 365 or Google Workspace",
-        date: "2025-08-16",
-        author: "John Smith",
+        date: "2024-08-16",
+        author: "Huntertech Team",
         category: "IT Support",
         image: scanToEmailImg,
         content: `
@@ -82,10 +97,10 @@ export const posts: BlogPost[] = [
         tags: []
     },
     {
-        slug: 'email-verification-dmarc',
+        slug: 'email-verification-dmarc/',
         title: "Help! Emails I Send from Our Email Blast System are Showing Up as Unverified",
-        date: "2025-07-29",
-        author: "John Smith",
+        date: "2024-07-29",
+        author: "Huntertech Team",
         category: "IT Support",
         image: emailVerificationImg,
         content: `
@@ -94,9 +109,9 @@ export const posts: BlogPost[] = [
         tags: []
     },
     {
-        slug: 'it-services-calgary-vancouver',
+        slug: 'it-services-calgary-vancouver/',
         title: 'IT Service Providers in Calgary & Vancouver: A Guide for Businesses 2025',
-        date: '2025-03-20',
+        date: '2025-01-20',
         author: 'Huntertech Team',
         category: 'IT Services',
         image: itServicesGuideImg,
@@ -106,7 +121,7 @@ export const posts: BlogPost[] = [
         tags: ['IT strategy', 'IT outsourcing', 'managed IT services', 'small business IT', 'IT management', 'IT support', 'business technology']
     },
     {
-        slug: 'pontem-group-case-study',
+        slug: 'pontem-group-case-study/',
         title: "Case Study: How Pontem Group Transformed Their IT Infrastructure and Saved 3000 hours Annually",
         date: "2025-04-20",
         author: "Huntertech Team",
@@ -116,9 +131,9 @@ export const posts: BlogPost[] = [
         tags: []
     },
     {
-        slug: 'in-house-vs-outsourced-it',
+        slug: 'in-house-vs-outsourced-it/',
         title: 'Choosing the Right IT Strategy: In-House, Share the Hat? Or Outsource?',
-        date: '2024-03-25',
+        date: '2024-10-25',
         author: 'Huntertech Team',
         category: 'IT Services',
         image: inHouseVsOutsourcedImg,

@@ -26,16 +26,124 @@ const keywords = [
     "project management tools",
     "engineering data security"
 ];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Service",
+            "name": "IT Services for Engineering Firms",
+            "description": description,
+            "provider": {
+                "@type": "Organization",
+                "name": "Huntertech",
+                "url": "https://huntertech.ca",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "/images/huntertech-logo.png"
+                }
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": "Contact for pricing",
+                "priceCurrency": "CAD",
+                "availability": "https://schema.org/InStock"
+            },
+            "audience": {
+                "@type": "Audience",
+                "audienceType": ["Engineering Companies"]
+            },
+            "areaServed": [
+                {
+                    "@type": "GeoCircle",
+                    "geoMidpoint": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "49.2827",
+                        "longitude": "-123.1207"
+                    },
+                    "geoRadius": "50km",
+                    "name": "Vancouver"
+                },
+                {
+                    "@type": "GeoCircle",
+                    "geoMidpoint": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "51.0447",
+                        "longitude": "-114.0719"
+                    },
+                    "geoRadius": "50km",
+                    "name": "Calgary"
+                }
+            ],
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Engineering IT Services Catalog",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "CAD/BIM Support",
+                            "description": "Comprehensive support for Autodesk software platforms"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "High-Performance Computing",
+                            "description": "Optimized workstations and servers for complex engineering simulations"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Data Protection",
+                            "description": "Secure storage and backup solutions for critical engineering data"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Collaboration Tools",
+                            "description": "Advanced tools for team collaboration and project management"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://huntertech.ca"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Engineering",
+                    "item": "https://huntertech.ca/industries/engineering/"
+                }
+            ]
+        }
+    ]
+};
 ---
 
 <Layout title={title} description={description}>
     <SEO
         title={title}
         description={description}
-        canonicalURL="https://huntertech.ca/industries/engineering"
+        canonicalURL="https://huntertech.ca/industries/engineering/"
         keywords={keywords}
         type="website"
         image={engineerTech.src}
+        structuredData={structuredData}
     />
     <Header />
     <main class="service-page">
@@ -45,7 +153,7 @@ const keywords = [
             backgroundImage={engineerTech}
             backgroundImageAlt="Engineering technology solutions"
             ctaText="Get Started"
-            ctaLink="/contact"
+            ctaLink="/contact/"
         />
 
         <section class="features">
@@ -151,7 +259,7 @@ const keywords = [
             <div class="container">
                 <h2>Ready to Optimize Your Engineering Practice?</h2>
                 <p>Contact us today to discuss your technology needs</p>
-                <a href="/contact" class="cta-button">Contact Us</a>
+                <a href="/contact/" class="cta-button">Contact Us</a>
             </div>
         </section>
     </main>

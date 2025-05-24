@@ -11,13 +11,26 @@ import blogHero from '../assets/images/Huntertech-video-cover.webp';
 
 const title = "IT Services Blog | Expert IT Insights for Calgary and Vancouver Businesses";
 const description = "Stay informed with the latest IT insights, cybersecurity tips, and technology trends for businesses in Calgary and Vancouver. Expert advice from your local IT service provider.";
+
+const blogPosts = [
+    {
+        title: "Construction Industry Targeted by Sophisticated Phishing Scam",
+        description: "Learn about the latest phishing scam targeting construction companies in Canada, how to identify it, and steps to protect your business from financial fraud.",
+        date: "2025-05-22",
+        author: "Huntertech Team",
+        category: "Cybersecurity",
+        image: "/images/blog/SecureVaultScam.png",
+        slug: "construction-industry-phishing-scam"
+    },
+    // ... existing blog posts ...
+];
 ---
 
 <Layout title={title}>
     <SEO 
         title={title}
         description={description}
-        canonicalURL="/blog"
+        canonicalURL="https://huntertech.ca/blog/"
         keywords={[
             "IT Services blog",
             "IT Support tips",

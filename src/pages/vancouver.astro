@@ -33,17 +33,107 @@ const keywords = [
     "IT consulting Vancouver",
     "Business IT support Vancouver"
 ];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "LocalBusiness",
+            "name": "Huntertech Vancouver",
+            "description": description,
+            "url": "https://huntertech.ca/vancouver",
+            "telephone": "7788197411",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Vancouver",
+                "addressRegion": "BC",
+                "addressCountry": "CA"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "49.2665",
+                "longitude": "-123.0019"
+            },
+            "areaServed": {
+                "@type": "GeoCircle",
+                "geoMidpoint": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "49.2827",
+                    "longitude": "-123.1207"
+                },
+                "geoRadius": "50km",
+                "name": "Vancouver"
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "IT Services in Vancouver",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Managed IT Support",
+                            "description": "Friendly, local IT support and monitoring for Vancouver businesses"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Cybersecurity Solutions",
+                            "description": "Advanced security solutions to protect your Vancouver business"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Cloud Services",
+                            "description": "Secure and scalable cloud infrastructure for Vancouver companies"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Network Solutions",
+                            "description": "Reliable and efficient network infrastructure in Vancouver"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://huntertech.ca"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Vancouver",
+                    "item": "https://huntertech.ca/vancouver"
+                }
+            ]
+        }
+    ]
+};
 ---
 
 <Layout title={title} description={description}>
     <SEO 
         title={title}
         description={description}
-        canonicalURL="/vancouver"
+        canonicalURL="https://huntertech.ca/vancouver/"
         keywords={keywords}
         type="website"
         image={vancouverBg.src}
         location="Vancouver"
+        structuredData={structuredData}
     />
     <Header />
     <main>
@@ -54,7 +144,7 @@ const keywords = [
             backgroundImage={vancouverBg}
             backgroundImageAlt="Vancouver city scape with mountains"
             ctaText="Get Started"
-            ctaLink="/contact"
+            ctaLink="/contact/"
         />
 
         <section class="location-info">
@@ -160,7 +250,7 @@ const keywords = [
             <div class="container">
                 <h2>Ready to Transform Your IT Infrastructure?</h2>
                 <p>Contact our Vancouver team today for a free IT consultation</p>
-                <a href="/contact" class="cta-button">Contact Us</a>
+                <a href="/contact/" class="cta-button">Contact Us</a>
             </div>
         </section>
     </main>
