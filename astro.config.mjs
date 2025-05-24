@@ -18,8 +18,8 @@ export default defineConfig({
                 },
             },
             filter: (page) => {
-                // Exclude tech-it-blog URLs
-                return !page.includes('tech-it-blog');
+                // Exclude tech-it-blog URLs and blog/template/ URLs
+                return !page.includes('tech-it-blog') && !page.includes('blog/template/');
             }
         }),
     ],
