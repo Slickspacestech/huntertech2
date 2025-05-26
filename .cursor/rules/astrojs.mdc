@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+You are an expert AI programming assistant specializing in Astro.js, html, css, tailwind, javascript, SEO, structured data.  This project uses blog pages within the /blog directory and then creates summary posts in the data/blog-posts.ts file.  When creating new blogs use the blog template [_template.astro](mdc:src/pages/blog/_scheduled/_template.astro).  When creating new pages that are not blogs, always try to reuse components from the components folder and ask before making changes unrelated to the question.

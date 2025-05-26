@@ -20,7 +20,7 @@ import heroBg from '../assets/images/architect_engineer_tech.avif';
 import itSupport from '../assets/images/it-support.webp';
 import revitManagement from '../assets/images/revit.webp';
 
-const title = "Huntertech - IT Services, Security For Calgary and Vancouver";
+const title = "IT Services, Security, Revit Management For Calgary and Vancouver";
 const description = "Professional IT services tailored for businesses in Calgary and Vancouver. Get reliable technology solutions from certified experts who understand your needs.";
 
 const structuredData = {
@@ -79,7 +79,7 @@ const structuredData = {
         },
         {
             "@type": "Service",
-            "@id": "https://huntertech.ca/services/managed-it-support",
+            "@id": "https://huntertech.ca/services/managed-it-support/",
             "name": "Managed IT Services",
             "provider": {"@id": "https://huntertech.ca"},
             "description": "Comprehensive IT management and support for your business. From proactive monitoring to responsive support, we handle all your technology needs.",
@@ -92,7 +92,7 @@ const structuredData = {
         },
         {
             "@type": "Service",
-            "@id": "https://huntertech.ca/services/revit-management",
+            "@id": "https://huntertech.ca/services/revit-management/",
             "name": "Revit Management Services",
             "provider": {"@id": "https://huntertech.ca"},
             "description": "Specialized Revit support and optimization for architecture and engineering firms. Enhance your BIM workflow and project efficiency.",
@@ -139,6 +139,60 @@ const structuredData = {
             "sameAs": [
                 "https://www.linkedin.com/company/huntertech",
                 "https://www.facebook.com/huntertech"
+            ]
+        },
+        {
+            "@type": "FAQPage",
+            "@id": "https://huntertech.ca/#faq",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What's the difference between Huntertech and the other IT managed service providers?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Our founder Mathew Hunter had been a contractor for most major industries, from privincial healthcare to Wall Street and spent 6 years working for one of the largest Architecture firms in North America. We have 15 years of experience managing IT environments for architects, engineers, and other related professions. And because we understand the software and systems that are unique to your industry, we know what needs to be done for your business to succeed, requiring less of your time explaining what you need. In other words, we can hit the ground running. Our business ethic is centred around providing high quality service to our clients. That means when an issue arises, we work directly with vendors on your behalf to troubleshoot and remediate. We take ownership rather than engage in finger pointing which can result in delay or leaving the issue unresolved. We take the time to understand your unique business needs. As your IT advisor, we make sure your technology environment suits you and not someone else. Ill-fitted technology can result in increased costs, as well as products and infrastructure that impede your productivity. We provide predictable monthly pricing and don't charge extra for labour on projects."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What services do you provide?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We're here to take care of all your IT needs, whether it's IT support, IT security, networking, cloud services, hardware procurement and management, or keeping track of software licenses and renewals. We also handle new system implementations and migrations from an old system. If it runs on electricity, we're likely able to lend a hand! We also offer Revit management services to make modeling easier and more efficient for your team. This includes Revit model review, Revit model health checks, parametric family creation, Revit training, automation, and customized configuration. If you are interested marketing services for the building industry, visit www.huntermarketing.ca."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What is onboarding like?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We aim to make things as smooth as possible for you. We'll sit down together to understand your needs and identify any potential risks or gaps in your technology. Once we have a clear picture of the technology you use, we'll create a roadmap showing where you are now and where we think you should be headed, along with how we'll help you get there. And don't worry, there's no onboarding fee, so you can trust that our suggestions are genuinely in your best interest, not just to fill project hours."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What's your pricing model?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We offer a per-user pricing model for our IT managed services, and billable hours for Revit services."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What if my head count goes up or down?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No problem! Every month we adjust your plan to match your current needs. We're here to support you as your business grows or changes."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Do you charge project fees?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We don't believe in charging project-based fees. Instead, we offer our services for a simple monthly rate. This approach allows us to focus on delivering the best solutions and proactively developing a strategic IT roadmap for your business. Project fees often tie technology decisions to budget constraints, which can delay adoption, reduce productivity, and increase the risk of failures or security vulnerabilities."
+                    }
+                }
             ]
         }
     ]
@@ -202,7 +256,7 @@ const structuredData = {
                                 <li>Cloud Solutions</li>
                                 <li>Hardware & Software Management</li>
                             </ul>
-                            <a href="/services/managed-it-support" class="service-link">Learn More <ArrowRight /></a>
+                            <a href="/services/managed-it-support/" class="service-link">Learn More <ArrowRight /></a>
                         </div>
                         <div class="service-image">
                             <Image 
@@ -351,31 +405,31 @@ const structuredData = {
                         <MapleLeaf color="var(--primary-color)" />
                         <h3>Local IT Support</h3>
                         <p>Professional IT support services to keep your business running smoothly. From help desk to network management.</p>
-                        <a href="/solutions/it-support" class="service-link">Learn More <ArrowRight /></a>
+                        <a href="/solutions/it-support/" class="service-link">Learn More <ArrowRight /></a>
                     </div>
                     <div class="service-card">
                         <Shield color="var(--primary-color)"/>
                         <h3>Cyber Security</h3>
                         <p>Comprehensive security solutions to protect your business from threats and ensure data safety.</p>
-                        <a href="/solutions/cyber-security" class="service-link">Learn More <ArrowRight /></a>
+                        <a href="/solutions/cyber-security/" class="service-link">Learn More <ArrowRight /></a>
                     </div>
                     <div class="service-card">
                         <Work color="var(--primary-color)" />
                         <h3>Hybrid Workplace</h3>
                         <p>Enable seamless remote and hybrid work environments with our modern workplace solutions.</p>
-                        <a href="/solutions/hybrid-workplace" class="service-link">Learn More <ArrowRight /></a>
+                        <a href="/solutions/hybrid-workplace/" class="service-link">Learn More <ArrowRight /></a>
                     </div>
                     <div class="service-card">
                         <Cloud color="var(--primary-color)" />
                         <h3>Microsoft 365</h3>
                         <p>Expert implementation and support for Microsoft 365 to enhance productivity and collaboration.</p>
-                        <a href="/solutions/microsoft-365" class="service-link">Learn More <ArrowRight /></a>
+                        <a href="/solutions/microsoft-365/" class="service-link">Learn More <ArrowRight /></a>
                     </div>
                     <div class="service-card">
                         <NetworkWired color="var(--primary-color)" />
                         <h3>Computer Networking</h3>
                         <p>Design, implementation, and management of robust network infrastructure for your business.</p>
-                        <a href="/solutions/computer-networking" class="service-link">Learn More <ArrowRight /></a>
+                        <a href="/solutions/computer-networking/" class="service-link">Learn More <ArrowRight /></a>
                     </div>
                 </div>
             </div>
@@ -459,31 +513,30 @@ const structuredData = {
 
         <section class="faq">
             <div class="container">
-                <h2 class="section-title">Frequently Asked Questions</h2>
+                <h2>Frequently Asked Questions</h2>
                 <div class="faq-grid">
                     <div class="faq-item">
-                        <h3>Do you charge project fees?</h3>
-                        <p>We don't believe in charging project-based fees. Instead, we offer our services for a simple monthly rate. This approach allows us to focus on delivering the best solutions and proactively developing a strategic IT roadmap for your business. Project fees often tie technology decisions to budget constraints, which can delay adoption, reduce productivity, and increase the risk of failures or security vulnerabilities.</p>
-                    </div>
-                    <div class="faq-item">
                         <h3>What's the difference between Huntertech and the other IT managed service providers?</h3>
-                        <ul>
-                            <li>We have 15 years of experience managing IT environments for architects, engineers, and other related professions. And because we understand the software and systems that are unique to your industry, we know what needs to be done for your business to succeed, requiring less of your time explaining what you need. In other words, we can hit the ground running.</li>
-                            <li>Our business ethic is centred around providing high quality service to our clients. That means when an issue arises, we work directly with vendors on your behalf to troubleshoot and remediate. We take ownership rather than engage in finger pointing which can result in delay or leaving the issue unresolved.</li>
-                            <li>We take the time to understand your unique business needs. As your IT advisor, we make sure your technology environment suits you and not someone else. Ill-fitted technology can result in increased costs, as well as products and infrastructure that impede your productivity.</li>
-                            <li>We provide predictable monthly pricing and don't charge extra for labour on projects.</li>
-                        </ul>
+                        <p>Our founder Mathew Hunter has 15 years of experience managing IT environments for architects and engineers. We understand your industry's unique software and systems, allowing us to hit the ground running. We take ownership of issues, work directly with vendors, and provide predictable monthly pricing without project fees.</p>
                     </div>
                     <div class="faq-item">
                         <h3>What services do you provide?</h3>
-                        <p>We're here to take care of all your IT needs, whether it's IT support, IT security, networking, cloud services, hardware procurement and management, or keeping track of software licenses and renewals. We also handle new system implementations and migrations from an old system. If it runs on electricity, we're likely able to lend a hand!</p>
-                        <p>We also offer Revit management services to make modeling easier and more efficient for your team. This includes Revit model review, Revit model health checks, parametric family creation, Revit training, automation, and customized configuration.</p>
-                        <p>If you are interested marketing services for the building industry, visit www.huntermarketing.ca.</p>
+                        <p>We handle all your IT needs including support, security, networking, cloud services, hardware management, and software licensing. We also offer specialized Revit management services to make modeling more efficient for your team.</p>
                     </div>
                     <div class="faq-item">
-                        <h3>What is onboarding like?</h3>
-                        <p>We aim to make things as smooth as possible for you. We'll sit down together to understand your needs and identify any potential risks or gaps in your technology. Once we have a clear picture of the technology you use, we'll create a roadmap showing where you are now and where we think you should be headed, along with how we'll help you get there. And don't worry, there's no onboarding fee, so you can trust that our suggestions are genuinely in your best interest, not just to fill project hours.</p>
+                        <h3>What's your pricing model?</h3>
+                        <p>We offer a per-user pricing model for our IT managed services, and billable hours for Revit services. Your plan adjusts monthly to match your current needs.</p>
                     </div>
+                    <div class="faq-item">
+                        <h3>Do you offer after hours emergency support?</h3>
+                        <p>Yes, we provide weekend and evening emergency support. Response times vary based on urgency and time of reporting.</p>
+                    </div>
+                </div>
+                <div class="faq-cta">
+                    <a href="/faq/" class="btn btn-secondary">
+                        View All FAQs
+                        <ArrowRight />
+                    </a>
                 </div>
             </div>
         </section>
@@ -1179,5 +1232,29 @@ const structuredData = {
             grid-template-columns: 1fr;
             gap: 1.5rem;
         }
+    }
+
+    .faq-cta {
+        text-align: center;
+        margin-top: var(--spacing-xl);
+    }
+
+    .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md) var(--spacing-lg);
+        background-color: var(--white);
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+        border-radius: var(--radius-md);
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+        background-color: var(--primary-color);
+        color: var(--white);
     }
 </style>

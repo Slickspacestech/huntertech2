@@ -1,0 +1,345 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Footer from '../components/Footer.astro';
+import ArrowRight from '../components/icons/arrow-right.astro';
+import SEO from '../components/SEO.astro';
+import logo from '../assets/images/Huntertech_logo.png';
+import managedIt from '../assets/images/managed-it.webp';
+
+const title = "Frequently Asked Questions - Huntertech IT Services";
+const description = "Find answers to common questions about our IT services, pricing, support, and more. Learn how Huntertech can help your business with managed IT services and Revit management.";
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What's the difference between Huntertech and the other IT managed service providers?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Huntertech stands out with 15+ years of experience in IT for architects, engineers, and related fields. We specialize in industry-specific software, workflows, and systems, which means we can provide immediate, tailored support. Unlike many providers, we take ownership of issues, working directly with vendors to resolve them efficiently. Our approach is proactive and personalized, ensuring your technology aligns with your unique business needs. Plus, we offer predictable monthly pricing with no additional labor charges for projects."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What services do you provide?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We provide comprehensive IT services including managed IT support, cybersecurity, cloud solutions, computer networking, hardware and software procurement, and software licensing. Our specialized Revit management services help architecture and engineering firms optimize their BIM workflow. We handle everything from IT support and security to hardware management and software licensing."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is onboarding like?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our onboarding process is designed to be smooth and efficient. We hit the ground running supporting your business while creating a detailed assessment of your current technology environment, identify potential risks, and create a strategic roadmap. There's no onboarding fee, ensuring our recommendations are always in your best interest."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What's your pricing model?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We offer a transparent per-user pricing model for our IT managed services, making it easy to budget and scale. For Revit services, we use a billable hours model. Our pricing adjusts monthly to match your current needs, ensuring you only pay for what you use."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What if my head count goes up or down?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our flexible pricing model automatically adjusts to your current headcount. We review and update your plan monthly, ensuring you only pay for the services you need. This scalability makes it easy to grow or downsize your IT support as your business changes."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do you charge project fees?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, we don't charge project fees. Instead, we offer a simple monthly rate that covers all your IT needs. This approach allows us to focus on delivering the best solutions and proactively developing a strategic IT roadmap for your business, without the constraints of project-based billing."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What are your response times like?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We aim to respond to all inquiries within 30–45 minutes and resolve most issues within 1–2 hours, depending on their complexity. In many cases, we can address problems immediately, while others may require reviewing logs and coordinating with you based on your availability."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do you offer after hours emergency support?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, we provide comprehensive after-hours emergency support, including weekends and evenings. While response times may vary based on urgency and time of reporting, we ensure critical issues are addressed promptly to minimize business disruption."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "We aren't in Calgary or Vancouver, can you help us?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, we offer remote IT support services to clients across Canada and the United States. While we prefer working with local companies for physical IT equipment maintenance, our remote support capabilities allow us to effectively serve clients regardless of location."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can you help us integrate our existing systems?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, we specialize in system integration and can help optimize your existing technology infrastructure. For complex integrations requiring specialized software development, we maintain partnerships with trusted developers to ensure you receive the best possible solution."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "We aren't ready for fully managed IT services, can you help us with projects?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. While we recommend our fully managed IT services for the best value, we also offer project-based services. We'll work with you to understand your specific needs and provide a custom quote for your project requirements."
+            }
+        }
+    ]
+};
+---
+
+<Layout title={title} description={description}>
+    <SEO 
+        title={title}
+        description={description}
+        canonicalURL="/faq/"
+        keywords={[
+            "IT Services FAQ",
+            "Managed IT Support Questions",
+            "IT Support Pricing",
+            "IT Service Response Times",
+            "Emergency IT Support",
+            "Remote IT Support",
+            "IT System Integration",
+            "Project Based IT Services"
+        ]}
+        type="website"
+        image={logo.src}
+        structuredData={structuredData}
+    />
+    <Header />
+    <main>
+        <Hero 
+            title="Frequently Asked Questions"
+            subtitle="Find answers to common questions about our IT services and support"
+            ctaText="Contact Us"
+            ctaLink="/contact/"
+            backgroundImage={managedIt}
+            backgroundImageAlt="IT support team working together"
+        />
+
+        <section class="faq">
+            <div class="container">
+                <div class="faq-categories">
+                    <div class="category">
+                        <h2>About Our Services</h2>
+                        <div class="faq-grid">
+                            <div class="faq-item">
+                                <h3>What's the difference between Huntertech and the other IT managed service providers?</h3>
+                                <p>Huntertech stands out with 15+ years of experience in IT for architects, engineers, and related fields. We specialize in industry-specific software, workflows, and systems, which means we can provide immediate, tailored support. Unlike many providers, we take ownership of issues, working directly with vendors to resolve them efficiently. Our approach is proactive and personalized, ensuring your technology aligns with your unique business needs. Plus, we offer predictable monthly pricing with no additional labor charges for projects.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h3>What services do you provide?</h3>
+                                <p>We provide comprehensive IT services including managed IT support, cybersecurity, cloud solutions, computer networking, hardware and software procurement, and software licensing. Our specialized Revit management services help architecture and engineering firms optimize their BIM workflow. We handle everything from IT support and security to hardware management and software licensing.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category">
+                        <h2>Pricing & Plans</h2>
+                        <div class="faq-grid">
+                            <div class="faq-item">
+                                <h3>What's your pricing model?</h3>
+                                <p>We offer a transparent per-user pricing model for our IT managed services, making it easy to budget and scale. For Revit services, we use a billable hours model. Our pricing adjusts monthly to match your current needs, ensuring you only pay for what you use.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h3>What if my head count goes up or down?</h3>
+                                <p>Our flexible pricing model automatically adjusts to your current headcount. We review and update your plan monthly, ensuring you only pay for the services you need. This scalability makes it easy to grow or downsize your IT support as your business changes.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h3>Do you charge project fees?</h3>
+                                <p>No, we don't charge project fees. Instead, we offer a simple monthly rate that covers all your IT needs. This approach allows us to focus on delivering the best solutions and proactively developing a strategic IT roadmap for your business, without the constraints of project-based billing.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category">
+                        <h2>Support & Response</h2>
+                        <div class="faq-grid">
+                            <div class="faq-item">
+                                <h3>What are your response times like?</h3>
+                                <p>We aim to respond to all inquiries within 30–45 minutes and resolve most issues within 1–2 hours, depending on their complexity. In many cases, we can address problems immediately, while others may require reviewing logs and coordinating with you based on your availability.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h3>Do you offer after hours emergency support?</h3>
+                                <p>Yes, we provide comprehensive after-hours emergency support, including weekends and evenings. While response times may vary based on urgency and time of reporting, we ensure critical issues are addressed promptly to minimize business disruption.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category">
+                        <h2>Service Coverage</h2>
+                        <div class="faq-grid">
+                            <div class="faq-item">
+                                <h3>We aren't in Calgary or Vancouver, can you help us?</h3>
+                                <p>Yes, we can help you with your IT needs no matter where you are located. We offer remote support services to clients across Canada and the United States. Keep in mind our ability to maintain physical IT equipment will be limited, which is why we do prefer working with companies local to our employees.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h3>Can you help us integrate our existing systems?</h3>
+                                <p>We can definitely take a look to see if we can integrate your existing systems. In some situations when an integration requires more in depth software development skills, we can provide a reference to someone who can better assist.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h3>We aren't ready for fully managed IT services, can you help us with projects?</h3>
+                                <p>Of course! While we think the best value is in a fully managed IT service, we do offer project based services. We'll sit down with you to understand your needs and provide a custom quote for the project.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Still Have Questions?</h2>
+                    <p>Get in touch with us today for a free consultation and discover how we can help your business grow.</p>
+                    <a href="/contact/" class="btn btn-primary">
+                        Contact Us
+                        <ArrowRight />
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .faq {
+        padding: var(--spacing-xl) 0;
+        background-color: var(--white);
+    }
+
+    .faq-categories {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .category {
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .category h2 {
+        color: var(--primary-color);
+        font-size: 2rem;
+        margin-bottom: var(--spacing-lg);
+        padding-bottom: var(--spacing-sm);
+        border-bottom: 2px solid var(--secondary-color);
+    }
+
+    .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacing-lg);
+    }
+
+    .faq-item {
+        background: var(--white);
+        padding: var(--spacing-xl);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .faq-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .faq-item h3 {
+        color: var(--secondary-heading);
+        font-size: 1.4rem;
+        margin-bottom: var(--spacing-lg);
+        line-height: 1.4;
+    }
+
+    .faq-item p {
+        color: var(--text-color);
+        line-height: 1.8;
+        margin-bottom: var(--spacing-md);
+        white-space: pre-line;
+        font-size: 1.1rem;
+    }
+
+    .faq-item p:last-child {
+        margin-bottom: 0;
+    }
+
+    .faq-item ul {
+        list-style: disc;
+        margin-left: var(--spacing-lg);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .faq-item li {
+        color: var(--text-color);
+        line-height: 1.6;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .cta {
+        padding: var(--spacing-xl) 0;
+        color: var(--white);
+        text-align: center;
+    }
+
+    .cta-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .cta h2 {
+        color: var(--white);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .cta p {
+        font-size: 1.2rem;
+        margin-bottom: var(--spacing-lg);
+        opacity: 0.9;
+    }
+
+    @media (max-width: 768px) {
+        .faq-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .category h2 {
+            font-size: 1.75rem;
+        }
+
+        .faq-item {
+            padding: var(--spacing-lg);
+        }
+
+        .faq-item p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .faq-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-md);
+        }
+    }
+</style> 
