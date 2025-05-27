@@ -144,7 +144,7 @@ export const posts: BlogPost[] = [
     {
         slug: 'ai-adoption-stats-2025/',
         title: "Eye-Opening Statistics About AI Adoption in Canada (2025)",
-        date: "2025-05-25",
+        date: "2025-05-27",
         author: "Huntertech Team",
         category: "Artificial Intelligence",
         image: aiAdoptionImg,
