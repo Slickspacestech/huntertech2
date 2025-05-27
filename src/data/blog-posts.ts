@@ -9,6 +9,7 @@ import emailVerificationImg from '../assets/images/blog/email-verification.webp'
 import itServicesGuideImg from '../assets/images/blog/AdobeStock_535677380.webp';
 import inHouseVsOutsourcedImg from '../assets/images/blog/in-house-vs-outsourced.webp';
 import secureVaultScamImg from '../assets/images/blog/SecureVaultScam.png';
+import aiAdoptionImg from '../assets/images/blog/ai-adoption-canada.jpg';
 
 export interface BlogPost {
     slug: string;
@@ -139,6 +140,18 @@ export const posts: BlogPost[] = [
         image: inHouseVsOutsourcedImg,
         content: "Making the right choice between building an in-house IT team and outsourcing is crucial for business success. This guide explores the pros and cons of each approach, from the benefits of dedicated IT staff to the risks of having non-technical employees handle IT responsibilities. Learn how to make an informed decision that aligns with your business goals and budget.",
         tags: ['IT strategy', 'in-house IT team', 'IT outsourcing', 'managed IT services', 'small business IT', 'IT management', 'IT support', 'business technology']
+    },
+    {
+        slug: 'ai-adoption-stats-2025/',
+        title: "Eye-Opening Statistics About AI Adoption in Canada (2025)",
+        date: "2025-05-25",
+        author: "Huntertech Team",
+        category: "Artificial Intelligence",
+        image: aiAdoptionImg,
+        content: `
+            <p>Discover the latest statistics on AI adoption in Canada, revealing a fascinating paradox between individual usage and business implementation. From generational differences to industry-specific insights, this comprehensive analysis provides valuable insights for Canadian businesses looking to navigate the AI landscape.</p>
+        `,
+        tags: ["AI adoption", "Canadian technology", "AI statistics", "business technology", "AI trends", "Canadian business", "AI implementation", "technology adoption", "SME technology", "digital transformation"]
     }
 ];
 
