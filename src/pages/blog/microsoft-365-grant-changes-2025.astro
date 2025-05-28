@@ -1,0 +1,525 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import { formatDate } from '../../utils/date';
+import CTABox from '../../components/CTABox.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import HeroBlog from '../../components/HeroBlog.astro';
+import SEO from '../../components/SEO.astro';
+import microsoftGrantImg from '../../assets/images/blog/microsoft-grant.jpg';
+
+const title = "Important Changes to Microsoft 365 Grants for Non-Profits: What You Need to Know";
+const description = "Learn about the upcoming changes to Microsoft's grant program for non-profits, including the discontinuation of Microsoft 365 Business Premium and Office 365 E1 grants, and what alternatives are available.";
+const date = "2025-05-28";
+const author = "Huntertech Team";
+const category = "IT Services";
+const keywords = [
+    "Microsoft 365 grants",
+    "non-profit technology",
+    "Microsoft Business Premium",
+    "Office 365 E1",
+    "non-profit IT",
+    "Microsoft grants",
+    "Tech for Social Impact",
+    "non-profit software"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "image": microsoftGrantImg.src,
+    "author": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://huntertech.ca/images/Huntertech_logo.webp"
+        }
+    },
+    "datePublished": date,
+    "dateModified": date,
+    "description": description,
+    "keywords": keywords.join(", "),
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://huntertech.ca/blog/microsoft-365-grant-changes-2025"
+    },
+    "articleSection": category,
+    "inLanguage": "en-CA"
+};
+---
+
+<Layout title={title} description={description}>
+    <SEO
+        title={title}
+        description={description}
+        keywords={keywords}
+        type="article"
+        image={microsoftGrantImg.src}
+        structuredData={structuredData}
+    />
+    
+    <Header />
+    
+    <main class="blog-post">
+        <HeroBlog 
+            title={title}
+            subtitle={`By ${author} • ${formatDate(date)}`}
+            backgroundImage={microsoftGrantImg}
+            backgroundImageAlt="Microsoft 365 for Non-Profits"
+        />
+
+        <article class="container">
+            <div class="post-content">
+                <div class="article-meta">
+                    <span class="category">{category}</span>
+                    <time datetime={date}>{formatDate(date)}</time>
+                </div>
+
+                <div class="content">
+                    <p class="lead">Microsoft has announced significant changes to their grant program for non-profits, effective July 1st, 2025. These changes will affect how non-profit organizations access Microsoft 365 services, with the discontinuation of some popular grant offerings and the introduction of new alternatives.</p>
+
+                    <h2>What's Changing?</h2>
+                    <p>Microsoft is streamlining their grant portfolio to simplify the offering process. The following changes will take effect on July 1st, 2025:</p>
+                    
+                    <ul>
+                        <li>Microsoft 365 Business Premium grant will be discontinued</li>
+                        <li>Office 365 E1 grant will be discontinued</li>
+                        <li>New offering: Up to 300 licenses of Microsoft 365 Business Basic</li>
+                        <li>New offering: Up to 75% discount on many Microsoft 365 offers</li>
+                    </ul>
+
+                    <h2>What This Means for Your Organization</h2>
+                    <p>If your non-profit currently uses Microsoft 365 Business Premium or Office 365 E1 through the grant program, you'll need to plan for these changes. Here's what you should know:</p>
+
+                    <ul>
+                        <li>Existing grant recipients will need to transition to the new offerings</li>
+                        <li>Microsoft 365 Business Basic will be available as a grant option (for free!)</li>
+                        <li>Significant discounts (up to 75%) will be available for other Microsoft 365 plans</li>
+                        <li>These changes only affect organizations using the grant program</li>
+                    </ul>
+
+                    <h2>Planning Your Transition</h2>
+                    <p>To ensure a smooth transition, we recommend the following steps:</p>
+
+                    <ol>
+                        <li>Review your current Microsoft 365 usage and requirements</li>
+                        <li>Assess which features you currently use from Business Premium or E1</li>
+                        <li>Compare your needs with the features available in Business Basic</li>
+                        <li>Consider the discounted options for any features not covered by Business Basic</li>
+                        <li>Create a transition timeline before the July 1st deadline</li>
+                    </ol>
+
+                    <h2>Available Alternatives</h2>
+                    <p>While the grant changes may seem concerning, Microsoft is still committed to supporting non-profits with their technology needs. The new structure offers:</p>
+
+                    <ul>
+                        <li>Microsoft 365 Business Basic (up to 300 licenses)</li>
+                        <li>75% discount on Microsoft 365 Business Premium</li>
+                        <li>75% discount on Office 365 E1</li>
+                        <li>Access to other Microsoft products at discounted rates</li>
+                    </ul>
+
+                    <h2>Understanding Microsoft 365 Business Plans</h2>
+                    <p>To help you make an informed decision about which plan best suits your needs, here's a comparison of the key features across Microsoft 365 Business plans:</p>
+
+                    <div class="plan-comparison">
+                        <!-- Desktop/Tablet Table View -->
+                        <table class="plan-table">
+                            <thead>
+                                <tr>
+                                    <th>Features</th>
+                                    <th>Business Basic</th>
+                                    <th>Business Standard</th>
+                                    <th>Business Premium</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Web & Mobile Office Apps</td>
+                                    <td>✓</td>
+                                    <td>✓</td>
+                                    <td>✓</td>
+                                </tr>
+                                <tr>
+                                    <td>Desktop Office Apps</td>
+                                    <td>✗</td>
+                                    <td>✓</td>
+                                    <td>✓</td>
+                                </tr>
+                                <tr>
+                                    <td>Publisher & Access (PC)</td>
+                                    <td>✗</td>
+                                    <td>✓</td>
+                                    <td>✓</td>
+                                </tr>
+                                <tr>
+                                    <td>Email (50GB)</td>
+                                    <td>✓</td>
+                                    <td>✓</td>
+                                    <td>✓</td>
+                                </tr>
+                                <tr>
+                                    <td>OneDrive (1TB)</td>
+                                    <td>✓</td>
+                                    <td>✓</td>
+                                    <td>✓</td>
+                                </tr>
+                                <tr>
+                                    <td>Microsoft Teams</td>
+                                    <td>✓</td>
+                                    <td>✓</td>
+                                    <td>✓</td>
+                                </tr>
+                                <tr>
+                                    <td>SharePoint</td>
+                                    <td>✓</td>
+                                    <td>✓</td>
+                                    <td>✓</td>
+                                </tr>
+                                <tr>
+                                    <td>Microsoft Intune</td>
+                                    <td>✗</td>
+                                    <td>✗</td>
+                                    <td>✓</td>
+                                </tr>
+                                <tr>
+                                    <td>Microsoft Defender for Business</td>
+                                    <td>✗</td>
+                                    <td>✗</td>
+                                    <td>✓</td>
+                                </tr>
+                                <tr>
+                                    <td>Advanced Threat Protection</td>
+                                    <td>✗</td>
+                                    <td>✗</td>
+                                    <td>✓</td>
+                                </tr>
+                                <tr>
+                                    <td>Conditional Access</td>
+                                    <td>✗</td>
+                                    <td>✗</td>
+                                    <td>✓</td>
+                                </tr>
+                                <tr>
+                                    <td>Non-Profit Pricing</td>
+                                    <td>Free (up to 300 licenses)</td>
+                                    <td>75% discount</td>
+                                    <td>75% discount</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Mobile Card View -->
+                        <div class="plan-cards">
+                            <div class="plan-card">
+                                <h3>Business Basic</h3>
+                                <p class="plan-description">The new grant offering, perfect for organizations that primarily need cloud services.</p>
+                                <ul>
+                                    <li><span class="feature">Web & Mobile Office Apps</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">Desktop Office Apps</span> <span class="status">✗</span></li>
+                                    <li><span class="feature">Publisher & Access (PC)</span> <span class="status">✗</span></li>
+                                    <li><span class="feature">Email (50GB)</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">OneDrive (1TB)</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">Microsoft Teams</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">SharePoint</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">Microsoft Intune</span> <span class="status">✗</span></li>
+                                    <li><span class="feature">Microsoft Defender for Business</span> <span class="status">✗</span></li>
+                                    <li><span class="feature">Advanced Threat Protection</span> <span class="status">✗</span></li>
+                                    <li><span class="feature">Conditional Access</span> <span class="status">✗</span></li>
+                                    <li><span class="feature">Non-Profit Pricing</span> <span class="status">Free (up to 300 licenses)</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="plan-card">
+                                <h3>Business Standard</h3>
+                                <p class="plan-description">Ideal for organizations that need desktop Office applications.</p>
+                                <ul>
+                                    <li><span class="feature">Web & Mobile Office Apps</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">Desktop Office Apps</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">Publisher & Access (PC)</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">Email (50GB)</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">OneDrive (1TB)</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">Microsoft Teams</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">SharePoint</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">Microsoft Intune</span> <span class="status">✗</span></li>
+                                    <li><span class="feature">Microsoft Defender for Business</span> <span class="status">✗</span></li>
+                                    <li><span class="feature">Advanced Threat Protection</span> <span class="status">✗</span></li>
+                                    <li><span class="feature">Conditional Access</span> <span class="status">✗</span></li>
+                                    <li><span class="feature">Non-Profit Pricing</span> <span class="status">75% discount</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="plan-card">
+                                <h3>Business Premium</h3>
+                                <p class="plan-description">Comprehensive solution primarily focused around enhancing security and device management.</p>
+                                <ul>
+                                    <li><span class="feature">Web & Mobile Office Apps</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">Desktop Office Apps</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">Publisher & Access (PC)</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">Email (50GB)</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">OneDrive (1TB)</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">Microsoft Teams</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">SharePoint</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">Microsoft Intune</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">Microsoft Defender for Business</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">Advanced Threat Protection</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">Conditional Access</span> <span class="status">✓</span></li>
+                                    <li><span class="feature">Non-Profit Pricing</span> <span class="status">75% discount</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="comparison-note">For non-profits focusing on email and basic document collaboration, Basic is likely fine. The 75% discount on Business Standard and Premium plans makes them very cost-effective options for non-profits that need these additional features. We do recommend a 3rd party identity threat product to protect your Microsoft 365 accounts.</p>
+
+                    <h2>Next Steps</h2>
+                    <p>If your organization is affected by these changes, we recommend:</p>
+
+                    <ul>
+                        <li>Reviewing your current Microsoft 365 usage</li>
+                        <li>Planning your transition strategy</li>
+                        <li>Consulting with your IT provider about the best options for your needs</li>
+                        <li>Taking advantage of the transition period to evaluate your technology requirements</li>
+                    </ul>
+
+                    <blockquote>
+                        "Our goal in Tech for Social Impact (TSI) is to ensure nonprofits can benefit from the industry leading solutions that are critical to ensuring the highest level of organizational security and productivity." - Microsoft
+                    </blockquote>
+
+                    <p>While these changes may require some adjustment, Microsoft remains committed to supporting non-profits with their technology needs. The new structure aims to provide more clarity and flexibility while maintaining access to essential tools and services.</p>
+                </div>
+            </div>
+        </article>
+
+        <CTABox 
+            title="Need Help with Your Microsoft 365 Transition?"
+            description="Our team can help you navigate these changes and find the best Microsoft 365 solution for your non-profit organization."
+            buttonText="Get Expert Help"
+            buttonLink="/contact/?form_conversion=microsoft-grant-blog"
+        />
+    </main>
+
+    <Footer />
+</Layout>
+
+<style>
+    .blog-post {
+        min-height: 100vh;
+        background: var(--bg-color);
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+
+    .post-content {
+        padding: 3rem 0;
+    }
+
+    .article-meta {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .category {
+        background: var(--accent-color);
+        color: white;
+        padding: 0.25rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+    }
+
+    .content {
+        font-size: clamp(1rem, 3vw, 1.1rem);
+        line-height: 1.8;
+    }
+
+    .lead {
+        font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+        line-height: 1.6;
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        margin: 2.5rem 0 1.5rem;
+        color: var(--heading-color);
+    }
+
+    p {
+        margin-bottom: 1.5rem;
+    }
+
+    ul, ol {
+        margin: 1.5rem 0;
+        padding-left: 1.5rem;
+    }
+
+    li {
+        margin-bottom: 0.75rem;
+    }
+
+    blockquote {
+        border-left: 4px solid var(--accent-color);
+        padding-left: 1.5rem;
+        margin: 2rem 0;
+        font-style: italic;
+        color: var(--text-muted);
+    }
+
+    .plan-comparison {
+        margin: 2rem 0;
+    }
+
+    /* Table Styles */
+    .plan-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+        background: var(--white);
+        border-radius: var(--radius-md);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .plan-table th,
+    .plan-table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .plan-table th {
+        background: var(--primary-color);
+        color: white;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    .plan-table th:first-child {
+        border-top-left-radius: var(--radius-md);
+    }
+
+    .plan-table th:last-child {
+        border-top-right-radius: var(--radius-md);
+    }
+
+    .plan-table td:first-child {
+        font-weight: 500;
+        color: var(--text-color);
+    }
+
+    .plan-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    .plan-table td:not(:first-child) {
+        text-align: center;
+    }
+
+    .plan-table td:not(:first-child) {
+        color: var(--text-muted);
+    }
+
+    /* Card Styles */
+    .plan-cards {
+        display: none;
+        gap: 2rem;
+    }
+
+    .plan-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .plan-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+    }
+
+    .plan-description {
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+        font-style: italic;
+    }
+
+    .plan-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .plan-card li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .plan-card li:last-child {
+        border-bottom: none;
+    }
+
+    .plan-card .feature {
+        color: var(--text-color);
+        font-weight: 500;
+    }
+
+    .plan-card .status {
+        color: var(--text-muted);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .post-content {
+            padding: 2rem 0;
+        }
+
+        .container {
+            padding: 0 1rem;
+        }
+
+        .article-meta {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .plan-table {
+            display: none;
+        }
+
+        .plan-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        .plan-card {
+            padding: 1.5rem;
+        }
+
+        .plan-card h3 {
+            font-size: 1.2rem;
+        }
+
+        .plan-card li {
+            font-size: 0.9rem;
+            padding: 0.5rem 0;
+        }
+    }
+</style> 

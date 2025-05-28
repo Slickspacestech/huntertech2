@@ -10,6 +10,7 @@ import itServicesGuideImg from '../assets/images/blog/AdobeStock_535677380.webp'
 import inHouseVsOutsourcedImg from '../assets/images/blog/in-house-vs-outsourced.webp';
 import secureVaultScamImg from '../assets/images/blog/SecureVaultScam.png';
 import aiAdoptionImg from '../assets/images/blog/ai-adoption-canada.jpg';
+import microsoftGrantImg from '../assets/images/blog/microsoft-grant.jpg';
 
 export interface BlogPost {
     slug: string;
@@ -152,6 +153,27 @@ export const posts: BlogPost[] = [
             <p>Discover the latest statistics on AI adoption in Canada, revealing a fascinating paradox between individual usage and business implementation. From generational differences to industry-specific insights, this comprehensive analysis provides valuable insights for Canadian businesses looking to navigate the AI landscape.</p>
         `,
         tags: ["AI adoption", "Canadian technology", "AI statistics", "business technology", "AI trends", "Canadian business", "AI implementation", "technology adoption", "SME technology", "digital transformation"]
+    },
+    {
+        slug: 'microsoft-365-grant-changes-2025',
+        title: "Important Changes to Microsoft 365 Grants for Non-Profits: What You Need to Know",
+        date: "2025-05-28",
+        author: "Huntertech Team",
+        category: "IT Services",
+        image: microsoftGrantImg,
+        content: `
+            <p>Microsoft has announced significant changes to their grant program for non-profits, effective July 1st, 2025. These changes will affect how non-profit organizations access Microsoft 365 services, with the discontinuation of some popular grant offerings and the introduction of new alternatives.</p>
+        `,
+        tags: [
+            "Microsoft 365 grants",
+            "non-profit technology",
+            "Microsoft Business Premium",
+            "Office 365 E1",
+            "non-profit IT",
+            "Microsoft grants",
+            "Tech for Social Impact",
+            "non-profit software"
+        ]
     }
 ];
 
