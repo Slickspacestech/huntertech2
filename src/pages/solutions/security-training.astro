@@ -1,0 +1,150 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import SEO from '../../components/SEO.astro';
+import contactBg from '../../assets/images/contact-bg.webp';
+
+const title = "Security Awareness Training | Huntertech";
+const description = "Comprehensive security awareness training programs to build a security-first culture in your organization. Protect your business through employee education.";
+const keywords = [
+    "security training",
+    "security awareness",
+    "employee training",
+    "cybersecurity training",
+    "security culture"
+];
+---
+
+<Layout title={title} description={description}>
+    <SEO 
+        title={title}
+        description={description}
+        canonicalURL="https://huntertech.ca/solutions/security-training/"
+        keywords={keywords}
+        type="website"
+        image={contactBg.src}
+    />
+    <Header />
+    <main class="contact-page">
+        <section class="contact-section">
+            <div class="container">
+                <h1 class="page-title">Security Awareness Training</h1>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Build a Security-First Culture</h2>
+                        <p>Our security awareness training program, powered by Huntress, delivers engaging, story-based content that transforms your employees into active participants in your security culture. With a 98% completion rate and expert-backed training built on real-world threat intelligence, we make security awareness both effective and enjoyable.</p>
+                        
+                        <h3>Key Benefits</h3>
+                        <ul>
+                            <li>98% completion rate once learners begin training</li>
+                            <li>91% of users find story-based content more effective than traditional training</li>
+                            <li>Expert-backed content built on real-world threat intelligence</li>
+                            <li>Engaging characters and immersive learning experiences</li>
+                            <li>Just-in-time phishing defense coaching</li>
+                            <li>Comprehensive reporting and compliance tracking</li>
+                        </ul>
+
+                        <h3>Our Training Approach</h3>
+                        <ol>
+                            <li>Quick onboarding - set up in minutes, not days</li>
+                            <li>Expert-managed learning plans</li>
+                            <li>Immersive threat simulations</li>
+                            <li>Gamification and interactive content</li>
+                            <li>Behavior-based assignments</li>
+                            <li>Regular progress tracking and reporting</li>
+                        </ol>
+
+                        <p>Contact us today to transform your security culture.</p>
+                    </div>
+                    <div class="contact-form">
+                        <h2>Request Training Services</h2>
+                        <div class="hs-form-frame" data-region="na1" data-form-id="c4506331-7284-4ba7-91b6-48ef91992b78" data-portal-id="47750250"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
+
+<script src="https://js.hsforms.net/forms/embed/47750250.js" defer></script>
+
+<style>
+    .contact-page {
+        padding-top: 80px;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .page-title {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .contact-section {
+        padding: 4rem 1rem;
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+
+    .contact-info h2,
+    .contact-form h2 {
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .contact-info h3 {
+        color: var(--primary-color);
+        margin: 2rem 0 1rem;
+        font-size: 1.4rem;
+    }
+
+    .contact-info p {
+        color: var(--text-color);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-info ul,
+    .contact-info ol {
+        color: var(--text-color);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+    }
+
+    .contact-info li {
+        margin-bottom: 0.5rem;
+    }
+
+    .contact-form {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .hs-form-frame {
+        width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        .contact-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+</style> 

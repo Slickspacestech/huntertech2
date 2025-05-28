@@ -1,0 +1,151 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import SEO from '../../components/SEO.astro';
+import contactBg from '../../assets/images/contact-bg.webp';
+
+const title = "Security Risk Assessment Services | Huntertech";
+const description = "Comprehensive security risk assessment services to identify vulnerabilities and protect your business. Get expert evaluation of your security posture.";
+const keywords = [
+    "security risk assessment",
+    "cybersecurity assessment",
+    "vulnerability assessment",
+    "security audit",
+    "IT security evaluation"
+];
+---
+
+<Layout title={title} description={description}>
+    <SEO 
+        title={title}
+        description={description}
+        canonicalURL="https://huntertech.ca/solutions/risk-assessment/"
+        keywords={keywords}
+        type="website"
+        image={contactBg.src}
+    />
+    <Header />
+    <main class="contact-page">
+        <section class="contact-section">
+            <div class="container">
+                <h1 class="page-title">Security Risk Assessment</h1>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Comprehensive Security Evaluation</h2>
+                        <p>Our security risk assessment service provides a thorough evaluation of your organization's security posture, identifying vulnerabilities and providing actionable recommendations for improvement.</p>
+                        
+                        <h3>What We Assess</h3>
+                        <ul>
+                            <li>Microsoft 365 Security Score</li>
+                            <li>Endpoint protection measures</li>
+                            <li>Access control systems</li>
+                            <li>Data protection protocols/backups</li>
+                            <li>Known Software Vulnerabilities</li>
+                            <li>Website Security</li>
+                            <li>Dark Web Scan</li>
+                        </ul>
+
+                        <h3>Our Assessment Process</h3>
+                        <ol>
+                            <li>Initial consultation and scope definition</li>
+                            <li>Comprehensive security audit</li>
+                            <li>Vulnerability assessment</li>
+                            <li>Risk analysis and prioritization</li>
+                            <li>Detailed reporting and recommendations</li>
+                            <li>Implementation planning support</li>
+                        </ol>
+
+                        <p>Get in touch today to schedule your security risk assessment and take the first step towards a more secure business environment.</p>
+                    </div>
+                    <div class="contact-form">
+                        <h2>Request a Risk Assessment</h2>
+                        <div class="hs-form-frame" data-region="na1" data-form-id="c4506331-7284-4ba7-91b6-48ef91992b78" data-portal-id="47750250"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
+
+<script src="https://js.hsforms.net/forms/embed/47750250.js" defer></script>
+
+<style>
+    .contact-page {
+        padding-top: 80px;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .page-title {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .contact-section {
+        padding: 4rem 1rem;
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+
+    .contact-info h2,
+    .contact-form h2 {
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .contact-info h3 {
+        color: var(--primary-color);
+        margin: 2rem 0 1rem;
+        font-size: 1.4rem;
+    }
+
+    .contact-info p {
+        color: var(--text-color);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-info ul,
+    .contact-info ol {
+        color: var(--text-color);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+    }
+
+    .contact-info li {
+        margin-bottom: 0.5rem;
+    }
+
+    .contact-form {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .hs-form-frame {
+        width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        .contact-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+</style> 
