@@ -14,6 +14,7 @@ import hybridWork from '../../assets/images/hybrid-work.webp';
 import procurement from '../../assets/images/procurement.webp';
 import networking from '../../assets/images/networking.webp';
 import mattHeadshot from '../../assets/images/Matt-Headshot.webp';
+import CTABox from '../../components/CTABox.astro';
 
 const title = "Managed IT Services & Support | Professional IT Management in Calgary & Vancouver";
 const description = "Comprehensive managed IT services and support for businesses in Calgary and Vancouver. Get proactive IT management, 24/7 monitoring, cybersecurity, and expert technical support from certified IT professionals.";
@@ -161,7 +162,7 @@ const structuredData = {
             subtitle="Proactive IT management and support for your business"
             backgroundImage={itSupport}
             ctaText="Get Started"
-            ctaLink="/contact/"
+            ctaLink="/contact/?form_conversion=managed-it-support-hero-cta"
         />
 
         <section class="intro">
@@ -375,8 +376,12 @@ const structuredData = {
 
         <section class="managed-it-cta">
             <div class="managed-it-container">
-                <h2>Get in touch today</h2>
-                <a href="/contact/" class="cta-button">Contact us</a>
+                <CTABox 
+                    title="Ready to Transform Your IT Infrastructure?"
+                    description="Join the growing list of businesses that trust Huntertech for their IT needs. Get started with a free consultation today."
+                    buttonText="Get Started"
+                    buttonLink="/contact/?form_conversion=managed-it-cta"
+                />
             </div>
         </section>
     </main>
@@ -574,30 +579,13 @@ const structuredData = {
 
     .managed-it-cta {
         padding: 4rem 0;
-        text-align: center;
-        background-color: var(--white);
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     }
 
-    .managed-it-cta h2 {
-        color: var(--secondary-heading);
-        margin-bottom: 1.5rem;
-    }
-
-    .managed-it-cta .cta-button {
-        display: inline-block;
-        background-color: var(--button-color);
-        color: var(--white);
-        padding: 1rem 2rem;
-        border-radius: var(--radius-md);
-        text-decoration: none;
-        font-weight: 500;
-        margin-top: 1rem;
-        transition: all var(--transition-normal);
-    }
-
-    .managed-it-cta .cta-button:hover {
-        background-color: var(--button-hover);
-        transform: translateY(-2px);
+    .managed-it-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
     }
 
     @media (max-width: 768px) {

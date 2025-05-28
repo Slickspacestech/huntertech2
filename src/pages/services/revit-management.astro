@@ -8,6 +8,7 @@ import ChartLine from '../../components/icons/chart-line.astro';
 import Tasks from '../../components/icons/tasks.astro';
 import SEO from '../../components/SEO.astro';
 import revitBg from '../../assets/images/revit-bg.webp';
+import CTABox from '../../components/CTABox.astro';
 
 const title = "Revit Management Services | Professional BIM Solutions - Huntertech";
 const description = "Expert Revit management services for architecture and construction firms in Calgary and Vancouver. Get professional BIM solutions, model optimization, training, and support from certified Revit specialists.";
@@ -156,7 +157,7 @@ const structuredData = {
             backgroundImage={revitBg}
             backgroundImageAlt="Revit Management Service Background"
             ctaText="Find Out More"
-            ctaLink="/contact/"
+            ctaLink="/contact/?form_conversion=revit-hero-cta"
         />
         <section class="intro">
             <div class="managed-it-container">
@@ -229,9 +230,12 @@ const structuredData = {
         </section>
         <section class="managed-it-cta">
             <div class="managed-it-container">
-                <h2>Ready to Optimize Your Revit Workflow?</h2>
-               
-                <a href="/contact/" class="cta-button">Contact Us</a>
+                <CTABox 
+                    title="Ready to Optimize Your Revit Workflow?"
+                    description="Join the growing list of architecture and construction firms that trust Huntertech for their Revit needs. Get started with a free consultation today."
+                    buttonText="Get Started"
+                    buttonLink="/contact/?form_conversion=revit-cta"
+                />
             </div>
         </section>
 
@@ -242,8 +246,12 @@ const structuredData = {
 <style>
     .managed-it-cta {
         padding: 4rem 0;
-        text-align: center;
-        background-color: var(--white);
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    }
+    .managed-it-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
     }
     .managed-it-cta h2 {
         color: var(--secondary-heading);
