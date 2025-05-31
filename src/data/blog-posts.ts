@@ -11,6 +11,7 @@ import inHouseVsOutsourcedImg from '../assets/images/blog/in-house-vs-outsourced
 import secureVaultScamImg from '../assets/images/blog/SecureVaultScam.png';
 import aiAdoptionImg from '../assets/images/blog/ai-adoption-canada.jpg';
 import microsoftGrantImg from '../assets/images/blog/microsoft-grant.jpg';
+import passwordlessImg from '../assets/images/blog/passwordless-hero.png';
 
 export interface BlogPost {
     slug: string;
@@ -174,6 +175,18 @@ export const posts: BlogPost[] = [
             "Tech for Social Impact",
             "non-profit software"
         ]
+    },
+    {
+        slug: 'passwordless-authentication-microsoft-365/',
+        title: "How to Enable Passwordless Authentication in Microsoft 365 Using Entra ID",
+        date: "2025-05-31",
+        author: "Huntertech Team",
+        category: "IT Services",
+        image: passwordlessImg,
+        content: `
+            <p>Passwords are one of the weakest links in cybersecurity. With phishing attacks and credential leaks on the rise, Microsoft 365 now supports passwordless authentication through Entra ID (formerly Azure Active Directory). This guide walks you through how to enable passwordless sign-in using Microsoft Authenticator.</p>
+        `,
+        tags: ["Microsoft 365", "Entra ID", "passwordless authentication", "cybersecurity", "Microsoft Authenticator", "zero trust", "IT security", "authentication methods"]
     }
 ];
 
