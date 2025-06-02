@@ -60,24 +60,26 @@ const blogPosts = [
                         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
                         .map(post => (
                         <article class="post-card">
-                            <div class="post-image">
-                                <Image 
-                                    src={post.image}
-                                    alt={post.title}
-                                    width={600}
-                                    height={400}
-                                    class="post-img"
-                                />
-                            </div>
-                            <div class="post-content">
-                                <h2>{post.title}</h2>
-                                <p>{post.content.split('</p>')[0].replace('<p>', '')}</p>
-                                <div class="post-meta">
-                                    <time datetime={post.date}>{formatDate(post.date)}</time>
-                                    <span class="category">{post.category}</span>
+                            <a href={`/blog/${post.slug}`} class="post-link" aria-label={`Read article: ${post.title}`}>
+                                <div class="post-image">
+                                    <Image 
+                                        src={post.image}
+                                        alt={`Featured image for article: ${post.title}`}
+                                        width={600}
+                                        height={400}
+                                        class="post-img"
+                                    />
                                 </div>
-                                <a href={`/blog/${post.slug}`} class="read-more">Read More</a>
-                            </div>
+                                <div class="post-content">
+                                    <h2>{post.title}</h2>
+                                    <p>{post.content.split('</p>')[0].replace('<p>', '')}</p>
+                                    <div class="post-meta">
+                                        <time datetime={post.date}>{formatDate(post.date)}</time>
+                                        <span class="category">{post.category}</span>
+                                    </div>
+                                    <span class="read-more">Read full article</span>
+                                </div>
+                            </a>
                         </article>
                     ))}
                 </div>
@@ -159,16 +161,22 @@ const blogPosts = [
         font-size: 0.8em;
     }
 
+    .post-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        height: 100%;
+    }
+
+    .post-link:hover .read-more {
+        color: var(--primary-color);
+    }
+
     .read-more {
         display: inline-block;
         color: var(--button-color);
-        text-decoration: none;
         font-weight: 600;
         transition: color 0.3s ease;
-    }
-
-    .read-more:hover {
-        color: var(--primary-color);
     }
 
     @media (max-width: 768px) {
