@@ -10,7 +10,6 @@ import Certificate from '../../components/icons/certificate.astro';
 import ChartLine from '../../components/icons/chart-line.astro';
 import Handshake from '../../components/icons/handshake2.astro';
 import Lock from '@/components/icons/lock.astro';
-import SEO from '../../components/SEO.astro';
 import itSupportImage from '../../assets/images/it-support.webp';
 
 const title = "IT Support Services Calgary & Vancouver - Huntertech";
@@ -68,15 +67,15 @@ const structuredData = {
 };
 ---
 
-<Layout title={title} description={description}>
-    <SEO
-        title={title}
-        description={description}
-        canonicalURL="https://huntertech.ca/solutions/it-support/"
-        keywords={keywords}
-        type="website"
-        image={itSupportImage.src}
-    />
+<Layout 
+    title={title} 
+    description={description}
+    canonicalURL="https://huntertech.ca/solutions/it-support/"
+    keywords={keywords}
+    type="website"
+    image={itSupportImage.src}
+    structuredData={structuredData}
+>
     <Header />
     <main class="service-page">
         <Hero 

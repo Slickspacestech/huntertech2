@@ -5,7 +5,6 @@ import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Footer from '../components/Footer.astro';
 import ArrowRight from '../components/icons/arrow-right.astro';
-import SEO from '../components/SEO.astro';
 import logo from '../assets/images/Huntertech_logo.png';
 import managedIt from '../assets/images/managed-it.webp';
 
@@ -108,25 +107,24 @@ const structuredData = {
 };
 ---
 
-<Layout title={title} description={description}>
-    <SEO 
-        title={title}
-        description={description}
-        canonicalURL="/faq/"
-        keywords={[
-            "IT Services FAQ",
-            "Managed IT Support Questions",
-            "IT Support Pricing",
-            "IT Service Response Times",
-            "Emergency IT Support",
-            "Remote IT Support",
-            "IT System Integration",
-            "Project Based IT Services"
-        ]}
-        type="website"
-        image={logo.src}
-        structuredData={structuredData}
-    />
+<Layout 
+    title={title} 
+    description={description}
+    canonicalURL="/faq/"
+    keywords={[
+        "IT Services FAQ",
+        "Managed IT Support Questions",
+        "IT Support Pricing",
+        "IT Service Response Times",
+        "Emergency IT Support",
+        "Remote IT Support",
+        "IT System Integration",
+        "Project Based IT Services"
+    ]}
+    type="website"
+    image={logo.src}
+    structuredData={structuredData}
+>
     <Header />
     <main>
         <Hero 

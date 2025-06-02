@@ -8,7 +8,6 @@ import Cloud2 from '../../components/icons/cloud2.astro';
 import Rocket from '../../components/icons/rocket.astro';
 import Users from '../../components/icons/users.astro';
 import Hero from '../../components/Hero.astro';
-import SEO from '../../components/SEO.astro';
 import { Image } from 'astro:assets';
 import architectHero from '../../assets/images/architect_engineer_tech.webp';
 import videoCover from '../../assets/images/Huntertech-video-cover.webp';
@@ -136,16 +135,15 @@ const structuredData = {
 };
 ---
 
-<Layout title={title} description={description}>
-    <SEO
-        title={title}
-        description={description}
-        canonicalURL="https://huntertech.ca/industries/architecture/"
-        keywords={keywords}
-        type="website"
-        image={architectHero.src}
-        structuredData={structuredData}
-    />
+<Layout 
+    title={title} 
+    description={description}
+    canonicalURL="https://huntertech.ca/industries/architecture/"
+    keywords={keywords}
+    type="website"
+    image={architectHero.src}
+    structuredData={structuredData}
+>
     <Header />
     <main class="service-page">
         <Hero 

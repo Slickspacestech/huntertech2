@@ -8,6 +8,7 @@ interface Props {
     image?: string;
     location?: 'Calgary' | 'Vancouver';
     structuredData?: any;
+    slot?: string;
 }
 
 const {
@@ -18,7 +19,8 @@ const {
     type = "website",
     image = "https://huntertech.ca/og-image.jpg",
     location,
-    structuredData: customStructuredData
+    structuredData: customStructuredData,
+    slot
 } = Astro.props;
 
 const siteTitle = "Huntertech";
@@ -120,7 +122,7 @@ const structuredData = customStructuredData || defaultStructuredData;
 ---
 
 <!-- Primary Meta Tags -->
-<title>{fullTitle}</title>
+<title set:html={fullTitle} />
 <meta name="title" content={fullTitle} />
 <meta name="description" content={description} />
 <meta name="keywords" content={allKeywords.join(", ")} />
@@ -143,7 +145,7 @@ const structuredData = customStructuredData || defaultStructuredData;
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Structured Data -->
-{structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>}
+{structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}
 
 <!-- Additional Meta Tags -->
 <meta name="robots" content="index, follow" />

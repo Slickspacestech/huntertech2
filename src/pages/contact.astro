@@ -7,7 +7,6 @@ import MapPin from '../components/icons/map-pin.astro';
 import Phone from '../components/icons/phone.astro';
 import Envelope from '../components/icons/envelope.astro';
 import Clock from '../components/icons/clock.astro';
-import SEO from '../components/SEO.astro';
 import contactBg from '../assets/images/contact-bg.webp';
 
 const title = "Contact Huntertech | IT Services Calgary & Vancouver";
@@ -21,15 +20,14 @@ const keywords = [
 ];
 ---
 
-<Layout title={title} description={description}>
-    <SEO 
-        title={title}
-        description={description}
-        canonicalURL="https://huntertech.ca/contact/"
-        keywords={keywords}
-        type="website"
-        image={contactBg.src}
-    />
+<Layout 
+    title={title} 
+    description={description}
+    canonicalURL="https://huntertech.ca/contact/"
+    keywords={keywords}
+    type="website"
+    image={contactBg.src}
+>
     <Header />
     <main class="contact-page">
         <section class="contact-section">

@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import SEO from '../../components/SEO.astro';
 import contactBg from '../../assets/images/contact-bg.webp';
 
 const title = "24/7 Security Monitoring Services";
@@ -17,14 +16,13 @@ const keywords = [
 ];
 ---
 
-<Layout title={title} description={description}>
-    <SEO 
-        title={title}
-        description={description}
-        keywords={keywords}
-        type="website"
-        image={contactBg.src}
-    />
+<Layout 
+    title={title} 
+    description={description}
+    keywords={keywords}
+    type="website"
+    image={contactBg.src}
+>
     <Header />
     <main class="contact-page">
         <section class="contact-section">

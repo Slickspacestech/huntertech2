@@ -9,7 +9,6 @@ import Users from '../components/icons/users.astro';
 import Star from '../components/icons/star.astro';
 import Hero from '../components/Hero.astro';
 import SolutionsCTA from '../components/SolutionsCTA.astro';
-import SEO from '../components/SEO.astro';
 import aboutBg from '../assets/images/about-bg.webp';
 import buildexHero from '../assets/images/buildex-huntertech.webp';
 
@@ -77,16 +76,15 @@ const structuredData = {
 };
 ---
 
-<Layout title={title} description={description}>
-    <SEO 
-        title={title}
-        description={description}
-        canonicalURL="https://huntertech.ca/about/"
-        keywords={keywords}
-        type="website"
-        image={aboutBg.src}
-        structuredData={structuredData}
-    />
+<Layout 
+    title={title} 
+    description={description}
+    canonicalURL="https://huntertech.ca/about/"
+    keywords={keywords}
+    type="website"
+    image={aboutBg.src}
+    structuredData={structuredData}
+>
     <Header />
     <main>
         <Hero 

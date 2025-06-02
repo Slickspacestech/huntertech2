@@ -2,11 +2,27 @@
 interface Props {
     title: string;
     description?: string;
+    canonicalURL?: string;
+    keywords?: string[];
+    type?: string;
+    image?: string;
+    structuredData?: any;
+    location?: 'Calgary' | 'Vancouver';
 }
 
-const { title, description } = Astro.props;
+const { 
+    title, 
+    description, 
+    canonicalURL = Astro.url.pathname,
+    keywords = [],
+    type = 'website',
+    image = '/images/huntertech-og.jpg',
+    structuredData,
+    location
+} = Astro.props;
 
 import Favicons from '../components/Favicons.astro';
+import SEO from '../components/SEO.astro';
 ---
 
 <!DOCTYPE html>
@@ -14,6 +30,18 @@ import Favicons from '../components/Favicons.astro';
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <!-- SEO -->
+        <SEO 
+            title={title}
+            description={description}
+            canonicalURL={canonicalURL}
+            keywords={keywords}
+            type={type}
+            image={image}
+            structuredData={structuredData}
+            slot="head"
+        />
         
         <!-- Favicons -->
         <Favicons />

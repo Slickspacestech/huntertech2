@@ -9,7 +9,6 @@ import Lock from '../../components/icons/lock.astro';
 import Tachometer from '../../components/icons/tachometer.astro';
 import Handshake from '../../components/icons/handshake2.astro';
 import Cogs from '../../components/icons/Cogs.astro';
-import SEO from '../../components/SEO.astro';
 import hybridWorkplaceImage from '../../assets/images/hybrid-work-bg.webp';
 
 const title = "Hybrid Workplace Solutions Calgary & Vancouver | Remote Work";
@@ -63,15 +62,15 @@ const structuredData = {
 };
 ---
 
-<Layout title={title} description={description}>
-    <SEO 
-        title={title}
-        description={description}
-        canonicalURL="https://huntertech.ca/solutions/hybrid-workplace/"
-        keywords={keywords}
-        type="website"
-        image={hybridWorkplaceImage.src}
-    />
+<Layout 
+    title={title} 
+    description={description}
+    canonicalURL="https://huntertech.ca/solutions/hybrid-workplace/"
+    keywords={keywords}
+    type="website"
+    image={hybridWorkplaceImage.src}
+    structuredData={structuredData}
+>
     <Header />
     <main class="service-page">
         <Hero 

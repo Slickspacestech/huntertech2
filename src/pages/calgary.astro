@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import SEO from '../components/SEO.astro';
 import MapMarker from '../components/icons/map-marker.astro';
 import Phone from '../components/icons/phone.astro';
 import Envelope from '../components/icons/envelope.astro';
@@ -125,17 +124,16 @@ const structuredData = {
 };
 ---
 
-<Layout title={title} description={description}>
-    <SEO 
-        title={title}
-        description={description}
-        canonicalURL="https://huntertech.ca/calgary/"
-        keywords={keywords}
-        type="website"
-        image={calgaryBg.src}
-        location="Calgary"
-        structuredData={structuredData}
-    />
+<Layout 
+    title={title} 
+    description={description}
+    canonicalURL="https://huntertech.ca/calgary/"
+    keywords={keywords}
+    type="website"
+    image={calgaryBg.src}
+    location="Calgary"
+    structuredData={structuredData}
+>
     <Header />
     <main>
         <Hero 

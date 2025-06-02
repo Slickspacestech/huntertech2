@@ -7,7 +7,6 @@ import Hero from '../../components/Hero.astro';
 import SolutionsCTA from '../../components/SolutionsCTA.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import Headphones from '../../components/icons/headphones.astro';
-import SEO from '../../components/SEO.astro';
 import itSupport from '../../assets/images/it-support.webp';
 import cybersecurity from '../../assets/images/cybersecurity.webp';
 import hybridWork from '../../assets/images/hybrid-work.webp';
@@ -145,16 +144,15 @@ const structuredData = {
 };
 ---
 
-<Layout title={title} description={description}>
-    <SEO 
-        title={title}
-        description={description}
-        canonicalURL="https://huntertech.ca/services/managed-it-support/"
-        keywords={keywords}
-        type="website"
-        image={itSupport.src}
-        structuredData={structuredData}
-    />
+<Layout 
+    title={title} 
+    description={description}
+    canonicalURL="https://huntertech.ca/services/managed-it-support/"
+    keywords={keywords}
+    type="website"
+    image={itSupport.src}
+    structuredData={structuredData}
+>
     <Header />
     <main class="service-page">
         <Hero 

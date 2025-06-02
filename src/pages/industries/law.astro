@@ -8,7 +8,6 @@ import Invoice from '../../components/icons/invoice.astro';
 import Cloud2 from '../../components/icons/cloud2.astro';
 import Lock from '../../components/icons/lock.astro';
 import MapleLeaf from '../../components/icons/maple-leaf.astro';
-import SEO from '../../components/SEO.astro';
 import { Image } from 'astro:assets';
 import lawImage from '../../assets/images/law.webp';
 
@@ -135,16 +134,15 @@ const structuredData = {
 };
 ---
 
-<Layout title={title} description={description}>
-    <SEO
-        title={title}
-        description={description}
-        canonicalURL="https://huntertech.ca/industries/law/"
-        keywords={keywords}
-        type="website"
-        image={lawImage.src}
-        structuredData={structuredData}
-    />
+<Layout 
+    title={title} 
+    description={description}
+    canonicalURL="https://huntertech.ca/industries/law/"
+    keywords={keywords}
+    type="website"
+    image={lawImage.src}
+    structuredData={structuredData}
+>
     <Header />
     <main class="service-page">
         <Hero 

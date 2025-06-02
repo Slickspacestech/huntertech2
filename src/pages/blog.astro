@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import SEO from '../components/SEO.astro';
 import HeroBlog from '../components/HeroBlog.astro';
 import { posts } from '../data/blog-posts';
 import { formatDate } from '../utils/date';
@@ -27,23 +26,6 @@ const blogPosts = [
 ---
 
 <Layout title={title} description={description}>
-    <SEO 
-        title={title}
-        description={description}
-        canonicalURL="https://huntertech.ca/blog/"
-        keywords={[
-            "IT Services blog",
-            "IT Support tips",
-            "Cybersecurity blog",
-            "Business IT advice",
-            "IT Services Calgary blog",
-            "IT Services Vancouver blog",
-            "Small business IT tips",
-            "Technology trends"
-        ]}
-        type="website"
-        image={blogHero.src}
-    />
     <Header />
     <main>
         <HeroBlog 

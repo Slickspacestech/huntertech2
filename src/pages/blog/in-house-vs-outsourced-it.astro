@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import SEO from '../../components/SEO.astro';
 import CTABox from '../../components/CTABox.astro';
 import HeroBlog from '../../components/HeroBlog.astro';
 import { formatDate, validateDate } from '../../utils/date';
@@ -53,19 +52,17 @@ const structuredData = {
 };
 ---
 
-<Layout title={title}>
-    <SEO 
-        title={title}
-        description={description}
-        image={image.src}
-        type="article"
-        keywords={keywords}
-        location="Calgary"
-    />
-    
+<Layout 
+    title={title} 
+    description={description}
+    keywords={keywords}
+    type="article"
+    image={image.src}
+    structuredData={structuredData}
+    location="Calgary"
+>
     <Header />
-    
-    <div class="blog-post">
+    <main class="blog-post">
         <HeroBlog 
             title={title}
             subtitle={`By ${author} | ${formatDate(date)}`}
@@ -181,7 +178,7 @@ const structuredData = {
                 />
             </article>
         </div>
-    </div>
+    </main>
 
     <Footer />
 </Layout>

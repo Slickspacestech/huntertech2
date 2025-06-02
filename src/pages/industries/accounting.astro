@@ -8,7 +8,6 @@ import Invoice from '../../components/icons/invoice.astro';
 import Cloud2 from '../../components/icons/cloud2.astro';
 import Dollar from '../../components/icons/dollar.astro';
 import Lock from '../../components/icons/lock.astro';
-import SEO from '../../components/SEO.astro';
 import { Image } from 'astro:assets';
 import accountantImage from '../../assets/images/accountant.webp';
 
@@ -135,16 +134,15 @@ const structuredData = {
 };
 ---
 
-<Layout title={title} description={description}>
-    <SEO
-        title={title}
-        description={description}
-        canonicalURL="https://huntertech.ca/industries/accounting/"
-        keywords={keywords}
-        type="website"
-        image={accountantImage.src}
-        structuredData={structuredData}
-    />
+<Layout 
+    title={title} 
+    description={description}
+    canonicalURL="https://huntertech.ca/industries/accounting/"
+    keywords={keywords}
+    type="website"
+    image={accountantImage.src}
+    structuredData={structuredData}
+>
     <Header />
     <main class="service-page">
         <Hero 

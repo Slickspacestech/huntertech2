@@ -15,7 +15,6 @@ import Shield from '../../components/icons/shield.astro';
 import Cogs from '../../components/icons/Cogs.astro';
 import Users from '../../components/icons/users.astro';
 import GraduationHat from '../../components/icons/graduation-hat.astro';
-import SEO from '../../components/SEO.astro';
 import { Image } from 'astro:assets';
 import m365Hero from '../../assets/images/m365.webp';
 
@@ -106,15 +105,15 @@ const structuredData = {
 };
 ---
 
-<Layout title={title} description={description}>
-    <SEO
-        title={title}
-        description={description}
-        canonicalURL="https://huntertech.ca/solutions/microsoft-365/"
-        keywords={keywords}
-        type="website"
-        image={m365Hero.src}
-    />
+<Layout 
+    title={title} 
+    description={description}
+    canonicalURL="/solutions/microsoft-365/"
+    keywords={keywords}
+    type="website"
+    image={m365Hero.src}
+    structuredData={structuredData}
+>
     <Header />
     <main class="service-page">
         <Hero 

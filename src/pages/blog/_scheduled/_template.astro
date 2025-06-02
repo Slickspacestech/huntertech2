@@ -6,7 +6,6 @@ import CTABox from '../../components/CTABox.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import HeroBlog from '../../components/HeroBlog.astro';
-import SEO from '../../components/SEO.astro';
 
 // Replace these with your article's content
 const title = "Your Article Title";
@@ -51,16 +50,15 @@ const structuredData = {
 };
 ---
 
-<Layout title={title} description={description}>
-    <SEO
-        title={title}
-        description={description}
-        canonicalURL={`/blog/${Astro.url.pathname.split('/').pop()}`}
-        keywords={keywords}
-        type="article"
-        image={featuredImage.src}
-    />
-    
+<Layout 
+    title={title} 
+    description={description}
+    keywords={keywords}
+    type="article"
+    image={featuredImage.src}
+    structuredData={structuredData}
+    canonicalURL={`/blog/${Astro.url.pathname.split('/').pop()}`}
+>
     <Header />
     
     <main class="blog-post">

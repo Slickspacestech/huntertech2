@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import SEO from '../../components/SEO.astro';
 import CTABox from '../../components/CTABox.astro';
 import HeroBlog from '../../components/HeroBlog.astro';
 import { formatDate, validateDate } from '../../utils/date';
@@ -204,16 +203,14 @@ const structuredData = {
 };
 ---
 
-<Layout title={title}>
-    <SEO 
-        title={title}
-        description={description}
-        image="/images/phishing-attacks.webp"
-        type="article"
-        keywords={keywords}
-        structuredData={structuredData}
-    />
-    
+<Layout 
+    title={title}
+    description={description}
+    keywords={keywords}
+    type="article"
+    image={phishingAttacksImg.src}
+    structuredData={structuredData}
+>
     <Header />
     
     <div class="blog-post">

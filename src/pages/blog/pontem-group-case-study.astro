@@ -7,7 +7,6 @@ import { formatDate, validateDate } from '../../utils/date';
 import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
-import SEO from '../../components/SEO.astro';
 import pontemCaseStudyImg from '../../assets/images/blog/pontem-16x9.webp';
 import { posts } from '../../data/blog-posts';
 
@@ -128,17 +127,15 @@ const structuredData = {
 };
 ---
 
-<Layout title={title}>
-    <SEO 
-        title={title}
-        description={description}
-        image="/images/pontem-16x9.webp"
-        type="article"
-        keywords={keywords}
-        location="Vancouver"
-        structuredData={structuredData}
-    />
-    
+<Layout 
+    title={title}
+    description={description}
+    keywords={keywords}
+    type="article"
+    image={pontemCaseStudyImg.src}
+    structuredData={structuredData}
+    location="Vancouver"
+>
     <Header />
     
     <div class="blog-post">

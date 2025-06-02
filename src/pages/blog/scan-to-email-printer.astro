@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import SEO from '../../components/SEO.astro';
 import CTABox from '../../components/CTABox.astro';
 import HeroBlog from '../../components/HeroBlog.astro';
 import { formatDate, validateDate } from '../../utils/date';
@@ -123,17 +122,14 @@ const structuredData = {
 };
 ---
 
-<Layout title={title} description={description}>
-    <SEO
-        title={title}
-        description={description}
-        canonicalURL="https://huntertech.ca/blog/scan-to-email-printer/"
-        keywords={keywords}
-        type="article"
-        image={scanToEmailImg.src}
-        structuredData={structuredData}
-    />
-    
+<Layout 
+    title={title} 
+    description={description}
+    keywords={keywords}
+    type="article"
+    image={scanToEmailImg.src}
+    structuredData={structuredData}
+>
     <Header />
     
     <main class="blog-post">

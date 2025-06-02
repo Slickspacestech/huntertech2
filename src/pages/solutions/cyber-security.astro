@@ -8,7 +8,6 @@ import ServiceCard from '../../components/ServiceCard.astro';
 import ChartPie from '../../components/icons/chart-pie.astro';
 import Sync from '../../components/icons/sync.astro';
 import GraduationHat from '../../components/icons/graduation-hat.astro';
-import SEO from '../../components/SEO.astro';
 import cybersecurityImage from '../../assets/images/cybersecurity.webp';
 
 const title = "Cybersecurity Services Calgary & Vancouver | Security Solutions";
@@ -63,15 +62,15 @@ const structuredData = {
 };
 ---
 
-<Layout title={title} description={description}>
-    <SEO
-        title={title}
-        description={description}
-        canonicalURL="https://huntertech.ca/solutions/cyber-security/"
-        keywords={keywords}
-        type="website"
-        image={cybersecurityImage.src}
-    />
+<Layout 
+    title={title} 
+    description={description}
+    canonicalURL="https://huntertech.ca/solutions/cyber-security/"
+    keywords={keywords}
+    type="website"
+    image={cybersecurityImage.src}
+    structuredData={structuredData}
+>
     <Header />
     <main class="service-page">
         <Hero 
