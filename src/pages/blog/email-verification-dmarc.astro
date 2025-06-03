@@ -13,7 +13,7 @@ import { posts } from '../../data/blog-posts';
 // Get the post data from blog-posts.ts
 const post = posts.find(p => p.slug === 'email-verification-dmarc');
 
-const title = "Help! Emails I Send from Our Email Blast System are Showing Up as Unverified";
+const title = "Help! Our Email Blasts are Showing Up as Unverified";
 const description = "Learn how to fix unverified email issues and properly set up DMARC, DKIM, and SPF records for your business email system.";
 const date = post?.date || validateDate("2024-07-29"); // Use the date from blog-posts.ts, fallback to hardcoded date
 const author = "Huntertech Team";
