@@ -23,7 +23,12 @@ const {
       src={backgroundImage}
       alt={backgroundImageAlt}
       class="bg-image"
-      quality="high"
+      quality={80}
+      width={1920}
+      height={1080}
+      loading="eager"
+      decoding="sync"
+      fetchpriority="high"
     />
   </div>
   <div class="hero-overlay"></div>
@@ -68,7 +73,7 @@ const {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(44, 62, 80, 0.8), rgba(52, 152, 219, 0.7));
+    background: linear-gradient(45deg, rgba(28, 40, 51, 0.95), rgba(41, 128, 185, 0.9));
     z-index: 1;
   }
 
