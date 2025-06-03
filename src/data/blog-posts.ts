@@ -156,7 +156,7 @@ export const posts: BlogPost[] = [
         tags: ["AI adoption", "Canadian technology", "AI statistics", "business technology", "AI trends", "Canadian business", "AI implementation", "technology adoption", "SME technology", "digital transformation"]
     },
     {
-        slug: 'microsoft-365-grant-changes-2025',
+        slug: 'microsoft-365-grant-changes-2025/',
         title: "Important Changes to Microsoft 365 Grants for Non-Profits: What You Need to Know",
         date: "2025-05-28",
         author: "Huntertech Team",
