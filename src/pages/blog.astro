@@ -11,6 +11,48 @@ import blogHero from '../assets/images/Huntertech-video-cover.webp';
 const title = "Huntertech Blog | IT Insights for Calgary and Vancouver";
 const description = "Stay informed with the latest IT insights, cybersecurity tips, and technology trends for businesses in Calgary and Vancouver.";
 
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": "https://huntertech.ca/blog/#blog",
+    "name": "Huntertech Blog",
+    "description": description,
+    "url": "https://huntertech.ca/blog/",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://huntertech.ca/images/Huntertech_logo.png"
+        }
+    },
+    "blogPost": posts.map(post => ({
+        "@type": "BlogPosting",
+        "@id": `https://huntertech.ca/blog/${post.slug}/#blogpost`,
+        "headline": post.title,
+        "description": post.content.split('</p>')[0].replace('<p>', ''),
+        "image": `https://huntertech.ca${post.image}`,
+        "datePublished": post.date,
+        "dateModified": post.date,
+        "author": {
+            "@type": "Organization",
+            "name": "Huntertech Team"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Huntertech",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://huntertech.ca/images/Huntertech_logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://huntertech.ca/blog/${post.slug}/`
+        }
+    }))
+};
+
 const blogPosts = [
     {
         title: "Construction Industry Targeted by Sophisticated Phishing Scam",
@@ -25,7 +67,24 @@ const blogPosts = [
 ];
 ---
 
-<Layout title={title} description={description}>
+<Layout 
+    title={title} 
+    description={description}
+    canonicalURL="/blog/"
+    keywords={[
+        "IT Blog",
+        "Technology News",
+        "Cybersecurity Tips",
+        "IT Insights",
+        "Tech Trends",
+        "Business Technology",
+        "IT Solutions",
+        "Tech Tips"
+    ]}
+    type="website"
+    image={blogHero.src}
+    structuredData={structuredData}
+>
     <Header />
     <main>
         <HeroBlog 
