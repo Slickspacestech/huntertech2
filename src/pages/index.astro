@@ -21,6 +21,31 @@ import revitManagement from '../assets/images/revit.webp';
 const title = "IT Support, Security, Bim Services For Calgary and Vancouver";
 const description = "Professional IT services tailored for businesses in Calgary and Vancouver. Get reliable technology solutions from certified experts who understand your needs.";
 
+const breadcrumbList = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://huntertech.ca"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://huntertech.ca/managed-it-services/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Managed IT Services",
+            "item": "https://huntertech.ca/managed-it-services/"
+        }
+    ]
+};
+
 const organizationData = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -218,6 +243,17 @@ const faqData = {
         }
     ]
 };
+
+const allStructuredData = [
+    organizationData,
+    calgaryBusinessData,
+    vancouverBusinessData,
+    managedITServiceData,
+    revitServiceData,
+    faqData,
+    breadcrumbList
+];
+
 ---
 
 <Layout 
@@ -236,15 +272,8 @@ const faqData = {
     ]}
     type="website"
     image={logo.src}
+    structuredData={allStructuredData}
 >
-    <Fragment slot="head">
-        <script type="application/ld+json" set:html={JSON.stringify(organizationData)} />
-        <script type="application/ld+json" set:html={JSON.stringify(calgaryBusinessData)} />
-        <script type="application/ld+json" set:html={JSON.stringify(vancouverBusinessData)} />
-        <script type="application/ld+json" set:html={JSON.stringify(managedITServiceData)} />
-        <script type="application/ld+json" set:html={JSON.stringify(revitServiceData)} />
-        <script type="application/ld+json" set:html={JSON.stringify(faqData)} />
-    </Fragment>
     <Header />
     <main>
         <Hero 

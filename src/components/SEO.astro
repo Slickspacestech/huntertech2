@@ -7,7 +7,7 @@ interface Props {
     type?: string;
     image?: string;
     location?: 'Calgary' | 'Vancouver';
-    structuredData?: any;
+    structuredData?: any | any[];
     slot?: string;
 }
 
@@ -145,7 +145,12 @@ const structuredData = customStructuredData || defaultStructuredData;
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Structured Data -->
-{structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}
+{Array.isArray(structuredData) 
+    ? structuredData.map((data, index) => (
+        <script type="application/ld+json" set:html={JSON.stringify(data)} />
+    ))
+    : structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+}
 
 <!-- Additional Meta Tags -->
 <meta name="robots" content="index, follow" />

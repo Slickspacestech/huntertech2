@@ -31,7 +31,12 @@ const structuredData = {
         "@id": `https://huntertech.ca/blog/${post.slug}/#blogpost`,
         "headline": post.title,
         "description": post.content.split('</p>')[0].replace('<p>', ''),
-        "image": `https://huntertech.ca${post.image}`,
+        "image": {
+            "@type": "ImageObject",
+            "url": `https://huntertech.ca${post.image.src}`,
+            "width": "1200",
+            "height": "630"
+        },
         "datePublished": post.date,
         "dateModified": post.date,
         "author": {
