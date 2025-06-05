@@ -26,9 +26,17 @@ const structuredData = {
             "url": "https://huntertech.ca/images/Huntertech_logo.png"
         }
     },
+    "itemList": {
+        "@type": "ItemList",
+        "itemListElement": posts.map((post, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "url": `https://huntertech.ca/blog/${post.slug}/`
+        }))
+    },
     "blogPost": posts.map(post => ({
         "@type": "BlogPosting",
-        "@id": `https://huntertech.ca/blog/${post.slug}/#blogpost`,
+        "@id": `https://huntertech.ca/blog/${post.slug}/`,
         "headline": post.title,
         "description": post.content.split('</p>')[0].replace('<p>', ''),
         "image": {
