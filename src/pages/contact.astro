@@ -18,6 +18,46 @@ const keywords = [
     "technology solutions",
     "business IT support"
 ];
+
+const organizationData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://huntertech.ca",
+    "name": "Huntertech",
+    "url": "https://huntertech.ca",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://huntertech.ca/images/huntertech-logo.png",
+        "width": "600",
+        "height": "60"
+    },
+    "sameAs": [
+        "https://www.linkedin.com/company/hunter-tech",
+        "https://www.facebook.com/huntertechca"
+    ]
+};
+
+const calgaryContactData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPoint",
+    "@id": "https://huntertech.ca/calgary/#contact",
+    "telephone": "825-415-6990",
+    "contactType": "customer service",
+    "areaServed": "CA-AB",
+    "availableLanguage": "English",
+    "contactOption": "TollFree"
+};
+
+const vancouverContactData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPoint",
+    "@id": "https://huntertech.ca/vancouver/#contact",
+    "telephone": "778-819-7411",
+    "contactType": "customer service",
+    "areaServed": "CA-BC",
+    "availableLanguage": "English",
+    "contactOption": "TollFree"
+};
 ---
 
 <Layout 
@@ -28,6 +68,11 @@ const keywords = [
     type="website"
     image={contactBg.src}
 >
+    <Fragment slot="head">
+        <script type="application/ld+json" set:html={JSON.stringify(organizationData)} />
+        <script type="application/ld+json" set:html={JSON.stringify(calgaryContactData)} />
+        <script type="application/ld+json" set:html={JSON.stringify(vancouverContactData)} />
+    </Fragment>
     <Header />
     <main class="contact-page">
         <section class="contact-section">

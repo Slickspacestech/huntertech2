@@ -19,107 +19,53 @@ import LocalPin from '../components/icons/local-pin.astro';
 import SolutionsCTA from '../components/SolutionsCTA.astro';
 import calgaryBg from '../assets/images/calgary-bg.webp';
 
-const title = "IT Services Calgary | Professionally Managed IT & Solutions";
-const description = "Expert IT services in Calgary. Local managed IT support, cybersecurity, cloud services, and network solutions for businesses. Get reliable technology support from certified experts who understand Calgary's unique business environment and technology needs.";
+const title = "IT Services Calgary | Huntertech";
+const description = "Professional IT services and technology solutions in Calgary. Get expert IT support, managed services, and cybersecurity solutions for your business.";
 const keywords = [
     "IT services Calgary",
-    "Managed IT support Calgary",
     "IT support Calgary",
-    "Cybersecurity Calgary",
-    "Cloud services Calgary",
-    "Network solutions Calgary",
-    "IT consulting Calgary",
-    "Business IT support Calgary"
+    "managed IT services Calgary",
+    "cybersecurity Calgary",
+    "business IT solutions Calgary"
 ];
 
-const structuredData = {
+const calgaryBusinessData = {
     "@context": "https://schema.org",
-    "@graph": [
-        {
-            "@type": "LocalBusiness",
-            "name": "Huntertech Calgary",
-            "description": description,
-            "url": "https://huntertech.ca/calgary",
-            "telephone": "8254156990",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "4030 8 St SE",
-                "addressLocality": "Calgary",
-                "addressRegion": "AB",
-                "postalCode": "T2G 3A7",
-                "addressCountry": "CA"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": "51.0677",
-                "longitude": "-113.9777"
-            },
-            "areaServed": {
-                "@type": "GeoCircle",
-                "geoMidpoint": {
-                    "@type": "GeoCoordinates",
-                    "latitude": "51.0447",
-                    "longitude": "-114.0719"
-                },
-                "geoRadius": "50km",
-                "name": "Calgary"
-            },
-            "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "IT Services in Calgary",
-                "itemListElement": [
-                    {
-                        "@type": "Offer",
-                        "itemOffered": {
-                            "@type": "Service",
-                            "name": "Managed IT Support",
-                            "description": "Friendly, local IT support and monitoring for Calgary businesses"
-                        }
-                    },
-                    {
-                        "@type": "Offer",
-                        "itemOffered": {
-                            "@type": "Service",
-                            "name": "Cybersecurity Solutions",
-                            "description": "Advanced security solutions to protect your Calgary business"
-                        }
-                    },
-                    {
-                        "@type": "Offer",
-                        "itemOffered": {
-                            "@type": "Service",
-                            "name": "Cloud Services",
-                            "description": "Secure and scalable cloud infrastructure for Calgary companies"
-                        }
-                    },
-                    {
-                        "@type": "Offer",
-                        "itemOffered": {
-                            "@type": "Service",
-                            "name": "Network Solutions",
-                            "description": "Reliable and efficient network infrastructure in Calgary"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Home",
-                    "item": "https://huntertech.ca"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "Calgary",
-                    "item": "https://huntertech.ca/calgary"
-                }
-            ]
-        }
+    "@type": "LocalBusiness",
+    "@id": "https://huntertech.ca/calgary/",
+    "name": "Huntertech",
+    "image": "https://huntertech.ca/images/huntertech-logo.png",
+    "url": "https://huntertech.ca",
+    "telephone": "825-415-6990",
+    "priceRange": "$$",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "4030 8 St SE",
+        "addressLocality": "Calgary",
+        "addressRegion": "AB",
+        "postalCode": "T2G 3A7",
+        "addressCountry": "CA"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "51.0677",
+        "longitude": "-113.9777"
+    },
+    "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "17:00"
+    }],
+    "sameAs": [
+        "https://www.linkedin.com/company/hunter-tech",
+        "https://www.facebook.com/huntertechca"
     ]
 };
 ---
@@ -131,9 +77,10 @@ const structuredData = {
     keywords={keywords}
     type="website"
     image={calgaryBg.src}
-    location="Calgary"
-    structuredData={structuredData}
 >
+    <Fragment slot="head">
+        <script type="application/ld+json" set:html={JSON.stringify(calgaryBusinessData)} />
+    </Fragment>
     <Header />
     <main>
         <Hero 

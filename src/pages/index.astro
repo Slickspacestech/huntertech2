@@ -21,177 +21,200 @@ import revitManagement from '../assets/images/revit.webp';
 const title = "IT Support, Security, Bim Services For Calgary and Vancouver";
 const description = "Professional IT services tailored for businesses in Calgary and Vancouver. Get reliable technology solutions from certified experts who understand your needs.";
 
-const structuredData = {
+const organizationData = {
     "@context": "https://schema.org",
-    "@graph": [
+    "@type": "Organization",
+    "@id": "https://huntertech.ca",
+    "name": "Huntertech",
+    "url": "https://huntertech.ca",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://huntertech.ca/images/huntertech-logo.png",
+        "width": "600",
+        "height": "60"
+    },
+    "sameAs": [
+        "https://www.linkedin.com/company/hunter-tech",
+        "https://www.facebook.com/huntertechca"
+    ],
+    "contactPoint": [
         {
-            "@type": "Organization",
-            "@id": "https://huntertech.ca",
-            "name": "Huntertech",
-            "url": "https://huntertech.ca",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://huntertech.ca/images/huntertech-logo.png",
-                "width": "600",
-                "height": "60"
-            },
-            "sameAs": [
-                "https://www.linkedin.com/company/hunter-tech",
-                "https://www.facebook.com/huntertechca"
-            ],
-            "contactPoint": [
-                {
-                    "@type": "ContactPoint",
-                    "telephone": "825-415-6990",
-                    "contactType": "customer service",
-                    "areaServed": "CA",
-                    "availableLanguage": "English"
-                },
-                {
-                    "@type": "ContactPoint",
-                    "telephone": "778-819-7411",
-                    "contactType": "customer service",
-                    "areaServed": "CA",
-                    "availableLanguage": "English"
-                }
-            ]
-        },
-        {
-            "@type": "WebSite",
-            "@id": "https://huntertech.ca",
-            "url": "https://huntertech.ca",
-            "name": "Huntertech",
-            "publisher": {"@id": "https://huntertech.ca"}
-        },
-        {
-            "@type": "BreadcrumbList",
-            "@id": "https://huntertech.ca",
-            "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Home",
-                    "item": "https://huntertech.ca"
-                }
-            ]
-        },
-        {
-            "@type": "Service",
-            "@id": "https://huntertech.ca/services/managed-it-support/",
-            "name": "Managed IT Services",
-            "provider": {"@id": "https://huntertech.ca"},
-            "description": "Comprehensive IT management and support for your business. From proactive monitoring to responsive support, we handle all your technology needs.",
-            "serviceType": "IT Support",
-            "areaServed": ["Calgary", "Vancouver"],
-            "offers": {
-                "@type": "Offer",
-                "availability": "https://schema.org/InStock"
-            }
-        },
-        {
-            "@type": "Service",
-            "@id": "https://huntertech.ca/services/revit-management/",
-            "name": "Revit Management Services",
-            "provider": {"@id": "https://huntertech.ca"},
-            "description": "Specialized Revit support and optimization for architecture and engineering firms. Enhance your BIM workflow and project efficiency.",
-            "serviceType": "Revit Support",
-            "areaServed": ["Calgary", "Vancouver"],
-            "offers": {
-                "@type": "Offer",
-                "availability": "https://schema.org/InStock"
-            }
-        },
-        {
-            "@type": "LocalBusiness",
-            "@id": "https://huntertech.ca",
-            "name": "Huntertech",
-            "image": "https://huntertech.ca/images/huntertech-logo.png",
-            "url": "https://huntertech.ca",
+            "@type": "ContactPoint",
             "telephone": "825-415-6990",
-            "priceRange": "$$",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "4030 8 St SE",
-                "addressLocality": "Calgary",
-                "addressRegion": "AB",
-                "postalCode": "T2G 3A7",
-                "addressCountry": "CA"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": "51.0677",
-                "longitude": "-113.9777"
-            },
-            "openingHoursSpecification": [{
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday"
-                ],
-                "opens": "08:00",
-                "closes": "17:00"
-            }],
-            "sameAs": [
-                "https://www.linkedin.com/company/hunter-tech",
-                "https://www.facebook.com/huntertechca"
-            ]
+            "contactType": "customer service",
+            "areaServed": "CA",
+            "availableLanguage": "English"
         },
         {
-            "@type": "FAQPage",
-            "@id": "https://huntertech.ca/#faq",
-            "mainEntity": [
-                {
-                    "@type": "Question",
-                    "name": "What's the difference between Huntertech and the other IT managed service providers?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Our founder Mathew Hunter had been a contractor for most major industries, from privincial healthcare to Wall Street and spent 6 years working for one of the largest Architecture firms in North America. We have 15 years of experience managing IT environments for architects, engineers, and other related professions. And because we understand the software and systems that are unique to your industry, we know what needs to be done for your business to succeed, requiring less of your time explaining what you need. In other words, we can hit the ground running. Our business ethic is centred around providing high quality service to our clients. That means when an issue arises, we work directly with vendors on your behalf to troubleshoot and remediate. We take ownership rather than engage in finger pointing which can result in delay or leaving the issue unresolved. We take the time to understand your unique business needs. As your IT advisor, we make sure your technology environment suits you and not someone else. Ill-fitted technology can result in increased costs, as well as products and infrastructure that impede your productivity. We provide predictable monthly pricing and don't charge extra for labour on projects."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "What services do you provide?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "We're here to take care of all your IT needs, whether it's IT support, IT security, networking, cloud services, hardware procurement and management, or keeping track of software licenses and renewals. We also handle new system implementations and migrations from an old system. If it runs on electricity, we're likely able to lend a hand! We also offer Revit management services to make modeling easier and more efficient for your team. This includes Revit model review, Revit model health checks, parametric family creation, Revit training, automation, and customized configuration. If you are interested marketing services for the building industry, visit www.huntermarketing.ca."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "What is onboarding like?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "We aim to make things as smooth as possible for you. We'll sit down together to understand your needs and identify any potential risks or gaps in your technology. Once we have a clear picture of the technology you use, we'll create a roadmap showing where you are now and where we think you should be headed, along with how we'll help you get there. And don't worry, there's no onboarding fee, so you can trust that our suggestions are genuinely in your best interest, not just to fill project hours."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "What's your pricing model?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "We offer a per-user pricing model for our IT managed services, and billable hours for Revit services."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "What if my head count goes up or down?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "No problem! Every month we adjust your plan to match your current needs. We're here to support you as your business grows or changes."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Do you charge project fees?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "We don't believe in charging project-based fees. Instead, we offer our services for a simple monthly rate. This approach allows us to focus on delivering the best solutions and proactively developing a strategic IT roadmap for your business. Project fees often tie technology decisions to budget constraints, which can delay adoption, reduce productivity, and increase the risk of failures or security vulnerabilities."
-                    }
-                }
-            ]
+            "@type": "ContactPoint",
+            "telephone": "778-819-7411",
+            "contactType": "customer service",
+            "areaServed": "CA",
+            "availableLanguage": "English"
+        }
+    ]
+};
+
+const calgaryBusinessData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://huntertech.ca/calgary/",
+    "name": "Huntertech",
+    "image": "https://huntertech.ca/images/huntertech-logo.png",
+    "url": "https://huntertech.ca",
+    "telephone": "825-415-6990",
+    "priceRange": "$$",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "4030 8 St SE",
+        "addressLocality": "Calgary",
+        "addressRegion": "AB",
+        "postalCode": "T2G 3A7",
+        "addressCountry": "CA"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "51.0677",
+        "longitude": "-113.9777"
+    },
+    "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "17:00"
+    }],
+    "sameAs": [
+        "https://www.linkedin.com/company/hunter-tech",
+        "https://www.facebook.com/huntertechca"
+    ]
+};
+
+const vancouverBusinessData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://huntertech.ca/vancouver/",
+    "name": "Huntertech",
+    "image": "https://huntertech.ca/images/huntertech-logo.png",
+    "url": "https://huntertech.ca",
+    "telephone": "778-819-7411",
+    "priceRange": "$$",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Vancouver",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "49.2827",
+        "longitude": "-123.1207"
+    },
+    "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "17:00"
+    }],
+    "sameAs": [
+        "https://www.linkedin.com/company/hunter-tech",
+        "https://www.facebook.com/huntertechca"
+    ]
+};
+
+const managedITServiceData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://huntertech.ca/services/managed-it-support/",
+    "name": "Managed IT Services",
+    "provider": {"@id": "https://huntertech.ca"},
+    "description": "Comprehensive IT management and support for your business. From proactive monitoring to responsive support, we handle all your technology needs.",
+    "serviceType": "IT Support",
+    "areaServed": ["Calgary", "Vancouver"],
+    "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+    }
+};
+
+const revitServiceData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://huntertech.ca/services/revit-management/",
+    "name": "Revit Management Services",
+    "provider": {"@id": "https://huntertech.ca"},
+    "description": "Specialized Revit support and optimization for architecture and engineering firms. Enhance your BIM workflow and project efficiency.",
+    "serviceType": "Revit Support",
+    "areaServed": ["Calgary", "Vancouver"],
+    "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+    }
+};
+
+const faqData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://huntertech.ca/#faq",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What's the difference between Huntertech and the other IT managed service providers?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our founder Mathew Hunter had been a contractor for most major industries, from privincial healthcare to Wall Street and spent 6 years working for one of the largest Architecture firms in North America. We have 15 years of experience managing IT environments for architects, engineers, and other related professions. And because we understand the software and systems that are unique to your industry, we know what needs to be done for your business to succeed, requiring less of your time explaining what you need. In other words, we can hit the ground running. Our business ethic is centred around providing high quality service to our clients. That means when an issue arises, we work directly with vendors on your behalf to troubleshoot and remediate. We take ownership rather than engage in finger pointing which can result in delay or leaving the issue unresolved. We take the time to understand your unique business needs. As your IT advisor, we make sure your technology environment suits you and not someone else. Ill-fitted technology can result in increased costs, as well as products and infrastructure that impede your productivity. We provide predictable monthly pricing and don't charge extra for labour on projects."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What services do you provide?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We're here to take care of all your IT needs, whether it's IT support, IT security, networking, cloud services, hardware procurement and management, or keeping track of software licenses and renewals. We also handle new system implementations and migrations from an old system. If it runs on electricity, we're likely able to lend a hand! We also offer Revit management services to make modeling easier and more efficient for your team. This includes Revit model review, Revit model health checks, parametric family creation, Revit training, automation, and customized configuration. If you are interested marketing services for the building industry, visit www.huntermarketing.ca."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is onboarding like?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We aim to make things as smooth as possible for you. We'll sit down together to understand your needs and identify any potential risks or gaps in your technology. Once we have a clear picture of the technology you use, we'll create a roadmap showing where you are now and where we think you should be headed, along with how we'll help you get there. And don't worry, there's no onboarding fee, so you can trust that our suggestions are genuinely in your best interest, not just to fill project hours."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What's your pricing model?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We offer a per-user pricing model for our IT managed services, and billable hours for Revit services."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What if my head count goes up or down?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No problem! Every month we adjust your plan to match your current needs. We're here to support you as your business grows or changes."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do you charge project fees?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We don't believe in charging project-based fees. Instead, we offer our services for a simple monthly rate. This approach allows us to focus on delivering the best solutions and proactively developing a strategic IT roadmap for your business. Project fees often tie technology decisions to budget constraints, which can delay adoption, reduce productivity, and increase the risk of failures or security vulnerabilities."
+            }
         }
     ]
 };
@@ -213,8 +236,15 @@ const structuredData = {
     ]}
     type="website"
     image={logo.src}
-    structuredData={structuredData}
 >
+    <Fragment slot="head">
+        <script type="application/ld+json" set:html={JSON.stringify(organizationData)} />
+        <script type="application/ld+json" set:html={JSON.stringify(calgaryBusinessData)} />
+        <script type="application/ld+json" set:html={JSON.stringify(vancouverBusinessData)} />
+        <script type="application/ld+json" set:html={JSON.stringify(managedITServiceData)} />
+        <script type="application/ld+json" set:html={JSON.stringify(revitServiceData)} />
+        <script type="application/ld+json" set:html={JSON.stringify(faqData)} />
+    </Fragment>
     <Header />
     <main>
         <Hero 
