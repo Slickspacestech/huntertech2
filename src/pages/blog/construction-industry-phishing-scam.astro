@@ -107,20 +107,64 @@ If your organization's financial information was compromised, it's important to 
 
 const readingTime = estimateReadingTime(wordCount);
 
+const content = `
+    <p class="lead">A sophisticated phishing scam is currently targeting construction companies across Canada, attempting to deceive employees into revealing sensitive information. This article provides crucial information about the scam and how to protect your business.</p>
+
+    <h2>What is the Scam?</h2>
+    <p>The scam involves sophisticated phishing emails that appear to be from legitimate sources, often mimicking Microsoft authentication requests or financial institutions. The attackers are specifically targeting construction companies, likely due to the high-value transactions and sensitive information handled in the industry.</p>
+
+    <h2>How to Identify the Scam</h2>
+    <ul>
+        <li>Urgent requests for authentication or verification</li>
+        <li>Emails claiming to be from Microsoft or financial institutions</li>
+        <li>Requests for sensitive information or immediate action</li>
+        <li>Slightly misspelled email addresses or domains</li>
+        <li>Unusual formatting or language in the email</li>
+    </ul>
+
+    <h2>Protection Measures</h2>
+    <h3>For Employees</h3>
+    <ul>
+        <li>Never click on links in suspicious emails</li>
+        <li>Verify email addresses carefully</li>
+        <li>Use multi-factor authentication</li>
+        <li>Report suspicious emails to IT immediately</li>
+    </ul>
+
+    <h3>For Businesses</h3>
+    <ul>
+        <li>Implement email security solutions</li>
+        <li>Regular security awareness training</li>
+        <li>Strong password policies</li>
+        <li>Regular security audits</li>
+    </ul>
+
+    <h2>What to Do If You've Been Targeted</h2>
+    <ol>
+        <li>Do not respond to the email</li>
+        <li>Report it to your IT department</li>
+        <li>Change your passwords immediately</li>
+        <li>Enable multi-factor authentication if not already enabled</li>
+        <li>Monitor your accounts for suspicious activity</li>
+    </ol>
+
+    <h2>Need Help?</h2>
+    <p>If your construction business needs help implementing security measures or has been affected by this scam, <a href="https://huntertech.ca/contact/">contact Huntertech</a>. Our cybersecurity experts can help protect your business from phishing attacks and other security threats.</p>
+`;
+
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": title,
-    "description": description,
     "image": {
         "@type": "ImageObject",
-        "url": `https://huntertech.ca${secureVaultScamImg.src}`,
+        "url": secureVaultScamImg.src,
         "width": "1200",
         "height": "630"
     },
     "author": {
-        "@type": "Person",
-        "name": author,
+        "@type": "Organization",
+        "name": "Huntertech",
         "url": "https://huntertech.ca"
     },
     "publisher": {
@@ -128,46 +172,47 @@ const structuredData = {
         "name": "Huntertech",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://huntertech.ca/images/huntertech-logo.png",
-            "width": "600",
-            "height": "60"
+            "url": "https://huntertech.ca/images/Huntertech_logo.webp"
         }
     },
     "datePublished": date,
     "dateModified": date,
+    "description": description,
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://huntertech.ca/blog/construction-industry-phishing-scam/"
+        "@id": `https://huntertech.ca/blog/${post?.slug}/`
     },
-    "keywords": keywords,
-    "articleSection": category,
-    "inLanguage": "en-CA",
-    "wordCount": wordCount.toString(),
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-    "timeRequired": `PT${readingTime}M`,
-    "about": {
-        "@type": "Thing",
-        "name": "Phishing Scam Prevention",
-        "description": "Guide to protecting construction businesses from sophisticated phishing attacks"
-    },
+    "keywords": keywords.join(", "),
     "mentions": [
         {
             "@type": "Thing",
-            "name": "Microsoft Authentication",
-            "description": "Legitimate Microsoft sign-in process and security features"
+            "name": "Branded Phishing",
+            "description": "A phishing technique that uses legitimate-looking branding to deceive users into revealing sensitive information."
+        },
+        {
+            "@type": "Thing",
+            "name": "Microsoft 365",
+            "description": "A suite of productivity and collaboration tools offered by Microsoft, commonly targeted in phishing attacks."
         },
         {
             "@type": "Thing",
             "name": "Multi-Factor Authentication",
-            "description": "Security measure requiring multiple forms of verification"
+            "description": "A security process that requires multiple forms of verification to authenticate a user."
         },
         {
             "@type": "Thing",
-            "name": "Email Security",
-            "description": "Protection against phishing and other email-based threats"
+            "name": "Construction Industry",
+            "description": "An industry sector involving the building and infrastructure development, increasingly targeted by cyber threats."
+        },
+        {
+            "@type": "Thing",
+            "name": "Cybersecurity",
+            "description": "Practices and technologies designed to protect systems, networks, and data from cyber attacks."
         }
-    ]
+    ],
+    "articleBody": content,
+    "wordCount": wordCount,
+    "timeRequired": `PT${readingTime}M`
 };
 ---
 

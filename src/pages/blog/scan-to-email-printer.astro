@@ -58,20 +58,96 @@ const wordCount = calculateWordCount(`
 
 const readingTime = estimateReadingTime(wordCount);
 
+const content = `
+    <p class="lead">Learn how to set up scan-to-email functionality on your office printer using Microsoft 365 or Google Workspace. This simple 5-minute guide will help you configure your printer for secure email scanning.</p>
+
+    <h2>Prerequisites</h2>
+    <ul>
+        <li>Microsoft 365 or Google Workspace account</li>
+        <li>Network-connected printer with scan-to-email capability</li>
+        <li>Printer's web interface access</li>
+    </ul>
+
+    <h2>Step 1: Configure SMTP Settings</h2>
+    <p>First, you'll need to set up the SMTP settings on your printer. Here are the common settings for both Microsoft 365 and Google Workspace:</p>
+
+    <h3>Microsoft 365 Settings</h3>
+    <ul>
+        <li>SMTP Server: smtp.office365.com</li>
+        <li>Port: 587</li>
+        <li>Security: STARTTLS</li>
+        <li>Authentication: Required</li>
+    </ul>
+
+    <h3>Google Workspace Settings</h3>
+    <ul>
+        <li>SMTP Server: smtp.gmail.com</li>
+        <li>Port: 587</li>
+        <li>Security: STARTTLS</li>
+        <li>Authentication: Required</li>
+    </ul>
+
+    <h2>Step 2: Create App Password</h2>
+    <p>For security reasons, you'll need to create an app password for your printer. This is different from your regular account password.</p>
+
+    <h3>Microsoft 365</h3>
+    <ol>
+        <li>Go to account.microsoft.com/security</li>
+        <li>Select "Security info"</li>
+        <li>Add a new app password</li>
+        <li>Use this password in your printer settings</li>
+    </ol>
+
+    <h3>Google Workspace</h3>
+    <ol>
+        <li>Go to your Google Account settings</li>
+        <li>Select "Security"</li>
+        <li>Enable 2-Step Verification if not already enabled</li>
+        <li>Create an app password for your printer</li>
+    </ol>
+
+    <h2>Step 3: Configure Printer</h2>
+    <ol>
+        <li>Access your printer's web interface</li>
+        <li>Navigate to the email settings</li>
+        <li>Enter the SMTP settings from Step 1</li>
+        <li>Use the app password from Step 2</li>
+        <li>Test the configuration</li>
+    </ol>
+
+    <h2>Troubleshooting</h2>
+    <ul>
+        <li>Verify network connectivity</li>
+        <li>Check SMTP settings</li>
+        <li>Confirm app password is correct</li>
+        <li>Ensure firewall isn't blocking port 587</li>
+    </ul>
+
+    <h2>Security Best Practices</h2>
+    <ul>
+        <li>Use app passwords instead of regular passwords</li>
+        <li>Enable encryption (STARTTLS)</li>
+        <li>Regularly update printer firmware</li>
+        <li>Monitor scan logs for unusual activity</li>
+    </ul>
+
+    <h2>Need Help?</h2>
+    <p>If you're having trouble setting up scan-to-email on your printer, <a href="https://huntertech.ca/contact/">contact Huntertech</a>. Our IT experts can help you configure your printer for secure email scanning.</p>
+`;
+
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": title,
-    "description": description,
     "image": {
         "@type": "ImageObject",
-        "url": `https://huntertech.ca${scanToEmailImg.src}`,
+        "url": scanToEmailImg.src,
         "width": "1200",
         "height": "630"
     },
     "author": {
         "@type": "Organization",
-        "name": author,
+        "name": "Huntertech",
         "url": "https://huntertech.ca"
     },
     "publisher": {
@@ -79,46 +155,20 @@ const structuredData = {
         "name": "Huntertech",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://huntertech.ca/images/huntertech-logo.png",
-            "width": "600",
-            "height": "60"
+            "url": "https://huntertech.ca/images/Huntertech_logo.webp"
         }
     },
     "datePublished": date,
     "dateModified": date,
+    "description": description,
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://huntertech.ca/blog/scan-to-email-printer/"
+        "@id": `https://huntertech.ca/blog/${post?.slug}/`
     },
-    "keywords": keywords,
-    "articleSection": category,
-    "inLanguage": "en-CA",
-    "wordCount": wordCount.toString(),
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-    "timeRequired": `PT${readingTime}M`,
-    "about": {
-        "@type": "Thing",
-        "name": "Printer Setup Guide",
-        "description": "Complete guide to setting up scan to email functionality on business printers"
-    },
-    "mentions": [
-        {
-            "@type": "Thing",
-            "name": "SMTP2GO",
-            "description": "Email delivery service for business printers"
-        },
-        {
-            "@type": "Thing",
-            "name": "Microsoft Authentication",
-            "description": "Modern authentication methods for business devices"
-        },
-        {
-            "@type": "Thing",
-            "name": "DNS Configuration",
-            "description": "Domain name system setup for email services"
-        }
-    ]
+    "keywords": keywords.join(", "),
+    "articleBody": content,
+    "wordCount": wordCount,
+    "timeRequired": `PT${readingTime}M`
 };
 ---
 

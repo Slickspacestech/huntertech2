@@ -20,9 +20,14 @@ import featuredImage from '../../assets/images/blog/ai-adoption-canada.jpg';
 
 const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     "headline": title,
-    "image": featuredImage.src,
+    "image": {
+        "@type": "ImageObject",
+        "url": featuredImage.src,
+        "width": "1200",
+        "height": "630"
+    },
     "author": {
         "@type": "Organization",
         "name": "Huntertech",
@@ -36,6 +41,48 @@ const structuredData = {
             "url": "https://huntertech.ca/images/Huntertech_logo.webp"
         }
     },
+    "mentions": [
+        {
+            "@type": "Thing",
+            "name": "Generative AI",
+            "description": "Artificial intelligence systems capable of generating text, images, or other media in response to prompts."
+        },
+        {
+            "@type": "Thing",
+            "name": "Statistics Canada",
+            "description": "Canada's national statistical office responsible for producing data to help better understand Canada, its population, resources, economy, society, and culture."
+        },
+        {
+            "@type": "Thing",
+            "name": "Natural Language Processing",
+            "description": "A field of AI that focuses on the interaction between computers and human language."
+        },
+        {
+            "@type": "Thing",
+            "name": "Large Language Models",
+            "description": "Advanced AI models trained on vast amounts of text data to understand and generate human-like language."
+        },
+        {
+            "@type": "Thing",
+            "name": "CIFAR Pan-Canadian AI Strategy",
+            "description": "A national initiative aimed at advancing Canada's leadership in artificial intelligence research and innovation."
+        },
+        {
+            "@type": "Thing",
+            "name": "Ipsos AI Technology Survey",
+            "description": "A survey conducted by Ipsos to assess public perception and usage of AI technologies in Canada."
+        },
+        {
+            "@type": "Thing",
+            "name": "Business Data Lab",
+            "description": "An organization providing data-driven insights to support Canadian businesses in decision-making."
+        },
+        {
+            "@type": "Thing",
+            "name": "Artificial Intelligence Adoption in Canada",
+            "description": "The process and extent to which AI technologies are being implemented across various sectors in Canada."
+        }
+    ],
     "datePublished": date,
     "dateModified": date,
     "description": description,

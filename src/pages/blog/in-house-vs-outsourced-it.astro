@@ -19,13 +19,83 @@ const date = post?.date || validateDate("2024-10-25"); // Use the date from blog
 const author = "Huntertech Team";
 const category = "IT Services";
 const image = inHouseVsOutsourcedImg;
-const keywords = ["IT strategy", "in-house IT team", "IT outsourcing", "managed IT services", "small business IT", "IT management", "IT support", "business technology"];
+const keywords = [
+    "IT strategy",
+    "in-house IT team",
+    "IT outsourcing",
+    "managed IT services",
+    "small business IT",
+    "IT management",
+    "IT support",
+    "business technology"
+];
+
+const content = `
+    <p class="lead">Making the right choice between building an in-house IT team and outsourcing is crucial for business success. This guide explores the pros and cons of each approach, from the benefits of dedicated IT staff to the risks of having non-technical employees handle IT responsibilities.</p>
+
+    <h2>In-House IT Team</h2>
+    <h3>Pros</h3>
+    <ul>
+        <li>Dedicated focus on your business</li>
+        <li>Immediate availability</li>
+        <li>Deep understanding of your systems</li>
+        <li>Direct control over IT decisions</li>
+    </ul>
+
+    <h3>Cons</h3>
+    <ul>
+        <li>Higher fixed costs</li>
+        <li>Limited expertise range</li>
+        <li>Recruitment challenges</li>
+        <li>Training and retention costs</li>
+    </ul>
+
+    <h2>Outsourced IT Services</h2>
+    <h3>Pros</h3>
+    <ul>
+        <li>Access to diverse expertise</li>
+        <li>Scalable support</li>
+        <li>Predictable costs</li>
+        <li>Latest technology knowledge</li>
+    </ul>
+
+    <h3>Cons</h3>
+    <ul>
+        <li>Less immediate availability</li>
+        <li>Potential communication challenges</li>
+        <li>Less control over day-to-day operations</li>
+        <li>Dependency on external provider</li>
+    </ul>
+
+    <h2>Hybrid Approach</h2>
+    <p>Many businesses find success with a hybrid approach, combining in-house staff for day-to-day operations with outsourced services for specialized needs and projects.</p>
+
+    <h2>Making the Decision</h2>
+    <p>Consider these factors when choosing your IT strategy:</p>
+    <ul>
+        <li>Business size and growth plans</li>
+        <li>IT complexity and requirements</li>
+        <li>Budget constraints</li>
+        <li>Industry-specific needs</li>
+    </ul>
+
+    <h2>Need Help?</h2>
+    <p>If you're struggling to decide between in-house and outsourced IT, <a href="https://huntertech.ca/contact/">contact Huntertech</a>. Our team can help you evaluate your options and implement the right IT strategy for your business.</p>
+`;
+
+const wordCount = calculateWordCount(content);
+const readingTime = estimateReadingTime(wordCount);
 
 const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     "headline": title,
-    "image": image.src,
+    "image": {
+        "@type": "ImageObject",
+        "url": inHouseVsOutsourcedImg.src,
+        "width": "1200",
+        "height": "630"
+    },
     "author": {
         "@type": "Organization",
         "name": "Huntertech",
@@ -39,16 +109,59 @@ const structuredData = {
             "url": "https://huntertech.ca/images/Huntertech_logo.webp"
         }
     },
+    "mentions": [
+        {
+            "@type": "Thing",
+            "name": "Managed IT Services",
+            "description": "Third-party services that manage a company's IT infrastructure and end-user systems on a proactive basis."
+        },
+        {
+            "@type": "Thing",
+            "name": "In-House IT Support",
+            "description": "An internal team within an organization responsible for managing and supporting IT systems and infrastructure."
+        },
+        {
+            "@type": "Thing",
+            "name": "IT Outsourcing",
+            "description": "The practice of hiring external service providers to handle IT functions and services."
+        },
+        {
+            "@type": "Thing",
+            "name": "Hybrid IT Model",
+            "description": "A strategic approach combining both in-house IT staff and outsourced IT services to meet organizational needs."
+        },
+        {
+            "@type": "Thing",
+            "name": "Cybersecurity",
+            "description": "Measures and practices designed to protect IT systems and data from cyber threats and unauthorized access."
+        },
+        {
+            "@type": "Thing",
+            "name": "IT Compliance",
+            "description": "Adherence to regulatory standards and policies governing the use and management of IT systems."
+        },
+        {
+            "@type": "Thing",
+            "name": "Small Business IT Support",
+            "description": "IT services tailored to meet the specific needs and challenges of small businesses."
+        },
+        {
+            "@type": "Thing",
+            "name": "IT Cost Management",
+            "description": "Strategies and practices aimed at controlling and optimizing IT-related expenditures."
+        }
+    ],
     "datePublished": date,
     "dateModified": date,
     "description": description,
-    "keywords": keywords,
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `https://huntertech.ca/blog/in-house-vs-outsourced-it/`
+        "@id": `https://huntertech.ca/blog/${post?.slug}/`
     },
-    "articleSection": "IT Services",
-    "inLanguage": "en-CA"
+    "keywords": keywords.join(", "),
+    "articleBody": content,
+    "wordCount": wordCount,
+    "timeRequired": `PT${readingTime}M`
 };
 ---
 
@@ -167,7 +280,7 @@ const structuredData = {
 
                 <div class="hybrid-section">
                     <h3>The Hybrid Approach</h3>
-                    <p>For many companies, a <strong>hybrid model</strong>—with internal staff handling day-to-day tech needs and an MSP managing cybersecurity, compliance, and large projects—offers the best of both worlds.</p>
+                    <p>For many larger companies, a <strong>hybrid model</strong>—with internal staff handling day-to-day tech needs and an MSP managing cybersecurity, compliance, and large projects—offers the best of both worlds.</p>
                 </div>
 
                 <CTABox 
