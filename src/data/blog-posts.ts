@@ -125,7 +125,7 @@ export const posts: BlogPost[] = [
     },
     {
         slug: 'pontem-group-case-study/',
-        title: "Case Study: How Pontem Group Transformed Their IT Infrastructure and Saved 3000 hours Annually",
+        title: "Case Study: How Pontem Group Transformed Their IT Infrastructure and Saved 1000 hours Annually",
         date: "2025-04-20",
         author: "Huntertech Team",
         category: "Case Studies",

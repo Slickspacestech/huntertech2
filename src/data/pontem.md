@@ -80,7 +80,7 @@ The Results
 Pontem Group saw measurable, organization-wide improvements:
 
 Metric	Outcome
-Time Savings	3,000 hours/year recovered from IT tasks
+Time Savings	1,000 hours/year recovered from IT tasks
 Productivity	20% increase in employee productivity
 Security	100% reduction in incidents
 Hardware Downtime	90% reduction in related tickets

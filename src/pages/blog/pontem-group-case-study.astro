@@ -14,7 +14,7 @@ import { posts } from '../../data/blog-posts';
 const post = posts.find(p => p.slug === 'pontem-group-case-study');
 
 // Define the article metadata
-const title = "How Pontem Group Saved 3,000 Hours per year with Huntertech";
+const title = "How Pontem Group Saved 1,000 Hours per year with Huntertech";
 const description = "Pontem Group, a leading fire suppression and CP code consulting firm in Calgary, faced significant IT challenges before partnering with Huntertech.";
 const date = post?.date || validateDate("2025-04-20"); // Use the date from blog-posts.ts, fallback to hardcoded date
 const author = "Huntertech Team";
@@ -45,7 +45,7 @@ const wordCount = calculateWordCount(`
 
     After implementing our comprehensive IT transformation plan, Pontem Group achieved remarkable improvements in their operations and security:
 
-    Time Savings: 3,000 hours/year recovered from IT tasks
+    Time Savings: 1,000 hours/year recovered from IT tasks
     Productivity: 20% increase in employee productivity
     Security: 100% reduction in incidents
     Hardware Downtime: 90% reduction in related tickets
@@ -85,7 +85,7 @@ const structuredData = {
         }
     },
     "datePublished": date,
-    "dateModified": date,
+    "dateModified": "2025-06-09",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://huntertech.ca/blog/pontem-group-case-study/"
@@ -122,7 +122,7 @@ const structuredData = {
     "result": {
         "@type": "Thing",
         "name": "IT Transformation Results",
-        "description": "3,000 hours saved annually, 20% productivity increase, 100% security improvement"
+        "description": "1,000 hours saved annually, 20% productivity increase, 100% security improvement"
     }
 };
 ---
@@ -253,7 +253,7 @@ const structuredData = {
                 <div class="results-grid">
                     <div class="result-card">
                         <h3>Time Savings</h3>
-                        <p class="metric">3,000 hours/year</p>
+                        <p class="metric">1,000 hours/year</p>
                         <p>Recovered from IT tasks</p>
                     </div>
                     <div class="result-card">
@@ -263,7 +263,7 @@ const structuredData = {
                     </div>
                     <div class="result-card">
                         <h3>Security</h3>
-                        <p class="metric">100%</p>
+                        <p class="metric">100% (2)</p>
                         <p>Reduction in incidents</p>
                     </div>
                     <div class="result-card">
@@ -277,9 +277,14 @@ const structuredData = {
                         <p>Reduction through optimization</p>
                     </div>
                     <div class="result-card">
-                        <h3>Support Tickets</h3>
-                        <p class="metric">40%</p>
-                        <p>Drop in help desk requests</p>
+                        <h3>Client Growth</h3>
+                        <p class="metric">50%</p>
+                        <p>Employee growth without IT Stress</p>
+                    </div>
+                    <div class="result-card">
+                        <h3>Support Response Time</h3>
+                        <p class="metric">80%</p>
+                        <p>Faster support resolution</p>
                     </div>
                     <div class="result-card">
                         <h3>Data Security</h3>
