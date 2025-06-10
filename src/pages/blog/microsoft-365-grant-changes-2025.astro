@@ -6,6 +6,7 @@ import CTABox from '../../components/CTABox.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import HeroBlog from '../../components/HeroBlog.astro';
+import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
 import microsoftGrantImg from '../../assets/images/blog/microsoft-grant.jpg';
 
 const title = "Microsoft 365 Grants for Non-Profits: What You Need to Know";
@@ -23,6 +24,61 @@ const keywords = [
     "Tech for Social Impact",
     "non-profit software"
 ];
+
+// Calculate word count and reading time
+const wordCount = calculateWordCount(`
+    Microsoft has announced significant changes to their grant program for non-profits, effective July 1st, 2025. These changes will affect how non-profit organizations access Microsoft 365 services, with the discontinuation of some popular grant offerings and the introduction of new alternatives.
+
+    What's Changing?
+    Microsoft is streamlining their grant portfolio to simplify the offering process. The following changes will take effect on July 1st, 2025:
+    
+    Microsoft 365 Business Premium grant will be discontinued
+    Office 365 E1 grant will be discontinued
+    New offering: Up to 300 licenses of Microsoft 365 Business Basic
+    New offering: Up to 75% discount on many Microsoft 365 offers
+
+    What This Means for Your Organization
+    If your non-profit currently uses Microsoft 365 Business Premium or Office 365 E1 through the grant program, you'll need to plan for these changes. Here's what you should know:
+
+    Existing grant recipients will need to transition to the new offerings
+    Microsoft 365 Business Basic will be available as a grant option (for free!)
+    Significant discounts (up to 75%) will be available for other Microsoft 365 plans
+    These changes only affect organizations using the grant program
+
+    Planning Your Transition
+    To ensure a smooth transition, we recommend the following steps:
+
+    Review your current Microsoft 365 usage and requirements
+    Assess which features you currently use from Business Premium or E1
+    Compare your needs with the features available in Business Basic
+    Consider the discounted options for any features not covered by Business Basic
+    Create a transition timeline before the July 1st deadline
+
+    Available Alternatives
+    While the grant changes may seem concerning, Microsoft is still committed to supporting non-profits with their technology needs. The new structure offers:
+
+    Microsoft 365 Business Basic (up to 300 licenses)
+    75% discount on Microsoft 365 Business Premium
+    75% discount on Office 365 E1
+    Access to other Microsoft products at discounted rates
+
+    Understanding Microsoft 365 Business Plans
+    To help you make an informed decision about which plan best suits your needs, here's a comparison of the key features across Microsoft 365 Business plans:
+
+    For non-profits focusing on email and basic document collaboration, Basic is likely fine. The 75% discount on Business Standard and Premium plans makes them very cost-effective options for non-profits that need these additional features. We do recommend a 3rd party identity threat product to protect your Microsoft 365 accounts.
+
+    Next Steps
+    If your organization is affected by these changes, we recommend:
+
+    Reviewing your current Microsoft 365 usage
+    Planning your transition strategy
+    Consulting with your IT provider about the best options for your needs
+    Taking advantage of the transition period to evaluate your technology requirements
+
+    While these changes may require some adjustment, Microsoft remains committed to supporting non-profits with their technology needs. The new structure aims to provide more clarity and flexibility while maintaining access to essential tools and services.
+`);
+
+const readingTime = estimateReadingTime(wordCount);
 
 const structuredData = {
     "@context": "https://schema.org",
@@ -120,9 +176,10 @@ const structuredData = {
     <main class="blog-post">
         <HeroBlog 
             title={title}
-            subtitle={`By ${author} • ${formatDate(date)}`}
+            subtitle={`${formatDate(date)} • ${readingTime} min read`}
             backgroundImage={microsoftGrantImg}
             backgroundImageAlt="Microsoft 365 for Non-Profits"
+            author={author}
         />
 
         <article class="container">
@@ -130,6 +187,7 @@ const structuredData = {
                 <div class="article-meta">
                     <span class="category">{category}</span>
                     <time datetime={date}>{formatDate(date)}</time>
+                    <span class="reading-time">{readingTime} min read</span>
                 </div>
 
                 <div class="content">
@@ -380,14 +438,23 @@ const structuredData = {
         gap: 1rem;
         margin-bottom: 2rem;
         flex-wrap: wrap;
+        align-items: center;
     }
 
     .category {
-        background: var(--accent-color);
+        background: var(--button-color);
         color: white;
-        padding: 0.25rem 1rem;
-        border-radius: 20px;
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    time, .reading-time {
         font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.5;
     }
 
     .content {

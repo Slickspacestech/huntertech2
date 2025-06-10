@@ -231,10 +231,11 @@ const structuredData = {
             subtitle={`By ${author} | ${formatDate(date)} | ${readingTime} min read`}
             backgroundImage={secureVaultScamImg}
             backgroundImageAlt="Construction Industry Phishing Scam"
+            author={author}
         />
 
         <div class="container">
-            <article class="content">
+            <article class="post-content">
                 <div class="article-meta">
                     <span class="category">{category}</span>
                     <time datetime={date}>{formatDate(date)}</time>
@@ -537,24 +538,104 @@ const structuredData = {
 
 <style>
     .blog-post {
+        min-height: 100vh;
         background: var(--bg-color);
     }
 
-    .content {
-        max-width: 1000px;
+    .container {
+        max-width: 800px;
         margin: 0 auto;
-        padding: 0 20px 60px;
+        padding: 0 1.5rem;
+    }
+
+    .post-content {
+        padding: 3rem 0;
+    }
+
+    .article-meta {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .category {
+        background: var(--button-color);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    time, .reading-time {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+    }
+
+    .content {
+        font-size: clamp(1rem, 3vw, 1.1rem);
         line-height: 1.8;
     }
 
-    .content h2 {
-        color: var(--text-color);
-        margin: 40px 0 20px;
-        font-size: 1.8em;
+    .lead {
+        font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+        line-height: 1.6;
+        color: var(--text-muted);
+        margin-bottom: 2rem;
     }
 
-    .content p {
-        margin-bottom: 20px;
+    h2 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        margin: 2.5rem 0 1.5rem;
+        color: var(--heading-color);
+    }
+
+    h3 {
+        font-size: clamp(1.2rem, 4vw, 1.5rem);
+        margin: 2rem 0 1rem;
+        color: var(--heading-color);
+    }
+
+    p {
+        margin-bottom: 1.5rem;
+    }
+
+    ul, ol {
+        margin: 1.5rem 0;
+        padding-left: 1.5rem;
+    }
+
+    li {
+        margin-bottom: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+        .post-content {
+            padding: 2rem 0;
+        }
+
+        .container {
+            padding: 0 1rem;
+        }
+
+        .article-meta {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            padding: 0 0.75rem;
+        }
+
+        .post-content {
+            padding: 1.5rem 0;
+        }
     }
 
     .scam-details,
@@ -674,26 +755,6 @@ const structuredData = {
         margin-top: 10px;
     }
 
-    @media (max-width: 768px) {
-        .content {
-            padding: 0 15px 40px;
-        }
-
-        .red-flags,
-        .branding-benefits,
-        .steps-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .scam-details,
-        .detection-guide,
-        .branding-section,
-        .itdr-section,
-        .action-steps {
-            padding: 20px;
-        }
-    }
-
     .security-checklist {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -729,12 +790,6 @@ const structuredData = {
         line-height: 1.5;
     }
 
-    @media (max-width: 768px) {
-        .security-checklist {
-            grid-template-columns: 1fr;
-        }
-    }
-
     .targeted-section {
         background: var(--secondary-bg);
         border-radius: var(--radius-lg);
@@ -764,16 +819,5 @@ const structuredData = {
         margin: 0;
         color: var(--text-color);
         line-height: 1.5;
-    }
-
-    @media (max-width: 768px) {
-        .targeted-steps {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    .reading-time {
-        color: var(--text-muted);
-        font-size: 0.9rem;
     }
 </style> 

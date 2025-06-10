@@ -219,10 +219,11 @@ const structuredData = {
             subtitle={`By ${author} | ${formatDate(date)} | ${readingTime} min read`}
             backgroundImage={phishingAttacksImg}
             backgroundImageAlt="Phishing Attacks in Canada"
+            author={author}
         />
 
         <div class="container">
-            <article class="content">
+            <article class="post-content">
                 <div class="article-meta">
                     <span class="category">{category}</span>
                     <time datetime={date}>{formatDate(date)}</time>
@@ -297,56 +298,95 @@ const structuredData = {
         min-height: 100vh;
     }
 
-    .content {
+    .container {
         max-width: 800px;
         margin: 0 auto;
-        padding: 4rem 2rem;
-        line-height: 1.6;
+        padding: 0 1.5rem;
+    }
+
+    .post-content {
+        padding: 3rem 0;
     }
 
     .article-meta {
         display: flex;
         gap: 1rem;
         margin-bottom: 2rem;
+        flex-wrap: wrap;
+        align-items: center;
     }
 
     .category {
-        background: var(--accent-color);
-        padding: 0.25rem 1rem;
-        border-radius: 20px;
-        font-size: 0.9rem;
+        background: var(--button-color);
         color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
 
-    .date {
+    time, .reading-time {
+        font-size: 0.9rem;
         color: var(--text-muted);
-    }
-
-    .article-content {
-        font-size: 1.1rem;
+        line-height: 1.5;
     }
 
     .lead {
-        font-size: 1.3rem;
+        font-size: clamp(1.1rem, 3.5vw, 1.3rem);
         line-height: 1.6;
         color: var(--text-muted);
         margin-bottom: 2rem;
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: clamp(1.5rem, 5vw, 2rem);
         margin: 2.5rem 0 1.5rem;
         color: var(--heading-color);
     }
 
     h3 {
-        font-size: 1.5rem;
+        font-size: clamp(1.2rem, 4vw, 1.5rem);
         margin: 2rem 0 1rem;
         color: var(--heading-color);
     }
 
     p {
         margin-bottom: 1.5rem;
+    }
+
+    ul, ol {
+        margin: 1.5rem 0;
+        padding-left: 1.5rem;
+    }
+
+    li {
+        margin-bottom: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+        .post-content {
+            padding: 2rem 0;
+        }
+
+        .container {
+            padding: 0 1rem;
+        }
+
+        .article-meta {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            padding: 0 0.75rem;
+        }
+
+        .post-content {
+            padding: 1.5rem 0;
+        }
     }
 
     .attack-steps {
@@ -397,32 +437,5 @@ const structuredData = {
         position: absolute;
         left: 0;
         font-size: 1.5rem;
-    }
-
-    @media (max-width: 768px) {
-        .content {
-            padding: 2rem 1rem;
-        }
-
-        .lead {
-            font-size: 1.2rem;
-        }
-
-        h2 {
-            font-size: 1.75rem;
-        }
-
-        h3 {
-            font-size: 1.3rem;
-        }
-
-        .case-study {
-            padding: 1.5rem;
-        }
-    }
-
-    .reading-time {
-        color: var(--text-muted);
-        font-size: 0.9rem;
     }
 </style> 

@@ -6,24 +6,66 @@ import CTABox from '../../components/CTABox.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import HeroBlog from '../../components/HeroBlog.astro';
+import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
 
 // Replace these with your article's content
 const title = "Your Article Title";
 const description = "A compelling description of your article that will appear in search results and social shares. Keep it between 110-160 characters.";
 const today = new Date();
 const date = today.toISOString().split('T')[0]; // Format: YYYY-MM-DD
-const author = "Huntertech Team";
+const authors = [
+    {
+        name: "Huntertech Team",
+        role: "Author",
+        bio: "Expert IT and cybersecurity professionals"
+    }
+];
 const category = "Category"; // e.g., "Cybersecurity", "IT Services", "Technology"
 const keywords = ["keyword1", "keyword2", "keyword3", "keyword4", "keyword5"];
 
 // Import your article's featured image
 import featuredImage from '../../assets/images/blog/your-image.webp';
 
+// Calculate word count from the article content
+const wordCount = calculateWordCount(`
+    Your article content goes here. This will be used to calculate the word count and reading time.
+`);
+
+const readingTime = estimateReadingTime(wordCount);
+
+const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Your first FAQ question?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Your answer to the first FAQ question."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Your second FAQ question?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Your answer to the second FAQ question."
+            }
+        }
+    ]
+};
+
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": title,
-    "image": featuredImage.src,
+    "image": {
+        "@type": "ImageObject",
+        "url": featuredImage.src,
+        "width": "1200",
+        "height": "630"
+    },
     "author": {
         "@type": "Organization",
         "name": "Huntertech",
@@ -40,13 +82,22 @@ const structuredData = {
     "datePublished": date,
     "dateModified": date,
     "description": description,
+    "mentions": [
+        {
+            "@type": "Organization",
+            "name": "Huntertech",
+            "url": "https://huntertech.ca"
+        }
+    ],
     "keywords": keywords.join(", "),
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `https://huntertech.ca/blog/${Astro.url.pathname.split('/').pop()}`
+        "@id": `https://huntertech.ca/blog/${Astro.url.pathname.split('/').pop()}/`
     },
     "articleSection": category,
-    "inLanguage": "en-CA"
+    "inLanguage": "en-CA",
+    "wordCount": wordCount,
+    "timeRequired": `PT${readingTime}M`
 };
 ---
 
@@ -56,38 +107,71 @@ const structuredData = {
     keywords={keywords}
     type="article"
     image={featuredImage.src}
-    structuredData={structuredData}
-    canonicalURL={`/blog/${Astro.url.pathname.split('/').pop()}`}
+    structuredData={[structuredData, faqStructuredData]}
 >
     <Header />
     
     <main class="blog-post">
         <HeroBlog 
             title={title}
-            subtitle={`By ${author} • ${formatDate(date)}`}
+            subtitle={`By ${authors.map(a => a.name).join(', ')} • ${formatDate(date)} • ${readingTime} min read`}
             backgroundImage={featuredImage}
             backgroundImageAlt={title}
         />
 
         <article class="container">
             <div class="post-content">
-                <!-- Article content goes here -->
                 <div class="article-meta">
                     <span class="category">{category}</span>
                     <time datetime={date}>{formatDate(date)}</time>
+                    <span class="reading-time">{readingTime} min read</span>
+                </div>
+
+                <div class="authors">
+                    {authors.map(author => (
+                        <div class="author">
+                            <h3>{author.name}</h3>
+                            <p class="author-role">{author.role}</p>
+                            <p class="author-bio">{author.bio}</p>
+                        </div>
+                    ))}
                 </div>
 
                 <div class="content">
-                    <!-- Your article content -->
                     <p class="lead">Your lead paragraph goes here. Make it compelling and summarize the key points of your article.</p>
 
-                    <h2>First Section Heading</h2>
-                    <p>Your first section content goes here. Use proper HTML structure and semantic elements.</p>
+                    <h2>Main Section Heading</h2>
+                    <p>Your main section content goes here. Use proper HTML structure and semantic elements.</p>
 
-                    <h2>Second Section Heading</h2>
-                    <p>Continue with your content, using appropriate headings and paragraphs.</p>
+                    <h2>Key Points Section</h2>
+                    
+                    <h3>1. First Key Point</h3>
+                    <p>Detailed explanation of the first key point.</p>
 
-                    <!-- Add more sections as needed -->
+                    <h3>2. Second Key Point</h3>
+                    <p>Detailed explanation of the second key point.</p>
+
+                    <h3>3. Third Key Point</h3>
+                    <p>Detailed explanation of the third key point.</p>
+
+                    <h2>Implementation Section</h2>
+                    <p>Details about how to implement or apply the concepts discussed.</p>
+
+                    <h2>Conclusion</h2>
+                    <p>Wrap up your article with a strong conclusion that reinforces your main points.</p>
+
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3>Your first FAQ question?</h3>
+                            <p>Your answer to the first FAQ question.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3>Your second FAQ question?</h3>
+                            <p>Your answer to the second FAQ question.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </article>
@@ -124,14 +208,55 @@ const structuredData = {
         gap: 1rem;
         margin-bottom: 2rem;
         flex-wrap: wrap;
+        align-items: center;
     }
 
     .category {
-        background: var(--accent-color);
+        background: var(--button-color);
         color: white;
-        padding: 0.25rem 1rem;
-        border-radius: 20px;
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .reading-time {
+        color: var(--text-muted);
         font-size: 0.9rem;
+    }
+
+    .authors {
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background: var(--bg-secondary);
+        border-radius: 8px;
+    }
+
+    .author {
+        margin-bottom: 1rem;
+    }
+
+    .author:last-child {
+        margin-bottom: 0;
+    }
+
+    .author h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: var(--heading-color);
+    }
+
+    .author-role {
+        color: var(--accent-color);
+        margin: 0.25rem 0;
+        font-size: 0.9rem;
+    }
+
+    .author-bio {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin: 0.5rem 0 0;
     }
 
     .content {
@@ -150,10 +275,43 @@ const structuredData = {
         font-size: clamp(1.5rem, 5vw, 2rem);
         margin: 2.5rem 0 1.5rem;
         color: var(--heading-color);
+        scroll-margin-top: 2rem;
+    }
+
+    h3 {
+        font-size: clamp(1.2rem, 4vw, 1.5rem);
+        margin: 2rem 0 1rem;
+        color: var(--heading-color);
     }
 
     p {
         margin-bottom: 1.5rem;
+    }
+
+    /* FAQ Section Styling */
+    .faq-section {
+        margin: 2rem 0;
+    }
+
+    .faq-item {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: var(--bg-secondary);
+        border-radius: var(--radius-md);
+    }
+
+    .faq-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .faq-item h3 {
+        margin: 0 0 1rem;
+        color: var(--heading-color);
+    }
+
+    .faq-item p {
+        margin: 0;
+        color: var(--text-color);
     }
 
     /* Lists styling */
@@ -239,16 +397,21 @@ const structuredData = {
         .article-meta {
             flex-direction: column;
             gap: 0.5rem;
+            align-items: flex-start;
+        }
+
+        .authors {
+            padding: 1rem;
+        }
+
+        .faq-item {
+            padding: 1rem;
         }
     }
 
     @media (max-width: 480px) {
         .container {
             padding: 0 0.75rem;
-        }
-
-        .post-content {
-            padding: 1.5rem 0;
         }
     }
 </style> 

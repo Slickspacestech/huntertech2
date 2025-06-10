@@ -165,9 +165,10 @@ const structuredData = {
     <main class="blog-post">
         <HeroBlog 
             title={title}
-            subtitle={`By ${author} | ${formatDate(date)} | ${readingTime} min read`}
+            subtitle={`${formatDate(date)} • ${readingTime} min read`}
             backgroundImage={itServicesGuideImg}
             backgroundImageAlt="IT Services Guide"
+            author={author}
         />
 
         <div class="container">
@@ -452,5 +453,29 @@ const structuredData = {
     .reading-time {
         color: var(--text-muted);
         font-size: 0.9rem;
+    }
+
+    .article-meta {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .category {
+        background: var(--button-color);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    time, .reading-time {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.5;
     }
 </style> 

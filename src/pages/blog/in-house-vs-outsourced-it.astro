@@ -178,13 +178,20 @@ const structuredData = {
     <main class="blog-post">
         <HeroBlog 
             title={title}
-            subtitle={`By ${author} | ${formatDate(date)}`}
+            subtitle={`${formatDate(date)} • ${readingTime} min read`}
             backgroundImage={image}
             backgroundImageAlt="In-House vs Outsourced IT Strategy"
+            author={author}
         />
 
         <div class="container">
             <article class="content">
+                <div class="article-meta">
+                    <span class="category">{category}</span>
+                    <time datetime={date}>{formatDate(date)}</time>
+                    <span class="reading-time">{readingTime} min read</span>
+                </div>
+
                 <p class="lead">When it comes to managing your business's IT infrastructure, one of the most important decisions you'll face is how to structure your IT support. Larger businesses may consider building a dedicated in-house IT team, while smaller organizations often lean on existing staff to "wear the IT hat" alongside their regular roles. Both paths come with unique challenges and risks.</p>
 
                 <div class="quote-card">
@@ -301,19 +308,32 @@ const structuredData = {
         background: var(--primary-bg);
     }
 
-   
-
-    .meta {
-        margin-bottom: 20px;
+    .article-meta {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        align-items: center;
     }
 
     .category {
         background: var(--button-color);
-        color: var(--white);
-        padding: 5px 15px;
-        border-radius: 20px;
-        font-size: 0.9em;
-        margin-right: 15px;
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    time, .reading-time {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+    }
+
+    .meta {
+        margin-bottom: 20px;
     }
 
     .date {

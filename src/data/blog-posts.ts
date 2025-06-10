@@ -12,6 +12,7 @@ import secureVaultScamImg from '../assets/images/blog/SecureVaultScam.png';
 import aiAdoptionImg from '../assets/images/blog/ai-adoption-canada.jpg';
 import microsoftGrantImg from '../assets/images/blog/microsoft-grant.jpg';
 import passwordlessImg from '../assets/images/blog/passwordless-hero.png';
+import bluebeamStandardizeImg from '../assets/images/blog/bluebeam-standardize.png';
 
 export interface BlogPost {
     slug: string;
@@ -187,6 +188,18 @@ export const posts: BlogPost[] = [
             <p>Passwords are one of the weakest links in cybersecurity. With phishing attacks and credential leaks on the rise, Microsoft 365 now supports passwordless authentication through Entra ID (formerly Azure Active Directory). This guide walks you through how to enable passwordless sign-in using Microsoft Authenticator.</p>
         `,
         tags: ["Microsoft 365", "Entra ID", "passwordless authentication", "cybersecurity", "Microsoft Authenticator", "zero trust", "IT security", "authentication methods"]
+    },
+    {
+        slug: 'bluebeam-standardization/',
+        title: "The Strategic Benefits of Standardizing Bluebeam Toolboxes and Profiles for Design Teams",
+        date: "2025-06-10",
+        author: "Huntertech Team",
+        category: "IT Services",
+        image: bluebeamStandardizeImg,
+        content: `
+            <p>In architecture and engineering firms, efficiency, accuracy, and collaboration are essential. One often-overlooked area that significantly impacts all three is the use of standardized Bluebeam Revu toolboxes and profiles across design teams. For firms relying heavily on digital markups, PDF collaboration, and construction documentation, this standardization isn't just a convenience—it's a strategic necessity.</p>
+        `,
+        tags: ["Bluebeam", "design teams", "standardization", "workflow efficiency", "collaboration", "architecture", "engineering", "digital markups", "PDF collaboration"]
     }
 ];
 

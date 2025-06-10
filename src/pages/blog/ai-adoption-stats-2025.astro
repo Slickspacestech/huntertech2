@@ -6,6 +6,7 @@ import CTABox from '../../components/CTABox.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import HeroBlog from '../../components/HeroBlog.astro';
+import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
 
 const title = "Eye-Opening Statistics About AI Adoption in Canada (2025)";
 const description = "Discover the latest statistics on AI adoption in Canada, from individual usage to business implementation. Multiple sources provide great insight.";
@@ -17,6 +18,13 @@ const keywords = ["AI adoption", "Canadian technology", "AI statistics", "busine
 
 // Import your article's featured image
 import featuredImage from '../../assets/images/blog/ai-adoption-canada.jpg';
+
+// Calculate word count and reading time
+const wordCount = calculateWordCount(`
+    // ... existing content ...
+`);
+
+const readingTime = estimateReadingTime(wordCount);
 
 const structuredData = {
     "@context": "https://schema.org",
@@ -108,9 +116,10 @@ const structuredData = {
     <main class="blog-post">
         <HeroBlog 
             title={title}
-            subtitle={`By ${author} • ${formatDate(date)}`}
+            subtitle={`${formatDate(date)} • ${readingTime} min read`}
             backgroundImage={featuredImage}
             backgroundImageAlt={title}
+            author={author}
         />
 
         <article class="container">
@@ -118,6 +127,7 @@ const structuredData = {
                 <div class="article-meta">
                     <span class="category">{category}</span>
                     <time datetime={date}>{formatDate(date)}</time>
+                    <span class="reading-time">{readingTime} min read</span>
                 </div>
 
                 <div class="content">
@@ -281,14 +291,23 @@ const structuredData = {
         gap: 1rem;
         margin-bottom: 2rem;
         flex-wrap: wrap;
+        align-items: center;
     }
 
     .category {
-        background: var(--accent-color);
+        background: var(--button-color);
         color: white;
-        padding: 0.25rem 1rem;
-        border-radius: 20px;
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    time, .reading-time {
         font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.5;
     }
 
     .content {
