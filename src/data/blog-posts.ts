@@ -13,6 +13,7 @@ import aiAdoptionImg from '../assets/images/blog/ai-adoption-canada.jpg';
 import microsoftGrantImg from '../assets/images/blog/microsoft-grant.jpg';
 import passwordlessImg from '../assets/images/blog/passwordless-hero.png';
 import bluebeamStandardizeImg from '../assets/images/blog/bluebeam-standardize.png';
+import engineeringItServicesImg from '../assets/images/architect_engineer_tech.webp';
 
 export interface BlogPost {
     slug: string;
@@ -26,6 +27,18 @@ export interface BlogPost {
 }
 
 export const posts: BlogPost[] = [
+    {
+        slug: 'it-services-engineering-firms-calgary/',
+        title: "IT Services for Engineering Firms in Calgary: A Complete Guide for 2025",
+        date: "2025-07-17",
+        author: "Huntertech Team",
+        category: "IT Services",
+        image: engineeringItServicesImg,
+        content: `
+            <p>Calgary's engineering sector is experiencing unprecedented growth, with firms handling increasingly complex projects from oil and gas infrastructure to sustainable building design. This comprehensive guide helps Calgary engineering firms choose the right IT services to boost productivity, secure intellectual property, and support business growth.</p>
+        `,
+        tags: ["IT services engineering firms Calgary", "managed IT Calgary engineering", "CAD software support Calgary", "engineering firm cybersecurity Calgary", "IT support Calgary engineers", "BIM technology support Calgary", "engineering data backup Calgary"]
+    },
     {
         slug: 'construction-industry-phishing-scam/',
         title: "Construction Industry Targeted by Sophisticated Phishing Scam",

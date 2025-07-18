@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(where claude_code)",
+      "Bash(claude mcp add:*)",
+      "Bash(set CLAUDE_CODE_GIT_BASH_PATH=\"C:\\Program Files\\Git\\bin\\bash.exe\")",
+      "WebFetch(domain:huntertech.ca)",
+      "Bash(copy:*)",
+      "Bash(cp:*)",
+      "WebFetch(domain:pagespeed.web.dev)"
+    ],
+    "deny": []
+  }
+}
