@@ -29,7 +29,9 @@
       "Bash(grep:*)",
       "Bash(npm start)",
       "Bash(mcp-client call:*)",
-      "Bash(npm run verify:*)"
+      "Bash(npm run verify:*)",
+      "Bash(find:*)",
+      "Bash(sed:*)"
     ],
     "deny": []
   }
