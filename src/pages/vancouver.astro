@@ -20,8 +20,8 @@ import SolutionsCTA from '../components/SolutionsCTA.astro';
 import mattHeadshot from '../assets/images/Matt-Headshot.webp';
 import vancouverBg from '../assets/images/vancouver-bg.webp';
 
-const title = "IT Services Vancouver | Huntertech";
-const description = "Professional IT services and technology solutions in Vancouver. Get expert IT support, managed services, and cybersecurity solutions for your business.";
+const title = "Managed IT Services Vancouver | Expert IT Support & Cybersecurity | Huntertech";
+const description = "Vancouver's trusted managed IT services provider. Expert IT support, cybersecurity, and cloud solutions for tech companies & professional services. Call (778) 819-7411.";
 const keywords = [
     "IT services Vancouver",
     "IT support Vancouver",
@@ -29,6 +29,25 @@ const keywords = [
     "cybersecurity Vancouver",
     "business IT solutions Vancouver"
 ];
+
+const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://huntertech.ca"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Vancouver",
+            "item": "https://huntertech.ca/vancouver/"
+        }
+    ]
+};
 
 const vancouverBusinessData = {
     "@context": "https://schema.org",
@@ -78,14 +97,14 @@ const vancouverBusinessData = {
     image={vancouverBg.src}
 >
     <Fragment slot="head">
-        <script type="application/ld+json" set:html={JSON.stringify(vancouverBusinessData)} />
+        <script type="application/ld+json" set:html={JSON.stringify([vancouverBusinessData, breadcrumbData])} />
     </Fragment>
     <Header />
     <main>
 
         <Hero 
-            title="Vancouver IT Services"
-            subtitle="Expert IT solutions for businesses in Vancouver"
+            title="Managed IT Services Vancouver"
+            subtitle="Expert IT support and cybersecurity for Vancouver businesses"
             backgroundImage={vancouverBg}
             backgroundImageAlt="Vancouver city scape with mountains"
             ctaText="Get Started"
@@ -96,7 +115,8 @@ const vancouverBusinessData = {
             <div class="container">
                 <div class="location-grid">
                     <div class="location-details">
-                        <h2>Vancouver's Premier IT Service Provider</h2>
+                        <h2>Vancouver's Premier Managed IT Services Provider</h2>
+                        <p>Serving Vancouver's tech sector and professional services with comprehensive managed IT services, cybersecurity solutions, and expert IT support. We specialize in supporting Vancouver's dynamic business environment with scalable technology solutions.</p>
                         <div class="contact-card">
                             <div class="contact-item">
                                 <MapMarker color="var(--button-color)" />
@@ -137,17 +157,18 @@ const vancouverBusinessData = {
 
         <section class="services">
             <div class="container">
-                <h2>Comprehensive IT Services in Vancouver</h2>
+                <h2>Comprehensive Managed IT Services in Vancouver</h2>
+                <p>From downtown Vancouver to the North Shore, we provide complete managed IT services tailored to your business needs. Our Vancouver-focused team delivers proactive IT support, robust cybersecurity, and innovative technology solutions.</p>
                 <div class="services-grid">
                     <div class="service-card">
                         <Laptop color="var(--button-color)" />
-                        <h4>Managed IT Support</h4>
-                        <p>Friendly, local IT support and monitoring for Vancouver businesses</p>
+                        <h4>Managed IT Support Vancouver</h4>
+                        <p>Proactive IT monitoring, help desk support, and technology management for Vancouver businesses</p>
                     </div>
                     <div class="service-card">
                         <Shield color="var(--button-color)" />
-                        <h4>Cybersecurity Solutions</h4>
-                        <p>Advanced security solutions to protect your Vancouver business</p>
+                        <h4>Vancouver Cybersecurity Services</h4>
+                        <p>Advanced threat protection, security awareness training, and compliance solutions for Vancouver businesses</p>
                     </div>
                     <div class="service-card">
                         <Cloud2 color="var(--button-color)" />
@@ -165,12 +186,13 @@ const vancouverBusinessData = {
 
         <section class="why-choose-us">
             <div class="container">
-                <h2>Why Choose Our IT Services in Vancouver?</h2>
+                <h2>Why Choose Our Managed IT Services in Vancouver?</h2>
+                <p>As Vancouver's trusted IT services provider, we understand the unique technology challenges facing local businesses. Our team has expertise in supporting Vancouver's tech companies, professional services, and growing businesses.</p>
                 <div class="benefits-grid">
                     <div class="benefit-card">
                         <LocalPin color="var(--button-color)" />
-                        <h4>Local, Friendly Support</h4>
-                        <p>Personal IT support from our Vancouver-based team who knows your business</p>
+                        <h4>Vancouver-Focused IT Team</h4>
+                        <p>Local IT professionals who understand Vancouver business environments and provide personalized managed IT services</p>
                     </div>
                     <div class="benefit-card">
                         <Certificate color="var(--button-color)" />
@@ -179,8 +201,8 @@ const vancouverBusinessData = {
                     </div>
                     <div class="benefit-card">
                         <Handshake color="var(--button-color)" />
-                        <h4>Industry Specialties</h4>
-                        <p>We dont just support the IT stuff, we support the business.</p>
+                        <h4>Vancouver Industry Expertise</h4>
+                        <p>Specialized managed IT services for Vancouver tech companies, professional services, and innovative businesses</p>
                     </div>
                     <div class="benefit-card">
                         <ChartLine color="var(--button-color)" />
@@ -193,8 +215,8 @@ const vancouverBusinessData = {
 
         <section class="cta">
             <div class="container">
-                <h2>Ready to Transform Your IT Infrastructure?</h2>
-                <p>Contact our Vancouver team today for a free IT consultation</p>
+                <h2>Ready to Transform Your Vancouver Business with Managed IT Services?</h2>
+                <p>Get a free IT assessment from Vancouver's trusted managed IT services provider. Call (778) 819-7411 or contact us online.</p>
                 <a href="/contact/?form_conversion=vancouver-cta" class="cta-button">Contact Us</a>
             </div>
         </section>

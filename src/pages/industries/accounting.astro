@@ -124,6 +124,12 @@ const structuredData = {
                 },
                 {
                     "@type": "ListItem",
+                    "position": 2,
+                    "name": "Industries",
+                    "item": "https://huntertech.ca/industries/"
+                },
+                {
+                    "@type": "ListItem",
                     "position": 3,
                     "name": "Accounting",
                     "item": "https://huntertech.ca/industries/accounting/"
@@ -195,21 +201,68 @@ const structuredData = {
                         </ul>
                     </div>
                     <div class="solution-item">
-                        <h3>Software Support</h3>
+                        <h3>Tax & Accounting Software Support</h3>
                         <ul>
-                            <li>Accounting software support</li>
-                            <li>Tax software integration</li>
-                            <li>Document management</li>    
+                            <li>TaxCycle Professional & Client Manager setup and support</li>
+                            <li>QuickBooks, Sage, and other accounting platforms</li>
+                            <li>Tax software integration and troubleshooting</li>
+                            <li>Document management and workflow optimization</li>    
                         </ul>
                     </div>
                     <div class="solution-item">
-                        <h3>Infrastructure Solutions</h3>
+                        <h3>Server Infrastructure Solutions</h3>
                         <ul>
-                            <li>Cloud migration</li>
-                            <li>Backup solutions</li>
-                            <li>Disaster recovery</li>
-                            <li>Network security</li>
+                            <li><strong>Local Server Implementation</strong> - Dedicated on-premises servers for complete data control</li>
+                            <li><strong>Canadian Cloud Servers</strong> - Data-resident cloud infrastructure hosted in Canada</li>
+                            <li><strong>Hybrid Solutions</strong> - Best of both worlds with local and cloud integration</li>
+                            <li>Automated backup and disaster recovery</li>
+                            <li>Advanced network security and monitoring</li>
                         </ul>
+                        <div class="data-residency-note">
+                            <p><strong>Data Residency Guarantee:</strong> Whether local or cloud, your sensitive client data stays within Canadian borders, ensuring compliance with privacy regulations and peace of mind.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="taxcycle-focus">
+            <div class="container">
+                <h2>TaxCycle & Client Manager Expertise</h2>
+                <div class="taxcycle-content">
+                    <div class="taxcycle-info">
+                        <h3>Professional TaxCycle Support</h3>
+                        <p>As TaxCycle specialists, we understand the unique IT requirements of tax professionals using TaxCycle Professional and Client Manager. Our team provides comprehensive support for:</p>
+                        <ul>
+                            <li><strong>TaxCycle Professional</strong> - Installation, updates, and performance optimization</li>
+                            <li><strong>Client Manager</strong> - Database setup, client file organization, and integration</li>
+                            <li><strong>Network Configuration</strong> - Multi-user setups and file sharing solutions</li>
+                        </ul>
+                    </div>
+                    <div class="server-challenges">
+                        <h3>The Hidden Costs of No On-Premises Server</h3>
+                        <p>Many accounting firms struggle without proper server infrastructure, especially when running TaxCycle Client Manager:</p>
+                        <div class="challenges-list">
+                            <div class="challenge-item">
+                                <strong>Client Manager Database Issues</strong>
+                                <p>Without a dedicated server, Client Manager databases become fragmented across workstations, leading to data inconsistency and access problems during busy tax season.</p>
+                            </div>
+                            <div class="challenge-item">
+                                <strong>File Sharing Bottlenecks</strong>
+                                <p>TaxCycle files stored on individual computers create version control nightmares and prevent efficient collaboration between team members.</p>
+                            </div>
+                            <div class="challenge-item">
+                                <strong>Backup Vulnerabilities</strong>
+                                <p>Critical client data scattered across multiple workstations increases the risk of data loss and makes comprehensive backups nearly impossible.</p>
+                            </div>
+                            <div class="challenge-item">
+                                <strong>Performance Degradation</strong>
+                                <p>Running TaxCycle and Client Manager on workstations that also handle daily tasks leads to slower performance when you need speed most.</p>
+                            </div>
+                        </div>
+                        <div class="solution-highlight">
+                            <p><strong>Our Solution:</strong> We design and implement dedicated server infrastructure—either on-premises or in Canadian data centers—that centralizes your TaxCycle environment. Whether local or cloud-based, you get reliable Client Manager access, automated backups, optimal performance for your entire team, and the peace of mind that your data remains in Canada.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -278,6 +331,24 @@ const structuredData = {
         padding: 2rem;
         border-radius: var(--radius-md);
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .data-residency-note {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 1rem;
+        border-radius: var(--radius-sm);
+        margin-top: 1.5rem;
+        border-left: 4px solid #28a745;
+    }
+
+    .data-residency-note p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: var(--text-color);
+    }
+
+    .data-residency-note strong {
+        color: #28a745;
     }
 
     .solution-item h3 {
@@ -352,6 +423,79 @@ const structuredData = {
         .feature-grid,
         .solution-list {
             grid-template-columns: 1fr;
+        }
+    }
+
+    .taxcycle-focus {
+        padding: 4rem 0;
+        background: var(--white);
+    }
+
+    .taxcycle-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin-top: 2rem;
+    }
+
+    .taxcycle-info h3, .server-challenges h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .taxcycle-info ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .taxcycle-info ul li {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .taxcycle-info ul li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--button-color);
+        font-weight: bold;
+    }
+
+    .challenges-list {
+        margin: 1.5rem 0;
+    }
+
+    .challenge-item {
+        background: var(--secondary-bg);
+        padding: 1.5rem;
+        border-radius: var(--radius-sm);
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--button-color);
+    }
+
+    .challenge-item strong {
+        color: var(--primary-color);
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .solution-highlight {
+        background: var(--button-color);
+        color: var(--white);
+        padding: 1.5rem;
+        border-radius: var(--radius-md);
+        margin-top: 2rem;
+    }
+
+    .solution-highlight strong {
+        font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+        .taxcycle-content {
+            grid-template-columns: 1fr;
+            gap: 2rem;
         }
     }
 </style> 

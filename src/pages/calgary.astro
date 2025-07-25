@@ -19,8 +19,8 @@ import LocalPin from '../components/icons/local-pin.astro';
 import SolutionsCTA from '../components/SolutionsCTA.astro';
 import calgaryBg from '../assets/images/calgary-bg.webp';
 
-const title = "IT Services Calgary | Huntertech";
-const description = "Professional IT services and technology solutions in Calgary. Get expert IT support, managed services, and cybersecurity solutions for your business.";
+const title = "Managed IT Services Calgary | Expert IT Support & Cybersecurity | Huntertech";
+const description = "Calgary's trusted managed IT services provider. Expert IT support, cybersecurity, and cloud solutions for architecture & engineering firms. Call (825) 415-6990.";
 const keywords = [
     "IT services Calgary",
     "IT support Calgary",
@@ -28,6 +28,25 @@ const keywords = [
     "cybersecurity Calgary",
     "business IT solutions Calgary"
 ];
+
+const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://huntertech.ca"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Calgary",
+            "item": "https://huntertech.ca/calgary/"
+        }
+    ]
+};
 
 const calgaryBusinessData = {
     "@context": "https://schema.org",
@@ -79,13 +98,13 @@ const calgaryBusinessData = {
     image={calgaryBg.src}
 >
     <Fragment slot="head">
-        <script type="application/ld+json" set:html={JSON.stringify(calgaryBusinessData)} />
+        <script type="application/ld+json" set:html={JSON.stringify([calgaryBusinessData, breadcrumbData])} />
     </Fragment>
     <Header />
     <main>
         <Hero 
-            title="Calgary IT Services"
-            subtitle="Expert IT solutions for businesses in Calgary"
+            title="Managed IT Services Calgary"
+            subtitle="Expert IT support and cybersecurity for Calgary businesses"
             backgroundImage={calgaryBg}
             backgroundImageAlt="Calgary cityscape with mountains"
             ctaText="Get Started"
@@ -96,7 +115,8 @@ const calgaryBusinessData = {
             <div class="container">
                 <div class="location-grid">
                     <div class="location-details">
-                        <h2>Calgary's Premier IT Service Provider</h2>
+                        <h2>Calgary's Premier Managed IT Services Provider</h2>
+                        <p>Serving Calgary businesses for over 15 years with comprehensive managed IT services, cybersecurity solutions, and expert IT support. We specialize in architecture, engineering, accounting, and legal firms throughout the Calgary area.</p>
                         <div class="contact-card">
                             <div class="contact-item">
                                 <MapMarker color="var(--button-color)" />
@@ -138,17 +158,18 @@ const calgaryBusinessData = {
 
         <section class="services">
             <div class="container">
-                <h2>Comprehensive IT Services in Calgary</h2>
+                <h2>Comprehensive Managed IT Services in Calgary</h2>
+                <p>From downtown Calgary to the surrounding areas, we provide complete managed IT services tailored to your business needs. Our Calgary-based team delivers proactive IT support, robust cybersecurity, and scalable technology solutions.</p>
                 <div class="services-grid">
                     <div class="service-card">
                         <Laptop color="var(--button-color)" />
-                        <h4>Managed IT Support</h4>
-                        <p>Friendly, local IT support and monitoring for Calgary businesses</p>
+                        <h4>Managed IT Support Calgary</h4>
+                        <p>Proactive IT monitoring, help desk support, and technology management for Calgary businesses</p>
                     </div>
                     <div class="service-card">
                         <Shield color="var(--button-color)" />
-                        <h4>Cybersecurity Solutions</h4>
-                        <p>Advanced security solutions to protect your Calgary business</p>
+                        <h4>Calgary Cybersecurity Services</h4>
+                        <p>Advanced threat protection, security awareness training, and compliance solutions for Calgary businesses</p>
                     </div>
                     <div class="service-card">
                         <Cloud2 color="var(--button-color)" />
@@ -166,12 +187,13 @@ const calgaryBusinessData = {
 
         <section class="why-choose-us">
             <div class="container">
-                <h2>Why Choose Our IT Services in Calgary?</h2>
+                <h2>Why Choose Our Managed IT Services in Calgary?</h2>
+                <p>As Calgary's trusted IT services provider, we understand the unique technology challenges facing local businesses. Our team has deep expertise in supporting Calgary's architecture, engineering, and professional services sectors.</p>
                 <div class="benefits-grid">
                     <div class="benefit-card">
                         <LocalPin color="var(--button-color)" />
-                        <h4>Local, Friendly Support</h4>
-                        <p>Personal IT support from our Calgary-based team who knows your business</p>
+                        <h4>Calgary-Based IT Team</h4>
+                        <p>Local IT professionals who understand Calgary business environments and provide personalized managed IT services</p>
                     </div>
                     <div class="benefit-card">
                         <Certificate color="var(--button-color)" />
@@ -180,8 +202,8 @@ const calgaryBusinessData = {
                     </div>
                     <div class="benefit-card">
                         <Handshake color="var(--button-color)" />
-                        <h4>Industry Specialties</h4>
-                        <p>We dont just support the IT stuff, we support the business.</p>
+                        <h4>Calgary Industry Expertise</h4>
+                        <p>Specialized managed IT services for Calgary architecture firms, engineering companies, accounting practices, and legal offices</p>
                     </div>
                     <div class="benefit-card">
                         <ChartLine color="var(--button-color)" />
@@ -194,8 +216,8 @@ const calgaryBusinessData = {
 
         <section class="cta">
             <div class="container">
-                <h2>Ready to Transform Your IT Infrastructure?</h2>
-                <p>Contact our Calgary team today for a free IT consultation</p>
+                <h2>Ready to Transform Your Calgary Business with Managed IT Services?</h2>
+                <p>Get a free IT assessment from Calgary's trusted managed IT services provider. Call (825) 415-6990 or contact us online.</p>
                 <a href="/contact/?form_conversion=calgary-cta" class="cta-button">Contact Us</a>
             </div>
         </section>

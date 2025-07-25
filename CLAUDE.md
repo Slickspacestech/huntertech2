@@ -158,6 +158,26 @@ Focus on these high-conversion, local commercial intent keywords:
    - Client websites for case study features
    - Local university tech programs for partnerships
 
+## Email Discovery & Verification Workflow
+
+The project includes a NeverBounce MCP server for real-time email verification during prospect research:
+
+### **Sales Navigator Research Process**
+1. Find Calgary engineering/accounting firms (7-15 employees)
+2. Identify decision makers (Presidents, Principals, Partners)
+3. Generate email patterns based on common formats
+4. Use NeverBounce MCP to verify emails in real-time
+
+### **Common Email Patterns**
+- Engineering firms: 70% use `firstname@company.com`
+- Accounting firms: 80% use `firstname@company.com`
+- Fallback patterns: `firstname.lastname@` or `flastname@`
+
+### **MCP Integration**
+- NeverBounce server configured in `mcp.json`
+- Verify emails directly in Claude: "Verify john@example.com"
+- Batch verification available for multiple prospects
+
 ## Important Notes
 
 - Blog posts require both `.astro` file and `blog-posts.ts` entry
@@ -166,3 +186,4 @@ Focus on these high-conversion, local commercial intent keywords:
 - The site uses Astro's static generation - no server-side rendering
 - **SEO Rule**: Every new page must target a specific local keyword combination
 - **Performance Rule**: Core Web Vitals must pass for all location and service pages
+- **Research Rule**: Only add verified emails (NeverBounce "Valid" status) to outreach campaigns
