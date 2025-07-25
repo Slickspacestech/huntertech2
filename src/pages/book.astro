@@ -1,0 +1,120 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Book a Consultation | IT Services Calgary & Vancouver | Huntertech";
+const description = "Schedule a free IT consultation with our Calgary and Vancouver team. Get expert advice on managed IT services, cybersecurity, and technology solutions for your business.";
+const keywords = [
+    "book IT consultation",
+    "schedule IT meeting",
+    "Calgary IT consultation",
+    "Vancouver IT consultation",
+    "free IT assessment",
+    "managed IT services consultation",
+    "cybersecurity consultation",
+    "IT support meeting"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "IT Consultation Booking",
+    "description": "Schedule a free consultation with our IT experts in Calgary and Vancouver",
+    "provider": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://huntertech.ca/images/huntertech-logo.png"
+        }
+    },
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CAD",
+        "description": "Free IT consultation and assessment"
+    },
+    "areaServed": [
+        {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "51.0447",
+                "longitude": "-114.0719"
+            },
+            "geoRadius": "50km",
+            "name": "Calgary"
+        },
+        {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "49.2827",
+                "longitude": "-123.1207"
+            },
+            "geoRadius": "50km",
+            "name": "Vancouver"
+        }
+    ]
+};
+---
+
+<Layout 
+    title={title} 
+    description={description}
+    canonicalURL="https://huntertech.ca/book/"
+    keywords={keywords}
+    type="website"
+    structuredData={structuredData}
+>
+    <Header />
+    <main class="booking-page">
+        <div class="iframe-wrapper">
+            <iframe 
+                src="https://outlook.office365.com/book/MeetwithHunterTech@huntertech.ca/"
+                title="Book a consultation with Huntertech"
+                class="booking-iframe"
+                loading="lazy"
+                allow="camera; microphone; geolocation"
+            >
+                <p>Your browser does not support iframes. Please visit our <a href="/contact/">contact page</a> to get in touch with us directly.</p>
+            </iframe>
+        </div>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .booking-page {
+        margin: 0;
+        padding: 0;
+    }
+
+    .iframe-wrapper {
+        width: 100%;
+        height: 800px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .booking-iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        .iframe-wrapper {
+            height: 700px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .iframe-wrapper {
+            height: 600px;
+        }
+    }
+</style>

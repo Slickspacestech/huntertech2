@@ -119,7 +119,78 @@ const vancouverContactData = {
                     </div>
                     <div class="contact-form">
                         <h2>Send us a Message</h2>
-                        <div class="hs-form-frame" data-region="na1" data-form-id="c4506331-7284-4ba7-91b6-48ef91992b78" data-portal-id="47750250"></div>
+                        <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true" class="netlify-form">
+                            <input type="hidden" name="form-name" value="contact" />
+                            <input type="hidden" name="form_conversion" id="form_conversion" value="" />
+                            <div class="form-field hidden">
+                                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required />
+                                </div>
+                                <div class="form-field">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required />
+                                </div>
+                            </div>
+                            
+                            <div class="form-field">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required />
+                            </div>
+                            
+                            <div class="form-field">
+                                <label for="company">Company Name</label>
+                                <input type="text" id="company" name="company" />
+                            </div>
+                            
+                            <div class="form-field">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" />
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="location">Location</label>
+                                    <select id="location" name="location">
+                                        <option value="">Select Location</option>
+                                        <option value="Calgary">Calgary</option>
+                                        <option value="Vancouver">Vancouver</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-field">
+                                    <label for="service">Service Interest</label>
+                                    <select id="service" name="service">
+                                        <option value="">Select Service</option>
+                                        <option value="Managed IT Services">Managed IT Services</option>
+                                        <option value="Cybersecurity">Cybersecurity</option>
+                                        <option value="TaxCycle Support">TaxCycle Support</option>
+                                        <option value="Revit Management">Revit Management</option>
+                                        <option value="Cloud Solutions">Cloud Solutions</option>
+                                        <option value="IT Consultation">IT Consultation</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-field">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Tell us about your IT needs and how we can help..." required></textarea>
+                            </div>
+                            
+                            <div class="form-field checkbox-field">
+                                <input type="checkbox" id="newsletter" name="newsletter" value="yes" />
+                                <label for="newsletter">I'd like to receive IT tips and insights via email</label>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Send Message</button>
+                            
+                            <p class="form-note">We'll respond within 24 hours. For urgent IT issues, please call us directly.</p>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -128,7 +199,122 @@ const vancouverContactData = {
     <Footer />
 </Layout>
 
-<script src="https://js.hsforms.net/forms/embed/47750250.js" defer></script>
+<!-- Netlify Form Handler with HubSpot Integration -->
+<script>
+    // Form submission handler
+    document.addEventListener('DOMContentLoaded', function() {
+        // Capture form_conversion from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const formConversion = urlParams.get('form_conversion');
+        const formConversionField = document.getElementById('form_conversion');
+        
+        if (formConversion && formConversionField) {
+            formConversionField.value = formConversion;
+        }
+        
+        const form = document.querySelector('.netlify-form');
+        if (form) {
+            form.addEventListener('submit', async function(event) {
+                event.preventDefault();
+                
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+                
+                // Submit to Netlify
+                try {
+                    const netlifyResponse = await fetch('/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(formData).toString()
+                    });
+                    
+                    if (netlifyResponse.ok) {
+                        // Submit to HubSpot
+                        await submitToHubSpot(data);
+                        
+                        // Show success message
+                        showSuccessMessage();
+                        form.reset();
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                    showErrorMessage();
+                }
+            });
+        }
+    });
+    
+    // HubSpot integration
+    async function submitToHubSpot(data) {
+        const hubspotData = {
+            fields: [
+                { name: 'firstname', value: data.firstName },
+                { name: 'lastname', value: data.lastName },
+                { name: 'email', value: data.email },
+                { name: 'company', value: data.company || '' },
+                { name: 'phone', value: data.phone || '' },
+                { name: 'city', value: data.location || '' },
+                { name: 'service_interest', value: data.service || '' },
+                { name: 'message', value: data.message },
+                { name: 'newsletter_signup', value: data.newsletter || 'no' },
+                { name: 'form_conversion', value: data.form_conversion || '' }
+            ],
+            context: {
+                pageUri: window.location.href,
+                pageName: document.title
+            }
+        };
+        
+        try {
+            const response = await fetch('https://api.hsforms.com/submissions/v3/integration/submit/47750250/c4506331-7284-4ba7-91b6-48ef91992b78', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(hubspotData)
+            });
+            
+            if (!response.ok) {
+                console.warn('HubSpot submission failed, but Netlify succeeded');
+            }
+        } catch (error) {
+            console.warn('HubSpot submission error:', error);
+        }
+    }
+    
+    function showSuccessMessage() {
+        const form = document.querySelector('.netlify-form');
+        const successMsg = document.createElement('div');
+        successMsg.className = 'form-success';
+        successMsg.innerHTML = `
+            <h3>Thank you for your message!</h3>
+            <p>We've received your inquiry and will respond within 24 hours. For urgent IT issues, please call us directly.</p>
+        `;
+        form.parentNode.insertBefore(successMsg, form);
+        form.style.display = 'none';
+        
+        setTimeout(() => {
+            successMsg.remove();
+            form.style.display = 'block';
+        }, 10000);
+    }
+    
+    function showErrorMessage() {
+        const form = document.querySelector('.netlify-form');
+        const errorMsg = document.createElement('div');
+        errorMsg.className = 'form-error';
+        errorMsg.innerHTML = `
+            <p>Sorry, there was an error sending your message. Please try again or contact us directly at <a href="mailto:info@huntertech.ca">info@huntertech.ca</a></p>
+        `;
+        form.parentNode.insertBefore(errorMsg, form);
+        
+        setTimeout(() => {
+            errorMsg.remove();
+        }, 8000);
+    }
+</script>
 
 <style>
     .contact-page {
@@ -216,10 +402,157 @@ const vancouverContactData = {
         display: none;
     }
 
+    /* Netlify Form Styles */
+    .netlify-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .form-field {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-field.hidden {
+        display: none;
+    }
+
+    .form-field label {
+        color: var(--text-color);
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+        padding: 0.75rem;
+        border: 2px solid #e1e1e1;
+        border-radius: var(--radius-sm);
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+        font-family: inherit;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+        outline: none;
+        border-color: var(--button-color);
+        box-shadow: 0 0 0 3px rgba(0, 172, 172, 0.1);
+    }
+
+    .form-field textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .checkbox-field {
+        flex-direction: row !important;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .checkbox-field input[type="checkbox"] {
+        width: auto;
+        margin: 0;
+    }
+
+    .checkbox-field label {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+    .submit-btn {
+        background: var(--button-color);
+        color: var(--white);
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: var(--radius-md);
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        align-self: flex-start;
+    }
+
+    .submit-btn:hover {
+        background: var(--button-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 172, 172, 0.3);
+    }
+
+    .submit-btn:active {
+        transform: translateY(0);
+    }
+
+    .form-note {
+        font-size: 0.85rem;
+        color: #666;
+        margin: 0;
+        font-style: italic;
+    }
+
+    /* Success and Error Messages */
+    .form-success,
+    .form-error {
+        padding: 1.5rem;
+        border-radius: var(--radius-md);
+        margin-bottom: 2rem;
+    }
+
+    .form-success {
+        background: #d4edda;
+        border: 1px solid #c3e6cb;
+        color: #155724;
+    }
+
+    .form-success h3 {
+        margin: 0 0 0.5rem 0;
+        color: #155724;
+    }
+
+    .form-success p {
+        margin: 0;
+    }
+
+    .form-error {
+        background: #f8d7da;
+        border: 1px solid #f5c6cb;
+        color: #721c24;
+    }
+
+    .form-error p {
+        margin: 0;
+    }
+
+    .form-error a {
+        color: #721c24;
+        font-weight: 600;
+    }
+
     @media (max-width: 768px) {
         .contact-grid {
             grid-template-columns: 1fr;
             gap: 2rem;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+
+        .submit-btn {
+            width: 100%;
+            text-align: center;
         }
     }
 </style> 

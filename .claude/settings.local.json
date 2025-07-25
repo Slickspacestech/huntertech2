@@ -31,7 +31,9 @@
       "Bash(mcp-client call:*)",
       "Bash(npm run verify:*)",
       "Bash(find:*)",
-      "Bash(sed:*)"
+      "Bash(sed:*)",
+      "Bash(npm run build:*)",
+      "WebFetch(domain:clutch.co)"
     ],
     "deny": []
   }
