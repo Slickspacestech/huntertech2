@@ -4,9 +4,12 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: '#2c3e50',
-                secondary: '#3498db',
-                accent: '#e74c3c',
+                primary: '#384258',
+                secondary: '#00ACAC', 
+                accent: '#00C2C2',
+                'brand-teal': '#00ACAC',
+                'brand-teal-light': '#00C2C2',
+                'brand-dark': '#384258',
             },
         },
     },

@@ -4,6 +4,8 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import CTABox from '../../components/CTABox.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import BlogInteractivity from '../../components/BlogInteractivity.astro';
 import HeroBlog from '../../components/HeroBlog.astro';
 import { formatDate, validateDate } from '../../utils/date';
 import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
@@ -13,12 +15,12 @@ import { posts } from '../../data/blog-posts';
 // Get the post data from blog-posts.ts
 const post = posts.find(p => p.slug === 'cybersecurity-small-business');
 
-const title = "Essential Cybersecurity Tips for Small Businesses";
-const description = "Some quick tips on how to protect your small business from cyber threats with expert advice and practical information.";
+const title = "Essential Cybersecurity Services Calgary & Vancouver Small Businesses Need";
+const description = "Expert cybersecurity services Calgary and Vancouver small businesses need. Learn essential IT security tips to protect your business from cyber threats with local support.";
 const date = post?.date || validateDate("2025-03-20"); // Use the date from blog-posts.ts, fallback to hardcoded date
 const author = "Huntertech Team";
 const category = "Cybersecurity";
-const keywords = ["cybersecurity", "small business", "IT security", "cyber threats", "business protection", "data security"];
+const keywords = ["cybersecurity services Calgary", "cybersecurity services Vancouver", "IT security Calgary", "IT security Vancouver", "small business cybersecurity", "cyber threats", "business protection", "data security"];
 
 // Calculate word count from the article content
 const wordCount = calculateWordCount(`
@@ -173,18 +175,44 @@ const structuredData = {
             author={author}
         />
         <article class="blog-post">
-            <div class="container">
+            <div class="blog-container">
                 <div class="article-meta">
                     <span class="category">{category}</span>
                     <time datetime={date}>{formatDate(date)}</time>
                     <span class="reading-time">{readingTime} min read</span>
                 </div>
 
-                <div class="post-content">
-                    <h2>Why Small Businesses Need Cybersecurity</h2>
-                    <p>Small businesses in Calgary and Vancouver are increasingly becoming targets for cyber attacks. In fact, 43% of all cyber attacks target small businesses. This article will help you understand the essential cybersecurity measures your business needs to implement.</p>
+                <div class="blog-content">
+                    <p class="lead">Small businesses in Calgary and Vancouver are increasingly becoming targets for cyber attacks. In fact, 43% of all cyber attacks target small businesses. This comprehensive guide will help you understand the essential cybersecurity measures your business needs to implement to protect against modern threats.</p>
 
-                    <h2>Essential Cybersecurity Measures</h2>
+                    <TableOfContents headings={[
+                        { text: "Why Small Businesses Need Cybersecurity", id: "why-cybersecurity" },
+                        { text: "Essential Cybersecurity Measures", id: "essential-measures" },
+                        { text: "Advanced Threat Protection", id: "advanced-protection" },
+                        { text: "Local IT Support in Calgary and Vancouver", id: "local-support" }
+                    ]} />
+                    <div class="content-card">
+                        <h2 id="why-cybersecurity">Why Small Businesses Need Cybersecurity</h2>
+                        <p>Small businesses in Calgary and Vancouver are increasingly becoming targets for cyber attacks. In fact, 43% of all cyber attacks target small businesses. Understanding the threat landscape is the first step in building effective defenses.</p>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">43%</div>
+                                <p class="stat-label">of cyber attacks target small businesses</p>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">60%</div>
+                                <p class="stat-label">of small businesses close within 6 months of a cyber attack</p>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">$4.45M</div>
+                                <p class="stat-label">average cost of a data breach in 2023</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h2 id="essential-measures">Essential Cybersecurity Measures</h2>
                     <h3>1. Regular Software Updates</h3>
                     <p>Keep all your software, including operating systems and applications, up to date. Regular updates patch security vulnerabilities that hackers could exploit.</p>
 
@@ -224,8 +252,11 @@ const structuredData = {
                     </ul>
                     <p>Remember: Cloud services are not automatically backed up. While they provide redundancy, they don't protect against accidental deletion, ransomware, or malicious actions. A proper backup strategy should include both on-premises and cloud data.</p>
 
-                    <h3>5. Advanced Threat Protection</h3>
-                    <p>Modern businesses need more than just antivirus software. Implement these advanced security solutions:</p>
+                    </div>
+
+                    <div class="content-card">
+                        <h2 id="advanced-protection">Advanced Threat Protection</h2>
+                        <p>Modern businesses need more than just antivirus software. Implement these advanced security solutions:</p>
                     
                     <h4>Endpoint Detection and Response (EDR)</h4>
                     <p>Huntress EDR provides advanced threat detection and response capabilities:</p>
@@ -263,12 +294,15 @@ const structuredData = {
                         <li>Works across all devices and locations, including remote workers</li>
                     </ul>
 
-                    <p>These solutions work together to provide comprehensive protection against both traditional and modern cyber threats. When combined with strong password policies and regular employee training, they create multiple layers of security for your business.</p>
+                        <p>These solutions work together to provide comprehensive protection against both traditional and modern cyber threats. When combined with strong password policies and regular employee training, they create multiple layers of security for your business.</p>
+                    </div>
 
-                    <h2>Local IT Support in Calgary and Vancouver</h2>
+                    <div class="content-card">
+                        <h2 id="local-support">Local IT Support in Calgary and Vancouver</h2>
                     <p>As your local IT service provider in Calgary and Vancouver, we offer comprehensive cybersecurity solutions tailored to small businesses. Our team can help you implement these security measures and provide ongoing support to keep your business protected.</p>
 
-                    <p>By implementing these cybersecurity measures, you're not just protecting your business – you're building trust with your customers and creating a foundation for sustainable growth. Remember, in today's digital world, cybersecurity isn't just an IT concern; it's a business imperative.</p>
+                        <p>By implementing these cybersecurity measures, you're not just protecting your business – you're building trust with your customers and creating a foundation for sustainable growth. Remember, in today's digital world, cybersecurity isn't just an IT concern; it's a business imperative.</p>
+                    </div>
 
                     <CTABox 
                         title="Need Help with Business Cybersecurity?"
@@ -279,72 +313,17 @@ const structuredData = {
                 </div>
             </div>
         </article>
+        <BlogInteractivity />
     </main>
     <Footer />
 </Layout>
 
+<script>
+    import '../../../styles/blog.css';
+</script>
+
 <style>
-    .hero {
-        position: relative;
-        color: white;
-        padding: 120px 0;
-        margin-bottom: 60px;
-        overflow: hidden;
-    }
-
-    .hero-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 1;
-    }
-
-    .hero-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .hero .container {
-        position: relative;
-        z-index: 2;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0 20px;
-        text-align: center;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .hero .subtitle {
-        font-size: 1.2rem;
-        opacity: 0.9;
-    }
-
-    .blog-post {
-        min-height: 100vh;
-        background: var(--bg-color);
-    }
-
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-    }
-
-    .post-content {
-        padding: 3rem 0;
-    }
-
+    /* Blog-specific meta styles */
     .article-meta {
         display: flex;
         gap: 1rem;
@@ -354,10 +333,10 @@ const structuredData = {
     }
 
     .category {
-        background: var(--button-color);
+        background: var(--blog-accent-color);
         color: white;
         padding: 0.25rem 0.75rem;
-        border-radius: var(--radius-sm);
+        border-radius: var(--blog-radius-sm);
         font-size: 0.8rem;
         text-transform: uppercase;
         letter-spacing: 0.05em;
@@ -365,59 +344,7 @@ const structuredData = {
 
     time, .reading-time {
         font-size: 0.9rem;
-        color: var(--text-muted);
+        color: var(--blog-text-muted);
         line-height: 1.5;
-    }
-
-    .post-content h2 {
-        color: var(--primary-heading);
-        margin: 2rem 0 1rem;
-        font-size: 1.8rem;
-    }
-
-    .post-content h3 {
-        color: var(--secondary-heading);
-        margin: 1.5rem 0 1rem;
-        font-size: 1.4rem;
-    }
-
-    .post-content p {
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
-    }
-
-    .post-content ul, .post-content ol {
-        margin-bottom: 1.5rem;
-        padding-left: 1.5rem;
-    }
-
-    .post-content li {
-        margin-bottom: 0.5rem;
-        line-height: 1.6;
-    }
-
-    .post-content li strong {
-        color: var(--primary-heading);
-    }
-
-    .post-content blockquote {
-        background: var(--secondary-bg);
-        padding: 1.5rem;
-        border-left: 4px solid var(--button-color);
-        margin: 1.5rem 0;
-    }
-
-    @media (max-width: 768px) {
-        .blog-post {
-            padding: 2rem 0;
-        }
-
-        .post-header h1 {
-            font-size: 2rem;
-        }
-
-        .post-content {
-            padding: 0 1rem;
-        }
     }
 </style> 

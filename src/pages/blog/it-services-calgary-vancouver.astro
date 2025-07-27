@@ -5,6 +5,8 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import CTABox from '../../components/CTABox.astro';
 import HeroBlog from '../../components/HeroBlog.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import BlogInteractivity from '../../components/BlogInteractivity.astro';
 import { formatDate, validateDate } from '../../utils/date';
 import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
 import itServicesGuideImg from '../../assets/images/blog/AdobeStock_535677380.webp';
@@ -13,8 +15,8 @@ import { posts } from '../../data/blog-posts';
 // Get the post data from blog-posts.ts
 const post = posts.find(p => p.slug === 'it-services-calgary-vancouver');
 
-const title = "Picking an IT Service Provider in Calgary & Vancouver 2025";
-const description = "As businesses in Calgary and Vancouver continue to embrace digital transformation, finding the right IT service provider has become crucial for success.";
+const title = "IT Support Calgary & Vancouver: Complete Guide to Managed IT Services 2025";
+const description = "Find the best IT support Calgary and Vancouver businesses trust. Complete guide to managed IT services, cybersecurity, and local IT companies serving Alberta and BC.";
 const date = post?.date || validateDate("2025-01-20"); // Use the date from blog-posts.ts, fallback to hardcoded date
 const author = "Huntertech Team";
 const category = "IT Services";
@@ -87,6 +89,17 @@ const wordCount = calculateWordCount(`
 `);
 
 const readingTime = estimateReadingTime(wordCount);
+
+// Table of Contents headings
+const headings = [
+    { text: "Why Local IT Support Matters", id: "why-local-it-support-matters" },
+    { text: "Essential IT Services for Calgary and Vancouver Businesses", id: "essential-it-services" },
+    { text: "What to Look for in an IT Provider", id: "what-to-look-for" },
+    { text: "IT Support Trends in Western Canada", id: "it-support-trends" },
+    { text: "Understanding IT Service Costs", id: "understanding-costs" },
+    { text: "Making the Right Choice", id: "making-the-right-choice" },
+    { text: "Why More Businesses Choose Huntertech", id: "why-choose-huntertech" }
+];
 
 const structuredData = {
     "@context": "https://schema.org",
@@ -171,21 +184,23 @@ const structuredData = {
             author={author}
         />
 
-        <div class="container">
-            <article class="content">
+        <div class="blog-container">
+            <TableOfContents headings={headings} />
+            
+            <article class="blog-content">
                 <div class="article-meta">
                     <span class="category">{category}</span>
                     <time datetime={date}>{formatDate(date)}</time>
                     <span class="reading-time">{readingTime} min read</span>
                 </div>
 
-                <p class="lead">Your guide to finding a reliable local IT partner — and why more businesses are turning to Huntertech.</p>
+                <p class="lead">Your complete guide to finding reliable <a href="/calgary/">IT support Calgary</a> and <a href="/vancouver/">managed IT services Vancouver</a> businesses trust — and why more companies are choosing Huntertech for local expertise.</p>
 
-                <p>As digital transformation accelerates, businesses in Calgary and Vancouver are increasingly dependent on reliable, secure, and responsive IT infrastructure. Choosing the right IT service provider isn't just about fixing problems — it's about future-proofing your operations and supporting growth.</p>
+                <p>As digital transformation accelerates, businesses in Calgary and Vancouver are increasingly dependent on reliable, secure, and responsive IT infrastructure. Choosing the right <a href="/services/managed-it-support/">IT support Calgary</a> or <a href="/vancouver/">Vancouver IT company</a> isn't just about fixing problems — it's about future-proofing your operations and supporting growth.</p>
 
-                <p>At Huntertech, we specialize in delivering smart, scalable IT solutions with a strong local presence in both Calgary and Vancouver. Here's what to look for when choosing a provider — and why we stand out.</p>
+                <p>At Huntertech, we specialize in delivering smart, scalable IT solutions with a strong local presence in both <a href="/calgary/">Calgary</a> and <a href="/vancouver/">Vancouver</a>. Here's what to look for when choosing a provider — and why we stand out from other managed IT services providers.</p>
 
-                <h2>Why Local IT Support Matters</h2>
+                <h2 id="why-local-it-support-matters">Why Local IT Support Matters</h2>
                 <p>While remote IT services are common, local support delivers clear advantages, especially in Western Canada's fast-paced business environments:</p>
                 <ul>
                     <li>Faster on-site response times for urgent issues</li>
@@ -195,8 +210,9 @@ const structuredData = {
                 </ul>
                 <p>Choosing a provider based in your city means your business is supported by people who understand your environment — and can be on-site when it matters.</p>
 
-                <h2>Essential IT Services for Calgary and Vancouver Businesses</h2>
+                <h2 id="essential-it-services">Essential IT Services for Calgary and Vancouver Businesses</h2>
                 <p>No matter your industry — whether engineering, professional services, real estate, or non-profit — your IT partner should offer these foundational services:</p>
+                <div class="content-card">
                 <div class="services-grid">
                     <div class="service-card">
                         <h3>Managed IT Services</h3>
@@ -208,7 +224,7 @@ const structuredData = {
                     </div>
                     <div class="service-card">
                         <h3>Cybersecurity</h3>
-                        <p>Protection from threats with multi-layered defenses and 24/7 monitoring</p>
+                        <p>Advanced <a href="/solutions/cybersecurity/">cybersecurity services Calgary</a> and Vancouver businesses need, with multi-layered defenses and 24/7 monitoring</p>
                     </div>
                     <div class="service-card">
                         <h3>Cloud Solutions</h3>
@@ -227,8 +243,9 @@ const structuredData = {
                         <p>Stay compliant and secure</p>
                     </div>
                 </div>
+                </div>
 
-                <h2>What to Look for in an IT Provider</h2>
+                <h2 id="what-to-look-for">What to Look for in an IT Provider</h2>
                 <p>When evaluating IT service providers in Calgary or Vancouver, ask these questions:</p>
                 <div class="checklist">
                     <ul>
@@ -242,8 +259,9 @@ const structuredData = {
                 </div>
                 <p>A good IT partner doesn't just "keep the lights on" — they enable your business to do more, securely and efficiently.</p>
 
-                <h2>IT Support Trends in Western Canada</h2>
+                <h2 id="it-support-trends">IT Support Trends in Western Canada</h2>
                 <p>The way businesses work is evolving. Your IT provider should be evolving too. Current trends include:</p>
+                <div class="content-card">
                 <div class="trends-grid">
                     <div class="trend-card">
                         <h3>Hybrid Work Support</h3>
@@ -266,8 +284,9 @@ const structuredData = {
                         <p>Centralized control of endpoints and software</p>
                     </div>
                 </div>
+                </div>
 
-                <h2>Understanding IT Service Costs</h2>
+                <h2 id="understanding-costs">Understanding IT Service Costs</h2>
                 <p>Cost should never be a guessing game. Look for transparency in how services are billed:</p>
                 <div class="cost-info">
                     <ul>
@@ -278,8 +297,9 @@ const structuredData = {
                     </ul>
                 </div>
 
-                <h2>Making the Right Choice</h2>
+                <h2 id="making-the-right-choice">Making the Right Choice</h2>
                 <p>Selecting an IT partner is a strategic decision. You want a provider that:</p>
+                <div class="content-card">
                 <div class="choice-grid">
                     <div class="choice-card">
                         <h3>Understands Your Needs</h3>
@@ -298,9 +318,11 @@ const structuredData = {
                         <p>Works as a true partner, not just a vendor</p>
                     </div>
                 </div>
+                </div>
 
-                <h2>Why More Businesses Choose Huntertech</h2>
+                <h2 id="why-choose-huntertech">Why More Businesses Choose Huntertech</h2>
                 <p>At Huntertech, we combine local knowledge with enterprise-grade IT expertise. Here's what sets us apart:</p>
+                <div class="content-card">
                 <div class="benefits-grid">
                     <div class="benefit-card">
                         <h3>Local Presence</h3>
@@ -327,6 +349,7 @@ const structuredData = {
                         <p>Clear, predictable pricing with no surprises</p>
                     </div>
                 </div>
+                </div>
 
                 <div class="cta-section">
                     <CTABox 
@@ -340,6 +363,7 @@ const structuredData = {
         </div>
     </main>
 
+    <BlogInteractivity />
     <Footer />
 </Layout>
 
@@ -348,46 +372,14 @@ const structuredData = {
         background: var(--bg-color);
     }
 
-    .content {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 0 20px 60px;
-        line-height: 1.8;
-    }
-
-    .lead {
-        font-size: 1.3em;
-        color: var(--text-color);
-        margin-bottom: 30px;
-    }
-
-    .content h2 {
-        color: var(--text-color);
-        margin: 40px 0 20px;
-        font-size: 1.8em;
-    }
-
-    .content p {
-        margin-bottom: 20px;
-    }
-
-    .content ul {
-        margin-bottom: 20px;
-        padding-left: 20px;
-    }
-
-    .content li {
-        margin-bottom: 10px;
-    }
-
     .services-grid,
     .trends-grid,
     .choice-grid,
     .benefits-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-        margin: 30px 0;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
     }
 
     .service-card,
@@ -396,7 +388,17 @@ const structuredData = {
     .benefit-card {
         background: var(--secondary-bg);
         border-radius: var(--radius-lg);
-        padding: 20px;
+        padding: 1.5rem;
+        border: 1px solid var(--border-color);
+        transition: all var(--transition-normal);
+    }
+
+    .service-card:hover,
+    .trend-card:hover,
+    .choice-card:hover,
+    .benefit-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     }
 
     .service-card h3,
@@ -404,7 +406,8 @@ const structuredData = {
     .choice-card h3,
     .benefit-card h3 {
         color: var(--primary-color);
-        margin-bottom: 15px;
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
     }
 
     .checklist ul {
@@ -429,30 +432,13 @@ const structuredData = {
     .cost-info {
         background: var(--secondary-bg);
         border-radius: var(--radius-lg);
-        padding: 20px;
-        margin: 20px 0;
+        padding: 2rem;
+        margin: 2rem 0;
+        border: 1px solid var(--border-color);
     }
 
     .cta-section {
-        margin: 60px 0;
-    }
-
-    @media (max-width: 768px) {
-        .content {
-            padding: 0 15px 40px;
-        }
-
-        .services-grid,
-        .trends-grid,
-        .choice-grid,
-        .benefits-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    .reading-time {
-        color: var(--text-muted);
-        font-size: 0.9rem;
+        margin: 4rem 0;
     }
 
     .article-meta {
@@ -477,5 +463,22 @@ const structuredData = {
         font-size: 0.9rem;
         color: var(--text-muted);
         line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+        .services-grid,
+        .trends-grid,
+        .choice-grid,
+        .benefits-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .service-card,
+        .trend-card,
+        .choice-card,
+        .benefit-card {
+            padding: 1.25rem;
+        }
     }
 </style> 

@@ -4,6 +4,8 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import CTABox from '../../components/CTABox.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import BlogInteractivity from '../../components/BlogInteractivity.astro';
 import HeroBlog from '../../components/HeroBlog.astro';
 import { formatDate, validateDate } from '../../utils/date';
 import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
@@ -248,17 +250,27 @@ const structuredData = {
             author={author}
         />
 
-        <div class="container">
-            <article class="content">
+        <div class="blog-container">
+            <article class="blog-content">
                 <div class="article-meta">
                     <span class="category">{category}</span>
                     <time datetime={date}>{formatDate(date)}</time>
                     <span class="reading-time">{readingTime} min read</span>
                 </div>
 
+                <p class="lead">Many Canadian businesses are struggling with email deliverability issues. When sending marketing emails through platforms like Mailchimp, HubSpot, or Brevo, their messages are being flagged as spam or showing up as "unverified" to recipients. This comprehensive guide will help you understand and fix these authentication problems.</p>
+
+                <TableOfContents headings={[
+                    { text: "Understanding the Problem", id: "understanding-problem" },
+                    { text: "What is DMARC, DKIM, and SPF?", id: "dmarc-dkim-spf" },
+                    { text: "How to Fix the Issue", id: "fix-issue" },
+                    { text: "Setting Up DMARC Records", id: "setup-dmarc" }
+                ]} />
+
                 <p>I've been seeing a common issue faced by many companies. They send emails through a bulk email provider like Mailchimp, Ticketmaster, Brevo, Hubspot, etc. and their emails are getting flagged as possible spam or as unverified.</p>
 
-                <h2>Understanding the Problem</h2>
+                <div class="content-card">
+                    <h2 id="understanding-problem">Understanding the Problem</h2>
                 <p>Let's break this down to show what's happening. When a company sends email using their Mailchimp Account, it should be legitimate, right? Let's check the mail header to understand what's going wrong.</p>
 
                 <blockquote>
@@ -272,8 +284,10 @@ const structuredData = {
                     <li>DMARC Failed</li>
                     <li>Fail reason = 001</li>
                 </ul>
+                </div>
 
-                <h2>What is DMARC, DKIM, and SPF?</h2>
+                <div class="content-card">
+                    <h2 id="dmarc-dkim-spf">What is DMARC, DKIM, and SPF?</h2>
                 <p>DMARC (Domain-based Message Authentication, Reporting, and Conformance) builds upon SPF (Sender Policy Framework) and DKIM (DomainKeys Identified Mail). Its goal is to increase email security. Here's how it works:</p>
 
                 <h3>Authentication Standards</h3>
@@ -288,8 +302,10 @@ const structuredData = {
                     <li>An organization can publish a DMARC policy that says, "If you send mail from my domain, it must pass SPF and DKIM checks."</li>
                     <li>DMARC creates a feedback loop between the sender and receiver. If an email fails authentication, the receiver can send a report back to the sender, detailing why it failed.</li>
                 </ul>
+                </div>
 
-                <h2>How to Fix the Issue</h2>
+                <div class="content-card">
+                    <h2 id="fix-issue">How to Fix the Issue</h2>
                 <p>In the Mailchimp example, the CNAME record you create is actually pointing at their TXT record which holds the public key used to verify the DKIM signature applied by the Mailchimp mail server.</p>
 
                 <p>A proper TXT record should be formatted like this:</p>
@@ -311,8 +327,10 @@ const structuredData = {
                 <p>Head over to www.mxtoolbox.com and use their Super Tool. Select the DKIM Lookup from the dropdown and enter the d value and s value separated by a colon (:) - example: mailchimpapp.net:k3</p>
 
                 <p>This will show you the DKIM record for your email provider. When you create your CNAME record, this is what you are pointing to. This has the public key used to verify the DKIM signature.</p>
+                </div>
 
-                <h2>Setting Up DMARC Records</h2>
+                <div class="content-card">
+                    <h2 id="setup-dmarc">Setting Up DMARC Records</h2>
                 <p>The last piece of the puzzle is setting up your DMARC records. You should create a mailbox or distribution list to collect DMARC reports and set your DNS DMARC to reject or quarantine emails that don't pass DMARC. Or you can use a service like <a href="https://www.uriports.com" target="_blank">https://www.uriports.com</a> to collect the reports for you.</p>
 
                 <p>Example DMARC TXT DNS record:</p>
@@ -326,6 +344,7 @@ const structuredData = {
                     <li><strong>aspf=s</strong>: SPF checks are "strict"</li>
                     <li><strong>rua=mailto:xxxx</strong>: Sends DMARC reports to this email address</li>
                 </ul>
+                </div>
 
                 <CTABox 
                     title="Need Help with Email Authentication?"
@@ -335,122 +354,63 @@ const structuredData = {
                 />
             </article>
         </div>
+        <BlogInteractivity />
     </main>
     <Footer />
 </Layout>
 
+<script>
+    import '../../../styles/blog.css';
+</script>
+
 <style>
-    .blog-post {
-        background: var(--bg-color);
-    }
-
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0 20px 60px;
-    }
-
-    .content {
-        line-height: 1.8;
-        color: var(--text-color);
-    }
-
+    /* Blog-specific meta styles */
     .article-meta {
         display: flex;
-        align-items: center;
         gap: 1rem;
         margin-bottom: 2rem;
-        color: var(--text-muted);
-        font-size: 0.9rem;
+        flex-wrap: wrap;
+        align-items: center;
     }
 
     .category {
-        background: var(--button-color);
+        background: var(--blog-accent-color);
         color: white;
         padding: 0.25rem 0.75rem;
-        border-radius: var(--radius-sm);
+        border-radius: var(--blog-radius-sm);
         font-size: 0.8rem;
         text-transform: uppercase;
         letter-spacing: 0.05em;
     }
 
-    .content h2 {
-        color: var(--text-color);
-        margin: 2.5rem 0 1.5rem;
-        font-size: 1.8em;
-        font-weight: 700;
+    time, .reading-time {
+        font-size: 0.9rem;
+        color: var(--blog-text-muted);
+        line-height: 1.5;
     }
 
-    .content h3 {
-        color: var(--text-color);
-        margin: 2rem 0 1rem;
-        font-size: 1.4em;
-        font-weight: 600;
-    }
-
-    .content p {
-        margin-bottom: 1.5rem;
-        font-size: 1.1rem;
-    }
-
-    .content ul, .content ol {
-        margin-bottom: 1.5rem;
-        padding-left: 1.5rem;
-    }
-
-    .content li {
-        margin-bottom: 0.75rem;
-        font-size: 1.1rem;
-    }
-
-    .content blockquote {
-        background: var(--secondary-bg);
+    /* Code styling for technical content */
+    .blog-content blockquote {
+        background: var(--blog-bg-secondary);
         padding: 1.5rem;
-        border-left: 4px solid var(--button-color);
+        border-left: 4px solid var(--blog-accent-color);
         margin: 1.5rem 0;
-        font-family: monospace;
+        font-family: 'Courier New', monospace;
         overflow-x: auto;
         font-size: 0.9rem;
         line-height: 1.6;
+        border-radius: var(--blog-radius-md);
     }
 
-    .content pre {
-        background: var(--secondary-bg);
+    .blog-content pre {
+        background: var(--blog-bg-secondary);
         padding: 1.5rem;
-        border-radius: var(--radius-md);
+        border-radius: var(--blog-radius-md);
         overflow-x: auto;
-        font-family: monospace;
+        font-family: 'Courier New', monospace;
         margin: 1.5rem 0;
         font-size: 0.9rem;
         line-height: 1.6;
-    }
-
-    .content a {
-        color: var(--button-color);
-        text-decoration: none;
-        border-bottom: 1px solid transparent;
-        transition: border-color 0.2s ease;
-    }
-
-    .content a:hover {
-        border-bottom-color: var(--button-color);
-    }
-
-    @media (max-width: 768px) {
-        .container {
-            padding: 0 15px 40px;
-        }
-
-        .content h2 {
-            font-size: 1.6em;
-        }
-
-        .content h3 {
-            font-size: 1.3em;
-        }
-
-        .content p, .content li {
-            font-size: 1rem;
-        }
+        border: 1px solid var(--blog-border-color);
     }
 </style> 

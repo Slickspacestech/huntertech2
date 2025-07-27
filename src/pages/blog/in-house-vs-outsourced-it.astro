@@ -4,6 +4,8 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import CTABox from '../../components/CTABox.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import BlogInteractivity from '../../components/BlogInteractivity.astro';
 import HeroBlog from '../../components/HeroBlog.astro';
 import { formatDate, validateDate } from '../../utils/date';
 import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
@@ -13,8 +15,8 @@ import { posts } from '../../data/blog-posts';
 // Get the post data from blog-posts.ts
 const post = posts.find(p => p.slug === 'in-house-vs-outsourced-it');
 
-const title = "IT Strategy: In-House? Share the Hat? Outsource? Pros/Cons";
-const description = "Making the right choice between building an in-house IT team and outsourcing is crucial for business success. This guide explores the pros and cons of each approach.";
+const title = "IT Support Calgary vs Vancouver: In-House vs Managed IT Services Comparison 2025";
+const description = "Choose between in-house IT vs managed IT services Calgary and Vancouver businesses trust. Compare costs, benefits, and risks to make the right IT support decision for your business.";
 const date = post?.date || validateDate("2024-10-25"); // Use the date from blog-posts.ts, fallback to hardcoded date
 const author = "Huntertech Team";
 const category = "IT Services";
@@ -184,8 +186,8 @@ const structuredData = {
             author={author}
         />
 
-        <div class="container">
-            <article class="content">
+        <div class="blog-container">
+            <article class="blog-content">
                 <div class="article-meta">
                     <span class="category">{category}</span>
                     <time datetime={date}>{formatDate(date)}</time>
@@ -194,6 +196,13 @@ const structuredData = {
 
                 <p class="lead">When it comes to managing your business's IT infrastructure, one of the most important decisions you'll face is how to structure your IT support. Larger businesses may consider building a dedicated in-house IT team, while smaller organizations often lean on existing staff to "wear the IT hat" alongside their regular roles. Both paths come with unique challenges and risks.</p>
 
+                <TableOfContents headings={[
+                    { text: "Building an In-House IT Team", id: "in-house-it-team" },
+                    { text: "When Staff 'Wear the IT Hat'", id: "staff-it-hat" },
+                    { text: "Outsourcing: A Scalable Solution", id: "outsourcing-solution" },
+                    { text: "Finding the Right Fit", id: "finding-right-fit" }
+                ]} />
+
                 <div class="quote-card">
                     <div class="quote-icon">💡</div>
                     <blockquote>
@@ -201,7 +210,8 @@ const structuredData = {
                     </blockquote>
                 </div>
 
-                <h2>Part 1: Building an In-House IT Team</h2>
+                <div class="content-card">
+                    <h2 id="in-house-it-team">Building an In-House IT Team</h2>
 
                 <h3>The Benefits</h3>
                 <p>Creating an in-house IT department means hiring employees who are solely focused on your business's technology infrastructure. For larger organizations or those with complex systems, this can offer strong benefits:</p>
@@ -230,8 +240,10 @@ const structuredData = {
                         <li>You need <strong>tight control</strong> over sensitive data or proprietary systems</li>
                     </ul>
                 </div>
+                </div>
 
-                <h2>Part 2: When Staff "Wear the IT Hat" — Risks for Smaller Businesses</h2>
+                <div class="content-card">
+                    <h2 id="staff-it-hat">When Staff "Wear the IT Hat" — Risks for Smaller Businesses</h2>
                 <p>For many small or mid-sized businesses, hiring a dedicated IT person may feel out of reach. Instead, IT responsibilities often fall to someone in operations, admin, or finance who is "tech savvy." While this may seem cost-effective, it can introduce serious risk.</p>
 
                 <h3>The Hidden Risks</h3>
@@ -253,8 +265,10 @@ const structuredData = {
                         <p>Asking non-IT employees to take on IT duties can lead to decreased job satisfaction. They're pulled in multiple directions, unable to do their core job well, and unprepared for the stress of resolving critical tech failures.</p>
                     </div>
                 </div>
+                </div>
 
-                <h2>Outsourcing: A Scalable Solution</h2>
+                <div class="content-card">
+                    <h2 id="outsourcing-solution">Outsourcing: A Scalable Solution</h2>
                 <p>If hiring an internal IT pro isn't feasible, partnering with a <strong>Managed IT Service Provider (MSP)</strong> can offer the support your business needs—without overwhelming your staff.</p>
 
                 <div class="benefits-grid">
@@ -275,8 +289,10 @@ const structuredData = {
                         <p>Solutions that grow with your business</p>
                     </div>
                 </div>
+                </div>
 
-                <h2>Finding the Right Fit</h2>
+                <div class="content-card">
+                    <h2 id="finding-right-fit">Finding the Right Fit</h2>
                 <p>When deciding how to manage IT, consider:</p>
                 <ul>
                     <li><strong>Business size and growth plans</strong></li>
@@ -289,6 +305,7 @@ const structuredData = {
                     <h3>The Hybrid Approach</h3>
                     <p>For many larger companies, a <strong>hybrid model</strong>—with internal staff handling day-to-day tech needs and an MSP managing cybersecurity, compliance, and large projects—offers the best of both worlds.</p>
                 </div>
+                </div>
 
                 <CTABox 
                     title="Ready to Optimize Your IT Strategy?"
@@ -298,16 +315,18 @@ const structuredData = {
                 />
             </article>
         </div>
+        <BlogInteractivity />
     </main>
 
     <Footer />
 </Layout>
 
-<style>
-    .blog-post {
-        background: var(--primary-bg);
-    }
+<script>
+    import '../../../styles/blog.css';
+</script>
 
+<style>
+    /* Blog-specific meta styles */
     .article-meta {
         display: flex;
         gap: 1rem;
@@ -317,10 +336,10 @@ const structuredData = {
     }
 
     .category {
-        background: var(--button-color);
+        background: var(--blog-accent-color);
         color: white;
         padding: 0.25rem 0.75rem;
-        border-radius: var(--radius-sm);
+        border-radius: var(--blog-radius-sm);
         font-size: 0.8rem;
         text-transform: uppercase;
         letter-spacing: 0.05em;
@@ -328,73 +347,11 @@ const structuredData = {
 
     time, .reading-time {
         font-size: 0.9rem;
-        color: var(--text-muted);
+        color: var(--blog-text-muted);
         line-height: 1.5;
     }
 
-    .meta {
-        margin-bottom: 20px;
-    }
-
-    .date {
-        color: rgba(255, 255, 255, 0.8);
-    }
-
-    .author {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 1.1em;
-    }
-
-    .content {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 0 20px 60px;
-        line-height: 1.8;
-    }
-
-    .lead {
-        font-size: 1.3em;
-        color: var(--text-color);
-        margin-bottom: 2rem;
-        line-height: 1.6;
-    }
-
-    .quote-card {
-        background: var(--secondary-bg);
-        border-left: 4px solid var(--button-color);
-        padding: 2rem;
-        margin: 2rem 0;
-        border-radius: var(--radius-md);
-        position: relative;
-    }
-
-    .quote-icon {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        color: var(--button-color);
-    }
-
-    .quote-card blockquote {
-        font-size: 1.2rem;
-        line-height: 1.6;
-        color: var(--text-color);
-        margin: 0;
-        font-style: italic;
-    }
-
-    .info-card {
-        background: var(--secondary-bg);
-        padding: 2rem;
-        border-radius: var(--radius-md);
-        margin: 2rem 0;
-        border: 1px solid var(--border-color);
-    }
-
-    .info-card h4 {
-        color: var(--primary-heading);
-        margin-bottom: 1rem;
-    }
-
+    /* Specialized grid layouts */
     .risk-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -403,19 +360,22 @@ const structuredData = {
     }
 
     .risk-card {
-        background: var(--white);
+        background: var(--blog-white);
         padding: 1.5rem;
-        border-radius: var(--radius-md);
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        transition: transform var(--transition-normal);
+        border-radius: var(--blog-radius-lg);
+        border-top: 4px solid var(--blog-accent-color);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all var(--blog-transition-normal);
     }
 
     .risk-card:hover {
-        transform: translateY(-5px);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     }
 
     .risk-card h4 {
-        color: var(--primary-heading);
+        color: var(--blog-accent-color);
+        margin-top: 0;
         margin-bottom: 1rem;
     }
 
@@ -427,86 +387,81 @@ const structuredData = {
     }
 
     .benefit-card {
-        background: var(--secondary-bg);
+        background: linear-gradient(135deg, var(--blog-white), var(--blog-bg-secondary));
         padding: 1.5rem;
-        border-radius: var(--radius-md);
+        border-radius: var(--blog-radius-lg);
         text-align: center;
-        transition: transform var(--transition-normal);
+        border: 2px solid var(--blog-accent-color);
+        transition: all var(--blog-transition-normal);
     }
 
     .benefit-card:hover {
         transform: translateY(-5px);
+        box-shadow: 0 12px 35px rgba(0, 172, 172, 0.15);
     }
 
     .benefit-card h4 {
-        color: var(--primary-heading);
+        color: var(--blog-accent-color);
         margin-bottom: 0.5rem;
     }
 
-    .hybrid-section {
-        background: var(--primary-bg);
+    .quote-card {
+        background: linear-gradient(135deg, var(--blog-bg-secondary), rgba(0, 172, 172, 0.05));
+        border: 2px solid var(--blog-accent-color);
+        border-radius: var(--blog-radius-lg);
         padding: 2rem;
-        border-radius: var(--radius-md);
         margin: 2rem 0;
-        border: 1px solid var(--border-color);
+        position: relative;
+        overflow: hidden;
     }
 
-    .hybrid-section h3 {
-        color: var(--primary-heading);
+    .quote-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(to bottom, var(--blog-accent-color), var(--blog-accent-hover));
+    }
+
+    .quote-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: var(--blog-accent-color);
+    }
+
+    .quote-card blockquote {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: var(--blog-text-color);
+        margin: 0;
+        font-style: italic;
+    }
+
+    .info-card {
+        background: linear-gradient(135deg, var(--blog-bg-secondary), rgba(0, 172, 172, 0.05));
+        padding: 2rem;
+        border-radius: var(--blog-radius-lg);
+        margin: 2rem 0;
+        border: 2px solid var(--blog-accent-color);
+    }
+
+    .info-card h4 {
+        color: var(--blog-accent-color);
         margin-bottom: 1rem;
     }
 
-    .post-content h2 {
-        color: var(--primary-heading);
-        margin: 2.5rem 0 1.5rem;
-        font-size: 1.8rem;
+    .hybrid-section {
+        background: var(--blog-bg-secondary);
+        padding: 2rem;
+        border-radius: var(--blog-radius-lg);
+        margin: 2rem 0;
+        border: 1px solid var(--blog-border-color);
     }
 
-    .post-content h3 {
-        color: var(--secondary-heading);
-        margin: 2rem 0 1rem;
-        font-size: 1.4rem;
-    }
-
-    .post-content h4 {
-        color: var(--primary-heading);
-        margin: 1.5rem 0 1rem;
-        font-size: 1.2rem;
-    }
-
-    .post-content ul {
-        margin: 1rem 0;
-        padding-left: 1.5rem;
-    }
-
-    .post-content li {
-        margin-bottom: 0.8rem;
-    }
-
-    .post-content strong {
-        color: var(--primary-heading);
-    }
-
-    @media (max-width: 768px) {
-        .blog-post {
-            padding: 2rem 0;
-        }
-
-        .hero {
-            padding: 80px 0;
-        }
-
-        .hero h1 {
-            font-size: 2em;
-        }
-
-        .content {
-            padding: 0 15px 40px;
-        }
-
-        .risk-grid,
-        .benefits-grid {
-            grid-template-columns: 1fr;
-        }
+    .hybrid-section h3 {
+        color: var(--blog-heading-color);
+        margin-bottom: 1rem;
     }
 </style> 

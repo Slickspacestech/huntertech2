@@ -33,7 +33,8 @@
       "Bash(find:*)",
       "Bash(sed:*)",
       "Bash(npm run build:*)",
-      "WebFetch(domain:clutch.co)"
+      "WebFetch(domain:clutch.co)",
+      "Bash(npm run dev:*)"
     ],
     "deny": []
   }

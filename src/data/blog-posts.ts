@@ -14,6 +14,8 @@ import microsoftGrantImg from '../assets/images/blog/microsoft-grant.jpg';
 import passwordlessImg from '../assets/images/blog/passwordless-hero.png';
 import bluebeamStandardizeImg from '../assets/images/blog/bluebeam-standardize.png';
 import engineeringItServicesImg from '../assets/images/architect_engineer_tech.webp';
+import cybersecuritySmallBusinessImg from '../assets/images/blog/cybersecurity-small-business.webp';
+import hiddenCostsDiyVancouverImg from '../assets/images/Blog-Hidden-Costs-DIY-Vancouver.jpg';
 
 export interface BlogPost {
     slug: string;
@@ -28,6 +30,18 @@ export interface BlogPost {
 
 export const posts: BlogPost[] = [
     {
+        slug: 'hidden-costs-diy-it-vancouver/',
+        title: "The Hidden Costs of DIY IT: What Vancouver Small Businesses Need to Know",
+        date: "2025-07-26",
+        author: "Huntertech Team",
+        category: "IT Services",
+        image: hiddenCostsDiyVancouverImg,
+        content: `
+            <p>Vancouver businesses lose $400-1000 per hour during IT downtime. Discover why DIY IT support costs more than managed IT services Vancouver companies trust. Learn from real stories of 10 Vancouver architecture firms compromised by email attacks—and why Huntertech clients stayed safe.</p>
+        `,
+        tags: ["IT support Vancouver", "managed IT services Vancouver", "Vancouver IT company", "business IT support Vancouver", "cybersecurity services Vancouver", "Vancouver MSP", "DIY IT risks", "IT consulting Vancouver", "Vancouver technology support", "BC IT services"]
+    },
+    {
         slug: 'it-services-engineering-firms-calgary/',
         title: "IT Services for Engineering Firms in Calgary: A Complete Guide for 2025",
         date: "2025-07-17",
@@ -37,7 +51,7 @@ export const posts: BlogPost[] = [
         content: `
             <p>Calgary's engineering sector is experiencing unprecedented growth, with firms handling increasingly complex projects from oil and gas infrastructure to sustainable building design. This comprehensive guide helps Calgary engineering firms choose the right IT services to boost productivity, secure intellectual property, and support business growth.</p>
         `,
-        tags: ["IT services engineering firms Calgary", "managed IT Calgary engineering", "CAD software support Calgary", "engineering firm cybersecurity Calgary", "IT support Calgary engineers", "BIM technology support Calgary", "engineering data backup Calgary"]
+        tags: ["IT services engineering firms Calgary", "managed IT Calgary engineering", "CAD software support Calgary", "engineering firm cybersecurity Calgary", "IT support Calgary", "Calgary IT company", "BIM technology support Calgary", "engineering data backup Calgary", "Calgary MSP", "IT consulting Calgary"]
     },
     {
         slug: 'construction-industry-phishing-scam/',
@@ -51,7 +65,7 @@ export const posts: BlogPost[] = [
             attempting to deceive employees into revealing sensitive information. This article provides 
             crucial information about the scam and how to protect your business.</p>
         `,
-        tags: ["phishing scam", "construction industry", "cybersecurity", "business fraud", "email security", "financial fraud", "construction safety", "IT security"]
+        tags: ["phishing scam", "construction industry", "cybersecurity services Calgary", "cybersecurity services Vancouver", "business fraud", "email security", "financial fraud", "construction safety", "IT security Calgary", "IT security Vancouver"]
     },
     {
         slug: 'phishing-attacks-canada/',
@@ -63,7 +77,7 @@ export const posts: BlogPost[] = [
         content: `
             <p>Learn about the increasing threat of phishing attacks in Canada and how to protect your business from cyber fraud.</p>
         `,
-        tags: []
+        tags: ["cybersecurity services Calgary", "cybersecurity services Vancouver", "phishing attacks Canada", "business cybersecurity", "IT security Calgary", "IT security Vancouver", "email security", "cyber threats Canada"]
     },
     {
         slug: 'password-manager/',
@@ -75,7 +89,7 @@ export const posts: BlogPost[] = [
         content: `
             <p>Learn why password managers are essential for business security and what features to look for when choosing one.</p>
         `,
-        tags: []
+        tags: ["password manager", "cybersecurity services Calgary", "cybersecurity services Vancouver", "business security", "password security", "IT security Calgary", "IT security Vancouver", "data protection"]
     },
     {
         slug: 'cybersecurity-small-business/',
@@ -87,7 +101,7 @@ export const posts: BlogPost[] = [
         content: `
             <p>Learn how to protect your small business from cyber threats with expert advice and practical tips.</p>
         `,
-        tags: []
+        tags: ["cybersecurity services Calgary", "cybersecurity services Vancouver", "small business cybersecurity", "IT security Calgary", "IT security Vancouver", "business security", "cyber threats", "data protection"]
     },
     {
         slug: 'admin-rights-work-computers/',
@@ -99,7 +113,7 @@ export const posts: BlogPost[] = [
         content: `
             <p>Learn about the implications of granting administrative rights to employees and how to implement proper access controls in your business.</p>
         `,
-        tags: []
+        tags: ["IT support Calgary", "IT support Vancouver", "admin rights", "cybersecurity services Calgary", "cybersecurity services Vancouver", "access controls", "IT security Calgary", "IT security Vancouver"]
     },
     {
         slug: 'scan-to-email-printer/',
@@ -111,7 +125,7 @@ export const posts: BlogPost[] = [
         content: `
             <p>Learn how to set up scan-to-email functionality on your office printer using Microsoft 365 or Google Workspace. A simple 5-minute guide.</p>
         `,
-        tags: []
+        tags: ["IT support Calgary", "IT support Vancouver", "printer setup", "Microsoft 365", "office printer", "Calgary IT company", "Vancouver IT company", "business IT support Calgary", "business IT support Vancouver"]
     },
     {
         slug: 'email-verification-dmarc/',
@@ -123,7 +137,7 @@ export const posts: BlogPost[] = [
         content: `
             <p>Learn how to fix unverified email issues and properly set up DMARC, DKIM, and SPF records for your business email system.</p>
         `,
-        tags: []
+        tags: ["email verification", "DMARC", "IT support Calgary", "IT support Vancouver", "email security", "cybersecurity services Calgary", "cybersecurity services Vancouver", "business email setup"]
     },
     {
         slug: 'it-services-calgary-vancouver/',
@@ -135,7 +149,7 @@ export const posts: BlogPost[] = [
         content: `
             <p>As businesses in Calgary and Vancouver continue to embrace digital transformation, finding the right IT service provider has become crucial for success. In this guide, we'll explore what makes a great IT service provider and how to choose the right partner for your business needs.</p>
         `,
-        tags: ['IT strategy', 'IT outsourcing', 'managed IT services', 'small business IT', 'IT management', 'IT support', 'business technology']
+        tags: ['IT support Calgary', 'managed IT services Vancouver', 'Calgary IT company', 'Vancouver IT company', 'IT strategy', 'IT outsourcing', 'managed IT services', 'small business IT', 'IT management', 'business technology']
     },
     {
         slug: 'pontem-group-case-study/',
@@ -145,7 +159,7 @@ export const posts: BlogPost[] = [
         category: "Case Studies",
         image: pontemCaseStudyImg,
         content: `<p>Pontem Group, a leading fire suppression and CP code consulting firm in Calgary, faced significant IT challenges before partnering with Huntertech. With 20 staff members and four principals managing IT responsibilities, their technology infrastructure was becoming a liability rather than an asset. Here's how we helped them transform their IT operations and achieve substantial cost savings.</p>`,
-        tags: []
+        tags: ["managed IT services Vancouver", "IT transformation", "case study", "business IT support Vancouver", "Vancouver IT company", "IT infrastructure", "technology consulting", "productivity improvement"]
     },
     {
         slug: 'in-house-vs-outsourced-it/',
@@ -155,7 +169,7 @@ export const posts: BlogPost[] = [
         category: 'IT Services',
         image: inHouseVsOutsourcedImg,
         content: "Making the right choice between building an in-house IT team and outsourcing is crucial for business success. This guide explores the pros and cons of each approach, from the benefits of dedicated IT staff to the risks of having non-technical employees handle IT responsibilities. Learn how to make an informed decision that aligns with your business goals and budget.",
-        tags: ['IT strategy', 'in-house IT team', 'IT outsourcing', 'managed IT services', 'small business IT', 'IT management', 'IT support', 'business technology']
+        tags: ['IT support Calgary', 'managed IT services Vancouver', 'Calgary IT company', 'Vancouver IT company', 'IT strategy', 'in-house IT team', 'IT outsourcing', 'managed IT services', 'small business IT', 'IT management', 'business technology']
     },
     {
         slug: 'ai-adoption-stats-2025/',

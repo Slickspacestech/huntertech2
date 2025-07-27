@@ -5,6 +5,8 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import CTABox from '../../components/CTABox.astro';
 import HeroBlog from '../../components/HeroBlog.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import BlogInteractivity from '../../components/BlogInteractivity.astro';
 import { formatDate, validateDate } from '../../utils/date';
 import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
 import adminRightsImg from '../../assets/images/blog/admin-rights.webp';
@@ -14,12 +16,12 @@ import { posts } from '../../data/blog-posts';
 // Get the post data from blog-posts.ts
 const post = posts.find(p => p.slug === 'admin-rights-work-computers');
 
-const title = "Why Employees Shouldn't Have Admin Rights | Huntertech";
-const description = "Learn why restricting admin rights on work computers is crucial for business security and how to implement proper access controls.";
+const title = "Why Calgary & Vancouver Businesses Shouldn't Give Employees Admin Rights: IT Security Guide";
+const description = "Learn why IT support Calgary and Vancouver professionals recommend restricting admin rights. Essential cybersecurity services guidance for business computer security.";
 const date = post?.date || validateDate("2024-09-12"); // Use the date from blog-posts.ts, fallback to hardcoded date
 const author = "Matt Hunter";
 const category = "Cybersecurity";
-const keywords = ["admin rights", "work computer security", "cybersecurity", "access control", "IT security", "business protection"];
+const keywords = ["IT support Calgary", "IT support Vancouver", "cybersecurity services Calgary", "cybersecurity services Vancouver", "admin rights", "work computer security", "access control", "IT security Calgary", "IT security Vancouver", "business protection"];
 
 const wordCount = calculateWordCount(`
     In today's business environment, computer security is more important than ever. One of the most critical security measures is controlling who has administrative rights on work computers. This article explains why restricting admin rights is essential and how to implement proper access controls.
@@ -140,6 +142,15 @@ const wordCount = calculateWordCount(`
 
 const readingTime = estimateReadingTime(wordCount);
 
+// Table of Contents headings
+const tocHeadings = [
+    { text: "Company Liability", id: "company-liability" },
+    { text: "Software Inventory Management", id: "software-inventory-management" },
+    { text: "IT Maintenance Effort", id: "it-maintenance-effort" },
+    { text: "Security and Attack Surface Reduction", id: "security-attack-surface-reduction" },
+    { text: "Potential For Volume Discounts", id: "volume-discounts" }
+];
+
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -222,40 +233,65 @@ const structuredData = {
             author={author}
         />
 
-        <div class="container">
-            <article class="content">
+        <div class="blog-container">
+            <article class="blog-content">
                 <div class="article-meta">
                     <span class="category">{category}</span>
                     <time datetime={date}>{formatDate(date)}</time>
                     <span class="reading-time">{readingTime} min read</span>
                 </div>
 
-                <p>While there are certainly a variety of opinions concerning administrative rights on workplace computers, I believe it's crucial to consider several factors before reaching a decision. For those seeking a quick answer, it's conditional; however, generally speaking, the larger the organization, the more it tends to be advisable to restrict these rights.</p>
+                <TableOfContents headings={tocHeadings} />
 
-                <h2>Company Liability</h2>
-                <p>It's rare to encounter an average employee who thoroughly reads the End User License Agreement of "free" software before installation. While many applications are impressive and offer licenses free for personal use, they often restrict commercial use or mandate licensing for such purposes. Permitting employees to install software independently can result in non-compliance with licensing agreements, potentially leading to significant legal and financial consequences.</p>
+                <p class="lead">While there are certainly a variety of opinions concerning administrative rights on workplace computers, I believe it's crucial to consider several factors before reaching a decision. For those seeking a quick answer, it's conditional; however, generally speaking, the larger the organization, the more it tends to be advisable to restrict these rights.</p>
 
-                <p>These risks can be mitigated through straightforward account controls and acceptable use policies tailored to your business environment. Additionally, unauthorized software installations can expose the company to data breaches and intellectual property theft, further increasing liability.</p>
+                <h2 id="company-liability">Company Liability</h2>
+                <div class="highlight-card">
+                    <p>It's rare to encounter an average employee who thoroughly reads the End User License Agreement of "free" software before installation. While many applications are impressive and offer licenses free for personal use, they often restrict commercial use or mandate licensing for such purposes. Permitting employees to install software independently can result in non-compliance with licensing agreements, potentially leading to significant legal and financial consequences.</p>
+                    
+                    <p><strong>Key Risk:</strong> These risks can be mitigated through straightforward account controls and acceptable use policies tailored to your business environment. Additionally, unauthorized software installations can expose the company to data breaches and intellectual property theft, further increasing liability.</p>
+                </div>
 
-                <h2>Software Inventory Management</h2>
-                <p>In every workplace I've experienced where employees or developers have free rein over their software choices, a proliferation of applications with overlapping functionalities inevitably occurs. This expansion of software inventory can lead to situations where users are not familiar with the different software variations, potentially increasing training expenses or decreasing employee efficiency.</p>
+                <h2 id="software-inventory-management">Software Inventory Management</h2>
+                
+                <div class="content-card">
+                    <p>In every workplace I've experienced where employees or developers have free rein over their software choices, a proliferation of applications with overlapping functionalities inevitably occurs. This expansion of software inventory can lead to situations where users are not familiar with the different software variations, potentially increasing training expenses or decreasing employee efficiency.</p>
 
-                <p>In extreme cases, it can even result in incompatibility issues between work produced by one team member and another, despite the similarity in their outputs. Standardizing software can streamline operations, reduce redundancy, and ensure that all employees are on the same page, enhancing overall productivity.</p>
+                    <p><strong>Impact on Productivity:</strong> In extreme cases, it can even result in incompatibility issues between work produced by one team member and another, despite the similarity in their outputs. Standardizing software can streamline operations, reduce redundancy, and ensure that all employees are on the same page, enhancing overall productivity.</p>
+                </div>
 
-                <h2>IT Maintenance Effort</h2>
+                <h2 id="it-maintenance-effort">IT Maintenance Effort</h2>
                 <p>The increase in the number of software titles within an environment naturally leads to a rise in the number of necessary updates. IT teams must be equipped to effectively support and become proficient in more software, or businesses risk facing prolonged delays in ticket resolution as common issues take more time to resolve due to knowledge gaps associated with software diversity.</p>
 
                 <p>Furthermore, managing a diverse software ecosystem can overwhelm IT resources, leading to potential oversights in critical updates and patches, which can compromise system security and stability. Implementing standardized software policies can help mitigate these challenges and ensure smoother IT operations.</p>
 
-                <h2>Security and Attack Surface Reduction</h2>
+                <h2 id="security-attack-surface-reduction">Security and Attack Surface Reduction</h2>
                 <p>Each new software application introduces potential vulnerabilities to your computers. Although patches, updates, and security software can help reduce these risks, the old adage "an ounce of prevention is worth a pound of cure" holds particularly true when considering the consolidation of software inventories.</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">95%</div>
+                        <p class="stat-label">Of data breaches involve human error</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">43%</div>
+                        <p class="stat-label">Of cyberattacks target small businesses</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">$4.45M</div>
+                        <p class="stat-label">Average cost of a data breach in 2023</p>
+                    </div>
+                </div>
 
                 <p>By limiting the number of applications and ensuring they are regularly updated and vetted, companies can significantly reduce their attack surface and enhance their overall security posture. This proactive approach can prevent potential breaches and protect sensitive company data.</p>
 
-                <h2>Potential For Volume Discounts</h2>
-                <p>Chances are if you are using more than one tool to do the same job, you are missing out on potential volume discounts for purchasing licenses in volume. Consolidating software purchases can lead to significant cost savings and better vendor relationships.</p>
+                <h2 id="volume-discounts">Potential For Volume Discounts</h2>
+                
+                <div class="content-card">
+                    <p>Chances are if you are using more than one tool to do the same job, you are missing out on potential volume discounts for purchasing licenses in volume. Consolidating software purchases can lead to significant cost savings and better vendor relationships.</p>
 
-                <p>By negotiating volume discounts, companies can reduce their software expenses and allocate resources more efficiently. Additionally, having a unified software suite can simplify license management and compliance, further reducing administrative overhead.</p>
+                    <p><strong>Financial Benefits:</strong> By negotiating volume discounts, companies can reduce their software expenses and allocate resources more efficiently. Additionally, having a unified software suite can simplify license management and compliance, further reducing administrative overhead.</p>
+                </div>
 
                 <CTABox 
                     title="Need Help Managing IT Access and Software?"
@@ -265,122 +301,38 @@ const structuredData = {
                 />
             </article>
         </div>
+        
+        <BlogInteractivity />
     </main>
     <Footer />
 </Layout>
 
 <style>
-    .blog-post {
-        background: var(--bg-color);
-    }
-
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0 20px 60px;
-    }
-
-    .content {
-        line-height: 1.8;
-        color: var(--text-color);
-    }
-
+    /* Import global blog styles */
+    @import '../../styles/blog.css';
+    
+    /* Custom article meta styling to match global design */
     .article-meta {
         display: flex;
         align-items: center;
         gap: 1rem;
         margin-bottom: 2rem;
-        color: var(--text-muted);
+        color: var(--blog-text-muted);
         font-size: 0.9rem;
+        padding: 1rem;
+        background: var(--blog-bg-secondary);
+        border-radius: var(--blog-radius-md);
+        border: 1px solid var(--blog-border-color);
     }
 
     .category {
-        background: var(--button-color);
-        color: white;
+        background: linear-gradient(135deg, var(--blog-accent-color), var(--blog-accent-hover));
+        color: var(--blog-white);
         padding: 0.25rem 0.75rem;
-        border-radius: var(--radius-sm);
+        border-radius: var(--blog-radius-sm);
         font-size: 0.8rem;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-    }
-
-    .content h2 {
-        color: var(--text-color);
-        margin: 2.5rem 0 1.5rem;
-        font-size: 1.8em;
-        font-weight: 700;
-    }
-
-    .content h3 {
-        color: var(--text-color);
-        margin: 2rem 0 1rem;
-        font-size: 1.4em;
         font-weight: 600;
-    }
-
-    .content p {
-        margin-bottom: 1.5rem;
-        font-size: 1.1rem;
-    }
-
-    .content ul, .content ol {
-        margin-bottom: 1.5rem;
-        padding-left: 1.5rem;
-    }
-
-    .content li {
-        margin-bottom: 0.75rem;
-        font-size: 1.1rem;
-    }
-
-    .content blockquote {
-        background: var(--secondary-bg);
-        padding: 1.5rem;
-        border-left: 4px solid var(--button-color);
-        margin: 1.5rem 0;
-        font-family: monospace;
-        overflow-x: auto;
-        font-size: 0.9rem;
-        line-height: 1.6;
-    }
-
-    .content pre {
-        background: var(--secondary-bg);
-        padding: 1.5rem;
-        border-radius: var(--radius-md);
-        overflow-x: auto;
-        font-family: monospace;
-        margin: 1.5rem 0;
-        font-size: 0.9rem;
-        line-height: 1.6;
-    }
-
-    .content a {
-        color: var(--button-color);
-        text-decoration: none;
-        border-bottom: 1px solid transparent;
-        transition: border-color 0.2s ease;
-    }
-
-    .content a:hover {
-        border-bottom-color: var(--button-color);
-    }
-
-    @media (max-width: 768px) {
-        .container {
-            padding: 0 15px 40px;
-        }
-
-        .content h2 {
-            font-size: 1.6em;
-        }
-
-        .content h3 {
-            font-size: 1.3em;
-        }
-
-        .content p, .content li {
-            font-size: 1rem;
-        }
     }
 </style> 

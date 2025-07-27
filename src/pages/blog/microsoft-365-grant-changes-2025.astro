@@ -6,6 +6,8 @@ import CTABox from '../../components/CTABox.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import HeroBlog from '../../components/HeroBlog.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import BlogInteractivity from '../../components/BlogInteractivity.astro';
 import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
 import microsoftGrantImg from '../../assets/images/blog/microsoft-grant.jpg';
 
@@ -79,6 +81,16 @@ const wordCount = calculateWordCount(`
 `);
 
 const readingTime = estimateReadingTime(wordCount);
+
+// Table of Contents data
+const headings = [
+    { text: "What's Changing?", id: "whats-changing" },
+    { text: "What This Means for Your Organization", id: "what-this-means" },
+    { text: "Planning Your Transition", id: "planning-transition" },
+    { text: "Available Alternatives", id: "available-alternatives" },
+    { text: "Understanding Microsoft 365 Business Plans", id: "business-plans-comparison" },
+    { text: "Next Steps", id: "next-steps" }
+];
 
 const structuredData = {
     "@context": "https://schema.org",
@@ -173,6 +185,8 @@ const structuredData = {
 >
     <Header />
     
+    <BlogInteractivity />
+    
     <main class="blog-post">
         <HeroBlog 
             title={title}
@@ -182,18 +196,19 @@ const structuredData = {
             author={author}
         />
 
-        <article class="container">
-            <div class="post-content">
+        <article class="blog-container">
+            <div class="blog-content">
                 <div class="article-meta">
                     <span class="category">{category}</span>
                     <time datetime={date}>{formatDate(date)}</time>
                     <span class="reading-time">{readingTime} min read</span>
                 </div>
 
-                <div class="content">
+                <TableOfContents headings={headings} />
                     <p class="lead">Microsoft has announced significant changes to their grant program for non-profits, effective July 1st, 2025. These changes will affect how non-profit organizations access Microsoft 365 services, with the discontinuation of some popular grant offerings and the introduction of new alternatives.</p>
 
-                    <h2>What's Changing?</h2>
+                <div class="content-card">
+                    <h2 id="whats-changing">What's Changing?</h2>
                     <p>Microsoft is streamlining their grant portfolio to simplify the offering process. The following changes will take effect on July 1st, 2025:</p>
                     
                     <ul>
@@ -202,8 +217,10 @@ const structuredData = {
                         <li>New offering: Up to 300 licenses of Microsoft 365 Business Basic</li>
                         <li>New offering: Up to 75% discount on many Microsoft 365 offers</li>
                     </ul>
+                </div>
 
-                    <h2>What This Means for Your Organization</h2>
+                <div class="content-card">
+                    <h2 id="what-this-means">What This Means for Your Organization</h2>
                     <p>If your non-profit currently uses Microsoft 365 Business Premium or Office 365 E1 through the grant program, you'll need to plan for these changes. Here's what you should know:</p>
 
                     <ul>
@@ -212,8 +229,10 @@ const structuredData = {
                         <li>Significant discounts (up to 75%) will be available for other Microsoft 365 plans</li>
                         <li>These changes only affect organizations using the grant program</li>
                     </ul>
+                </div>
 
-                    <h2>Planning Your Transition</h2>
+                <div class="content-card">
+                    <h2 id="planning-transition">Planning Your Transition</h2>
                     <p>To ensure a smooth transition, we recommend the following steps:</p>
 
                     <ol>
@@ -223,8 +242,10 @@ const structuredData = {
                         <li>Consider the discounted options for any features not covered by Business Basic</li>
                         <li>Create a transition timeline before the July 1st deadline</li>
                     </ol>
+                </div>
 
-                    <h2>Available Alternatives</h2>
+                <div class="content-card">
+                    <h2 id="available-alternatives">Available Alternatives</h2>
                     <p>While the grant changes may seem concerning, Microsoft is still committed to supporting non-profits with their technology needs. The new structure offers:</p>
 
                     <ul>
@@ -233,13 +254,14 @@ const structuredData = {
                         <li>75% discount on Office 365 E1</li>
                         <li>Access to other Microsoft products at discounted rates</li>
                     </ul>
+                </div>
 
-                    <h2>Understanding Microsoft 365 Business Plans</h2>
+                    <h2 id="business-plans-comparison">Understanding Microsoft 365 Business Plans</h2>
                     <p>To help you make an informed decision about which plan best suits your needs, here's a comparison of the key features across Microsoft 365 Business plans:</p>
 
                     <div class="plan-comparison">
                         <!-- Desktop/Tablet Table View -->
-                        <table class="plan-table">
+                        <table class="blog-table">
                             <thead>
                                 <tr>
                                     <th>Features</th>
@@ -387,7 +409,8 @@ const structuredData = {
 
                     <p class="comparison-note">For non-profits focusing on email and basic document collaboration, Basic is likely fine. The 75% discount on Business Standard and Premium plans makes them very cost-effective options for non-profits that need these additional features. We do recommend a 3rd party identity threat product to protect your Microsoft 365 accounts.</p>
 
-                    <h2>Next Steps</h2>
+                <div class="content-card">
+                    <h2 id="next-steps">Next Steps</h2>
                     <p>If your organization is affected by these changes, we recommend:</p>
 
                     <ul>
@@ -418,158 +441,28 @@ const structuredData = {
 </Layout>
 
 <style>
-    .blog-post {
-        min-height: 100vh;
-        background: var(--bg-color);
-    }
-
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-    }
-
-    .post-content {
-        padding: 3rem 0;
-    }
-
-    .article-meta {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 2rem;
-        flex-wrap: wrap;
-        align-items: center;
-    }
-
-    .category {
-        background: var(--button-color);
-        color: white;
-        padding: 0.25rem 0.75rem;
-        border-radius: var(--radius-sm);
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
-
-    time, .reading-time {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        line-height: 1.5;
-    }
-
-    .content {
-        font-size: clamp(1rem, 3vw, 1.1rem);
-        line-height: 1.8;
-    }
-
-    .lead {
-        font-size: clamp(1.1rem, 3.5vw, 1.3rem);
-        line-height: 1.6;
-        color: var(--text-muted);
-        margin-bottom: 2rem;
-    }
-
-    h2 {
-        font-size: clamp(1.5rem, 5vw, 2rem);
-        margin: 2.5rem 0 1.5rem;
-        color: var(--heading-color);
-    }
-
-    p {
-        margin-bottom: 1.5rem;
-    }
-
-    ul, ol {
-        margin: 1.5rem 0;
-        padding-left: 1.5rem;
-    }
-
-    li {
-        margin-bottom: 0.75rem;
-    }
-
-    blockquote {
-        border-left: 4px solid var(--accent-color);
-        padding-left: 1.5rem;
-        margin: 2rem 0;
-        font-style: italic;
-        color: var(--text-muted);
-    }
-
-    .plan-comparison {
-        margin: 2rem 0;
-    }
-
-    /* Table Styles */
-    .plan-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.95rem;
-        background: var(--white);
-        border-radius: var(--radius-md);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    .plan-table th,
-    .plan-table td {
-        padding: 1rem;
-        text-align: left;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    .plan-table th {
-        background: var(--primary-color);
-        color: white;
-        font-weight: 600;
-        white-space: nowrap;
-    }
-
-    .plan-table th:first-child {
-        border-top-left-radius: var(--radius-md);
-    }
-
-    .plan-table th:last-child {
-        border-top-right-radius: var(--radius-md);
-    }
-
-    .plan-table td:first-child {
-        font-weight: 500;
-        color: var(--text-color);
-    }
-
-    .plan-table tr:last-child td {
-        border-bottom: none;
-    }
-
-    .plan-table td:not(:first-child) {
-        text-align: center;
-    }
-
-    .plan-table td:not(:first-child) {
-        color: var(--text-muted);
-    }
-
-    /* Card Styles */
+    /* Plan comparison mobile responsiveness */
     .plan-cards {
         display: none;
         gap: 2rem;
     }
 
     .plan-card {
-        background: var(--white);
+        background: var(--blog-white);
         padding: 2rem;
-        border-radius: var(--radius-md);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        border-radius: var(--blog-radius-lg);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        border: 1px solid var(--blog-border-color);
     }
 
     .plan-card h3 {
-        color: var(--primary-color);
+        color: var(--blog-accent-color);
         margin-bottom: 1rem;
         font-size: 1.4rem;
     }
 
     .plan-description {
-        color: var(--text-muted);
+        color: var(--blog-text-muted);
         margin-bottom: 1.5rem;
         font-style: italic;
     }
@@ -585,7 +478,7 @@ const structuredData = {
         justify-content: space-between;
         align-items: center;
         padding: 0.75rem 0;
-        border-bottom: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--blog-border-color);
     }
 
     .plan-card li:last-child {
@@ -593,30 +486,17 @@ const structuredData = {
     }
 
     .plan-card .feature {
-        color: var(--text-color);
+        color: var(--blog-text-color);
         font-weight: 500;
     }
 
     .plan-card .status {
-        color: var(--text-muted);
+        color: var(--blog-text-muted);
     }
 
-    /* Responsive Styles */
+    /* Mobile responsiveness */
     @media (max-width: 768px) {
-        .post-content {
-            padding: 2rem 0;
-        }
-
-        .container {
-            padding: 0 1rem;
-        }
-
-        .article-meta {
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .plan-table {
+        .blog-table {
             display: none;
         }
 

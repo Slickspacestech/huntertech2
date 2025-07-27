@@ -6,6 +6,8 @@ import CTABox from '../../components/CTABox.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import HeroBlog from '../../components/HeroBlog.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import BlogInteractivity from '../../components/BlogInteractivity.astro';
 import { calculateWordCount, estimateReadingTime } from '../../utils/wordCount';
 
 const title = "Eye-Opening Statistics About AI Adoption in Canada (2025)";
@@ -25,6 +27,18 @@ const wordCount = calculateWordCount(`
 `);
 
 const readingTime = estimateReadingTime(wordCount);
+
+// Table of Contents data
+const headings = [
+    { text: "Key Statistics Overview", id: "key-statistics" },
+    { text: "Individual AI Usage in Canada", id: "individual-usage" },
+    { text: "Business Adoption Landscape", id: "business-adoption" },
+    { text: "The Generational Divide", id: "generational-divide" },
+    { text: "Industry-Specific Insights", id: "industry-insights" },
+    { text: "The Path Forward", id: "path-forward" },
+    { text: "Methodology", id: "methodology" },
+    { text: "Conclusion", id: "conclusion" }
+];
 
 const structuredData = {
     "@context": "https://schema.org",
@@ -113,6 +127,9 @@ const structuredData = {
     structuredData={structuredData}
 >
     <Header />
+    
+    <BlogInteractivity />
+    
     <main class="blog-post">
         <HeroBlog 
             title={title}
@@ -122,19 +139,37 @@ const structuredData = {
             author={author}
         />
 
-        <article class="container">
-            <div class="post-content">
+        <article class="blog-container">
+            <div class="blog-content">
                 <div class="article-meta">
                     <span class="category">{category}</span>
                     <time datetime={date}>{formatDate(date)}</time>
                     <span class="reading-time">{readingTime} min read</span>
                 </div>
 
-                <div class="content">
-                    <p class="lead">Artificial intelligence adoption in Canada presents a fascinating paradox: while individual usage is skyrocketing, business implementation remains cautious. This data-driven analysis reveals the current state of AI adoption in Canada, backed by the latest research and surveys.</p>
+                <TableOfContents headings={headings} />
+                <p class="lead">Artificial intelligence adoption in Canada presents a fascinating paradox: while individual usage is skyrocketing, business implementation remains cautious. This data-driven analysis reveals the current state of AI adoption in Canada, backed by the latest research and surveys.</p>
 
-                    <h2>Key Statistics at a Glance</h2>
+                <div class="highlight-card" id="key-statistics">
+                    <h2>Key Statistics Overview</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">66%</div>
+                            <div class="stat-label">Canadians have used Generative AI</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">6.1%</div>
+                            <div class="stat-label">Canadian businesses using AI</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">73%</div>
+                            <div class="stat-label">Businesses haven't considered Gen AI</div>
+                        </div>
+                    </div>
+                </div>
 
+                <h2 id="individual-usage">Individual AI Usage in Canada</h2>
+                <div class="content-card">
                     <h3>Individual AI Usage</h3>
                     <ul>
                         <li>66% of Canadians have used Generative AI tools at least once</li>
@@ -142,7 +177,11 @@ const structuredData = {
                         <li>38% feel confident in using AI tools effectively</li>
                         <li>51% have little to no understanding of AI data handling practices</li>
                     </ul>
-                    <p>Source: <a href="https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2024008-eng.htm" target="_blank">The State of Generative AI Use in Canada 2025</a></p>
+                    <p class="source-citation">Source: <a href="https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2024008-eng.htm" target="_blank">The State of Generative AI Use in Canada 2025</a></p>
+                </div>
+
+                <h2 id="business-adoption">Business Adoption Landscape</h2>
+                <div class="content-card">
                     <h3>Business Adoption</h3>
                     <ul>
                         <li>6.1% of Canadian businesses reported using AI in producing goods and delivering services in 2024</li>
@@ -173,7 +212,10 @@ const structuredData = {
                             </ul>
                         </li>
                     </ul>
-                    <p>Source: <a href="https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2024008-eng.htm" target="_blank">Statistics Canada - Analysis on artificial intelligence use by businesses in Canada, second quarter of 2024</a></p>
+                    <p class="source-citation">Source: <a href="https://www150.statcan.gc.ca/n1/pub/11-621-m/11-621-m2024008-eng.htm" target="_blank">Statistics Canada - Analysis on artificial intelligence use by businesses in Canada, second quarter of 2024</a></p>
+                </div>
+
+                <div class="content-card">
                     <h3>Public Perception and Adoption Barriers</h3>
                     <ul>
                         <li>73% of Canadian businesses have not yet considered using Gen AI</li>
@@ -196,10 +238,11 @@ const structuredData = {
                             </ul>
                         </li>
                     </ul>
-                    <p>Source: <a href="https://businessdatalab.ca/wp-content/uploads/2024/05/Prompting_Productivity_Report_May30_2024.pdf" target="_blank">Business Data Lab - Prompting Productivity: Generative AI Adoption by Canadian Businesses (May 2024)</a></p>
+                    <p class="source-citation">Source: <a href="https://businessdatalab.ca/wp-content/uploads/2024/05/Prompting_Productivity_Report_May30_2024.pdf" target="_blank">Business Data Lab - Prompting Productivity: Generative AI Adoption by Canadian Businesses (May 2024)</a></p>
+                </div>
 
-
-                    <h2>The Generational Divide</h2>
+                <h2 id="generational-divide">The Generational Divide</h2>
+                <div class="content-card">
                     <p>Recent Ipsos data reveals significant generational differences in AI perception and usage:</p>
                     <ul>
                         <li>AI Usage in the last three months:
@@ -223,25 +266,31 @@ const structuredData = {
                             </ul>
                         </li>
                     </ul>
-                    <p>Source: <a href="https://www.ipsos.com/sites/default/files/ct/news/documents/2024-12/AI%20Technology%20Release_December%202024_Tables%201.pdf" target="_blank">Ipsos - AI Technology Survey (December 2024)</a></p>
+                    <p class="source-citation">Source: <a href="https://www.ipsos.com/sites/default/files/ct/news/documents/2024-12/AI%20Technology%20Release_December%202024_Tables%201.pdf" target="_blank">Ipsos - AI Technology Survey (December 2024)</a></p>
+                </div>
 
-                    <h2>Industry-Specific Insights</h2>
+                <h2 id="industry-insights">Industry-Specific Insights</h2>
+                <div class="content-card">
                     <p>While overall business adoption remains low, certain sectors show more promise:</p>
                     <ul>
                         <li>Information technology leads in AI implementation</li>
                         <li>Professional services show higher adoption rates</li>
                         <li>Small and medium-sized enterprises (SMEs) face additional barriers to adoption</li>
                     </ul>
+                </div>
 
-                    <h2>The Path Forward</h2>
+                <h2 id="path-forward">The Path Forward</h2>
+                <div class="content-card">
                     <p>Despite the cautious business adoption, Canada's AI ecosystem shows strong potential:</p>
                     <ul>
                         <li>World-class academic hubs in Toronto, Montreal, and Edmonton</li>
                         <li>Government-funded research initiatives like the CIFAR Pan-Canadian AI Strategy</li>
                         <li>A consumer base that's increasingly comfortable with AI tools</li>
                     </ul>
+                </div>
 
-                    <h2>Methodology</h2>
+                <h2 id="methodology">Methodology</h2>
+                <div class="content-card">
                     <p>This analysis draws from multiple authoritative sources:</p>
                     <ul>
                         <li>Statistics Canada's Analysis on artificial intelligence use by businesses in Canada (2024)</li>
@@ -249,19 +298,21 @@ const structuredData = {
                         <li>Ipsos AI Technology Survey (December 2024)</li>
                         <li>Social Media Lab at Toronto Metropolitan University (2025)</li>
                     </ul>
+                </div>
 
-                    <h2>Conclusion</h2>
-                    <p>The data reveals a clear gap between individual AI experimentation and business implementation in Canada. While the public is increasingly comfortable with AI tools, businesses remain cautious. This presents both a challenge and an opportunity for Canadian SMEs to bridge the adoption gap and remain competitive in the global market.  It's more important than ever to start planning your AI adoption strategy, and look for ways to improve your business operations.</p>
+                <h2 id="conclusion">Conclusion</h2>
+                <div class="content-card">
+                    <p>The data reveals a clear gap between individual AI experimentation and business implementation in Canada. While the public is increasingly comfortable with AI tools, businesses remain cautious. This presents both a challenge and an opportunity for Canadian SMEs to bridge the adoption gap and remain competitive in the global market. It's more important than ever to start planning your AI adoption strategy, and look for ways to improve your business operations.</p>
 
                     <p class="note"><em>Note: All statistics are current as of 2025 and are sourced from official government, academic and private research.</em></p>
                 </div>
+
+                <div class="cta-box">
+                    <h3>Ready to Implement AI in Your Business?</h3>
+                    <p>Let our team help you navigate the AI adoption process and develop a strategy that works for your organization.</p>
+                    <a href="/contact/?form_conversion=ai-adoption-blog-cta" class="cta-button">Get Expert Help</a>
+                </div>
             </div>
-            <CTABox 
-            title="Ready to Implement AI in Your Business?"
-            description="Let our team help you navigate the AI adoption process and develop a strategy that works for your organization."
-            buttonText="Get Expert Help"
-            buttonLink="/contact/?form_conversion=ai-adoption-blog-cta"
-        />
         </article>
 
 
@@ -271,21 +322,7 @@ const structuredData = {
 </Layout>
 
 <style>
-    .blog-post {
-        min-height: 100vh;
-        background: var(--bg-color);
-    }
-
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-    }
-
-    .post-content {
-        padding: 3rem 0;
-    }
-
+    /* Blog-specific styles that complement global blog.css */
     .article-meta {
         display: flex;
         gap: 1rem;
@@ -295,88 +332,51 @@ const structuredData = {
     }
 
     .category {
-        background: var(--button-color);
+        background: var(--blog-accent-color);
         color: white;
         padding: 0.25rem 0.75rem;
-        border-radius: var(--radius-sm);
+        border-radius: var(--blog-radius-sm);
         font-size: 0.8rem;
         text-transform: uppercase;
         letter-spacing: 0.05em;
+        font-weight: 600;
     }
 
     time, .reading-time {
         font-size: 0.9rem;
-        color: var(--text-muted);
+        color: var(--blog-text-muted);
         line-height: 1.5;
     }
 
-    .content {
-        font-size: clamp(1rem, 3vw, 1.1rem);
-        line-height: 1.8;
+    .source-citation {
+        font-size: 0.875rem;
+        color: var(--blog-text-muted);
+        margin-top: 1rem;
+        border-top: 1px solid var(--blog-border-color);
+        padding-top: 1rem;
     }
 
-    .lead {
-        font-size: clamp(1.1rem, 3.5vw, 1.3rem);
-        line-height: 1.6;
-        color: var(--text-muted);
-        margin-bottom: 2rem;
-    }
-
-    h2 {
-        font-size: clamp(1.5rem, 5vw, 2rem);
-        margin: 2.5rem 0 1.5rem;
-        color: var(--heading-color);
-    }
-
-    h3 {
-        font-size: clamp(1.2rem, 4vw, 1.5rem);
-        margin: 2rem 0 1rem;
-        color: var(--heading-color);
-    }
-
-    p {
-        margin-bottom: 1.5rem;
-    }
-
-    ul {
-        margin: 1.5rem 0;
-        padding-left: 1.5rem;
-    }
-
-    li {
-        margin-bottom: 0.75rem;
+    .source-citation a {
+        color: var(--blog-accent-color);
+        font-weight: 500;
     }
 
     .note {
         font-style: italic;
-        color: var(--text-muted);
-        border-left: 4px solid var(--accent-color);
+        color: var(--blog-text-muted);
+        border-left: 4px solid var(--blog-accent-color);
         padding-left: 1rem;
         margin-top: 2rem;
+        background: var(--blog-bg-secondary);
+        padding: 1rem 1rem 1rem 2rem;
+        border-radius: var(--blog-radius-sm);
     }
 
     @media (max-width: 768px) {
-        .post-content {
-            padding: 2rem 0;
-        }
-
-        .container {
-            padding: 0 1rem;
-        }
-
         .article-meta {
             flex-direction: column;
             gap: 0.5rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .container {
-            padding: 0 0.75rem;
-        }
-
-        .post-content {
-            padding: 1.5rem 0;
+            align-items: flex-start;
         }
     }
 </style> 

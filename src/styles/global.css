@@ -18,6 +18,18 @@
     --light-text: #666;
     --white: #fff;
     --border-color: #e1e1e1;
+    
+    /* Blog-specific variables - Brand Aligned */
+    --bg-color: #FFFFFF;
+    --bg-secondary: #F8F9FA;
+    --accent-color: #00ACAC;
+    --accent-hover: #00C2C2;
+    --heading-color: #384258;
+    --text-muted: #6C757D;
+    --success-color: #28A745;
+    --warning-color: #FFC107;
+    --danger-color: #DC3545;
+    --info-color: #17A2B8;
     --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     --font-size-base: 16px;
     --line-height-base: 1.5;
@@ -448,4 +460,7 @@ h1, h2, h3, h4, h5, h6 {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-} 
+}
+
+/* Import blog-specific styles */
+@import './blog.css'; 

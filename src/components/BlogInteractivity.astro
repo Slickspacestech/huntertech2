@@ -1,0 +1,133 @@
+---
+// Blog Interactivity Component - Handles all interactive elements
+// Reading progress, table of contents, scroll to top, FAQ accordions
+---
+
+<!-- Reading Progress Indicator -->
+<div class="reading-progress">
+    <div class="reading-progress-bar"></div>
+</div>
+
+<!-- Scroll to Top Button -->
+<button class="scroll-to-top" aria-label="Scroll to top">↑</button>
+
+<script>
+    // Blog Interactivity JavaScript
+    document.addEventListener('DOMContentLoaded', function() {
+        // Reading Progress Indicator
+        const progressBar = document.querySelector('.reading-progress-bar');
+        
+        function updateReadingProgress() {
+            const article = document.querySelector('.blog-content') || document.body;
+            const scrolled = window.pageYOffset;
+            const totalHeight = article.offsetHeight - window.innerHeight;
+            const totalScrollable = Math.max(0, totalHeight);
+            const progress = Math.max(0, Math.min(100, (scrolled / totalScrollable) * 100));
+            
+            if (progressBar) {
+                progressBar.style.width = `${progress}%`;
+            }
+        }
+        
+        // Throttled scroll handler for better performance
+        let ticking = false;
+        function handleScroll() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    updateReadingProgress();
+                    toggleScrollButton();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        // Table of Contents smooth scrolling
+        const tocLinks = document.querySelectorAll('.table-of-contents a');
+        tocLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    // Offset for fixed header if present
+                    const offset = 80;
+                    const elementPosition = targetElement.offsetTop - offset;
+                    
+                    window.scrollTo({
+                        top: elementPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll to top button functionality
+        const scrollToTopBtn = document.querySelector('.scroll-to-top');
+        
+        function toggleScrollButton() {
+            if (scrollToTopBtn) {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.add('visible');
+                } else {
+                    scrollToTopBtn.classList.remove('visible');
+                }
+            }
+        }
+        
+        if (scrollToTopBtn) {
+            scrollToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // FAQ accordion functionality
+        const detailsElements = document.querySelectorAll('.faq-item details');
+        detailsElements.forEach(details => {
+            const summary = details.querySelector('summary');
+            const expandIcon = summary.querySelector('.expand-icon');
+            
+            if (expandIcon) {
+                details.addEventListener('toggle', function() {
+                    if (details.open) {
+                        expandIcon.textContent = '−';
+                        details.style.animationName = 'slideInUp';
+                    } else {
+                        expandIcon.textContent = '+';
+                    }
+                });
+            }
+        });
+
+        // Add entrance animations to elements as they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationName = 'slideInUp';
+                    entry.target.style.animationDelay = '0.1s';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all major content sections for animations
+        const sections = document.querySelectorAll(
+            '.content-card, .stat-card, .problem-card, .highlight-card, .faq-item, .cta-box'
+        );
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Initialize everything
+        updateReadingProgress();
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', updateReadingProgress);
+    });
+</script>
