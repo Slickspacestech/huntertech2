@@ -837,6 +837,19 @@ const allStructuredData = [
         margin: 0;
     }
 
+    .peace-of-mind p a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 500;
+        border-bottom: 1px solid rgba(0, 172, 172, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .peace-of-mind p a:hover {
+        color: var(--button-color);
+        border-bottom-color: var(--button-color);
+    }
+
     @media (max-width: 768px) {
         .peace-of-mind-grid {
             grid-template-columns: 1fr;
