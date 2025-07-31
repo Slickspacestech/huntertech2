@@ -158,6 +158,32 @@ Focus on these high-conversion, local commercial intent keywords:
    - Client websites for case study features
    - Local university tech programs for partnerships
 
+## Core Values & Pricing Philosophy
+
+Our pricing model aligns with Huntertech's core values:
+
+### **Honesty**
+- Transparent, upfront pricing with no hidden fees
+- Clear distinction between Essential ($95/user) and Complete ($125/user) tiers
+- All costs clearly communicated before engagement
+
+### **Service**
+- Both pricing tiers include unlimited technical support
+- Responsive local support in Calgary and Vancouver
+- Project labour included in Complete tier to remove billing friction
+
+### **Accountability**
+- Predictable monthly costs for budget planning
+- Clear deliverables and expectations for each tier
+- Regular business reviews to ensure value delivery
+
+### **Clarity**
+- Simple per-user pricing model
+- Interactive pricing calculator at `/pricing-calculator/`
+- No confusing contracts or fine print
+
+When discussing pricing, always emphasize how our transparent model reflects these values and builds trust with clients.
+
 ## Email Discovery & Verification Workflow
 
 The project includes a NeverBounce MCP server for real-time email verification during prospect research:

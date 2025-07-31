@@ -1,0 +1,581 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import HeroBlog from '../../components/HeroBlog.astro';
+import BlogInteractivity from '../../components/BlogInteractivity.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import CTABox from '../../components/CTABox.astro';
+import pricingImage from '../../assets/images/blog/it-pricing-guide.webp';
+
+const title = "Managed IT Services Cost Calgary & Vancouver 2025: Complete Pricing Guide";
+const description = "2025 managed IT services cost guide for Calgary & Vancouver: $95-150/user/month. Compare plans, hidden fees, ROI analysis + pricing calculator.";
+const keywords = [
+    "managed IT services cost Calgary",
+    "IT support pricing Calgary",
+    "managed services pricing",
+    "IT management cost",
+    "Calgary IT company rates",
+    "business IT support cost",
+    "MSP pricing Calgary",
+    "IT services calculator"
+];
+
+const publishDate = "2025-07-31";
+const updateDate = "2025-07-31";
+const author = "Mathew Hunter";
+const category = "IT Management";
+const readTime = "10 min read";
+
+const headings = [
+    { depth: 2, text: "Understanding Managed IT Pricing Models", slug: "pricing-models" },
+    { depth: 2, text: "What's Included in Managed IT Services?", slug: "whats-included" },
+    { depth: 2, text: "Average Costs for Calgary Businesses", slug: "average-costs" },
+    { depth: 3, text: "Small Businesses (1-20 users)", slug: "small-business" },
+    { depth: 3, text: "Medium Businesses (21-50 users)", slug: "medium-business" },
+    { depth: 2, text: "Factors That Affect IT Service Pricing", slug: "pricing-factors" },
+    { depth: 2, text: "Hidden Costs to Watch For", slug: "hidden-costs" },
+    { depth: 2, text: "ROI of Managed IT Services", slug: "roi" },
+    { depth: 2, text: "How to Choose the Right IT Service Package", slug: "choosing-package" }
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "description": description,
+    "datePublished": publishDate,
+    "dateModified": updateDate,
+    "author": {
+        "@type": "Person",
+        "name": author,
+        "url": "https://huntertech.ca/about/"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://huntertech.ca/images/huntertech-logo.png"
+        }
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://huntertech.ca/blog/managed-it-services-cost-calgary/"
+    },
+    "image": {
+        "@type": "ImageObject",
+        "url": `https://huntertech.ca${pricingImage.src}`,
+        "width": pricingImage.width,
+        "height": pricingImage.height
+    }
+};
+
+const faqData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How much do managed IT services cost per user in Calgary?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Managed IT services in Calgary typically cost between $95-$150 per user per month. Basic support starts around $95/user, while comprehensive packages with advanced security and project labour included range from $125-$150/user."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What's included in managed IT service pricing?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most managed IT packages include unlimited help desk support, proactive monitoring, patch management, basic security, and remote support. Higher-tier packages add advanced security (EDR/MDR), cloud backups, project labour, and on-site support."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is managed IT cheaper than hiring in-house IT staff?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For most small to medium businesses in Calgary, managed IT services are 40-60% more cost-effective than hiring in-house IT staff. A single IT employee costs $70,000-$90,000 annually, while managed services for 20 users averages $30,000-$36,000 per year with better coverage and expertise."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How much do managed IT services cost per user in Vancouver?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Managed IT services in Vancouver typically cost between $95-$150 per user per month. Basic support starts around $95/user, while comprehensive packages with advanced security and project labour included range from $125-$150/user, similar to Calgary pricing."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What's the difference between Calgary and Vancouver IT service pricing?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Calgary and Vancouver managed IT service pricing is very similar, with both markets averaging $95-$150 per user monthly. Vancouver businesses may see slightly higher costs for on-site services due to traffic and travel time, but remote support pricing is consistent across both markets."
+            }
+        }
+    ]
+};
+---
+
+<Layout 
+    title={title} 
+    description={description}
+    keywords={keywords}
+    canonicalURL="https://huntertech.ca/blog/managed-it-services-cost-calgary/"
+    type="article"
+    image={pricingImage.src}
+    structuredData={structuredData}
+>
+    <Header />
+    <main>
+        <HeroBlog 
+            title={title}
+            subtitle={`${publishDate} • ${readTime}`}
+            backgroundImage={pricingImage}
+            backgroundImageAlt="IT services pricing guide for Calgary businesses"
+            author={author}
+        />
+        
+        <article class="blog-content">
+            <div class="container">
+                <div class="content-wrapper">
+                    <aside class="table-of-contents-sidebar">
+                        <TableOfContents headings={headings} />
+                    </aside>
+                    
+                    <div class="main-content">
+                        <p class="lead">If you're a Calgary business owner exploring managed IT services, one of your first questions is likely: "How much will this cost?" The good news is that managed IT pricing has become more transparent and predictable than ever before. Let's break down exactly what you can expect to pay and what you'll get for your investment.</p>
+                        
+                        <div class="quick-answer-box">
+                            <h3>Quick Answer: Managed IT Services Cost in Calgary & Vancouver</h3>
+                            <p><strong>Managed IT services in Calgary and Vancouver cost between $95-$150 per user per month.</strong> Basic plans start at $95/user for essential support, while comprehensive packages with advanced security, backup, and project labor range from $125-$150/user monthly.</p>
+                            <ul>
+                                <li><strong>Essential Plan:</strong> $95-$110/user/month (basic support, monitoring, security)</li>
+                                <li><strong>Complete Plan:</strong> $125-$150/user/month (includes advanced security, backup, project work)</li>
+                                <li><strong>Average Total Cost:</strong> Small businesses (10-20 users) pay $1,900-$3,000/month</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="pain-point-callout">
+                            <h3>Sound Familiar?</h3>
+                            <ul>
+                                <li>Your server crashed during quarter-end, costing you client credibility</li>
+                                <li>You're paying $150/hour for "emergency" IT support that should be preventable</li>
+                                <li>Your team wastes hours each week dealing with tech issues instead of serving clients</li>
+                                <li>You're losing sleep wondering if your business data is truly protected</li>
+                            </ul>
+                            <p><strong>The solution isn't cheaper IT support - it's predictable, proactive IT management.</strong></p>
+                        </div>
+
+                        <h2 id="pricing-models">Understanding Managed IT Pricing Models</h2>
+                        
+                        <p>Gone are the days of surprise IT bills and hourly charges that make budgeting impossible. Modern managed service providers (MSPs) in Calgary have shifted to predictable, per-user pricing models that make it easy to forecast your IT expenses.</p>
+
+                        <p>The most common pricing models you'll encounter are:</p>
+
+                        <ul>
+                            <li><strong>Per-User Pricing:</strong> A flat monthly fee for each employee (most common)</li>
+                            <li><strong>Per-Device Pricing:</strong> Monthly fee based on number of computers/devices</li>
+                            <li><strong>Tiered Packages:</strong> Different service levels at different price points</li>
+                            <li><strong>All-Inclusive Pricing:</strong> One price covers everything, including hardware</li>
+                        </ul>
+
+                        <p>At Huntertech, we use a straightforward per-user model because it aligns perfectly with how businesses operate. As you grow and add team members, your IT support scales automatically - no renegotiating contracts or surprise fees.</p>
+                        
+                        <div class="client-success-story">
+                            <blockquote>
+                                "If you want honest and trustworthy service, Huntertech is the company for you. You can trust them to keep your information and network safe and provide you with the most suitable products and solutions for your specific needs. Furthermore, their quick, efficient, and helpful service minimizes downtime in the rare event of IT disruptions."
+                                <cite>— Danielle Lawson, DLA Architecture Studio</cite>
+                            </blockquote>
+                        </div>
+
+                        <h2 id="whats-included">What's Included in Managed IT Services?</h2>
+
+                        <p>Understanding what's included in your monthly fee is crucial for comparing providers. Here's what reputable Calgary MSPs typically include:</p>
+
+                        <h3>Basic Tier ($95-$110/user/month):</h3>
+                        <ul>
+                            <li>Unlimited help desk support during business hours</li>
+                            <li>Remote monitoring and management</li>
+                            <li>Patch management and updates</li>
+                            <li>Basic antivirus protection</li>
+                            <li>User account management</li>
+                            <li>Email support</li>
+                        </ul>
+
+                        <h3>Comprehensive Tier ($125-$150/user/month):</h3>
+                        <ul>
+                            <li>Everything in Basic, plus:</li>
+                            <li>Advanced endpoint detection and response (EDR)</li>
+                            <li>Managed detection and response (MDR)</li>
+                            <li>Cloud backup for Microsoft 365 or Google Workspace</li>
+                            <li>All project labour included</li>
+                            <li>Priority response times</li>
+                            <li>Quarterly business reviews</li>
+                            <li>Strategic IT planning</li>
+                        </ul>
+
+                        <div class="cta-inline">
+                            <p><strong>Want to see exactly what your Calgary or Vancouver business would pay?</strong></p>
+                            <a href="/pricing-calculator/" class="btn-primary">Try Our Free Pricing Calculator</a>
+                            <p><small>Get instant quotes for Essential ($95/user) or Complete ($125/user) plans</small></p>
+                        </div>
+
+                        <h2 id="average-costs">Average Costs for Calgary Businesses</h2>
+
+                        <p>Based on our analysis of the Calgary market and our own client data, here's what businesses typically invest in managed IT services:</p>
+
+                        <h3 id="small-business">Small Businesses (1-20 users)</h3>
+                        <p>Small Calgary businesses typically pay between <strong>$1,900 to $3,000 per month</strong> for comprehensive managed IT services. This includes:</p>
+                        <ul>
+                            <li>Full support for all employees</li>
+                            <li>Security and backup solutions</li>
+                            <li>Regular maintenance and updates</li>
+                            <li>Strategic guidance for growth</li>
+                        </ul>
+
+                        <h3 id="medium-business">Medium Businesses (21-50 users)</h3>
+                        <p>Medium-sized companies in Calgary invest <strong>$5,250 to $7,500 monthly</strong> in their IT infrastructure. At this scale, businesses often need:</p>
+                        <ul>
+                            <li>More sophisticated security measures</li>
+                            <li>Compliance support</li>
+                            <li>Advanced collaboration tools</li>
+                            <li>Dedicated account management</li>
+                        </ul>
+
+                        <h2 id="pricing-factors">Factors That Affect IT Service Pricing</h2>
+
+                        <p>Several factors can influence your managed IT costs beyond just user count:</p>
+
+                        <ol>
+                            <li><strong>Industry Requirements:</strong> Law firms and accounting firms often need enhanced security and compliance features</li>
+                            <li><strong>Current Infrastructure:</strong> Outdated systems may require initial investment to modernize</li>
+                            <li><strong>Geographic Distribution:</strong> Multiple locations or remote workers can affect pricing</li>
+                            <li><strong>Service Level Agreements:</strong> Faster response times and 24/7 support cost more</li>
+                            <li><strong>Specialized Software:</strong> Industry-specific applications may require additional expertise</li>
+                        </ol>
+
+                        <h2 id="hidden-costs">Hidden Costs to Watch For</h2>
+
+                        <p>When comparing managed IT providers in Calgary, be aware of these potential hidden costs:</p>
+
+                        <ul>
+                            <li><strong>Onboarding Fees:</strong> Some providers charge $500-$5,000 for initial setup</li>
+                            <li><strong>Project Labour:</strong> Many MSPs charge hourly for projects outside regular support</li>
+                            <li><strong>After-Hours Support:</strong> Emergency support often comes with premium rates</li>
+                            <li><strong>Hardware Markup:</strong> Some providers add significant margins to hardware purchases</li>
+                            <li><strong>Contract Minimums:</strong> Watch for minimum user requirements that don't fit your size</li>
+                        </ul>
+
+                        <p>At Huntertech, we believe in transparency. Our Complete tier includes all project labour, and we clearly communicate any costs upfront.</p>
+
+                        <h2 id="roi">ROI of Managed IT Services</h2>
+
+                        <p>While the monthly cost might seem significant, consider the return on investment:</p>
+
+                        <h3>Real ROI From Our Calgary Clients:</h3>
+                        <ul>
+                            <li><strong>Prevent Costly Downtime:</strong> Proactive monitoring catches issues before they impact your business</li>
+                            <li><strong>Stop Security Threats:</strong> 24/7 monitoring blocks attacks before they cause damage</li>
+                            <li><strong>Boost Productivity:</strong> Your team focuses on clients instead of troubleshooting tech issues</li>
+                            <li><strong>Cost Predictability:</strong> No more $2,500 emergency server repairs or weekend overtime fees</li>
+                        </ul>
+                        
+                        <div class="roi-calculator">
+                            <h4>Quick ROI Check:</h4>
+                            <p>Consider this: if your business loses even a few hours per month to IT issues, the cost of downtime often exceeds the monthly investment in managed services.</p>
+                        </div>
+
+                        <h3>Compared to In-House IT:</h3>
+                        <p>Hiring a single IT employee in Calgary costs:</p>
+                        <ul>
+                            <li>Salary: $70,000-$90,000</li>
+                            <li>Benefits and overhead: $20,000-$30,000</li>
+                            <li>Training and certifications: $5,000-$10,000</li>
+                            <li><strong>Total: $95,000-$130,000 annually</strong></li>
+                        </ul>
+
+                        <p>For the same investment, you could provide managed IT services for 50-80 employees with a full team of experts available.</p>
+
+                        <h2 id="choosing-package">How to Choose the Right IT Service Package</h2>
+
+                        <p>Selecting the right managed IT package depends on several factors:</p>
+
+                        <ol>
+                            <li><strong>Assess Your Current Needs:</strong>
+                                <ul>
+                                    <li>How often do you need IT support?</li>
+                                    <li>What are your security requirements?</li>
+                                    <li>Do you handle sensitive client data?</li>
+                                </ul>
+                            </li>
+                            
+                            <li><strong>Consider Your Growth Plans:</strong>
+                                <ul>
+                                    <li>Will you be hiring more staff?</li>
+                                    <li>Are you planning to adopt new technologies?</li>
+                                    <li>Do you need help with digital transformation?</li>
+                                </ul>
+                            </li>
+                            
+                            <li><strong>Evaluate Total Value:</strong>
+                                <ul>
+                                    <li>Compare what's included, not just the price</li>
+                                    <li>Look for providers who include project work</li>
+                                    <li>Consider the expertise and certifications offered</li>
+                                </ul>
+                            </li>
+                        </ol>
+
+                        <div class="comparison-table">
+                            <h3>Quick Comparison: Essential vs Complete</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Feature</th>
+                                        <th>Essential ($95/user)</th>
+                                        <th>Complete ($125/user)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Unlimited Support</td>
+                                        <td>✓</td>
+                                        <td>✓</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Advanced Security (EDR/MDR)</td>
+                                        <td>✗</td>
+                                        <td>✓</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cloud Backup</td>
+                                        <td>✗</td>
+                                        <td>✓</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Project Labour</td>
+                                        <td>Hourly</td>
+                                        <td>Included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Best For</td>
+                                        <td>Basic needs, tight budgets</td>
+                                        <td>Growing businesses, compliance needs</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h2>Making the Right Decision for Your Calgary Business</h2>
+
+                        <p>Investing in managed IT services is one of the most important decisions you'll make for your business. The right provider becomes a true partner in your success, helping you leverage technology for growth while protecting you from threats.</p>
+
+                        <p>When evaluating costs, remember that the cheapest option rarely provides the best value. Look for a provider who:</p>
+                        <ul>
+                            <li>Offers transparent, predictable pricing</li>
+                            <li>Includes comprehensive services in their base price</li>
+                            <li>Has proven experience with Calgary businesses</li>
+                            <li>Provides local, responsive support</li>
+                            <li>Aligns with your business goals</li>
+                        </ul>
+
+                        <CTABox 
+                            title="Get Your Custom IT Services Quote"
+                            description="See exactly what managed IT services would cost for your Calgary business. Use our instant pricing calculator or speak with our team."
+                            buttonText="Calculate Your Price"
+                            buttonLink="/pricing-calculator/"
+                        />
+
+                        <BlogInteractivity />
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- FAQ Schema -->
+        <script type="application/ld+json" set:html={JSON.stringify(faqData)} />
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .lead {
+        font-size: 1.25rem;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 2rem;
+    }
+
+    .cta-inline {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        text-align: center;
+        margin: 2rem 0;
+    }
+
+    .cta-inline .btn-primary {
+        display: inline-block;
+        background: var(--button-color);
+        color: var(--white);
+        padding: 0.75rem 2rem;
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-top: 1rem;
+    }
+
+    .cta-inline .btn-primary:hover {
+        background: var(--button-hover);
+        transform: translateY(-2px);
+    }
+
+    .comparison-table {
+        margin: 2rem 0;
+        overflow-x: auto;
+    }
+
+    .comparison-table table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--white);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid #e1e1e1;
+    }
+
+    .comparison-table th {
+        background: var(--secondary-bg);
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+
+    .comparison-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    .quick-answer-box {
+        background: rgba(0, 172, 172, 0.05);
+        border: 2px solid var(--button-color);
+        padding: 2rem;
+        margin: 2rem 0;
+        border-radius: var(--radius-md);
+        position: relative;
+    }
+
+    .quick-answer-box::before {
+        content: "💡";
+        position: absolute;
+        top: -12px;
+        left: 20px;
+        background: var(--white);
+        padding: 0 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .quick-answer-box h3 {
+        color: var(--button-color);
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+    }
+
+    .quick-answer-box ul {
+        margin-top: 1rem;
+    }
+
+    .quick-answer-box li {
+        margin-bottom: 0.5rem;
+        color: #555;
+    }
+
+    .pain-point-callout {
+        background: rgba(239, 68, 68, 0.05);
+        border-left: 4px solid #dc2626;
+        padding: 2rem;
+        margin: 2rem 0;
+        border-radius: var(--radius-md);
+    }
+
+    .pain-point-callout h3 {
+        color: #dc2626;
+        margin-bottom: 1rem;
+    }
+
+    .pain-point-callout ul {
+        margin-bottom: 1.5rem;
+    }
+
+    .pain-point-callout li {
+        margin-bottom: 0.5rem;
+        color: #555;
+    }
+
+    .client-success-story {
+        background: rgba(34, 197, 94, 0.05);
+        border-left: 4px solid #16a34a;
+        padding: 2rem;
+        margin: 2rem 0;
+        border-radius: var(--radius-md);
+    }
+
+    .client-success-story blockquote {
+        font-style: italic;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin: 0;
+        color: #555;
+    }
+
+    .client-success-story cite {
+        display: block;
+        margin-top: 1rem;
+        font-weight: 600;
+        color: #16a34a;
+        font-style: normal;
+    }
+
+    .roi-calculator {
+        background: #f8f9fa;
+        border: 2px solid var(--button-color);
+        padding: 1.5rem;
+        border-radius: var(--radius-md);
+        margin: 1.5rem 0;
+    }
+
+    .roi-calculator h4 {
+        color: var(--button-color);
+        margin-bottom: 1rem;
+    }
+
+    .roi-calculator p {
+        margin: 0;
+        font-size: 1.05rem;
+    }
+
+    @media (max-width: 768px) {
+        .comparison-table {
+            font-size: 0.9rem;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 0.75rem 0.5rem;
+        }
+
+        .pain-point-callout,
+        .client-success-story,
+        .roi-calculator {
+            padding: 1.5rem;
+        }
+    }
+</style>

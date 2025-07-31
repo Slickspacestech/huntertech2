@@ -16,6 +16,7 @@ import bluebeamStandardizeImg from '../assets/images/blog/bluebeam-standardize.p
 import engineeringItServicesImg from '../assets/images/architect_engineer_tech.webp';
 import cybersecuritySmallBusinessImg from '../assets/images/blog/cybersecurity-small-business.webp';
 import hiddenCostsDiyVancouverImg from '../assets/images/Blog-Hidden-Costs-DIY-Vancouver.jpg';
+import itPricingGuideImg from '../assets/images/blog/it-pricing-guide.webp';
 
 export interface BlogPost {
     slug: string;
@@ -29,6 +30,18 @@ export interface BlogPost {
 }
 
 export const posts: BlogPost[] = [
+    {
+        slug: 'managed-it-services-cost-calgary/',
+        title: "How Much Do Managed IT Services Cost in Calgary? 2025 Pricing Guide",
+        date: "2025-07-31",
+        author: "Huntertech Team",
+        category: "IT Management",
+        image: itPricingGuideImg,
+        content: `
+            <p>Discover the real cost of managed IT services in Calgary. Learn about per-user pricing models, what's included, and how to budget for IT support in 2025. Compare Essential vs Complete packages and calculate your ROI.</p>
+        `,
+        tags: ["managed IT services Calgary", "IT support Calgary", "Calgary IT company", "IT pricing Calgary", "managed services pricing", "business IT support Calgary", "MSP pricing Calgary", "IT cost calculator"]
+    },
     {
         slug: 'hidden-costs-diy-it-vancouver/',
         title: "The Hidden Costs of DIY IT: What Vancouver Small Businesses Need to Know",

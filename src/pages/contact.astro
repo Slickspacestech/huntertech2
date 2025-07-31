@@ -118,7 +118,21 @@ const vancouverContactData = {
                         </div>
                     </div>
                     <div class="contact-form">
-                        <h2>Send us a Message</h2>
+                        <div class="contact-options">
+                            <h2>Get in Touch</h2>
+                            <p>Choose how you'd like to connect with us:</p>
+                            <div class="contact-buttons">
+                                <a href="/book/" class="book-meeting-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 2v3m8-3v3M3 7h18M3 11h18M3 15h18M3 19h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                    Book a Meeting
+                                </a>
+                                <span class="or-divider">or</span>
+                            </div>
+                        </div>
+                        
+                        <h3>Send us a Message</h3>
                         <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true" class="netlify-form">
                             <input type="hidden" name="form-name" value="contact" />
                             <input type="hidden" name="form_conversion" id="form_conversion" value="" />
@@ -347,8 +361,60 @@ const vancouverContactData = {
     .contact-info h2,
     .contact-form h2 {
         color: var(--primary-color);
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         font-size: 1.8rem;
+    }
+
+    .contact-form h3 {
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+    }
+
+    .contact-options {
+        margin-bottom: 2rem;
+    }
+
+    .contact-options p {
+        color: #666;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-buttons {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .book-meeting-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--button-color);
+        color: var(--white);
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .book-meeting-btn:hover {
+        background: var(--button-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 172, 172, 0.3);
+    }
+
+    .book-meeting-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .or-divider {
+        color: #999;
+        font-style: italic;
+        padding: 0 1rem;
     }
 
     .info-item {

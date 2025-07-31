@@ -1,0 +1,1599 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import CTABox from '../components/CTABox.astro';
+import Shield from '../components/icons/shield.astro';
+import Headphones from '../components/icons/headphones.astro';
+import Cloud from '../components/icons/cloud.astro';
+import Lock from '../components/icons/lock.astro';
+
+const title = "Managed IT Services Pricing Calculator Calgary & Vancouver | Get Instant Quote";
+const description = "Calculate managed IT services pricing for Calgary & Vancouver businesses. Transparent costs: Essential $95/user, Complete $125/user. Get instant quotes + free assessment.";
+const keywords = [
+    "managed IT services pricing Calgary",
+    "IT support cost calculator",
+    "managed IT pricing Vancouver",
+    "IT services cost per user",
+    "business IT support pricing",
+    "MSP pricing calculator",
+    "IT management cost Calgary",
+    "technology services pricing"
+];
+
+const faqData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What's included in \"unlimited support\"?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Phone, email, and remote support for all technical issues, 8am-5pm Monday-Friday, with 24/7 emergency support available. Direct access to your dedicated team - no call centers."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What's the difference between plans?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Complete includes advanced security 24/7 monitoring, automated backups, and all project work. Essential covers support security and backups are available as add-ons."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Are there any setup fees?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We typically waive setup fees for contracts of 12 months or longer. Month-to-month agreements may include onboarding costs."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What if I'm not satisfied?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! You can upgrade or downgrade your plan with 30 days notice. We'll help manage the transition smoothly."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "On the Essential plan, what is a \"project\"?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A project is any net new technology, migration, or upgrade to your IT systems. This could be changing email filing systems, migrating to a cloud file server, setting up new software, or implementing new security measures. Day-to-day support and maintenance are included, but strategic IT improvements are billed separately."
+            }
+        }
+    ]
+};
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebPage",
+            "name": "IT Services Pricing Calculator",
+            "description": description,
+            "url": "https://huntertech.ca/pricing-calculator/",
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://huntertech.ca"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Pricing Calculator",
+                        "item": "https://huntertech.ca/pricing-calculator/"
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "LocalBusiness",
+            "@id": "https://huntertech.ca",
+            "name": "Huntertech Managed IT Services",
+            "description": "Professional managed IT services for Calgary and Vancouver businesses",
+            "url": "https://huntertech.ca",
+            "telephone": ["825-415-6990", "778-819-7411"],
+            "address": [
+                {
+                    "@type": "PostalAddress",
+                    "streetAddress": "4030 8 St SE",
+                    "addressLocality": "Calgary",
+                    "addressRegion": "AB",
+                    "postalCode": "T2G 3A7",
+                    "addressCountry": "CA"
+                }
+            ],
+            "areaServed": [
+                {
+                    "@type": "City",
+                    "name": "Calgary",
+                    "containedInPlace": {
+                        "@type": "AdministrativeArea",
+                        "name": "Alberta"
+                    }
+                },
+                {
+                    "@type": "City", 
+                    "name": "Vancouver",
+                    "containedInPlace": {
+                        "@type": "AdministrativeArea",
+                        "name": "British Columbia"
+                    }
+                }
+            ],
+            "serviceType": ["Managed IT Services", "IT Support", "Cybersecurity Services", "Cloud Services", "IT Consulting"],
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Managed IT Service Plans",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Security Essentials Plan",
+                            "description": "Security-focused IT plan with 24/7 monitoring, backups, and email protection"
+                        },
+                        "price": "35",
+                        "priceCurrency": "CAD",
+                        "priceSpecification": {
+                            "@type": "UnitPriceSpecification",
+                            "price": "35",
+                            "priceCurrency": "CAD",
+                            "unitText": "per user per month"
+                        },
+                        "areaServed": ["Calgary", "Vancouver"]
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Essential Managed IT Plan",
+                            "description": "Basic managed IT services including unlimited support, monitoring, and basic security"
+                        },
+                        "price": "95",
+                        "priceCurrency": "CAD",
+                        "priceSpecification": {
+                            "@type": "UnitPriceSpecification",
+                            "price": "95",
+                            "priceCurrency": "CAD",
+                            "unitText": "per user per month"
+                        },
+                        "areaServed": ["Calgary", "Vancouver"]
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Complete Managed IT Plan",
+                            "description": "Comprehensive managed IT services with advanced security, backup, and project labor included"
+                        },
+                        "price": "125",
+                        "priceCurrency": "CAD",
+                        "priceSpecification": {
+                            "@type": "UnitPriceSpecification",
+                            "price": "125",
+                            "priceCurrency": "CAD",
+                            "unitText": "per user per month"
+                        },
+                        "areaServed": ["Calgary", "Vancouver"]
+                    }
+                ]
+            }
+        }
+    ]
+};
+---
+
+<Layout 
+    title={title} 
+    description={description}
+    canonicalURL="https://huntertech.ca/pricing-calculator/"
+    keywords={keywords}
+    type="website"
+    structuredData={structuredData}
+>
+    <Header />
+    <main class="pricing-calculator-page">
+        <Hero 
+            title="Enterprise-Level IT Support Without the Enterprise Price"
+            subtitle="Boutique IT firm delivering personalized service to Calgary & Vancouver businesses"
+            backgroundImage="/images/it-support.webp"
+            backgroundImageAlt="IT pricing calculator"
+            ctaText="Get Your Quote"
+            ctaLink="#calculator"
+            secondaryCtaText="Schedule Consultation"
+            secondaryCtaLink="/contact/?form_conversion=pricing-hero"
+        />
+
+        <section class="calculator-section" id="calculator">
+            <div class="container">
+                <div class="intro-text">
+                    <h2>Simple, Predictable Pricing for Your Business</h2>
+                    <p>No hidden fees. No surprises. Just straightforward per-user pricing that scales with your business.</p>
+                    
+                    <div class="trust-indicators">
+                        <div class="trust-item">
+                            <strong>Owner-Operated</strong>
+                            <span>Direct access to leadership</span>
+                        </div>
+                        <div class="trust-item">
+                            <strong>Boutique Service</strong>
+                            <span>Personalized attention</span>
+                        </div>
+                        <div class="trust-item">
+                            <strong>Local Expertise</strong>
+                            <span>Calgary & Vancouver focus</span>
+                        </div>
+                        <div class="trust-item">
+                            <strong>No Call Centers</strong>
+                            <span>Your dedicated team</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-tiers">
+                    <div class="tier security-essentials">
+                        <div class="tier-header">
+                            <h3>Security Essentials</h3>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="amount">35</span>
+                                <span class="period">/user/month</span>
+                            </div>
+                        </div>
+                        <ul class="features">
+                            <li><Shield /> 24/7 monitoring stops attacks before damage</li>
+                            <li><Cloud /> Never lose data with automatic backups</li>
+                            <li>✓ PhishTitan email protection included</li>
+                            <li>✓ Basic Office 365 tenant administration</li>
+                            <li>✓ User account management (create/delete)</li>
+                            <li class="separate-billing">Support tickets billed separately</li>
+                        </ul>
+                        <p class="tier-description">Security-first solution for businesses that need protection but handle their own IT support.</p>
+                    </div>
+
+                    <div class="tier essential">
+                        <div class="tier-header">
+                            <h3>Essential</h3>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="amount">95</span>
+                                <span class="period">/user/month</span>
+                            </div>
+                        </div>
+                        <ul class="features">
+                            <li><Headphones /> Get help when you need it</li>
+                            <li><Cloud /> Work securely from anywhere</li>
+                            <li class="separate-billing">24/7 monitoring available as add-on</li>
+                            <li class="separate-billing">Automatic backups available as add-on</li>
+                            <li class="separate-billing">Project work billed separately</li>
+                        </ul>
+                        <p class="tier-description">Perfect for smaller teams needing reliable IT support with personalized service.</p>
+                    </div>
+
+                    <div class="tier complete recommended">
+                        <div class="recommended-badge">Most Popular</div>
+                        <div class="tier-header">
+                            <h3>Complete</h3>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="amount">125</span>
+                                <span class="period">/user/month</span>
+                            </div>
+                        </div>
+                        <ul class="features">
+                            <li><Headphones /> Unlimited support, your team is ready</li>
+                            <li><Shield /> 24/7 monitoring and response stops attacks as they happen</li>
+                            <li><Cloud /> Never lose a file - automatic daily backups</li>
+                            <li><Lock /> Work safely from home, office, or anywhere</li>
+                            <li>✓ All upgrades and projects included - no surprise bills</li>
+                            <li>✓ We fix problems before they affect your day</li>
+                        </ul>
+                        <p class="tier-description">Complete peace of mind with enterprise-grade security and all projects included.</p>
+                    </div>
+                </div>
+
+                <div class="calculator-widget">
+                    <h2>Calculate Your Monthly Cost</h2>
+                    <div class="calculator-form">
+                        <div class="form-group">
+                            <label for="num-users">Number of Users</label>
+                            <input type="number" id="num-users" min="1" max="500" value="10" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Select Your Plan</label>
+                            <div class="plan-selector">
+                                <label class="plan-option">
+                                    <input type="radio" name="plan" value="35" />
+                                    <span class="plan-label">Security Essentials ($35/user)</span>
+                                </label>
+                                <label class="plan-option">
+                                    <input type="radio" name="plan" value="95" />
+                                    <span class="plan-label">Essential ($95/user)</span>
+                                </label>
+                                <label class="plan-option">
+                                    <input type="radio" name="plan" value="125" checked />
+                                    <span class="plan-label">Complete ($125/user)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Add-On Services</label>
+                            <div class="addons">
+                                <!-- Security Essentials add-ons -->
+                                <label class="addon-option security-upgrade hourly-rate">
+                                    <span class="addon-label">
+                                        <div class="addon-header">
+                                            <strong>IT Labour - Support + Projects</strong>
+                                            <span class="addon-price">$150/hour</span>
+                                        </div>
+                                        <small class="addon-description">Hourly billing for support tickets and project work</small>
+                                    </span>
+                                </label>
+
+                                <!-- Essential plan add-ons -->
+                                <label class="addon-option essential-upgrade">
+                                    <input type="checkbox" name="addon" value="15" data-name="24/7 Monitoring & Response" />
+                                    <span class="addon-label">
+                                        <div class="addon-header">
+                                            <strong>24/7 Monitoring & Response</strong>
+                                            <span class="addon-price">+$15/user/month</span>
+                                        </div>
+                                        <small class="addon-description">Stop attacks as they happen with proactive threat detection</small>
+                                    </span>
+                                </label>
+                                <label class="addon-option essential-upgrade">
+                                    <input type="checkbox" name="addon" value="5" data-name="Office 365/Google Backup" />
+                                    <span class="addon-label">
+                                        <div class="addon-header">
+                                            <strong>Office 365/Google Backup</strong>
+                                            <span class="addon-price">+$5/user/month</span>
+                                        </div>
+                                        <small class="addon-description">Never lose a file with automatic daily backups</small>
+                                    </span>
+                                </label>
+
+                                <!-- Universal add-ons -->
+                                <label class="addon-option">
+                                    <input type="checkbox" name="addon" value="7" data-name="Keeper Password Manager" />
+                                    <span class="addon-label">
+                                        <div class="addon-header">
+                                            <strong>Keeper Password Manager</strong>
+                                            <span class="addon-price">+$7/user/month</span>
+                                        </div>
+                                        <small class="addon-description">Enterprise password management with breach monitoring</small>
+                                    </span>
+                                </label>
+                                <label class="addon-option universal-phish">
+                                    <input type="checkbox" name="addon" value="5" data-name="PhishTitan" />
+                                    <span class="addon-label">
+                                        <div class="addon-header">
+                                            <strong>PhishTitan Email Security</strong>
+                                            <span class="addon-price">+$5/user/month</span>
+                                        </div>
+                                        <small class="addon-description">Advanced email threat protection and filtering</small>
+                                    </span>
+                                </label>
+                                <label class="addon-option">
+                                    <input type="checkbox" name="addon" value="5" data-name="ArcTitan" />
+                                    <span class="addon-label">
+                                        <div class="addon-header">
+                                            <strong>ArcTitan Email Archiving</strong>
+                                            <span class="addon-price">+$5/user/month</span>
+                                        </div>
+                                        <small class="addon-description">Compliance-ready email archiving and search</small>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="calculation-result">
+                            <div class="result-row">
+                                <span>Base Plan Cost:</span>
+                                <span id="base-cost">$1,250</span>
+                            </div>
+                            <div class="result-row">
+                                <span>Add-Ons Cost:</span>
+                                <span id="addon-cost">$0</span>
+                            </div>
+                            <div class="result-row total">
+                                <span>Total Monthly Cost:</span>
+                                <span id="total-cost">$1,250</span>
+                            </div>
+                            <div class="result-row annual">
+                                <span>Annual Cost:</span>
+                                <span id="annual-cost">$15,000</span>
+                            </div>
+                        </div>
+
+                        <div class="email-quote-section">
+                            <h3>Email This Quote</h3>
+                            <p>Get a detailed breakdown sent to your inbox and schedule a consultation.</p>
+                            
+                            <form class="email-quote-form" id="email-quote-form">
+                                <div class="form-row">
+                                    <div class="form-field">
+                                        <label for="quote-email">Email Address *</label>
+                                        <input type="email" id="quote-email" name="email" required />
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="quote-name">Full Name *</label>
+                                        <input type="text" id="quote-name" name="name" required />
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-field">
+                                        <label for="quote-company">Company Name</label>
+                                        <input type="text" id="quote-company" name="company" />
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="quote-phone">Phone Number</label>
+                                        <input type="tel" id="quote-phone" name="phone" />
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="quote-location">Location</label>
+                                    <select id="quote-location" name="location">
+                                        <option value="">Select Location</option>
+                                        <option value="Calgary">Calgary</option>
+                                        <option value="Vancouver">Vancouver</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="submit" class="email-quote-btn" id="email-quote-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3 8L10.89 13.26C11.2187 13.4793 11.6049 13.5963 12 13.5963C12.3951 13.5963 12.7813 13.4793 13.11 13.26L21 8M5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Email My Quote
+                                    </button>
+                                    <p class="form-note">We'll also send you information about next steps and scheduling a consultation.</p>
+                                </div>
+                            </form>
+
+                            <div class="form-status" id="quote-status" style="display: none;"></div>
+                        </div>
+
+                        <div class="calculator-cta">
+                            <span class="cta-divider">or</span>
+                            <a href="/contact/?form_conversion=pricing-calculator" class="cta-button secondary">Schedule Consultation Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="additional-services">
+                    <h3>Additional Services & Hardware</h3>
+                    <div class="services-grid">
+                        <div class="service-item">
+                            <h4>Microsoft 365 Licensing</h4>
+                            <p>Business Basic, Standard, or Premium plans available at competitive rates</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Teams Voice</h4>
+                            <p>Complete phone system integration with Microsoft Teams</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Firewalls</h4>
+                            <p>OPNsense business license on Protectli hardware</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Hardware</h4>
+                            <p>Lenovo & HP business-grade laptops and desktops</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Cloud File Server</h4>
+                            <p>Egnyte cloud storage and collaboration platform</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Backup Solutions</h4>
+                            <p>Comprehensive backup for servers and workstations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-faq">
+                    <h3>Frequently Asked Questions</h3>
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <h4>What's included in "unlimited support"?</h4>
+                            <p>Phone, email, and remote support for all technical issues, 8am-5pm Monday-Friday, with 24/7 emergency support available. Direct access to your dedicated team - no call centers.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>What's the difference between plans?</h4>
+                            <p>Complete includes advanced security 24/7 monitoring, automated backups, and all project work. Essential covers support security and backups are available as add-ons.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>Are there any setup fees?</h4>
+                            <p>We typically waive setup fees for contracts of 12 months or longer. Month-to-month agreements may include onboarding costs.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>What if I'm not satisfied?</h4>
+                            <p>Yes! You can upgrade or downgrade your plan with 30 days notice. We'll help manage the transition smoothly.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>On the Essential plan, what is a "project"?</h4>
+                            <p>A project is any net new technology, migration, or upgrade to your IT systems. This could be changing email filing systems, migrating to a cloud file server, setting up new software, or implementing new security measures. Day-to-day support and maintenance are included, but strategic IT improvements are billed separately.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Schema -->
+                <script type="application/ld+json" set:html={JSON.stringify(faqData)} />
+
+                <div class="why-boutique">
+                    <h2>Why Choose a Boutique IT Firm?</h2>
+                    <p>At Huntertech, we've deliberately chosen to remain a boutique firm. This means:</p>
+                    
+                    <div class="boutique-benefits">
+                        <div class="benefit">
+                            <h4>You're a Priority, Not a Ticket Number</h4>
+                            <p>With our selective client base, every business we serve gets VIP treatment. No waiting in queues or talking to different technicians each time.</p>
+                        </div>
+                        <div class="benefit">
+                            <h4>Direct Access to Expertise</h4>
+                            <p>Need to speak with the owner? Have a complex question? You have direct access to senior technicians and leadership.</p>
+                        </div>
+                        <div class="benefit">
+                            <h4>Customized Solutions, Not Cookie-Cutter</h4>
+                            <p>We take time to understand your specific business needs and tailor our services accordingly.</p>
+                        </div>
+                        <div class="benefit">
+                            <h4>Stable, Consistent Team</h4>
+                            <p>Work with the same dedicated professionals who know your systems inside and out.</p>
+                        </div>
+                    </div>
+
+                    <p class="boutique-message"><strong>We intentionally limit our client base to ensure every business receives the attention and service quality they deserve.</strong></p>
+                    
+                    <div class="client-testimonial">
+                        <blockquote>
+                            "Huntertech has been exceptional in providing our IT services. Their team is professional, responsive, and truly understands our unique needs. They offer tailor-made solutions that keep our systems running smoothly and securely. Anytime we've had a question or needed support, Huntertech has been right there to help."
+                            <cite>— Jack Hui, Pontem Group</cite>
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="blog-link-cta">
+                    <h3>Want to Learn More About Managed IT Pricing?</h3>
+                    <p>Read our comprehensive guide covering average costs, hidden fees to avoid, and ROI analysis for Calgary and Vancouver businesses.</p>
+                    <a href="/blog/managed-it-services-cost-calgary/" class="blog-link-button">Read Our Complete Pricing Guide</a>
+                </div>
+
+                <CTABox 
+                    title="Experience the Boutique IT Difference"
+                    description="Join select Calgary and Vancouver businesses who value personalized IT service over corporate call centers."
+                    buttonText="Schedule Your Personal Consultation"
+                    buttonLink="/contact/?form_conversion=pricing-calculator-cta"
+                />
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
+
+<script>
+    // Pricing calculator logic
+    function updateCalculation() {
+        const numUsers = parseInt(document.getElementById('num-users').value) || 0;
+        const selectedPlan = document.querySelector('input[name="plan"]:checked');
+        const planPrice = selectedPlan ? parseInt(selectedPlan.value) : 125;
+        
+        // Calculate base cost
+        const baseCost = numUsers * planPrice;
+        
+        // Calculate addon costs
+        let addonCost = 0;
+        const selectedAddons = document.querySelectorAll('input[name="addon"]:checked');
+        selectedAddons.forEach(addon => {
+            addonCost += numUsers * parseInt(addon.value);
+        });
+        
+        // Update display
+        const totalCost = baseCost + addonCost;
+        document.getElementById('base-cost').textContent = `$${baseCost.toLocaleString()}`;
+        document.getElementById('addon-cost').textContent = `$${addonCost.toLocaleString()}`;
+        document.getElementById('total-cost').textContent = `$${totalCost.toLocaleString()}`;
+        document.getElementById('annual-cost').textContent = `$${(totalCost * 12).toLocaleString()}`;
+    }
+
+    // Show/hide addon options based on selected plan
+    function toggleAddonsByPlan() {
+        const selectedPlan = document.querySelector('input[name="plan"]:checked');
+        const securityUpgrades = document.querySelectorAll('.security-upgrade');
+        const essentialUpgrades = document.querySelectorAll('.essential-upgrade');
+        const universalPhish = document.querySelectorAll('.universal-phish');
+        
+        // Clear all addons first
+        securityUpgrades.forEach(addon => {
+            addon.classList.remove('show');
+            const checkbox = addon.querySelector('input[type="checkbox"]');
+            if (checkbox) checkbox.checked = false;
+        });
+        essentialUpgrades.forEach(addon => {
+            addon.classList.remove('show');
+            const checkbox = addon.querySelector('input[type="checkbox"]');
+            if (checkbox) checkbox.checked = false;
+        });
+        universalPhish.forEach(addon => {
+            addon.classList.remove('show');
+            const checkbox = addon.querySelector('input[type="checkbox"]');
+            if (checkbox) checkbox.checked = false;
+        });
+        
+        if (selectedPlan) {
+            if (selectedPlan.value === '35') {
+                // Security Essentials - show security upgrade options, hide PhishTitan (already included)
+                securityUpgrades.forEach(addon => {
+                    addon.classList.add('show');
+                });
+            } else if (selectedPlan.value === '95') {
+                // Essential plan - show essential upgrade options and PhishTitan
+                essentialUpgrades.forEach(addon => {
+                    addon.classList.add('show');
+                });
+                universalPhish.forEach(addon => {
+                    addon.classList.add('show');
+                });
+            } else if (selectedPlan.value === '125') {
+                // Complete plan - show only PhishTitan (everything else included)
+                universalPhish.forEach(addon => {
+                    addon.classList.add('show');
+                });
+            }
+        }
+    }
+
+    // Add event listeners
+    document.addEventListener('DOMContentLoaded', function() {
+        const numUsersInput = document.getElementById('num-users');
+        const planInputs = document.querySelectorAll('input[name="plan"]');
+        const addonInputs = document.querySelectorAll('input[name="addon"]');
+        
+        numUsersInput.addEventListener('input', updateCalculation);
+        planInputs.forEach(input => {
+            input.addEventListener('change', function() {
+                toggleAddonsByPlan();
+                updateCalculation();
+            });
+        });
+        addonInputs.forEach(input => input.addEventListener('change', updateCalculation));
+        
+        // Initial setup
+        toggleAddonsByPlan();
+        updateCalculation();
+
+        // Email quote form handler
+        const emailQuoteForm = document.getElementById('email-quote-form');
+        if (emailQuoteForm) {
+            emailQuoteForm.addEventListener('submit', handleEmailQuote);
+        }
+    });
+
+    // Handle email quote form submission
+    async function handleEmailQuote(event) {
+        event.preventDefault();
+        
+        const button = document.getElementById('email-quote-btn');
+        const status = document.getElementById('quote-status');
+        const form = event.target;
+        
+        // Show loading state
+        button.disabled = true;
+        button.innerHTML = '<span class="loading-spinner"></span> Sending...';
+        status.style.display = 'none';
+        
+        try {
+            // Collect current quote data
+            const numUsers = parseInt(document.getElementById('num-users').value) || 0;
+            const selectedPlan = document.querySelector('input[name="plan"]:checked');
+            const planPrice = selectedPlan ? parseInt(selectedPlan.value) : 125;
+            const planName = getPlanName(planPrice);
+            
+            // Collect selected addons
+            const selectedAddons = [];
+            let addonCost = 0;
+            document.querySelectorAll('input[name="addon"]:checked').forEach(addon => {
+                const value = parseInt(addon.value);
+                const name = addon.getAttribute('data-name');
+                selectedAddons.push({
+                    name: name,
+                    pricePerUser: value,
+                    totalPrice: numUsers * value
+                });
+                addonCost += numUsers * value;
+            });
+            
+            const baseCost = numUsers * planPrice;
+            const totalCost = baseCost + addonCost;
+            
+            // Prepare form data
+            const formData = new FormData(form);
+            const quoteData = {
+                // Customer info
+                email: formData.get('email'),
+                name: formData.get('name'),
+                company: formData.get('company') || '',
+                phone: formData.get('phone') || '',
+                location: formData.get('location') || '',
+                
+                // Quote details
+                numUsers: numUsers,
+                planName: planName,
+                planPrice: planPrice,
+                addons: selectedAddons,
+                baseCost: baseCost,
+                addonCost: addonCost,
+                totalMonthly: totalCost,
+                totalAnnual: totalCost * 12,
+                
+                // Metadata
+                timestamp: new Date().toISOString(),
+                source: 'pricing-calculator'
+            };
+            
+            // Send to Netlify function
+            const response = await fetch('/.netlify/functions/send-quote', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(quoteData)
+            });
+            
+            if (response.ok) {
+                showQuoteStatus('success', 'Quote sent successfully! Check your email for the detailed breakdown.');
+                form.reset();
+            } else {
+                throw new Error('Failed to send quote');
+            }
+            
+        } catch (error) {
+            console.error('Error sending quote:', error);
+            showQuoteStatus('error', 'Sorry, there was an error sending your quote. Please try again or contact us directly.');
+        } finally {
+            // Reset button
+            button.disabled = false;
+            button.innerHTML = `
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 8L10.89 13.26C11.2187 13.4793 11.6049 13.5963 12 13.5963C12.3951 13.5963 12.7813 13.4793 13.11 13.26L21 8M5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Email My Quote
+            `;
+        }
+    }
+    
+    function getPlanName(price) {
+        switch(price) {
+            case 35: return 'Security Essentials';
+            case 95: return 'Essential';
+            case 125: return 'Complete';
+            default: return 'Custom';
+        }
+    }
+    
+    function showQuoteStatus(type, message) {
+        const status = document.getElementById('quote-status');
+        status.className = `form-status ${type}`;
+        status.textContent = message;
+        status.style.display = 'block';
+        
+        // Auto-hide success messages after 5 seconds
+        if (type === 'success') {
+            setTimeout(() => {
+                status.style.display = 'none';
+            }, 5000);
+        }
+    }
+</script>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .pricing-calculator-page {
+        padding-top: 80px;
+    }
+
+    .calculator-section {
+        padding: 4rem 0;
+        background: var(--white);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .intro-text {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .intro-text h2 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .trust-indicators {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+        padding: 1.5rem;
+        background: rgba(0, 172, 172, 0.05);
+        border-radius: var(--radius-md);
+        flex-wrap: wrap;
+    }
+
+    .trust-item {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .trust-item strong {
+        font-size: 1.5rem;
+        color: var(--button-color);
+        font-weight: 700;
+    }
+
+    .trust-item span {
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+    .tier-guarantee {
+        text-align: center;
+        margin-top: 1rem;
+        padding: 0.5rem;
+        background: rgba(34, 197, 94, 0.1);
+        border-radius: var(--radius-sm);
+        border: 1px solid rgba(34, 197, 94, 0.2);
+    }
+
+    .tier-guarantee small {
+        color: #16a34a;
+        font-weight: 600;
+    }
+
+    .popular-choice {
+        margin-top: 1rem;
+        padding: 1rem;
+        background: rgba(0, 172, 172, 0.05);
+        border-radius: var(--radius-sm);
+        text-align: center;
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+    .urgency-note {
+        margin-top: 1rem;
+        padding: 1rem;
+        background: rgba(239, 68, 68, 0.05);
+        border: 1px solid rgba(239, 68, 68, 0.2);
+        border-radius: var(--radius-sm);
+        text-align: center;
+    }
+
+    .urgency-note strong {
+        color: #dc2626;
+    }
+
+    .pricing-tiers {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 4rem;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .tier {
+        background: var(--white);
+        border: 2px solid #e1e1e1;
+        border-radius: var(--radius-md);
+        padding: 2rem;
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .tier.recommended {
+        border-color: var(--button-color);
+        transform: scale(1.05);
+        box-shadow: 0 4px 20px rgba(0, 172, 172, 0.2);
+    }
+
+    .recommended-badge {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--button-color);
+        color: var(--white);
+        padding: 0.25rem 1rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+
+    .tier-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .tier-header h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .price {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        gap: 0.25rem;
+    }
+
+    .currency {
+        font-size: 1.5rem;
+        color: var(--text-color);
+    }
+
+    .amount {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+
+    .period {
+        font-size: 1rem;
+        color: var(--text-color);
+    }
+
+    .features {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    .features li {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #f0f0f0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .features li.not-included {
+        color: #999;
+        text-decoration: line-through;
+    }
+
+    .features li.separate-billing {
+        color: #666;
+        font-style: italic;
+    }
+
+    .features li.separate-billing::before {
+        content: "+";
+        color: #f59e0b;
+        font-weight: bold;
+        margin-right: 0.5rem;
+    }
+
+    .features li:not(.not-included):not(.separate-billing)::before {
+        content: "✓";
+        color: var(--button-color);
+        font-weight: bold;
+        margin-right: 0.5rem;
+    }
+
+    .tier-description {
+        font-size: 0.9rem;
+        color: #666;
+        text-align: center;
+        margin: 0;
+    }
+
+    .calculator-widget {
+        background: #f8f9fa;
+        padding: 3rem;
+        border-radius: var(--radius-md);
+        margin-bottom: 4rem;
+    }
+
+    .calculator-widget h2 {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+    }
+
+    .calculator-form {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .form-group {
+        margin-bottom: 2rem;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--text-color);
+    }
+
+    .form-group input[type="number"] {
+        width: 100%;
+        padding: 0.75rem;
+        border: 2px solid #e1e1e1;
+        border-radius: var(--radius-sm);
+        font-size: 1.1rem;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-group input[type="number"]:focus {
+        outline: none;
+        border-color: var(--button-color);
+    }
+
+    .plan-selector {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .plan-option {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        border: 2px solid #e1e1e1;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .plan-option:hover {
+        border-color: var(--button-color);
+        background: rgba(0, 172, 172, 0.05);
+    }
+
+    .plan-option input[type="radio"] {
+        margin-right: 0.75rem;
+    }
+
+    .plan-option input[type="radio"]:checked + .plan-label {
+        font-weight: 600;
+        color: var(--button-color);
+    }
+
+    .addons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .addon-option {
+        display: flex !important;
+        align-items: center;
+        padding: 1rem;
+        border: 1px solid #e1e1e1;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .addon-option:hover {
+        border-color: var(--button-color);
+        background: rgba(0, 172, 172, 0.02);
+    }
+
+    .addon-option input[type="checkbox"] {
+        margin-right: 0.75rem;
+    }
+
+    .addon-label {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 0.25rem;
+    }
+
+    .addon-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .addon-price {
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .addon-description {
+        font-size: 0.8rem;
+        color: #888;
+        font-style: italic;
+        margin-top: 0.25rem;
+    }
+
+    .essential-upgrade,
+    .security-upgrade,
+    .universal-phish {
+        display: none !important;
+    }
+
+    .essential-upgrade.show,
+    .security-upgrade.show,
+    .universal-phish.show {
+        display: flex !important;
+    }
+
+    .hourly-rate {
+        background: #f8f9fa;
+        border: 2px solid #e1e1e1;
+        cursor: default;
+    }
+
+    .hourly-rate:hover {
+        border-color: #e1e1e1;
+        background: #f8f9fa;
+    }
+
+    .hourly-rate .addon-price {
+        color: #f59e0b;
+        font-weight: 600;
+    }
+
+    .calculation-result {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: var(--radius-sm);
+        margin-top: 2rem;
+        border: 2px solid var(--button-color);
+    }
+
+    .result-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .result-row.total {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        border-bottom: none;
+        margin-top: 0.75rem;
+        padding-top: 1rem;
+        border-top: 2px solid #e1e1e1;
+    }
+
+    .result-row.annual {
+        color: #666;
+        font-size: 0.9rem;
+        border: none;
+    }
+
+    .calculator-cta {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: var(--button-color);
+        color: var(--white);
+        padding: 1rem 3rem;
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+        background: var(--button-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 172, 172, 0.3);
+    }
+
+    .cta-note {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+    /* Email Quote Section */
+    .email-quote-section {
+        background: var(--white);
+        border: 2px solid var(--button-color);
+        border-radius: var(--radius-md);
+        padding: 2rem;
+        margin: 2rem 0;
+    }
+
+    .email-quote-section h3 {
+        color: var(--button-color);
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    .email-quote-section > p {
+        color: #666;
+        margin-bottom: 1.5rem;
+    }
+
+    .email-quote-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .email-quote-form .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .email-quote-form .form-field {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .email-quote-form .form-field label {
+        color: var(--text-color);
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+    }
+
+    .email-quote-form .form-field input,
+    .email-quote-form .form-field select {
+        padding: 0.75rem;
+        border: 2px solid #e1e1e1;
+        border-radius: var(--radius-sm);
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+        font-family: inherit;
+    }
+
+    .email-quote-form .form-field input:focus,
+    .email-quote-form .form-field select:focus {
+        outline: none;
+        border-color: var(--button-color);
+        box-shadow: 0 0 0 3px rgba(0, 172, 172, 0.1);
+    }
+
+    .form-actions {
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .email-quote-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--button-color);
+        color: var(--white);
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: var(--radius-md);
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: inherit;
+    }
+
+    .email-quote-btn:hover:not(:disabled) {
+        background: var(--button-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 172, 172, 0.3);
+    }
+
+    .email-quote-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .email-quote-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .loading-spinner {
+        width: 16px;
+        height: 16px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top: 2px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .form-status {
+        padding: 1rem;
+        border-radius: var(--radius-sm);
+        margin-top: 1rem;
+        font-weight: 500;
+    }
+
+    .form-status.success {
+        background: #d4edda;
+        border: 1px solid #c3e6cb;
+        color: #155724;
+    }
+
+    .form-status.error {
+        background: #f8d7da;
+        border: 1px solid #f5c6cb;
+        color: #721c24;
+    }
+
+    .cta-divider {
+        display: block;
+        text-align: center;
+        color: #999;
+        font-style: italic;
+        margin: 1rem 0;
+    }
+
+    .cta-button.secondary {
+        background: var(--secondary-bg);
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+    }
+
+    .cta-button.secondary:hover {
+        background: var(--primary-color);
+        color: var(--white);
+    }
+
+    .additional-services {
+        margin-bottom: 4rem;
+    }
+
+    .additional-services h3 {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+
+    .service-item {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: var(--radius-sm);
+        text-align: center;
+    }
+
+    .service-item h4 {
+        color: var(--secondary-heading);
+        margin-bottom: 0.5rem;
+    }
+
+    .service-item p {
+        font-size: 0.9rem;
+        color: #666;
+        margin: 0;
+    }
+
+    .pricing-faq h3 {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+    }
+
+    .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    .faq-item h4 {
+        color: var(--secondary-heading);
+        margin-bottom: 0.5rem;
+    }
+
+    .faq-item p {
+        color: #666;
+        margin: 0;
+    }
+
+    .blog-link-cta {
+        background: #f8f9fa;
+        border: 1px solid #e1e1e1;
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        text-align: center;
+        margin: 3rem 0;
+    }
+
+    .blog-link-cta h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .blog-link-cta p {
+        color: #666;
+        margin-bottom: 1.5rem;
+    }
+
+    .blog-link-button {
+        display: inline-block;
+        background: var(--secondary-bg);
+        color: var(--primary-color);
+        padding: 0.75rem 2rem;
+        border: 2px solid var(--primary-color);
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .blog-link-button:hover {
+        background: var(--primary-color);
+        color: var(--white);
+        transform: translateY(-2px);
+    }
+
+    .why-boutique {
+        margin: 4rem 0;
+        padding: 3rem;
+        background: #f8f9fa;
+        border-radius: var(--radius-md);
+    }
+
+    .why-boutique h2 {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .why-boutique > p {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+    }
+
+    .boutique-benefits {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .boutique-benefits .benefit {
+        background: var(--white);
+        padding: 1.5rem;
+        border-radius: var(--radius-sm);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .boutique-benefits h4 {
+        color: var(--secondary-heading);
+        margin-bottom: 0.75rem;
+    }
+
+    .boutique-benefits p {
+        color: #666;
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    .boutique-message {
+        text-align: center;
+        font-size: 1.1rem;
+        color: var(--primary-color);
+        margin-top: 2rem;
+    }
+
+    .client-testimonial {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        margin-top: 2rem;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .client-testimonial blockquote {
+        font-style: italic;
+        font-size: 1.1rem;
+        color: #333;
+        margin: 0;
+    }
+
+    .client-testimonial cite {
+        display: block;
+        margin-top: 1rem;
+        font-style: normal;
+        color: var(--button-color);
+        font-weight: 600;
+    }
+
+    @media (max-width: 1024px) and (min-width: 769px) {
+        .pricing-tiers {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .plan-selector {
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .pricing-tiers {
+            grid-template-columns: 1fr;
+        }
+
+        .tier.recommended {
+            transform: none;
+        }
+
+        .plan-selector {
+            grid-template-columns: 1fr;
+        }
+
+        .calculator-widget {
+            padding: 2rem 1rem;
+        }
+
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .trust-indicators {
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .trust-item {
+            flex-direction: row;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .email-quote-form .form-row {
+            grid-template-columns: 1fr;
+        }
+
+        .email-quote-section {
+            padding: 1.5rem;
+        }
+    }
+</style>

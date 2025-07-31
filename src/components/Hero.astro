@@ -50,10 +50,12 @@ const imageSrc = typeof backgroundImage === 'string' ? backgroundImage : backgro
         {ctaText}
         <ArrowRight color="var(--white)" />
       </a>
-      <a href="/book/" class="btn btn-secondary white-text">
-        Book a Meeting
-        <ArrowRight color="var(--button-color)" />
-      </a>
+      {secondaryCtaText && secondaryCtaLink && (
+        <a href={secondaryCtaLink} class="btn btn-secondary white-text">
+          {secondaryCtaText}
+          <ArrowRight color="var(--white)" />
+        </a>
+      )}
     </div>
   </div>
 </section>
@@ -168,18 +170,21 @@ const imageSrc = typeof backgroundImage === 'string' ? backgroundImage : backgro
   }
 
   .btn-secondary {
-    background-color: transparent;
-    border: 2px solid var(--button-color);
-    color: var(--button-color);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--white);
+    color: var(--white);
+    backdrop-filter: blur(10px);
   }
 
   .btn-secondary:hover {
-    background-color: var(--button-color);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--button-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
   }
 
   .btn-secondary:hover svg {
-    color: var(--white);
+    color: var(--button-color);
   }
 
   .white-text {
