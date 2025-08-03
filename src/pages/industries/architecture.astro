@@ -2,113 +2,148 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import NetworkWired from '../../components/icons/network-wired.astro';
-import Shield from '../../components/icons/shield.astro';
-import Cloud2 from '../../components/icons/cloud2.astro';
-import Rocket from '../../components/icons/rocket.astro';
-import Users from '../../components/icons/users.astro';
 import Hero from '../../components/Hero.astro';
+import Shield from '../../components/icons/shield.astro';
+import Users from '../../components/icons/users.astro';
+import Cloud from '../../components/icons/cloud.astro';
+import Checkmark from '../../components/icons/checkmark.astro';
+import ArrowRight from '../../components/icons/arrow-right.astro';
+import DraftingCompass from '../../components/icons/drafting-compass.astro';
 import { Image } from 'astro:assets';
 import architectHero from '../../assets/images/architect_engineer_tech.webp';
-import videoCover from '../../assets/images/Huntertech-video-cover.webp';
+import pontemiImage from '../../assets/images/pontem-16x9.webp';
+import bluebeamLogo from '../../assets/images/Bluebeam Logo.jpg';
+import revitLogo from '../../assets/images/revit-logo.svg';
 
-const title = "IT Services for Architecture Firms Calgary & Vancouver";
-const description = "Expert IT services for architecture firms in Calgary and Vancouver. Specialized support for Revit, BIM Management, and design software optimization.";
+const title = "IT Support for Architects Calgary & Vancouver | Former Perkins & Will IT Manager";
+const description = "Expert Calgary & Vancouver architecture IT services from former Perkins & Will IT Manager. Revit support, BIM management, Autodesk expertise for growing firms.";
 const keywords = [
-    "architecture IT services",
-    "design technology solutions",
-    "CAD software support",
-    "BIM software support",
-    "architecture firm IT",
-    "Calgary architecture IT",
-    "Vancouver architecture IT",
-    "Revit support",
-    "design software optimization",
-    "architecture cloud solutions"
+    "IT support for architects Calgary",
+    "IT support for architects Vancouver",
+    "Revit support Calgary",
+    "Revit support Vancouver", 
+    "architecture firm IT services",
+    "BIM collaboration Calgary",
+    "BIM collaboration Vancouver",
+    "Autodesk support Calgary",
+    "Autodesk support Vancouver",
+    "former Perkins Will IT manager",
+    "Calgary architect IT support",
+    "Vancouver architect IT support",
+    "architectural IT consultant Calgary",
+    "architectural IT consultant Vancouver",
+    "design firm IT services",
+    "architecture technology Calgary",
+    "architecture technology Vancouver"
 ];
+
+const faqData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Why should Vancouver architects choose HunterTech over generic IT providers?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our founder Mathew Hunter is a former IT Manager at Perkins & Will with 15+ years of AEC experience. We understand Revit workflows, BIM collaboration challenges, and architecture-specific software needs that generic IT providers simply don't grasp."
+            }
+        },
+        {
+            "@type": "Question", 
+            "name": "Do you provide onsite IT support for Vancouver architecture firms?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, we provide onsite support throughout Vancouver and Calgary for architecture firms. Our local team understands the urgency of project deadlines which is why we let you keep spare desktops or laptops in your office, so you don't need to wait for us."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can you help with Revit performance issues and model optimization?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. Our BIM specialists can provide Revit health checks, model optimization, help enforce BIM standards, custom family creation, and template standardization. We help architecture firms resolve bad modelling habits that slow performance."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What makes HunterTech different from other Vancouver IT companies?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our founder's background as IT Manager at the Perkins & Will Vancouver studio means we hit the ground running with no learning curve. We speak your language, understand your workflows, and provide specialized support for Autodesk, Bluebeam, SketchUp, and other architecture tools."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do you support hybrid work setups for architecture firms?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, we specialize in secure hybrid BIM collaboration. We set up secure access to Revit models, implement proper backup systems for remote work, and ensure your team can collaborate seamlessly whether in-office or working from home."
+            }
+        }
+    ]
+};
 
 const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
         {
-            "@type": "Service",
-            "name": "IT Services for Architecture Firms",
-            "description": description,
-            "provider": {
-                "@type": "Organization",
-                "name": "Huntertech",
-                "url": "https://huntertech.ca",
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": "/images/huntertech-logo.png"
-                }
+            "@type": "LocalBusiness",
+            "name": "HunterTech - IT Support for Architects Calgary & Vancouver",
+            "description": "Expert IT services for Calgary & Vancouver architecture firms from former Perkins & Will IT Manager. Specialized Revit support, BIM management, and Autodesk expertise.",
+            "url": "https://huntertech.ca/industries/architecture/",
+            "telephone": "778-819-7411",
+            "email": "info@huntertech.ca",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Vancouver",
+                "addressRegion": "BC",
+                "addressCountry": "CA"
             },
-            "offers": {
-                "@type": "Offer",
-                "price": "Contact for pricing",
-                "priceCurrency": "CAD",
-                "availability": "https://schema.org/InStock"
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "49.2827",
+                "longitude": "-123.1207"
             },
-            "audience": {
-                "@type": "Audience",
-                "audienceType": ["Architecture Firms"]
-            },
-            "areaServed": [
-                {
-                    "@type": "GeoCircle",
-                    "geoMidpoint": {
-                        "@type": "GeoCoordinates",
-                        "latitude": "49.2827",
-                        "longitude": "-123.1207"
-                    },
-                    "geoRadius": "50km",
-                    "name": "Vancouver"
+            "areaServed": {
+                "@type": "GeoCircle",
+                "geoMidpoint": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "49.2827",
+                    "longitude": "-123.1207"
                 },
-                {
-                    "@type": "GeoCircle",
-                    "geoMidpoint": {
-                        "@type": "GeoCoordinates",
-                        "latitude": "51.0447",
-                        "longitude": "-114.0719"
-                    },
-                    "geoRadius": "50km",
-                    "name": "Calgary"
-                }
+                "geoRadius": "50",
+                "name": "Vancouver Metro Area"
+            },
+            "serviceType": [
+                "IT Support for Architects Calgary",
+                "IT Support for Architects Vancouver",
+                "Revit Support Calgary",
+                "Revit Support Vancouver", 
+                "BIM Management Services",
+                "Autodesk Support Calgary",
+                "Autodesk Support Vancouver",
+                "Architecture IT Consulting Calgary",
+                "Architecture IT Consulting Vancouver"
             ],
             "hasOfferCatalog": {
                 "@type": "OfferCatalog",
-                "name": "Architecture IT Services Catalog",
+                "name": "Architecture IT Services Calgary & Vancouver",
                 "itemListElement": [
                     {
                         "@type": "Offer",
                         "itemOffered": {
                             "@type": "Service",
-                            "name": "Revit Management",
-                            "description": "Performance optimization, template management, and family library organization"
+                            "name": "Revit Management & BIM Optimization",
+                            "description": "Model health checks, BIM standards development, custom family creation, settings standardization, and hardware procurement for optimal performance"
                         }
                     },
                     {
-                        "@type": "Offer",
+                        "@type": "Offer", 
                         "itemOffered": {
                             "@type": "Service",
-                            "name": "Friendly Local Support",
-                            "description": "Industry experience, friendly support."
-                        }
-                    },
-                    {
-                        "@type": "Offer",
-                        "itemOffered": {
-                            "@type": "Service",
-                            "name": "Data & Cyber Security",
-                            "description": "Peace of mind knowing that your valuable design files and client data are protected with enterprise-grade security."
-                        }
-                    },
-                    {
-                        "@type": "Offer",
-                        "itemOffered": {
-                            "@type": "Service",
-                            "name": "Cloud Solutions",
-                            "description": "Seamless cloud integration for remote work and project collaboration"
+                            "name": "Architecture IT Support Calgary & Vancouver",
+                            "description": "Specialized IT support for Calgary and Vancouver architecture firms with spare equipment stored at your office"
                         }
                     }
                 ]
@@ -132,7 +167,7 @@ const structuredData = {
                 {
                     "@type": "ListItem",
                     "position": 3,
-                    "name": "Architecture",
+                    "name": "Architecture IT Services Calgary & Vancouver",
                     "item": "https://huntertech.ca/industries/architecture/"
                 }
             ]
@@ -151,312 +186,1598 @@ const structuredData = {
     structuredData={structuredData}
 >
     <Header />
-    <main class="service-page">
-        <Hero 
-            title="IT Services for Architecture Firms"
-            subtitle="Specialized technology solutions for architecture professionals"
-            backgroundImage={architectHero}
-            backgroundImageAlt="Architect and engineer working with technology"
-            ctaText="Get a free IT assessment for your architecture firm"
-            ctaLink="/contact/?form_conversion=architecture-hero-cta"
-        />
-
-        <section class="features">
-            <div class="container">
-                <h2>Why Architecture Firms Choose Huntertech</h2>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <img src="/images/revit-logo.svg" alt="Revit Logo" style="width: 48px; height: 48px; object-fit: contain; margin-bottom: 1rem;" />
-                        <h3>Revit Optimization</h3>
-                        <p>Maximize Revit performance with our specialized management and optimization services</p>
+    <main class="architecture-page">
+        <!-- Hero Section -->
+        <section class="hero-architecture">
+            <div class="hero-background">
+                <Image 
+                    src={architectHero}
+                    alt="Vancouver architecture firm IT support services"
+                    class="hero-image"
+                    quality={80}
+                    width={1920}
+                    height={1080}
+                    loading="eager"
+                />
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <div class="container">
+                    <!-- <div class="expertise-badge">
+                        <Checkmark color="var(--white)" />
+                        <span>Former Perkins & Will IT Manager</span>
+                    </div> -->
+                    
+                    <h1 class="white-text">IT Support for Calgary & Vancouver Architects Who Need to Hit the Ground Running</h1>
+                    <p class="hero-subtitle">Stop teaching your IT provider about your business. Get architecture-specific expertise from someone who's lived your Revit, BIM, and project deadline challenges at one of the world's leading design firms.</p>
+                    
+                    <div class="trust-indicators">
+                        <div class="trust-item">
+                            <strong>15+ Years</strong>
+                            <span>AEC Experience</span>
+                        </div>
+                        <div class="trust-item">
+                            <strong>Vancouver & Calgary</strong>
+                            <span>Remote & Onsite</span>
+                        </div>
+                        <div class="trust-item">
+                            <strong>24/7 Security Monitoring</strong>
+                            <span>Prevent Reputation Damage</span>
+                        </div>
                     </div>
-                    <div class="feature-card">
+                    
+                    <div class="hero-ctas">
+                        <a href="/contact/?form_conversion=architecture-v2-revit-check" class="cta-primary">
+                            <Shield color="var(--white)" />
+                            Free Revit Health Check
+                        </a>
+                        <a href="/contact/?form_conversion=architecture-v2-strategy" class="cta-secondary">
+                            Schedule Strategy Call
+                            <ArrowRight color="var(--white)" />
+                        </a>
+                    </div>
+                    
+                    <p class="hero-note">Limited to 5 architecture firms per month</p>
+                </div>
+            </div>
+        </section>
+
+          <!-- Why HunterTech Section -->
+          <section class="why-huntertech">
+            <div class="container">
+                <h2>15+ Years of Living Your Challenges</h2>
+                <p class="section-intro">Stop explaining your business to your IT provider. Get support from someone who's managed technology in your industry with 15+ years of experience.</p>
+                
+                <div class="why-grid">
+                    <div class="why-card">
+                        <h3>We Speak Your Language</h3>
+                        <p>No explaining what BIM is, why Revit performance matters, or how project deadlines work. We've lived the 3am model crashes and deadline pressure.</p>
+                    </div>
+                    <div class="why-card">
+                        <h3>Architecture-Specific Expertise</h3>
+                        <p>Generic MSPs learn about your industry on your time and budget. We bring 15+ years of AEC-specific knowledge from day one.</p>
+                    </div>
+                    <div class="why-card">
+                        <h3>No Learning Curve Required</h3>
+                        <p>While other IT providers are figuring out your workflow, we're already optimizing it. Immediate value from day one.</p>
+                    </div>
+                </div>
+                
+                <div class="founder-spotlight">
+                    <h3>Meet Mathew Hunter - Your IT Partner Who Gets It</h3>
+                    <p>"After managing IT at Perkins & Will, I know exactly what keeps architects up at night. Model performance issues before deadlines, collaboration security concerns, and software updates that upgrade models. That's why I built HunterTech specifically to serve the AEC community with the expertise you deserve."</p>
+                    <div class="founder-creds">
+                        <span>Former IT Manager, Perkins & Will</span>
+                        <span>15+ Years AEC Experience</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competitive Comparison Section -->
+        <section class="competitive-comparison">
+            <div class="container">
+                <h2>Why Calgary & Vancouver Architecture Firms Switch to HunterTech</h2>
+                <p class="comparison-intro">See how we solve the exact frustrations you have with generic IT providers</p>
+                
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th class="pain-header">Your Current Frustrations</th>
+                                <th class="generic-header">Generic MSPs</th>
+                                <th class="huntertech-header">HunterTech Advantage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="pain-point">
+                                    <strong>Software Expertise</strong>
+                                    <span>"They don't understand Revit, AutoCAD, or BIM tools"</span>
+                                </td>
+                                <td class="generic-response">
+                                    <span class="fail">✗</span>
+                                    "Call Autodesk support"<br>
+                                    Can't optimize performance<br>
+                                    Don't read patch notes
+                                </td>
+                                <td class="huntertech-response">
+                                    <span class="success">✓</span>
+                                    <strong>15+ years AEC experience</strong><br>
+                                    Revit specialists on staff<br>
+                                    Proactive update management
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pain-point">
+                                    <strong>Project File Management</strong>
+                                    <span>"Can't troubleshoot central files or worksharing issues"</span>
+                                </td>
+                                <td class="generic-response">
+                                    <span class="fail">✗</span>
+                                    Don't understand BIM workflows<br>
+                                    Can't fix broken links<br>
+                                    Escalate everything
+                                </td>
+                                <td class="huntertech-response">
+                                    <span class="success">✓</span>
+                                    <strong>Former Perkins & Will IT Manager</strong><br>
+                                    Model health checks<br>
+                                    Worksharing optimization
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pain-point">
+                                    <strong>Response Time</strong>
+                                    <span>"Wait hours or days during deadline crunches"</span>
+                                </td>
+                                <td class="generic-response">
+                                    <span class="fail">✗</span>
+                                    Junior techs escalate issues<br>
+                                    No urgency understanding<br>
+                                    9-5 support only
+                                </td>
+                                <td class="huntertech-response">
+                                    <span class="success">✓</span>
+                                    <strong>Spare equipment in your office</strong><br>
+                                    Understand project deadlines<br>
+                                    24/7 monitoring & support
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pain-point">
+                                    <strong>Remote Collaboration</strong>
+                                    <span>"Teams can't access large files or BIM 360 properly"</span>
+                                </td>
+                                <td class="generic-response">
+                                    <span class="fail">✗</span>
+                                    Basic VPN setup<br>
+                                    Generic IT systems<br>
+                                    What's worksharing?
+                                </td>
+                                <td class="huntertech-response">
+                                    <span class="success">✓</span>
+                                    <strong>Secure BIM collaboration expert</strong><br>
+                                    Optimized Remote Desktop<br>
+                                    BIM 360 Collaborate Pro<br>
+                                    Worksharing support
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pain-point">
+                                    <strong>Security Balance</strong>
+                                    <span>"Either too restrictive or not secure enough"</span>
+                                </td>
+                                <td class="generic-response">
+                                    <span class="fail">✗</span>
+                                    One-size-fits-all toolset<br>
+                                    Poor Phishing attack response<br>
+                                    Unaware of industry trends
+                                </td>
+                                <td class="huntertech-response">
+                                    <span class="success">✓</span>
+                                    <strong>AEC-specific security</strong><br>
+                                    Protect drawings & IP<br>
+                                    Proactive Phishing attack response<br>
+                                    Working with peers in the industry
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pain-point">
+                                    <strong>Strategic Planning</strong>
+                                    <span>"Not proactive, don't help us grow"</span>
+                                </td>
+                                <td class="generic-response">
+                                    <span class="fail">✗</span>
+                                    Reactive break-fix only<br>
+                                    Generic office approach<br>
+                                    No workflow optimization
+                                </td>
+                                <td class="huntertech-response">
+                                    <span class="success">✓</span>
+                                    <strong>Growth planning included</strong><br>
+                                    Hardware specs for BIM<br>
+                                    Workflow improvement consulting<br>
+                                    IT Budgeting and forecasting
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="comparison-cta">
+                    <h3>Stop Teaching Your IT Provider About Architecture</h3>
+                    <p>Join Calgary & Vancouver firms who've switched to IT support that actually understands their business</p>
+                    <a href="/contact/?form_conversion=architecture-comparison-cta" class="cta-button primary">
+                        Get Your Free Revit Health Check
+                    </a>
+                    <span class="cta-note">Limited to 5 architecture firms per month</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unique Value Propositions -->
+        <section class="value-props">
+            <div class="container">
+                <h2>Why Calgary & Vancouver Architects Choose HunterTech</h2>
+                
+                <div class="value-grid">
+                    <div class="value-card primary">
+                        <div class="value-badge">Industry Authority</div>
+                        <h3>Perkins & Will Pedigree</h3>
+                        <p>Mathew Hunter managed IT infrastructure at one of the world's premier architecture firms. He knows your workflow challenges, software needs, and project pressures because he's supported principals, associates, and design teams just like yours.</p>
+                        <div class="value-proof">✓ 15+ years living AEC challenges daily</div>
+                    </div>
+                    
+                    <div class="value-card specialized">
+                        <Image 
+                            src={revitLogo}
+                            alt="Revit logo"
+                            width={48}
+                            height={48}
+                            style="object-fit: contain;"
+                        />
+                        <h3>Revit Specialization</h3>
+                        <p>Our BIM specialists don't just install Revit—we optimize it. Model health checks, custom family creation, BIM standards development, and template standardization. We make Revit work the way it should.</p>
+                        <div class="value-proof">✓ BIM specialists on staff</div>
+                    </div>
+                    
+                    <div class="value-card local">
                         <Users color="var(--button-color)" />
-                        <h3>Friendly Local Support</h3>
-                        <p class="left-align">Our local support team is here to help you with your technology needs. We are a team of experienced professionals with industry experience.</p>
+                        <h3>Local Vancouver & Calgary Presence</h3>
+                        <p>Onsite support throughout Vancouver and Calgary. When your project is due tomorrow and technology fails today, we're there to help. We let you keep spare desktops or laptops in your office, so you don't need to wait for us..</p>
+                        <div class="value-proof">✓ Emergency spare equipment stored in your office</div>
                     </div>
-                    <div class="feature-card">
-                        <Shield color="var(--button-color)" />
-                        <h3>Data & Cyber Security</h3>
-                        <p>Peace of mind knowing that your valuable design files and client data are protected with enterprise-grade security.</p>
-                    </div>
-                    <div class="feature-card">
-                        <Cloud2 color="var(--button-color)" />
-                        <h3>Cloud Solutions</h3>
-                        <p>Seamless cloud integration for remote work and project collaboration</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="solutions">
-            <div class="container">
-                <h2>Our Solutions for Architecture Firms</h2>
-                <div class="solution-list">
-                    <div class="solution-item">
-                        <h3>Revit Management</h3>
-                        <ul>
-                            <li>Performance optimization</li>
-                            <li>Template management</li>
-                            <li>Family library organization</li>
-                            <li>Collaboration tools setup</li>
-                        </ul>
-                    </div>
-                    <div class="solution-item">
-                        <h3>IT Infrastructure</h3>
-                        <ul>
-                            <li>High-performance workstations</li>
-                            <li>Network optimization</li>
-                            <li>Backup solutions</li>
-                            <li>Disaster recovery</li>
-                        </ul>
-                    </div>
-                    <div class="solution-item">
-                        <h3>Security & Compliance</h3>
-                        <ul>
-                            <li>Data encryption</li>
-                            <li>Access control</li>
-                            <li>Compliance management</li>
-                            <li>Security monitoring</li>
-                        </ul>
+                    
+                    <div class="value-card expertise">
+                        <Image 
+                            src={bluebeamLogo}
+                            alt="Bluebeam logo"
+                            width={48}
+                            height={48}
+                            style="object-fit: contain;"
+                        />
+                        <h3>Architecture Software Mastery</h3>
+                        <p>We actually support Autodesk suite, Bluebeam, SketchUp, Rhino, and other design tools. Not just "call the vendor"—real expertise with licensing, deployment, integration, and customization.</p>
+                        <div class="value-proof">✓ Autodesk certified specialists</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="video-showcase">
+        <!-- Success Stories -->
+        <section class="success-stories">
             <div class="container">
-                <h2>Technology Slowing You Down?</h2>
-                <p class="video-description">Huntertech's comprehensive IT solutions empower architecture firms to design the future with confidence</p>
-                <div class="video-container">
-                    <video 
-                        controls
-                        preload="metadata"
-                        poster={videoCover.src}
-                        class="featured-video"
-                        title="Huntertech IT Solutions for Architecture Firms"
-                        aria-label="Video showcasing Huntertech's IT solutions for architecture firms"
-                    >
-                        <source src="/videos/Huntertech Video Ad 2.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                <h2>AEC Industry Success Stories</h2>
+                
+                <div class="case-study-featured">
+                    <div class="case-content">
+                        <h3>Pontem Group: Engineering Firm Growth Success</h3>
+                        <p class="case-intro">Fellow AEC firm grew from 20 to 30 people in 18 months by eliminating IT management from their principals' plates.</p>
+                        
+                        <div class="case-metrics">
+                            <div class="metric">
+                                <strong>1,000+ Hours</strong>
+                                <span>Recovered annually</span>
+                            </div>
+                            <div class="metric">
+                                <strong>20% Increase</strong>
+                                <span>Team productivity</span>
+                            </div>
+                            <div class="metric">
+                                <strong>$1,000+ Saved</strong>
+                                <span>Per workstation annually</span>
+                            </div>
+                        </div>
+                        
+                        <blockquote>
+                            "Huntertech has been exceptional in providing our IT services. Their team is professional, responsive, and truly understands our unique needs. They offer tailor-made solutions that keep our systems running smoothly and securely."
+                            <cite>— Jack Hui, Principal, Pontem Group</cite>
+                        </blockquote>
+                    </div>
+                    <div class="case-image">
+                        <Image 
+                            src={pontemiImage}
+                            alt="Pontem Group engineering firm case study"
+                            quality={80}
+                            width={600}
+                            height={400}
+                        />
+                    </div>
                 </div>
-                <div class="video-features">
-                    <div class="video-feature">
-                        <Rocket color="var(--button-color)" />
-                        <h3>Enhanced Performance</h3>
-                        <p>We work with your team to improve workflows, create standards and optimize Revit and other design software</p>
+                
+                <div class="case-study-featured">
+                    <div class="case-content">
+                        <h3>Koka Architecture: Seamless Remote Transition</h3>
+                        <p class="case-intro">9-person Revit firm maintained full productivity while transitioning between office locations using cost-effective remote access solution.</p>
+                        
+                        <div class="case-metrics">
+                            <div class="metric">
+                                <strong>$1,350/month</strong>
+                                <span>Saved vs. BIM 360 Collaborate Pro</span>
+                            </div>
+                            <div class="metric">
+                                <strong>100% Uptime</strong>
+                                <span>During transition period</span>
+                            </div>
+                            <div class="metric">
+                                <strong>Zero Productivity Loss</strong>
+                                <span>Seamless remote collaboration</span>
+                            </div>
+                        </div>
+                        
+                        <blockquote>
+                            "Huntertech offers very personalized service and is knowledgeable with the needs of your particular field (in our case Architect) . They have provided us with solutions which have scaled and adapted to our needs over time. For example, our team was set up to enable remote work before it became commonplace, and we were able to make the transition very seamlessly."
+                            <cite>— Herman Kao, Principal, Koka Architecture</cite>
+                        </blockquote>
                     </div>
-                    <div class="video-feature">
-                        <Users color="var(--button-color)" />
-                        <h3>Seamless Collaboration</h3>
-                        <p>Working for home or in the office, Huntertech can help you find the right solution for your practice.</p>
-                    </div>
-                    <div class="video-feature">
-                        <Shield color="var(--button-color)" />
-                        <h3>Enterprise Security</h3>
-                        <p>We use industry leading security tools and a layered approach to protect your data, your accounts and your business.</p>
+                    <div class="case-image">
+                        <div class="placeholder-image">
+                            <h4>Remote BIM<br>Collaboration</h4>
+                            <p>Secure Desktop Access<br>Cost-Effective Solution</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="cta">
+        <!-- Services Section -->
+        <section class="services-architecture">
             <div class="container">
-                <h2>Ready to Transform Your Architecture Practice?</h2>
-                <p>Contact us today to discuss your technology needs</p>
-                <a href="/contact/?form_conversion=architecture-cta" class="cta-button">Contact Us</a>
+                <h2>Architecture-Specific IT Services Calgary & Vancouver</h2>
+                
+                <div class="services-grid">
+                    <div class="service-detailed">
+                        <h3>Managed IT Services for Architects</h3>
+                        <p>Complete IT management designed around project-based workflows and design collaboration needs.</p>
+                        <ul>
+                            <li>Proactive Revit update management and pre-deployment testing</li>
+                            <li>Hybrid workspace security for design collaboration</li>
+                            <li>Architecture software licensing optimization and compliance</li>
+                            <li>Network optimization for large file handling and rendering</li>
+                            <li>Project file backup solutions with version control</li>
+                            <li>24/7 monitoring of design workstations and servers</li>
+                        </ul>
+                        <a href="/contact/?form_conversion=architecture-v2-managed-it" class="service-cta">Learn About Managed IT</a>
+                    </div>
+                    
+                    <div class="service-detailed">
+                        <h3>Revit Management & BIM Standards Development</h3>
+                        <p>Specialized BIM support services that generic IT providers simply cannot offer.</p>
+                        <ul>
+                            <li>Comprehensive Revit model health checks and BIM standards development</li>
+                            <li>Custom family creation and library management</li>
+                            <li>Settings standardization across team and projects</li>
+                            <li>Hardware procurement for optimal BIM performance</li>
+                            <li>Team training on efficient Revit workflows</li>
+                        </ul>
+                        <a href="/contact/?form_conversion=architecture-v2-revit-management" class="service-cta">Get Revit Assessment</a>
+                    </div>
+                    
+                   
+                </div>
             </div>
         </section>
+
+      
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>Why should Calgary & Vancouver architects choose HunterTech over generic IT providers?</h3>
+                        <p>Our founder Mathew Hunter is a former IT Manager at Perkins & Will with 15+ years of AEC experience. We understand Revit workflows, BIM collaboration challenges, and architecture-specific software needs that generic IT providers simply don't grasp.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>Do you provide onsite IT support for Calgary & Vancouver architecture firms?</h3>
+                        <p>Yes, we provide onsite support throughout Vancouver and Calgary for architecture firms. Our local team understands the urgency of project deadlines which is why we let you keep spare desktops or laptops in your office, so you don't need to wait for us.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>Can you help with Revit performance issues and model optimization?</h3>
+                        <p>Absolutely. Our BIM specialists can provide Revit health checks, model optimization, help enforce BIM standards, custom family creation, and template standardization. We help architecture firms resolve bad modelling habits that slow performance.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>What makes HunterTech different from other Calgary & Vancouver IT companies?</h3>
+                        <p>Our founder's background as IT Manager at the Perkins & Will Vancouver studio means we hit the ground running with no learning curve. We speak your language, understand your workflows, and provide specialized support for Autodesk, Bluebeam, SketchUp, and other architecture tools.</p>
+                    </div>
+                                        
+                    <div class="faq-item">
+                        <h3>Do you support hybrid work setups for architecture firms?</h3>
+                        <p>Yes, we specialize in secure hybrid BIM collaboration. We set up secure access to Revit models, implement proper backup systems for remote work, and ensure your team can collaborate seamlessly whether in-office or working from home.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="final-cta">
+            <div class="container">
+                <h2>Ready to Work with IT Experts Who Actually Understand Architecture?</h2>
+                <p>Stop teaching your IT provider about your business. Get the architecture-specific expertise your Calgary or Vancouver firm deserves.</p>
+                
+                <div class="cta-options">
+                    <div class="cta-option priority">
+                        <h3>Free Revit Health Check</h3>
+                        <p>Comprehensive analysis of your Revit models, performance optimization recommendations, and BIM workflow assessment.</p>
+                        <ul>
+                            <li>Model performance analysis</li>
+                            <li>Template and standards review</li>
+                            <li>Collaboration workflow audit</li>
+                            <li>Custom improvement roadmap</li>
+                        </ul>
+                        <a href="/contact/?form_conversion=architecture-v2-final-revit" class="cta-button primary">
+                            Schedule Free Assessment
+                        </a>
+                        <span class="cta-note">Limited to 5 firms per month</span>
+                    </div>
+                    
+                    <div class="cta-option">
+                        <h3>Discovery Call</h3>
+                        <p>30-minute discovery call to discuss your IT challenges, growth plans, and technology roadmap with our former P+W IT Manager.</p>
+                        <ul>
+                            <li>Current IT assessment</li>
+                            <li>Growth planning discussion</li>
+                            <li>Technology roadmap review</li>
+                            <li>No sales pressure guarantee</li>
+                        </ul>
+                        <a href="/contact/?form_conversion=architecture-v2-final-discovery" class="cta-button secondary">
+                            Book Discovery Call
+                        </a>
+                        <span class="cta-note">Exclusive for Calgary & Vancouver architects</span>
+                    </div>
+                </div>
+                
+                <div class="trust-closing">
+                    <p><strong>Join Calgary & Vancouver architecture firms who've already made the switch to expert IT support.</strong></p>
+                    <div class="final-credentials">
+                        <span>✓ Former Perkins & Will IT Manager</span>
+                        <span>✓ 15+ Years AEC Experience</span>
+                        <span>✓ Calgary & Vancouver Support</span>
+                        <span>✓ No Learning Curve Required</span>
+                    </div>
+                    <a href="/pricing/" class="pricing-link">View Our Transparent Pricing</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Schema -->
+        <script type="application/ld+json" set:html={JSON.stringify(faqData)} />
     </main>
     <Footer />
 </Layout>
 
 <style>
-    .left-align {
-        text-align: left;
+    .architecture-page {
+        padding-top: 80px;
     }
 
     .container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 1rem;
+        width: 100%;
     }
 
-    .features {
-        padding: 4rem 0;
-        background-color: var(--white);
-    }
-
-    .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-    }
-
-    .feature-card {
-        text-align: center;
-        padding: 2rem;
-        background: var(--white);
-        border-radius: var(--radius-md);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    .feature-card i {
-        font-size: 2.5rem;
-        color: var(--button-color);
-        margin-bottom: 1rem;
-    }
-
-    .solutions {
-        padding: 4rem 0;
-        background-color: var(--secondary-bg);
-    }
-
-    .solution-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-    }
-
-    .solution-item {
-        background: var(--white);
-        padding: 2rem;
-        border-radius: var(--radius-md);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    .solution-item h3 {
-        color: var(--button-color);
-        margin-bottom: 1rem;
-    }
-
-    .solution-item ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    .solution-item li {
-        margin-bottom: 0.5rem;
-        padding-left: 1.5rem;
+    /* Hero Section */
+    .hero-architecture {
         position: relative;
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
     }
 
-    .solution-item li:before {
-        content: "•";
-        color: var(--button-color);
+    .hero-background {
         position: absolute;
+        top: 0;
         left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
     }
 
-    .cta {
-        background: var(--dark-bg);
-        color: var(--white);
-        padding: 4rem 0;
-        text-align: center;
+    .hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
-    .cta h2 {
-        color: var(--white);
-        font-size: 2rem;
-        margin-bottom: 1rem;
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        z-index: 1;
     }
 
-    .cta p {
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
         color: var(--white);
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
+        padding: 3rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .hero-content .container {
+        background: rgba(28, 40, 51, 0.60);
+        backdrop-filter: blur(12px);
+        border-radius: var(--radius-lg);
+        padding: 3rem 2rem;
+        max-width: 1000px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 
+            0 12px 40px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15),
+            0 0 0 1px rgba(28, 40, 51, 0.3);
     }
 
-    .cta-button {
-        display: inline-block;
-        background: var(--button-color);
-        color: var(--white);
-        padding: 1rem 2rem;
-        border-radius: 5px;
-        text-decoration: none;
+    .expertise-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(0, 172, 172, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 0.75rem 1.25rem;
+        border-radius: var(--radius-sm);
         font-weight: 600;
-        transition: background-color 0.3s ease;
+        margin-bottom: 1.5rem;
+        backdrop-filter: blur(15px);
+        box-shadow: 
+            0 4px 12px rgba(0, 172, 172, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2),
+            0 0 0 1px rgba(0, 172, 172, 0.2);
+        text-shadow: 
+            1px 1px 3px rgba(0, 0, 0, 0.6),
+            0 0 8px rgba(0, 0, 0, 0.3);
     }
 
-    .cta-button:hover {
-        background: var(--button-hover);
+    .hero-content h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        max-width: 900px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        letter-spacing: -0.02em;
     }
 
-    .video-showcase {
-        padding: 4rem 0;
-        background-color: var(--white);
+    .hero-subtitle {
+        font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        max-width: 700px;
+        opacity: 0.98;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+        font-weight: 400;
     }
 
-    .video-description {
+    .trust-indicators {
+        display: flex;
+        gap: 2rem;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+    }
+
+    .trust-item {
         text-align: center;
-        max-width: 800px;
-        margin: 1rem auto 2rem;
-        color: var(--text-color);
+    }
+
+    .trust-item strong {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--white);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .trust-item span {
+        font-size: 0.9rem;
+        opacity: 0.98;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-ctas {
+        display: flex;
+        gap: 1rem;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+    }
+
+    .cta-primary, .cta-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1.25rem 2rem;
+        border-radius: var(--radius-md);
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
         font-size: 1.1rem;
     }
 
-    .video-container {
-        max-width: 1000px;
-        margin: 0 auto;
+    .cta-primary {
+        background: var(--button-color);
+        color: var(--white);
+    }
+
+    .cta-primary:hover {
+        background: var(--button-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 172, 172, 0.4);
+    }
+
+    .cta-secondary {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--white);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+    }
+
+    .cta-secondary:hover {
+        background: var(--white);
+        color: var(--button-color);
+        transform: translateY(-2px);
+    }
+
+    .hero-note {
+        font-size: 0.9rem;
+        opacity: 0.95;
+        font-style: italic;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+        background: rgba(0, 0, 0, 0.35);
+        padding: 0.75rem 1.25rem;
+        border-radius: var(--radius-sm);
+        border-left: 3px solid rgba(0, 172, 172, 0.9);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Competitive Comparison Section */
+    .competitive-comparison {
+        padding: 5rem 0;
+        background: var(--white);
+    }
+
+    .competitive-comparison h2 {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
+    }
+
+    .comparison-intro {
+        text-align: center;
+        font-size: 1.2rem;
+        color: var(--text-color);
+        margin-bottom: 3rem;
+    }
+
+    .comparison-table-wrapper {
+        overflow-x: auto;
+        margin-bottom: 3rem;
+    }
+
+    .comparison-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background: var(--white);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         border-radius: var(--radius-md);
         overflow: hidden;
+    }
+
+    .comparison-table thead {
+        background: var(--primary-color);
+        color: var(--white);
+    }
+
+    .comparison-table th {
+        padding: 1.5rem 1rem;
+        text-align: left;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+
+    .pain-header {
+        width: 35%;
+        background: var(--secondary-bg);
+        color: var(--primary-color);
+    }
+
+    .generic-header {
+        width: 30%;
+        background: #dc2626;
+    }
+
+    .huntertech-header {
+        width: 35%;
+        background: var(--button-color);
+    }
+
+    .comparison-table tbody tr {
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .comparison-table tbody tr:last-child {
+        border-bottom: none;
+    }
+
+    .comparison-table td {
+        padding: 1.5rem 1rem;
+        vertical-align: top;
+    }
+
+    .pain-point {
+        background: var(--secondary-bg);
+        border-left: 4px solid var(--button-color);
+    }
+
+    .pain-point strong {
+        display: block;
+        color: var(--primary-color);
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .pain-point span {
+        font-style: italic;
+        color: var(--text-color);
+        font-size: 0.9rem;
+    }
+
+    .generic-response {
+        background: rgba(220, 38, 38, 0.05);
+        position: relative;
+    }
+
+    .huntertech-response {
+        background: rgba(0, 172, 172, 0.05);
+        position: relative;
+    }
+
+    .fail, .success {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .fail {
+        color: #dc2626;
+    }
+
+    .success {
+        color: var(--button-color);
+    }
+
+    .generic-response br,
+    .huntertech-response br {
+        line-height: 1.8;
+    }
+
+    .huntertech-response strong {
+        color: var(--button-color);
+        font-weight: 600;
+    }
+
+    .comparison-cta {
+        text-align: center;
+        background: var(--secondary-bg);
+        padding: 3rem;
+        border-radius: var(--radius-md);
+        border: 2px solid var(--button-color);
+    }
+
+    .comparison-cta h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+    }
+
+    .comparison-cta p {
+        font-size: 1.1rem;
+        color: var(--text-color);
+        margin-bottom: 2rem;
+    }
+
+    .comparison-cta .cta-button {
+        display: inline-block;
+        padding: 1.25rem 2rem;
+        background: var(--button-color);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: var(--radius-md);
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+    }
+
+    .comparison-cta .cta-button:hover {
+        background: var(--button-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 172, 172, 0.4);
+    }
+
+    .comparison-cta .cta-note {
+        display: block;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        color: var(--text-color);
+        font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+        .comparison-table {
+            font-size: 0.9rem;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem 0.5rem;
+        }
+
+        .pain-header {
+            width: 30%;
+        }
+
+        .generic-header,
+        .huntertech-header {
+            width: 35%;
+        }
+
+        .fail, .success {
+            font-size: 1.2rem;
+        }
+    }
+
+    /* Value Props Section */
+    .value-props {
+        padding: 5rem 0;
+        background: var(--secondary-bg);
+    }
+
+    .value-props h2 {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .value-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .value-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        position: relative;
+    }
+
+    .value-card.primary {
+        border: 2px solid var(--button-color);
+    }
+
+    .value-badge {
+        position: absolute;
+        top: -12px;
+        left: 1rem;
+        background: var(--button-color);
+        color: var(--white);
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .value-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+    }
+
+    .value-card p {
+        color: var(--text-color);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    .value-proof {
+        color: var(--button-color);
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    /* Success Stories Section */
+    .success-stories {
+        padding: 5rem 0;
+        background: var(--white);
+    }
+
+    .success-stories h2 {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .case-study-featured {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        margin-bottom: 3rem;
+        background: var(--secondary-bg);
+        padding: 3rem;
+        border-radius: var(--radius-md);
+    }
+
+    .case-content h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .case-intro {
+        font-size: 1.1rem;
+        color: var(--text-color);
+        margin-bottom: 2rem;
+    }
+
+    .case-metrics {
+        display: flex;
+        gap: 2rem;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+    }
+
+    .metric {
+        text-align: center;
+    }
+
+    .metric strong {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--button-color);
+        font-weight: 700;
+    }
+
+    .metric span {
+        font-size: 0.9rem;
+        color: var(--text-color);
+    }
+
+    .case-study-featured blockquote {
+        font-style: italic;
+        font-size: 1.1rem;
+        color: var(--text-color);
+        margin: 2rem 0;
+        padding: 1rem 0;
+        border-left: 3px solid var(--button-color);
+        padding-left: 1rem;
+    }
+
+    .case-study-featured cite {
+        display: block;
+        margin-top: 1rem;
+        font-weight: 600;
+        color: var(--button-color);
+        font-style: normal;
+    }
+
+    .success-highlights {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .highlight-card {
+        background: var(--white);
+        padding: 1.5rem;
+        border-radius: var(--radius-md);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        border-left: 3px solid var(--button-color);
+    }
+
+    .highlight-card h4 {
+        color: var(--primary-color);
+        margin-bottom: 0.75rem;
+    }
+    
+    .success-highlight-single {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    
+    .highlight-card-featured {
+        background: var(--secondary-bg);
+        padding: 3rem;
+        border-radius: var(--radius-md);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        border-left: 4px solid var(--button-color);
+        max-width: 800px;
+        text-align: center;
+    }
+    
+    .highlight-card-featured h4 {
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+    }
+    
+    .highlight-card-featured p {
+        color: var(--text-color);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+    
+    .success-metrics {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        flex-wrap: wrap;
+    }
+    
+    .metric-item {
+        text-align: center;
+    }
+    
+    .metric-item strong {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--button-color);
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+    }
+    
+    .metric-item span {
+        font-size: 0.9rem;
+        color: var(--text-color);
+    }
+    
+    .placeholder-image {
+        background: linear-gradient(135deg, var(--button-color), var(--button-hover));
+        border-radius: var(--radius-md);
+        padding: 3rem 2rem;
+        text-align: center;
+        color: var(--white);
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .placeholder-image h4 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--white);
+    }
+    
+    .placeholder-image p {
+        font-size: 1rem;
+        opacity: 0.9;
+        color: var(--white);
+    }
+
+    /* Services Section */
+    .services-architecture {
+        padding: 5rem 0;
+        background: var(--secondary-bg);
+    }
+
+    .services-architecture h2 {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+    }
+
+    .service-detailed {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: var(--radius-md);
         box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
 
-    .featured-video {
-        width: 100%;
-        display: block;
-        aspect-ratio: 16/9;
-        background: var(--dark-bg);
+    .service-detailed h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
     }
 
-    .video-features {
+    .service-detailed p {
+        color: var(--text-color);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .service-detailed ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 2rem;
+    }
+
+    .service-detailed li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+        color: var(--text-color);
+    }
+
+    .service-detailed li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--button-color);
+        font-weight: bold;
+    }
+
+    .service-cta {
+        display: inline-block;
+        background: var(--button-color);
+        color: var(--white);
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--radius-sm);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .service-cta:hover {
+        background: var(--button-hover);
+        transform: translateY(-2px);
+    }
+
+    /* Why HunterTech Section */
+    .why-huntertech {
+        padding: 5rem 0;
+        background: var(--white);
+    }
+
+    .why-huntertech h2 {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
+    }
+
+    .section-intro {
+        text-align: center;
+        font-size: 1.2rem;
+        color: var(--text-color);
+        max-width: 800px;
+        margin: 0 auto 3rem;
+    }
+
+    .why-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2rem;
-        margin-top: 3rem;
+        margin-bottom: 3rem;
     }
 
-    .video-feature {
+    .why-card {
         text-align: center;
         padding: 1.5rem;
     }
 
-    .video-feature i {
-        font-size: 2rem;
-        color: var(--button-color);
+    .why-card h3 {
+        color: var(--primary-color);
         margin-bottom: 1rem;
     }
 
-    .video-feature h3 {
-        color: var(--text-color);
-        margin-bottom: 0.5rem;
+    .founder-spotlight {
+        background: var(--secondary-bg);
+        padding: 3rem;
+        border-radius: var(--radius-md);
+        text-align: center;
     }
 
-    .video-feature p {
-        color: var(--text-color-light);
+    .founder-spotlight h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .founder-spotlight p {
+        font-size: 1.1rem;
+        font-style: italic;
+        color: var(--text-color);
+        margin-bottom: 2rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .founder-creds {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .founder-creds span {
+        color: var(--button-color);
+        font-size: 1.125rem;
+        font-weight: 700;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+        padding: 5rem 0;
+        background: var(--secondary-bg);
+    }
+
+    .faq-section h2 {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+    }
+
+    .faq-item {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .faq-item h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .faq-item p {
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* Final CTA Section */
+    .final-cta {
+        padding: 5rem 0;
+        background: var(--white);
+    }
+
+    .final-cta h2 {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
+    }
+
+    .final-cta > p {
+        text-align: center;
+        font-size: 1.2rem;
+        color: var(--text-color);
+        max-width: 800px;
+        margin: 0 auto 3rem;
+    }
+
+    .cta-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .cta-option {
+        background: var(--secondary-bg);
+        padding: 3rem;
+        border-radius: var(--radius-md);
+        text-align: center;
+        position: relative;
+    }
+
+    .cta-option.priority {
+        border: 2px solid var(--button-color);
+    }
+
+    .cta-option h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .cta-option p {
+        color: var(--text-color);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .cta-option ul {
+        text-align: left;
+        list-style: none;
+        padding: 0;
+        margin-bottom: 2rem;
+    }
+
+    .cta-option li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+        color: var(--text-color);
+    }
+
+    .cta-option li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--button-color);
+        font-weight: bold;
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 1.25rem 2rem;
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        margin-bottom: 1rem;
+    }
+
+    .cta-button.primary {
+        background: var(--button-color);
+        color: var(--white);
+    }
+
+    .cta-button.primary:hover {
+        background: var(--button-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 172, 172, 0.4);
+    }
+
+    .cta-button.secondary {
+        background: var(--white);
+        color: var(--button-color);
+        border: 2px solid var(--button-color);
+    }
+
+    .cta-button.secondary:hover {
+        background: var(--button-color);
+        color: var(--white);
+        transform: translateY(-2px);
+    }
+
+    .cta-note {
+        display: block;
+        font-size: 0.9rem;
+        color: var(--text-color);
+        font-style: italic;
+    }
+
+    .trust-closing {
+        text-align: center;
+        background: var(--secondary-bg);
+        padding: 2rem;
+        border-radius: var(--radius-md);
+    }
+
+    .trust-closing p {
+        font-size: 1.1rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+    }
+
+    .final-credentials {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .final-credentials span {
+        color: var(--button-color);
+        font-weight: 600;
         font-size: 0.9rem;
     }
+    
+    .pricing-link {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 1rem 2rem;
+        background: var(--button-color);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: var(--radius-md);
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .pricing-link:hover {
+        background: var(--button-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 172, 172, 0.4);
+    }
 
+    /* Mobile Responsiveness */
     @media (max-width: 768px) {
-        .hero h1 {
-            font-size: 2rem;
+        /* Global mobile fixes */
+        .architecture-page {
+            padding-top: 60px;
+        }
+        
+        .container {
+            padding: 0 1rem;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        section {
+            padding: 3rem 0;
+        }
+        .hero-architecture {
+            padding: 0;
+        }
+        
+        .hero-content {
+            padding: 2rem 0;
+        }
+        
+        .hero-content .container {
+            background: rgba(28, 40, 51, 0.70);
+            backdrop-filter: blur(15px);
+            padding: 2rem 1.5rem;
+            margin: 0 auto;
+            width: calc(100% - 2rem);
+            max-width: none;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15),
+                0 0 0 1px rgba(28, 40, 51, 0.4);
         }
 
-        .subtitle {
-            font-size: 1rem;
+        .hero-overlay {
+            background: transparent;
         }
 
-        .feature-grid,
-        .solution-list,
-        .video-features {
+        .hero-content h1 {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .trust-indicators {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        .hero-ctas {
+            flex-direction: column;
+        }
+
+        .cta-primary, .cta-secondary {
+            text-align: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .case-study-featured {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .case-metrics {
+            justify-content: center;
+        }
+
+        .founder-creds {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cta-options {
             grid-template-columns: 1fr;
         }
+
+        .final-credentials {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* Mobile text alignment fixes */
+        h1, h2, h3, h4, h5, h6 {
+            text-align: center;
+        }
+        
+        p {
+            text-align: center;
+        }
+        
+        .pain-card, .value-card, .service-detailed, 
+        .faq-item, .highlight-card, .why-card {
+            text-align: left;
+        }
+        
+        .pain-card h3, .value-card h3, .service-detailed h3,
+        .faq-item h3, .highlight-card h4, .why-card h3 {
+            text-align: left;
+        }
+        
+        .pain-card p, .value-card p, .service-detailed p,
+        .faq-item p, .highlight-card p, .why-card p {
+            text-align: left;
+        }
+        
+        /* Fix grid layouts */
+        .value-grid, .services-grid, 
+        .faq-grid, .success-highlights, .why-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .pain-list {
+            margin-left: 0;
+            margin-right: 0;
+            padding: 1.5rem;
+        }
+        
+        .highlight-card-featured {
+            padding: 2rem 1.5rem;
+            margin: 0 1rem;
+        }
+        
+        .success-metrics {
+            gap: 2rem;
+        }
+        
+        /* Center CTAs */
+        .service-cta, .cta-button {
+            display: block;
+            text-align: center;
+            margin: 1rem auto;
+        }
     }
-</style> 
+</style>
