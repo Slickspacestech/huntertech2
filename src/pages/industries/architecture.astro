@@ -365,25 +365,6 @@ const structuredData = {
                             </tr>
                             <tr>
                                 <td class="pain-point">
-                                    <strong>Security Balance</strong>
-                                    <span>"Either too restrictive or not secure enough"</span>
-                                </td>
-                                <td class="generic-response">
-                                    <span class="fail">✗</span>
-                                    One-size-fits-all toolset<br>
-                                    Poor Phishing attack response<br>
-                                    Unaware of industry trends
-                                </td>
-                                <td class="huntertech-response">
-                                    <span class="success">✓</span>
-                                    <strong>AEC-specific security</strong><br>
-                                    Protect drawings & IP<br>
-                                    Proactive Phishing attack response<br>
-                                    Working with peers in the industry
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="pain-point">
                                     <strong>Strategic Planning</strong>
                                     <span>"Not proactive, don't help us grow"</span>
                                 </td>
@@ -1707,10 +1688,23 @@ const structuredData = {
         .case-study-featured {
             grid-template-columns: 1fr;
             gap: 2rem;
+            padding: 2rem 1.5rem;
+        }
+        
+        .case-study-featured .case-image {
+            order: -1;
+            margin-bottom: 1rem;
         }
 
         .case-metrics {
-            justify-content: center;
+            justify-content: space-around;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .case-metrics .metric {
+            min-width: 100px;
+            flex: 1 1 30%;
         }
 
         .founder-creds {
@@ -1737,8 +1731,32 @@ const structuredData = {
         }
         
         .pain-card, .value-card, .service-detailed, 
-        .faq-item, .highlight-card, .why-card {
+        .faq-item, .highlight-card, .why-card,
+        .case-study-featured {
             text-align: left;
+        }
+        
+        .case-study-featured h3 {
+            text-align: center;
+            font-size: 1.3rem;
+        }
+        
+        .case-study-featured blockquote {
+            font-size: 1rem;
+            padding-left: 1rem;
+        }
+        
+        .case-study-featured cite {
+            font-size: 0.9rem;
+        }
+        
+        .placeholder-image {
+            height: 250px;
+            padding: 2rem 1rem;
+        }
+        
+        .placeholder-image h4 {
+            font-size: 1.2rem;
         }
         
         .pain-card h3, .value-card h3, .service-detailed h3,
