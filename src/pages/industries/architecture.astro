@@ -15,8 +15,8 @@ import pontemiImage from '../../assets/images/pontem-16x9.webp';
 import bluebeamLogo from '../../assets/images/Bluebeam Logo.jpg';
 import revitLogo from '../../assets/images/revit-logo.svg';
 
-const title = "IT Support for Architects Calgary & Vancouver | Former Perkins & Will IT Manager";
-const description = "Expert Calgary & Vancouver architecture IT services from former Perkins & Will IT Manager. Revit support, BIM management, Autodesk expertise for growing firms.";
+const title = "IT Support for Architects Calgary & Vancouver | Architecture IT Specialists";
+const description = "Expert architecture IT services in Western Canada from former Perkins & Will IT Manager. Specialized Revit support, BIM management, and design technology solutions.";
 const keywords = [
     "IT support for architects Calgary",
     "IT support for architects Vancouver",
@@ -43,42 +43,42 @@ const faqData = {
     "mainEntity": [
         {
             "@type": "Question",
-            "name": "Why should Vancouver architects choose HunterTech over generic IT providers?",
+            "name": "What makes HunterTech different for architecture firms?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Our founder Mathew Hunter is a former IT Manager at Perkins & Will with 15+ years of AEC experience. We understand Revit workflows, BIM collaboration challenges, and architecture-specific software needs that generic IT providers simply don't grasp."
+                "text": "Unlike generic MSPs, we bring direct experience from global design firms. Our team has managed technology for architectural practices, so we understand your unique workflow requirements and deadline pressures from day one."
             }
         },
         {
             "@type": "Question", 
-            "name": "Do you provide onsite IT support for Vancouver architecture firms?",
+            "name": "How quickly can you respond to urgent IT issues?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, we provide onsite support throughout Vancouver and Calgary for architecture firms. Our local team understands the urgency of project deadlines which is why we let you keep spare desktops or laptops in your office, so you don't need to wait for us."
+                "text": "We maintain spare equipment at client offices and provide same-day onsite support across Alberta and BC. Our team understands that technology failures during project deadlines aren't acceptable."
             }
         },
         {
             "@type": "Question",
-            "name": "Can you help with Revit performance issues and model optimization?",
+            "name": "Do you provide specialized design software support?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Absolutely. Our BIM specialists can provide Revit health checks, model optimization, help enforce BIM standards, custom family creation, and template standardization. We help architecture firms resolve bad modelling habits that slow performance."
+                "text": "Yes, we offer comprehensive support for the entire design technology stack - from model optimization and family management to rendering workflows and cloud collaboration setup. Our specialists work with these tools daily."
             }
         },
         {
             "@type": "Question",
-            "name": "What makes HunterTech different from other Vancouver IT companies?",
+            "name": "How do you handle software licensing and updates?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Our founder's background as IT Manager at the Perkins & Will Vancouver studio means we hit the ground running with no learning curve. We speak your language, understand your workflows, and provide specialized support for Autodesk, Bluebeam, SketchUp, and other architecture tools."
+                "text": "We proactively manage your Autodesk subscriptions, coordinate update deployments around project schedules, and ensure license compliance. No more surprise updates that break your workflows or upgrade your models mid-project."
             }
         },
         {
             "@type": "Question",
-            "name": "Do you support hybrid work setups for architecture firms?",
+            "name": "What's included in your architecture IT services?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, we specialize in secure hybrid BIM collaboration. We set up secure access to Revit models, implement proper backup systems for remote work, and ensure your team can collaborate seamlessly whether in-office or working from home."
+                "text": "Our comprehensive support includes 24/7 monitoring, unlimited help desk, software management, security protection, backup solutions, and strategic technology planning - all delivered by specialists who understand architectural practice."
             }
         }
     ]
@@ -92,29 +92,60 @@ const structuredData = {
             "name": "HunterTech - IT Support for Architects Calgary & Vancouver",
             "description": "Expert IT services for Calgary & Vancouver architecture firms from former Perkins & Will IT Manager. Specialized Revit support, BIM management, and Autodesk expertise.",
             "url": "https://huntertech.ca/industries/architecture/",
-            "telephone": "778-819-7411",
+            "telephone": ["825-415-6990", "778-819-7411"],
             "email": "info@huntertech.ca",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Vancouver",
-                "addressRegion": "BC",
-                "addressCountry": "CA"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": "49.2827",
-                "longitude": "-123.1207"
-            },
-            "areaServed": {
-                "@type": "GeoCircle",
-                "geoMidpoint": {
+            "address": [
+                {
+                    "@type": "PostalAddress",
+                    "streetAddress": "4030 8 St SE",
+                    "addressLocality": "Calgary",
+                    "addressRegion": "AB",
+                    "postalCode": "T2G 3A7",
+                    "addressCountry": "CA"
+                },
+                {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Vancouver",
+                    "addressRegion": "BC",
+                    "addressCountry": "CA"
+                }
+            ],
+            "geo": [
+                {
+                    "@type": "GeoCoordinates",
+                    "latitude": "51.0447",
+                    "longitude": "-114.0719",
+                    "name": "Calgary Office"
+                },
+                {
                     "@type": "GeoCoordinates",
                     "latitude": "49.2827",
-                    "longitude": "-123.1207"
+                    "longitude": "-123.1207",
+                    "name": "Vancouver Office"
+                }
+            ],
+            "areaServed": [
+                {
+                    "@type": "GeoCircle",
+                    "geoMidpoint": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "51.0447",
+                        "longitude": "-114.0719"
+                    },
+                    "geoRadius": "50",
+                    "name": "Calgary Metro Area"
                 },
-                "geoRadius": "50",
-                "name": "Vancouver Metro Area"
-            },
+                {
+                    "@type": "GeoCircle",
+                    "geoMidpoint": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "49.2827",
+                        "longitude": "-123.1207"
+                    },
+                    "geoRadius": "50",
+                    "name": "Vancouver Metro Area"
+                }
+            ],
             "serviceType": [
                 "IT Support for Architects Calgary",
                 "IT Support for Architects Vancouver",
@@ -208,8 +239,8 @@ const structuredData = {
                         <span>Former Perkins & Will IT Manager</span>
                     </div> -->
                     
-                    <h1 class="white-text">IT Support for Calgary & Vancouver Architects Who Need to Hit the Ground Running</h1>
-                    <p class="hero-subtitle">Stop teaching your IT provider about your business. Get architecture-specific expertise from someone who's lived your Revit, BIM, and project deadline challenges at one of the world's leading design firms.</p>
+                    <h1 class="white-text">Architecture-Focused IT Support for Western Canadian Firms</h1>
+                    <p class="hero-subtitle">Stop teaching your IT provider about design technology. Our team brings enterprise-level expertise from global architecture firms directly to your Alberta or BC practice.</p>
                     
                     <div class="trust-indicators">
                         <div class="trust-item">
@@ -217,8 +248,8 @@ const structuredData = {
                             <span>AEC Experience</span>
                         </div>
                         <div class="trust-item">
-                            <strong>Vancouver & Calgary</strong>
-                            <span>Remote & Onsite</span>
+                            <strong>Local Presence</strong>
+                            <span>Alberta & BC Coverage</span>
                         </div>
                         <div class="trust-item">
                             <strong>24/7 Security Monitoring</strong>
@@ -227,12 +258,12 @@ const structuredData = {
                     </div>
                     
                     <div class="hero-ctas">
-                        <a href="/contact/?form_conversion=architecture-v2-revit-check" class="cta-primary">
+                        <a href="/contact/?form_conversion=architecture-hero-assessment" class="cta-primary">
                             <Shield color="var(--white)" />
-                            Free Revit Health Check
+                            Get Your IT Assessment
                         </a>
-                        <a href="/contact/?form_conversion=architecture-v2-strategy" class="cta-secondary">
-                            Schedule Strategy Call
+                        <a href="/pricing/" class="cta-secondary">
+                            View Transparent Pricing
                             <ArrowRight color="var(--white)" />
                         </a>
                     </div>
@@ -242,33 +273,33 @@ const structuredData = {
             </div>
         </section>
 
-          <!-- Why HunterTech Section -->
-          <section class="why-huntertech">
+          <!-- Authority & Expertise Section -->
+          <section class="authority-section">
             <div class="container">
-                <h2>15+ Years of Living Your Challenges</h2>
-                <p class="section-intro">Stop explaining your business to your IT provider. Get support from someone who's managed technology in your industry with 15+ years of experience.</p>
+                <h2>The Architecture IT Expertise Your Firm Deserves</h2>
                 
-                <div class="why-grid">
-                    <div class="why-card">
-                        <h3>We Speak Your Language</h3>
-                        <p>No explaining what BIM is, why Revit performance matters, or how project deadlines work. We've lived the 3am model crashes and deadline pressure.</p>
-                    </div>
-                    <div class="why-card">
-                        <h3>Architecture-Specific Expertise</h3>
-                        <p>Generic MSPs learn about your industry on your time and budget. We bring 15+ years of AEC-specific knowledge from day one.</p>
-                    </div>
-                    <div class="why-card">
-                        <h3>No Learning Curve Required</h3>
-                        <p>While other IT providers are figuring out your workflow, we're already optimizing it. Immediate value from day one.</p>
+                <div class="founder-spotlight featured">
+                    <h3>Meet Mathew Hunter - Former IT Manager at Perkins & Will</h3>
+                    <p>"After managing IT infrastructure at one of North America's largest architecture firms, I know exactly what keeps principals and project teams up at night. Model corruption before deadlines, worksharing nightmares, and that moment when their architectural technician realizes the latest Revit patch upgrades the model and they didn't back it up first. I built HunterTech to bring enterprise-level IT expertise to growing architecture firms."</p>
+                    <div class="founder-creds">
+                        <span>Global Design Firm IT experience</span>
+                        <span>AEC Technology Specialist Since 2009</span>
+                        <span>Western Canada Focus</span>
                     </div>
                 </div>
                 
-                <div class="founder-spotlight">
-                    <h3>Meet Mathew Hunter - Your IT Partner Who Gets It</h3>
-                    <p>"After managing IT at Perkins & Will, I know exactly what keeps architects up at night. Model performance issues before deadlines, collaboration security concerns, and software updates that upgrade models. That's why I built HunterTech specifically to serve the AEC community with the expertise you deserve."</p>
-                    <div class="founder-creds">
-                        <span>Former IT Manager, Perkins & Will</span>
-                        <span>15+ Years AEC Experience</span>
+                <div class="expertise-grid">
+                    <div class="expertise-card">
+                        <h3>Deep Software Knowledge</h3>
+                        <p>From Revit families to Rhino plugins, from rendering farms to BIM 360 setup - we've optimized it all for architecture workflows.</p>
+                    </div>
+                    <div class="expertise-card">
+                        <h3>Project Deadline Understanding</h3>
+                        <p>We've supported countless RFP deadlines and permit submissions. Your urgency is our urgency.</p>
+                    </div>
+                    <div class="expertise-card">
+                        <h3>Scale-Ready Infrastructure</h3>
+                        <p>Whether you're 5 or 50 people, we implement systems that grow with your practice without growing pains.</p>
                     </div>
                 </div>
             </div>
@@ -277,7 +308,7 @@ const structuredData = {
         <!-- Competitive Comparison Section -->
         <section class="competitive-comparison">
             <div class="container">
-                <h2>Why Calgary & Vancouver Architecture Firms Switch to HunterTech</h2>
+                <h2>Why Architecture Firms Choose Specialized IT Support</h2>
                 <p class="comparison-intro">See how we solve the exact frustrations you have with generic IT providers</p>
                 
                 <div class="comparison-table-wrapper">
@@ -303,9 +334,9 @@ const structuredData = {
                                 </td>
                                 <td class="huntertech-response">
                                     <span class="success">✓</span>
-                                    <strong>15+ years AEC experience</strong><br>
-                                    Revit specialists on staff<br>
-                                    Proactive update management
+                                    <strong>Design technology veterans</strong><br>
+                                    BIM support available<br>
+                                    Proactive patch management
                                 </td>
                             </tr>
                             <tr>
@@ -321,9 +352,9 @@ const structuredData = {
                                 </td>
                                 <td class="huntertech-response">
                                     <span class="success">✓</span>
-                                    <strong>Former Perkins & Will IT Manager</strong><br>
-                                    Model health checks<br>
-                                    Worksharing optimization
+                                    <strong>Enterprise architecture experience</strong><br>
+                                    Model diagnostics expertise<br>
+                                    Collaboration workflow masters
                                 </td>
                             </tr>
                             <tr>
@@ -335,13 +366,13 @@ const structuredData = {
                                     <span class="fail">✗</span>
                                     Junior techs escalate issues<br>
                                     No urgency understanding<br>
-                                    9-5 support only
+                                    Slow response times
                                 </td>
                                 <td class="huntertech-response">
                                     <span class="success">✓</span>
                                     <strong>Spare equipment in your office</strong><br>
                                     Understand project deadlines<br>
-                                    24/7 monitoring & support
+                                    2 hour response time
                                 </td>
                             </tr>
                             <tr>
@@ -357,10 +388,10 @@ const structuredData = {
                                 </td>
                                 <td class="huntertech-response">
                                     <span class="success">✓</span>
-                                    <strong>Secure BIM collaboration expert</strong><br>
-                                    Optimized Remote Desktop<br>
-                                    BIM 360 Collaborate Pro<br>
-                                    Worksharing support
+                                    <strong>Hybrid collaboration architects</strong><br>
+                                    Optimized remote workflows<br>
+                                    Cloud & on-premise solutions<br>
+                                    Large file transfer experts
                                 </td>
                             </tr>
                             <tr>
@@ -387,29 +418,22 @@ const structuredData = {
                 </div>
                 
                 <div class="comparison-cta">
-                    <h3>Stop Teaching Your IT Provider About Architecture</h3>
-                    <p>Join Calgary & Vancouver firms who've switched to IT support that actually understands their business</p>
+                    <h3>Ready to Work With IT Experts Who Get Architecture?</h3>
+                    <p>Join growing firms across Western Canada who've made the switch to specialized support</p>
                     <a href="/contact/?form_conversion=architecture-comparison-cta" class="cta-button primary">
-                        Get Your Free Revit Health Check
+                        Schedule Your Discovery Call
                     </a>
-                    <span class="cta-note">Limited to 5 architecture firms per month</span>
+                    <span class="cta-note">Currently accepting 2 new firms per month</span>
                 </div>
             </div>
         </section>
 
-        <!-- Unique Value Propositions -->
-        <section class="value-props">
+        <!-- Key Differentiators Section -->
+        <section class="differentiators">
             <div class="container">
-                <h2>Why Calgary & Vancouver Architects Choose HunterTech</h2>
+                <h2>What Sets HunterTech Apart for Architecture Firms</h2>
                 
                 <div class="value-grid">
-                    <div class="value-card primary">
-                        <div class="value-badge">Industry Authority</div>
-                        <h3>Perkins & Will Pedigree</h3>
-                        <p>Mathew Hunter managed IT infrastructure at one of the world's premier architecture firms. He knows your workflow challenges, software needs, and project pressures because he's supported principals, associates, and design teams just like yours.</p>
-                        <div class="value-proof">✓ 15+ years living AEC challenges daily</div>
-                    </div>
-                    
                     <div class="value-card specialized">
                         <Image 
                             src={revitLogo}
@@ -418,16 +442,16 @@ const structuredData = {
                             height={48}
                             style="object-fit: contain;"
                         />
-                        <h3>Revit Specialization</h3>
-                        <p>Our BIM specialists don't just install Revit—we optimize it. Model health checks, custom family creation, BIM standards development, and template standardization. We make Revit work the way it should.</p>
-                        <div class="value-proof">✓ BIM specialists on staff</div>
+                        <h3>BIM Workflow Optimization</h3>
+                        <p>Beyond basic support, we provide model health diagnostics, family library management, and worksharing optimization that keeps your projects moving.</p>
+                        <div class="value-proof">✓ Experienced BIM support team</div>
                     </div>
                     
                     <div class="value-card local">
                         <Users color="var(--button-color)" />
-                        <h3>Local Vancouver & Calgary Presence</h3>
-                        <p>Onsite support throughout Vancouver and Calgary. When your project is due tomorrow and technology fails today, we're there to help. We let you keep spare desktops or laptops in your office, so you don't need to wait for us..</p>
-                        <div class="value-proof">✓ Emergency spare equipment stored in your office</div>
+                        <h3>Western Canada Focus</h3>
+                        <p>Local presence in Alberta and BC with spare equipment pre-positioned at your office. No waiting for parts, warranty, or people when deadlines loom.</p>
+                        <div class="value-proof">✓ Same-day emergency response</div>
                     </div>
                     
                     <div class="value-card expertise">
@@ -438,9 +462,9 @@ const structuredData = {
                             height={48}
                             style="object-fit: contain;"
                         />
-                        <h3>Architecture Software Mastery</h3>
-                        <p>We actually support Autodesk suite, Bluebeam, SketchUp, Rhino, and other design tools. Not just "call the vendor"—real expertise with licensing, deployment, integration, and customization.</p>
-                        <div class="value-proof">✓ Autodesk certified specialists</div>
+                        <h3>Design Software Ecosystem</h3>
+                        <p>Support for Autodesk, Adobe Creative Cloud, Bluebeam, SketchUp, and specialized rendering tools. Real solutions, not vendor referrals.</p>
+                        <div class="value-proof">✓ Multi-platform expertise</div>
                     </div>
                 </div>
             </div>
@@ -540,7 +564,7 @@ const structuredData = {
                             <li>Project file backup solutions with version control</li>
                             <li>24/7 monitoring of design workstations and servers</li>
                         </ul>
-                        <a href="/contact/?form_conversion=architecture-v2-managed-it" class="service-cta">Learn About Managed IT</a>
+                        <a href="/services/managed-it-services/" class="service-cta">Explore Managed Services</a>
                     </div>
                     
                     <div class="service-detailed">
@@ -553,7 +577,7 @@ const structuredData = {
                             <li>Hardware procurement for optimal BIM performance</li>
                             <li>Team training on efficient Revit workflows</li>
                         </ul>
-                        <a href="/contact/?form_conversion=architecture-v2-revit-management" class="service-cta">Get Revit Assessment</a>
+                        <a href="/contact/?form_conversion=architecture-bim-consultation" class="service-cta">Request BIM Consultation</a>
                     </div>
                     
                    
@@ -569,28 +593,28 @@ const structuredData = {
                 <h2>Frequently Asked Questions</h2>
                 <div class="faq-grid">
                     <div class="faq-item">
-                        <h3>Why should Calgary & Vancouver architects choose HunterTech over generic IT providers?</h3>
-                        <p>Our founder Mathew Hunter is a former IT Manager at Perkins & Will with 15+ years of AEC experience. We understand Revit workflows, BIM collaboration challenges, and architecture-specific software needs that generic IT providers simply don't grasp.</p>
+                        <h3>What makes HunterTech different for architecture firms?</h3>
+                        <p>Unlike generic MSPs, we bring direct experience from global design firms. Our team has managed technology for architectural practices, so we understand your unique workflow requirements and deadline pressures from day one.</p>
                     </div>
                     
                     <div class="faq-item">
-                        <h3>Do you provide onsite IT support for Calgary & Vancouver architecture firms?</h3>
-                        <p>Yes, we provide onsite support throughout Vancouver and Calgary for architecture firms. Our local team understands the urgency of project deadlines which is why we let you keep spare desktops or laptops in your office, so you don't need to wait for us.</p>
+                        <h3>How quickly can you respond to urgent IT issues?</h3>
+                        <p>We maintain spare equipment at client offices and provide same-day onsite support across Alberta and BC. Our team understands that technology failures during project deadlines aren't acceptable.</p>
                     </div>
                     
                     <div class="faq-item">
-                        <h3>Can you help with Revit performance issues and model optimization?</h3>
-                        <p>Absolutely. Our BIM specialists can provide Revit health checks, model optimization, help enforce BIM standards, custom family creation, and template standardization. We help architecture firms resolve bad modelling habits that slow performance.</p>
+                        <h3>Do you provide specialized design software support?</h3>
+                        <p>Yes, we offer comprehensive support for the entire design technology stack - from model optimization and family management to rendering workflows and cloud collaboration setup. Our specialists work with these tools daily.</p>
                     </div>
                     
                     <div class="faq-item">
-                        <h3>What makes HunterTech different from other Calgary & Vancouver IT companies?</h3>
-                        <p>Our founder's background as IT Manager at the Perkins & Will Vancouver studio means we hit the ground running with no learning curve. We speak your language, understand your workflows, and provide specialized support for Autodesk, Bluebeam, SketchUp, and other architecture tools.</p>
+                        <h3>How do you handle software licensing and updates?</h3>
+                        <p>We proactively manage your Autodesk subscriptions, coordinate update deployments around project schedules, and ensure license compliance. No more surprise updates that break your workflows or upgrade your models mid-project.</p>
                     </div>
                                         
                     <div class="faq-item">
-                        <h3>Do you support hybrid work setups for architecture firms?</h3>
-                        <p>Yes, we specialize in secure hybrid BIM collaboration. We set up secure access to Revit models, implement proper backup systems for remote work, and ensure your team can collaborate seamlessly whether in-office or working from home.</p>
+                        <h3>What's included in your architecture IT services?</h3>
+                        <p>Our comprehensive support includes 24/7 monitoring, unlimited help desk, software management, security protection, backup solutions, and strategic technology planning - all delivered by specialists who understand architectural practice.</p>
                     </div>
                 </div>
             </div>
@@ -599,50 +623,33 @@ const structuredData = {
         <!-- Final CTA Section -->
         <section class="final-cta">
             <div class="container">
-                <h2>Ready to Work with IT Experts Who Actually Understand Architecture?</h2>
-                <p>Stop teaching your IT provider about your business. Get the architecture-specific expertise your Calgary or Vancouver firm deserves.</p>
+                <h2>Transform Your Architecture Practice's Technology</h2>
+                <p>Join leading Western Canadian firms who've upgraded to specialized IT support designed for architectural workflows.</p>
                 
-                <div class="cta-options">
-                    <div class="cta-option priority">
-                        <h3>Free Revit Health Check</h3>
-                        <p>Comprehensive analysis of your Revit models, performance optimization recommendations, and BIM workflow assessment.</p>
-                        <ul>
-                            <li>Model performance analysis</li>
-                            <li>Template and standards review</li>
-                            <li>Collaboration workflow audit</li>
-                            <li>Custom improvement roadmap</li>
-                        </ul>
-                        <a href="/contact/?form_conversion=architecture-v2-final-revit" class="cta-button primary">
-                            Schedule Free Assessment
-                        </a>
-                        <span class="cta-note">Limited to 5 firms per month</span>
-                    </div>
-                    
-                    <div class="cta-option">
-                        <h3>Discovery Call</h3>
-                        <p>30-minute discovery call to discuss your IT challenges, growth plans, and technology roadmap with our former P+W IT Manager.</p>
-                        <ul>
-                            <li>Current IT assessment</li>
-                            <li>Growth planning discussion</li>
-                            <li>Technology roadmap review</li>
-                            <li>No sales pressure guarantee</li>
-                        </ul>
-                        <a href="/contact/?form_conversion=architecture-v2-final-discovery" class="cta-button secondary">
-                            Book Discovery Call
-                        </a>
-                        <span class="cta-note">Exclusive for Calgary & Vancouver architects</span>
-                    </div>
+                <div class="cta-option priority">
+                    <h3>Start with a Technology Assessment</h3>
+                    <p>Discover how optimized IT can accelerate your practice. Our comprehensive assessment includes:</p>
+                    <ul>
+                        <li>Current infrastructure evaluation</li>
+                        <li>Design software optimization review</li>
+                        <li>Security & backup audit</li>
+                        <li>Custom technology roadmap</li>
+                    </ul>
+                    <a href="/contact/?form_conversion=architecture-final-assessment" class="cta-button primary">
+                        Request Your Assessment
+                    </a>
+                    <span class="cta-note">No obligation • Currently accepting 5 new firms monthly</span>
                 </div>
                 
-                <div class="trust-closing">
-                    <p><strong>Join Calgary & Vancouver architecture firms who've already made the switch to expert IT support.</strong></p>
+                <div class="trust-closing" style="margin-top: 4rem;">
+                    <p><strong>Trusted by architecture firms across Alberta and British Columbia</strong></p>
                     <div class="final-credentials">
-                        <span>✓ Former Perkins & Will IT Manager</span>
-                        <span>✓ 15+ Years AEC Experience</span>
-                        <span>✓ Calgary & Vancouver Support</span>
-                        <span>✓ No Learning Curve Required</span>
+                        <span>✓ Enterprise-level expertise</span>
+                        <span>✓ Architecture-specific knowledge</span>
+                        <span>✓ Local Western Canada presence</span>
+                        <span>✓ Immediate value delivery</span>
                     </div>
-                    <a href="/pricing/" class="pricing-link">View Our Transparent Pricing</a>
+                    <a href="/pricing/" class="pricing-link">See Transparent Pricing →</a>
                 </div>
             </div>
         </section>
@@ -1043,13 +1050,13 @@ const structuredData = {
         }
     }
 
-    /* Value Props Section */
-    .value-props {
+    /* Differentiators Section */
+    .differentiators {
         padding: 5rem 0;
         background: var(--secondary-bg);
     }
 
-    .value-props h2 {
+    .differentiators h2 {
         text-align: center;
         color: var(--primary-color);
         margin-bottom: 3rem;
@@ -1362,42 +1369,17 @@ const structuredData = {
         transform: translateY(-2px);
     }
 
-    /* Why HunterTech Section */
-    .why-huntertech {
+    /* Authority Section */
+    .authority-section {
         padding: 5rem 0;
         background: var(--white);
     }
 
-    .why-huntertech h2 {
+    .authority-section h2 {
         text-align: center;
         color: var(--primary-color);
-        margin-bottom: 1rem;
-        font-size: 2.5rem;
-    }
-
-    .section-intro {
-        text-align: center;
-        font-size: 1.2rem;
-        color: var(--text-color);
-        max-width: 800px;
-        margin: 0 auto 3rem;
-    }
-
-    .why-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
         margin-bottom: 3rem;
-    }
-
-    .why-card {
-        text-align: center;
-        padding: 1.5rem;
-    }
-
-    .why-card h3 {
-        color: var(--primary-color);
-        margin-bottom: 1rem;
+        font-size: 2.5rem;
     }
 
     .founder-spotlight {
@@ -1405,6 +1387,11 @@ const structuredData = {
         padding: 3rem;
         border-radius: var(--radius-md);
         text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .founder-spotlight.featured {
+        border: 2px solid var(--button-color);
     }
 
     .founder-spotlight h3 {
@@ -1432,8 +1419,30 @@ const structuredData = {
 
     .founder-creds span {
         color: var(--button-color);
-        font-size: 1.125rem;
-        font-weight: 700;
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        background: rgba(0, 172, 172, 0.1);
+        border-radius: var(--radius-sm);
+    }
+
+    .expertise-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .expertise-card {
+        text-align: center;
+        padding: 2rem;
+        background: var(--white);
+        border-radius: var(--radius-md);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .expertise-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
     }
 
     /* FAQ Section */
