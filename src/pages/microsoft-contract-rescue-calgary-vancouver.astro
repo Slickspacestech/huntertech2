@@ -1,0 +1,705 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SolutionsCTA from '../components/SolutionsCTA.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import Lock from '../components/icons/lock.astro';
+import Shield from '../components/icons/shield.astro';
+import Checkmark from '../components/icons/checkmark.astro';
+import Headphones from '../components/icons/headphones.astro';
+import Certificate from '../components/icons/certificate.astro';
+import MapleLeaf from '../components/icons/maple-leaf.astro';
+import { Image } from 'astro:assets';
+import contractRescueHero from '../assets/images/handshake.webp';
+
+const title = "Microsoft License Transfer Calgary Vancouver | Contract Rescue";
+const description = "Escape Microsoft licensing hostage situations in Calgary & Vancouver. Expert CSP transfer & Microsoft 365 contract rescue services. Get your freedom today!";
+const keywords = [
+    "Microsoft license transfer Calgary",
+    "Microsoft license transfer Vancouver", 
+    "CSP transfer Canada",
+    "Microsoft 365 contract rescue",
+    "escape IT provider Microsoft licensing",
+    "Azure license migration Canada",
+    "Microsoft CSP provider Calgary Vancouver",
+    "IT provider holding licenses hostage",
+    "transfer Microsoft licenses new provider",
+    "Microsoft licensing freedom Canada"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": ["Service", "LocalBusiness"],
+    "name": "Microsoft Contract Rescue & License Transfer Services",
+    "provider": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca",
+        "logo": "https://huntertech.ca/images/Huntertech_logo.webp",
+        "sameAs": [
+            "https://www.linkedin.com/company/hunter-tech",
+            "https://www.facebook.com/huntertechca"
+        ],
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Calgary",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressRegion": "Alberta",
+                    "addressCountry": "Canada"
+                }
+            },
+            {
+                "@type": "City", 
+                "name": "Vancouver",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressRegion": "British Columbia",
+                    "addressCountry": "Canada"
+                }
+            }
+        ],
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "telephone": "+1-825-415-6990",
+                "contactType": "customer service",
+                "areaServed": "CA-AB",
+                "availableLanguage": ["English"]
+            },
+            {
+                "@type": "ContactPoint",
+                "telephone": "+1-778-819-7411", 
+                "contactType": "customer service",
+                "areaServed": "CA-BC",
+                "availableLanguage": ["English"]
+            }
+        ],
+        "hasCredential": [
+            {
+                "@type": "EducationalOccupationalCredential",
+                "name": "Microsoft Partner",
+                "credentialCategory": "certification"
+            }
+        ]
+    },
+    "description": description,
+    "serviceType": [
+        "Microsoft License Transfer",
+        "CSP Transfer",
+        "Microsoft 365 Contract Rescue",
+        "Azure License Migration"
+    ],
+    "areaServed": [
+        "Calgary, Alberta, Canada",
+        "Vancouver, British Columbia, Canada"
+    ],
+    "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "CAD",
+        "description": "Free consultation for Microsoft contract rescue services"
+    }
+};
+
+const faqData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Can I transfer my Microsoft licences from my current IT provider?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Microsoft licences purchased through CSP (Cloud Solution Provider) can be transferred between providers. We specialize in Microsoft contract rescue services in Calgary and Vancouver, helping businesses regain control of their Microsoft 365 and Azure licences."
+            }
+        },
+        {
+            "@type": "Question", 
+            "name": "How long does a Microsoft licence transfer take?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Microsoft licence transfers typically take 7-14 business days once initiated. Our team handles all the technical aspects and coordinates with Microsoft to ensure a smooth transition with minimal downtime for your Calgary or Vancouver business."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What if my IT provider refuses to release my Microsoft licences?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "If your IT provider is holding your Microsoft licences hostage, we can help. As Microsoft Partners serving Calgary and Vancouver, we work directly with Microsoft support to facilitate licence transfers even when current providers are uncooperative. Your business owns the licences, not your IT provider."
+            }
+        }
+    ]
+};
+---
+
+<Layout 
+    title={title}
+    description={description}
+    canonicalURL="/microsoft-contract-rescue-calgary-vancouver/"
+    keywords={keywords}
+    type="website"
+    image={contractRescueHero.src}
+    structuredData={[structuredData, faqData]}
+>
+    <Header />
+    <main class="contract-rescue-page">
+        <Hero 
+            title="Microsoft License Transfer Calgary & Vancouver: Escape Your IT Provider's Microsoft Licensing Hostage Situation"
+            subtitle="Trapped by your current IT provider holding your Microsoft 365 or Azure licences hostage? We specialize in Microsoft contract rescue and CSP transfer services across Calgary and Vancouver. Get your licensing freedom back today."
+            backgroundImage={contractRescueHero}
+            backgroundImageAlt="Professional handshake representing successful Microsoft license transfer"
+            ctaText="Get Your Free Rescue Consultation"
+            ctaLink="/contact/?form_conversion=microsoft-contract-rescue-hero"
+        />
+
+        <section class="urgency-banner">
+            <div class="container">
+                <div class="urgency-content">
+                    <Lock color="#ff4444" />
+                    <div class="urgency-text">
+                        <h2>Is Your IT Provider Holding Your Microsoft Licences Hostage?</h2>
+                        <p><strong>You're not alone.</strong> Many Calgary and Vancouver businesses discover their IT provider controls their Microsoft 365, Azure, and CSP licences, making it impossible to switch providers or manage their own technology.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container">
+                <div class="content-grid">
+                    <div class="main-content">
+                        <h2>Microsoft Contract Rescue Services: Regain Control of Your Licences</h2>
+                        <p>At Huntertech, we understand the frustration of discovering your IT provider has locked you into their Microsoft licensing structure. Our Microsoft contract rescue specialists serve businesses throughout Calgary and Vancouver, helping you escape restrictive licensing arrangements and regain control of your technology investments.</p>
+                        
+                        <div class="problem-section">
+                            <h3>Common Microsoft Licensing Hostage Situations We Resolve:</h3>
+                            <ul class="problem-list">
+                                <li><Checkmark color="var(--primary-color)" />IT provider owns your Microsoft 365 tenant and won't transfer admin access</li>
+                                <li><Checkmark color="var(--primary-color)" />Azure subscriptions tied to your provider's account, not yours</li>
+                                <li><Checkmark color="var(--primary-color)" />CSP licences that can't be moved to a new IT provider</li>
+                                <li><Checkmark color="var(--primary-color)" />Unreasonable termination clauses preventing Microsoft licence transfers</li>
+                                <li><Checkmark color="var(--primary-color)" />IT provider demanding excessive fees to release your licences</li>
+                                <li><Checkmark color="var(--primary-color)" />Threats to disable services if you consider switching providers</li>
+                            </ul>
+                        </div>
+
+                        <div class="location-specific">
+                            <div class="calgary-section">
+                                <h3><MapleLeaf color="#d63031" /> Microsoft License Transfer Calgary: Serving Alberta Businesses</h3>
+                                <p>Calgary businesses from downtown near the Calgary Tower to the energy sector in the Beltline face unique challenges with Microsoft licensing. Alberta's business environment demands flexibility and control over technology investments. Our Calgary-based Microsoft contract rescue team understands local business needs and provincial regulations including Alberta's Personal Information Protection Act (PIPA).</p>
+                                <p><strong>Calgary businesses we've helped:</strong> Engineering firms, construction companies, legal practices, accounting firms, and energy sector businesses across Alberta.</p>
+                            </div>
+
+                            <div class="vancouver-section">
+                                <h3><MapleLeaf color="#d63031" /> Microsoft License Transfer Vancouver: BC Business Solutions</h3>
+                                <p>From Vancouver's harbour-front businesses to tech companies in Yaletown, British Columbia enterprises need Microsoft licensing freedom to compete globally. Our Vancouver Microsoft contract rescue services help businesses navigate BC's Personal Information Protection Act (PIPA) requirements while ensuring seamless licence transfers that maintain compliance and operational continuity.</p>
+                                <p><strong>Vancouver sectors we serve:</strong> Technology companies, film production, architecture firms, professional services, and manufacturing across British Columbia.</p>
+                            </div>
+                        </div>
+
+                        <div class="services-section">
+                            <h3>Our Microsoft Contract Rescue Process</h3>
+                            <div class="services-grid">
+                                <ServiceCard 
+                                    title="Emergency Assessment"
+                                    description="Free analysis of your Microsoft licensing situation and hostage scenario evaluation"
+                                />
+                                <ServiceCard 
+                                    title="Legal & Technical Review"
+                                    description="Examination of your current contract terms and Microsoft licence ownership rights"
+                                />
+                                <ServiceCard 
+                                    title="Microsoft Direct Coordination"
+                                    description="We work directly with Microsoft support to facilitate legitimate licence transfers"
+                                />
+                                <ServiceCard 
+                                    title="Seamless Migration"
+                                    description="Complete transfer of Microsoft 365, Azure, and CSP licences to your control"
+                                />
+                                <ServiceCard 
+                                    title="Post-Transfer Support"
+                                    description="Ongoing management and optimization of your newly-liberated Microsoft environment"
+                                />
+                                <ServiceCard 
+                                    title="Future Protection"
+                                    description="Consultation on structuring new agreements to prevent future licensing hostage situations"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="csp-section">
+                            <h3>CSP Transfer Canada: Cloud Solution Provider Freedom</h3>
+                            <p>Microsoft's Cloud Solution Provider (CSP) program is designed to give businesses flexibility, but many IT providers in Calgary and Vancouver use CSP arrangements to lock clients into restrictive contracts. Our CSP transfer specialists help Canadian businesses:</p>
+                            <ul class="csp-benefits">
+                                <li><Checkmark color="var(--primary-color)" />Transfer CSP subscriptions to new providers or direct Microsoft billing</li>
+                                <li><Checkmark color="var(--primary-color)" />Maintain existing Microsoft 365 user data and configurations during transfer</li>
+                                <li><Checkmark color="var(--primary-color)" />Ensure compliance with Canadian data sovereignty requirements (PIPEDA)</li>
+                                <li><Checkmark color="var(--primary-color)" />Optimize licensing costs after regaining control</li>
+                                <li><Checkmark color="var(--primary-color)" />Establish proper admin access and tenant ownership</li>
+                            </ul>
+                        </div>
+
+                        <div class="why-choose-section">
+                            <h3>Why Calgary & Vancouver Businesses Choose Huntertech for Microsoft Contract Rescue</h3>
+                            <div class="benefits-grid">
+                                <div class="benefit-card">
+                                    <Certificate color="var(--primary-color)" />
+                                    <h4>Microsoft Certified Partner</h4>
+                                    <p>Official Microsoft Partner with direct relationships for licence transfers and tenant migrations</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <Shield color="var(--primary-color)" />
+                                    <h4>Canadian Compliance Experts</h4>
+                                    <p>Deep understanding of PIPEDA, provincial privacy laws, and Canadian data residency requirements</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <Headphones color="var(--primary-color)" />
+                                    <h4>Local Calgary & Vancouver Support</h4>
+                                    <p>Dedicated support teams in both cities who understand regional business challenges and regulations</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <MapleLeaf color="var(--primary-color)" />
+                                    <h4>100% Canadian Owned</h4>
+                                    <p>Proudly Canadian company serving businesses from coast to coast with local expertise and values</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-study-section">
+                            <h3>Microsoft License Transfer Success Stories</h3>
+                            <div class="case-studies">
+                                <div class="case-study">
+                                    <h4>Calgary Engineering Firm Rescue</h4>
+                                    <p>A 50-person engineering firm in Calgary discovered their IT provider owned their Microsoft 365 tenant and Azure subscriptions. When they tried to switch providers, they were told it would cost $25,000 in "migration fees" and would lose all their data. Our Microsoft contract rescue team transferred all licences and data within 10 days at no additional cost, saving the firm thousands while maintaining full operational continuity.</p>
+                                </div>
+                                <div class="case-study">
+                                    <h4>Vancouver Law Firm CSP Liberation</h4>
+                                    <p>A Vancouver legal practice with 25 lawyers found their IT provider was charging 40% markup on Microsoft licences and refusing to transfer the CSP relationship. Our team worked directly with Microsoft to establish a new CSP relationship, reducing their Microsoft 365 costs by $15,000 annually while ensuring full compliance with BC's legal practice technology requirements.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-section">
+                            <h3>Microsoft Contract Rescue FAQ</h3>
+                            <div class="faq-list">
+                                <div class="faq-item">
+                                    <h4>Can I transfer my Microsoft licences from my current IT provider?</h4>
+                                    <p>Yes, Microsoft licences purchased through CSP (Cloud Solution Provider) can be transferred between providers. We specialize in Microsoft contract rescue services in Calgary and Vancouver, helping businesses regain control of their Microsoft 365 and Azure licences.</p>
+                                </div>
+                                <div class="faq-item">
+                                    <h4>How long does a Microsoft licence transfer take?</h4>
+                                    <p>Microsoft licence transfers typically take 7-14 business days once initiated. Our team handles all the technical aspects and coordinates with Microsoft to ensure a smooth transition with minimal downtime for your Calgary or Vancouver business.</p>
+                                </div>
+                                <div class="faq-item">
+                                    <h4>What if my IT provider refuses to release my Microsoft licences?</h4>
+                                    <p>If your IT provider is holding your Microsoft licences hostage, we can help. As Microsoft Partners serving Calgary and Vancouver, we work directly with Microsoft support to facilitate licence transfers even when current providers are uncooperative. Your business owns the licences, not your IT provider.</p>
+                                </div>
+                                <div class="faq-item">
+                                    <h4>Will I lose my data during a Microsoft licence transfer?</h4>
+                                    <p>No, properly executed Microsoft licence transfers preserve all user data, emails, SharePoint content, and OneDrive files. Our Microsoft contract rescue process includes comprehensive data protection measures to ensure zero data loss during the transition.</p>
+                                </div>
+                                <div class="faq-item">
+                                    <h4>What are the costs associated with Microsoft contract rescue?</h4>
+                                    <p>We offer free initial consultations to assess your Microsoft licensing situation. Our rescue services are often significantly less expensive than paying inflated termination fees or ongoing markup charges from providers holding your licences hostage.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="compliance-section">
+                            <h3>Canadian Compliance & Data Sovereignty</h3>
+                            <p>When transferring Microsoft licences in Canada, compliance with federal and provincial privacy legislation is crucial. Our Microsoft contract rescue services ensure:</p>
+                            <ul class="compliance-list">
+                                <li><Checkmark color="var(--primary-color)" /><strong>PIPEDA Compliance:</strong> Personal Information Protection and Electronic Documents Act adherence throughout the transfer process</li>
+                                <li><Checkmark color="var(--primary-color)" /><strong>Provincial Privacy Laws:</strong> Compliance with Alberta's PIPA and BC's PIPA during licence migrations</li>
+                                <li><Checkmark color="var(--primary-color)" /><strong>Data Residency:</strong> Ensuring Microsoft 365 and Azure data remains within Canadian boundaries when required</li>
+                                <li><Checkmark color="var(--primary-color)" /><strong>Industry Regulations:</strong> Maintaining compliance with sector-specific requirements (legal, healthcare, financial services)</li>
+                            </ul>
+                        </div>
+
+                        <div class="immediate-action">
+                            <h3>Don't Wait - Your Microsoft Licensing Freedom Is One Call Away</h3>
+                            <p>Every day you remain trapped in a restrictive Microsoft licensing arrangement costs your Calgary or Vancouver business money and flexibility. The longer you wait, the more difficult and expensive it becomes to regain control of your technology investments.</p>
+                            <div class="urgency-points">
+                                <p><strong>⏰ Act now because:</strong></p>
+                                <ul>
+                                    <li>Microsoft licence transfer processes can take 2-3 weeks</li>
+                                    <li>Some providers impose additional restrictions during termination periods</li>
+                                    <li>Early action prevents data access complications</li>
+                                    <li>Free consultations are available for a limited time</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonial-section">
+            <div class="container">
+                <h2>What Calgary & Vancouver Businesses Say About Our Microsoft Contract Rescue</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial">
+                        <blockquote>"Huntertech saved our Calgary business from a nightmare licensing situation. Our previous IT provider was charging us double for Microsoft 365 and wouldn't let us leave. The rescue process was seamless and professional."</blockquote>
+                        <cite>— Operations Manager, Calgary Construction Company</cite>
+                    </div>
+                    <div class="testimonial">
+                        <blockquote>"We thought we were stuck paying inflated Microsoft licence fees forever. Huntertech's Vancouver team not only got us out but reduced our costs by 30% while improving our service."</blockquote>
+                        <cite>— IT Director, Vancouver Professional Services Firm</cite>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <SolutionsCTA 
+            title="Ready to Escape Your Microsoft Licensing Hostage Situation?"
+            description="Don't let your IT provider hold your Microsoft licences hostage any longer. Contact our Microsoft contract rescue specialists in Calgary and Vancouver for a free consultation and regain control of your technology investments today."
+            buttonText="Get My Free Rescue Consultation"
+            buttonLink="/contact/?form_conversion=microsoft-contract-rescue-cta"
+        />
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .contract-rescue-page {
+        background: var(--white);
+    }
+
+    .urgency-banner {
+        background: linear-gradient(135deg, #ff6b6b 0%, #d63031 100%);
+        color: white;
+        padding: 2rem 0;
+        margin-bottom: 3rem;
+    }
+
+    .urgency-content {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .urgency-content svg {
+        width: 3rem;
+        height: 3rem;
+        flex-shrink: 0;
+    }
+
+    .urgency-text h2 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.8rem;
+        color: white;
+    }
+
+    .urgency-text p {
+        margin: 0;
+        font-size: 1.1rem;
+        opacity: 0.95;
+    }
+
+    .content {
+        padding: 4rem 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .main-content h2 {
+        color: var(--primary-color);
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .main-content h3 {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin: 3rem 0 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .main-content p {
+        color: var(--text-color);
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+    }
+
+    .problem-section {
+        background: var(--secondary-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        margin: 3rem 0;
+        border-left: 4px solid #d63031;
+    }
+
+    .problem-list, .csp-benefits, .compliance-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+    }
+
+    .problem-list li, .csp-benefits li, .compliance-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        padding: 0.5rem 0;
+    }
+
+    .problem-list svg, .csp-benefits svg, .compliance-list svg {
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-top: 0.125rem;
+        flex-shrink: 0;
+    }
+
+    .location-specific {
+        margin: 3rem 0;
+    }
+
+    .calgary-section, .vancouver-section {
+        background: var(--white);
+        padding: 2.5rem;
+        margin: 2rem 0;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border-left: 4px solid var(--primary-color);
+    }
+
+    .services-section {
+        background: var(--secondary-bg);
+        padding: 3rem;
+        border-radius: 12px;
+        margin: 3rem 0;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .benefit-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .benefit-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    .benefit-card svg {
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .benefit-card h4 {
+        color: var(--primary-color);
+        margin-bottom: 0.75rem;
+        font-size: 1.25rem;
+    }
+
+    .case-study-section {
+        margin: 3rem 0;
+    }
+
+    .case-studies {
+        display: grid;
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .case-study {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border-left: 4px solid var(--accent-color);
+    }
+
+    .case-study h4 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .faq-section {
+        margin: 3rem 0;
+    }
+
+    .faq-list {
+        margin: 2rem 0;
+    }
+
+    .faq-item {
+        background: var(--white);
+        padding: 2rem;
+        margin-bottom: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        border-left: 4px solid var(--primary-color);
+    }
+
+    .faq-item h4 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .compliance-section {
+        background: var(--secondary-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        margin: 3rem 0;
+    }
+
+    .immediate-action {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+        color: white;
+        padding: 3rem;
+        border-radius: 12px;
+        margin: 3rem 0;
+    }
+
+    .immediate-action h3 {
+        color: white;
+        margin-bottom: 1.5rem;
+    }
+
+    .immediate-action p {
+        color: white;
+        opacity: 0.95;
+    }
+
+    .urgency-points {
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .urgency-points ul {
+        margin: 1rem 0;
+        padding-left: 1.5rem;
+    }
+
+    .urgency-points li {
+        margin-bottom: 0.5rem;
+        color: white;
+        opacity: 0.95;
+    }
+
+    .testimonial-section {
+        background: var(--secondary-bg);
+        padding: 4rem 0;
+    }
+
+    .testimonial-section h2 {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 3rem;
+        font-size: 2rem;
+    }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .testimonial {
+        background: var(--white);
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .testimonial blockquote {
+        font-style: italic;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin: 0 0 1.5rem 0;
+        color: var(--text-color);
+    }
+
+    .testimonial cite {
+        font-weight: bold;
+        color: var(--primary-color);
+        font-style: normal;
+    }
+
+    .csp-section {
+        background: var(--white);
+        padding: 2.5rem;
+        border-radius: 12px;
+        margin: 3rem 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border-left: 4px solid var(--accent-color);
+    }
+
+    @media (max-width: 768px) {
+        .urgency-content {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .urgency-text h2 {
+            font-size: 1.5rem;
+        }
+
+        .main-content h2 {
+            font-size: 1.75rem;
+        }
+
+        .services-grid, .benefits-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .testimonials-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .problem-section, .calgary-section, .vancouver-section,
+        .services-section, .compliance-section, .immediate-action {
+            padding: 1.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .urgency-text h2 {
+            font-size: 1.3rem;
+        }
+
+        .main-content h3 {
+            font-size: 1.3rem;
+        }
+    }
+</style>

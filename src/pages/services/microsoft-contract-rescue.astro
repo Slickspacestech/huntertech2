@@ -1,0 +1,1205 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import CTABox from '../../components/CTABox.astro';
+import Shield from '../../components/icons/shield.astro';
+import Sync from '../../components/icons/sync.astro';
+import Handshake from '../../components/icons/handshake.astro';
+import Clock from '../../components/icons/clock.astro';
+import MapleLeaf from '../../components/icons/maple-leaf.astro';
+import Certificate from '../../components/icons/certificate.astro';
+import m365 from '../../assets/images/m365.webp';
+import handshake from '../../assets/images/handshake.webp';
+import cybersecurity from '../../assets/images/cybersecurity.webp';
+
+const title = "Microsoft License Transfer Canada | CSP Contract Rescue Service";
+const description = "Escape Microsoft licensing hostage situations anywhere in Canada. Expert CSP transfer & Microsoft 365 contract rescue services nationwide. Zero downtime guaranteed!";
+const keywords = [
+    "Microsoft license transfer Canada",
+    "CSP transfer service Canada",
+    "Microsoft 365 contract rescue Canada",
+    "Azure license migration Canada",
+    "Microsoft CSP provider Canada",
+    "IT provider holding licenses hostage Canada",
+    "transfer Microsoft licenses Canada",
+    "Microsoft licensing rescue service",
+    "Canadian Microsoft license transfer",
+    "Microsoft contract migration Canada",
+    "CSP rescue service nationwide",
+    "Microsoft 365 license freedom Canada"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Service",
+            "name": "Microsoft Contract Rescue",
+            "description": "Emergency Microsoft license transfer and CSP rescue services for businesses stuck with uncooperative IT providers",
+            "provider": {
+                "@type": "Organization",
+                "name": "Huntertech",
+                "url": "https://huntertech.ca",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://huntertech.ca/images/Huntertech_logo.webp"
+                },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "5",
+                    "reviewCount": "47"
+                }
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": "Contact for pricing",
+                "priceCurrency": "CAD",
+                "availability": "https://schema.org/InStock"
+            },
+            "audience": {
+                "@type": "Audience",
+                "audienceType": ["Small Business", "Medium Business", "Enterprise"],
+                "geographicArea": {
+                    "@type": "Country",
+                    "name": "Canada",
+                    "identifier": "CA"
+                }
+            },
+            "areaServed": {
+                "@type": "Country",
+                "name": "Canada",
+                "identifier": "CA"
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Microsoft Contract Rescue Services",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Emergency License Transfer",
+                            "description": "48-72 hour emergency Microsoft CSP transfer services"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "License Audit & Optimization",
+                            "description": "Free Microsoft license review to identify waste and duplicates"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Temporary License Management",
+                            "description": "Month-to-month license hosting with guaranteed transfer-out"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Do I need to switch my IT provider to use this service?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. This is purely a licensing rescue service. You can keep your current IT support team, find a new one, or handle IT internally. We're just the neutral party that safely holds your Microsoft licenses until you decide what's best for your business."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How long does the license transfer process take?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Most Microsoft CSP transfers complete within 5-7 business days. Emergency transfers can often be expedited to 48-72 hours. Throughout the process, your team maintains full access to all Microsoft services."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What happens to our email and data during the transfer?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nothing. Your email, OneDrive files, SharePoint sites, and Teams remain completely accessible. The transfer happens at the billing and administrative level - your users won't even notice the change has occurred."
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://huntertech.ca"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Services",
+                    "item": "https://huntertech.ca/services"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Microsoft Contract Rescue",
+                    "item": "https://huntertech.ca/services/microsoft-contract-rescue"
+                }
+            ]
+        }
+    ]
+};
+---
+
+<Layout 
+    title={title} 
+    description={description}
+    canonicalURL="https://huntertech.ca/services/microsoft-contract-rescue/"
+    keywords={keywords}
+    type="website"
+    image={m365.src}
+    structuredData={structuredData}
+>
+    <Header />
+    <main class="service-page">
+        <Hero 
+            title="Microsoft License Transfer Service Canada"
+            subtitle="Trapped by your old IT provider's licensing hostage situation? We rescue Microsoft 365, Azure, and CSP licenses for businesses across Canada with zero downtime."
+            backgroundImage={m365.src}
+            backgroundImageAlt="Microsoft Contract Rescue Service"
+            ctaText="Get Your License Freedom Assessment"
+            ctaLink="/contact/?form_conversion=contract-rescue-hero"
+        />
+
+        <section class="problem-section">
+            <div class="container">
+                <h2>The Microsoft Licensing Hostage Crisis Facing Businesses Across Canada</h2>
+                <div class="problem-content">
+                    <div class="problem-text">
+                        <p class="lead">Your IT provider relationship has soured, but they're holding your Microsoft licenses hostage. Sound familiar? This scenario is affecting businesses from coast to coast - Toronto to Vancouver, Calgary to Montreal, and everywhere in between.</p>
+                        
+                        <div class="real-scenario">
+                            <h3>A Real Scenario We're Solving Right Now:</h3>
+                            <p>Just last month, we helped a property management firm escape exactly this situation. Their previous provider had renewed their yearly Microsoft licenses without permission, then refused to transfer them until a disputed final bill was paid. Meanwhile, the business was stuck paying unwanted MSP fees.</p>
+                        </div>
+
+                        <div class="pain-points">
+                            <h3>Common Licensing Hostage Tactics:</h3>
+                            <ul>
+                                <li><strong>License Lock-In:</strong> Can't move to a new provider because current one controls your Microsoft CSP account</li>
+                                <li><strong>Unauthorized Renewals:</strong> Yearly commitments made without your approval, trapping you in unwanted contracts</li>
+                                <li><strong>Hostage Tactics:</strong> Providers withholding license transfers over payment disputes or to prevent client departure</li>
+                                <li><strong>Double Billing:</strong> Forced to pay current provider while unable to switch to preferred IT support</li>
+                                <li><strong>Service Disruption Risk:</strong> Fear that changing providers will cause email, file access, and productivity tool downtime</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="stats-box">
+                        <div class="stat">
+                            <span class="stat-number">20%</span>
+                            <span class="stat-label">of Canadian businesses struggle with CSP license transfers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">$1200</span>
+                            <span class="stat-label">average yearly savings after license audit</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">Canadian businesses rescued this quarter</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">10</span>
+                            <span class="stat-label">provinces served with local expertise</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="solution-section">
+            <div class="container">
+                <h2>Microsoft Contract Rescue: Your Path to License Freedom</h2>
+                <p class="section-intro">We specialize in one thing other IT providers won't do: temporarily taking over your Microsoft contracts with no expectation of long-term managed services. Think of us as the neutral party that gets you unstuck.</p>
+                
+                <div class="value-props">
+                    <div class="value-card">
+                        <div class="icon-wrapper">
+                            <Shield color="#00ACAC" />
+                        </div>
+                        <h3>Zero-Obligation License Transfer</h3>
+                        <ul>
+                            <li>Transfer your CSP, Microsoft 365, and Azure subscriptions temporarily</li>
+                            <li>No requirement to use our managed IT services</li>
+                            <li>License only billing with guaranteed transfer-out assistance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="icon-wrapper">
+                            <Sync color="#00ACAC" />
+                        </div>
+                        <h3>Seamless, Zero-Downtime Migration</h3>
+                        <ul>
+                            <li>Maintain full access to email, files, and Microsoft 365 throughout</li>
+                            <li>Expert migration team handles all technical aspects</li>
+                            <li>Users experience no service interruption or login changes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="icon-wrapper">
+                            <Clock color="#00ACAC" />
+                        </div>
+                        <h3>Immediate Cost Relief</h3>
+                        <ul>
+                            <li>Stop paying MSP fees while you look for a replacement provider</li>
+                            <li>Free license audit reveals duplicate or unnecessary subscriptions</li>
+                            <li>Transparent, Microsoft pricing with no markup</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="icon-wrapper">
+                            <Handshake color="#00ACAC" />
+                        </div>
+                        <h3>Complete Transfer Freedom</h3>
+                        <ul>
+                            <li>Built-in exit strategy - we help you transfer to your preferred provider</li>
+                            <li>Full documentation and admin access provided throughout</li>
+                            <li>No lock-in contracts, hidden fees, or retention tactics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-section">
+            <div class="container">
+                <h2>How Microsoft Contract Rescue Works - 3 Simple Steps</h2>
+                
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Emergency Assessment</h3>
+                            <p class="step-subtitle">Free License Audit & Escape Plan</p>
+                            <ul>
+                                <li>Review your current Microsoft and 3rd party licensing situation</li>
+                                <li>Document all licenses, costs, and restrictions</li>
+                                <li>Create a zero-downtime migration strategy</li>
+                            </ul>
+                            <span class="timeline">Timeline: 24-48 hours</span>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Secure Transfer Execution</h3>
+                            <p class="step-subtitle">Professional License Migration</p>
+                            <ul>
+                                <li>Microsoft Partner team executes CSP transfer</li>
+                                <li>Maintain full functionality during transition</li>
+                                <li>Peace of mind you can cancel your MSP contract without losing Microsoftservices</li>
+                            </ul>
+                            <span class="timeline">Timeline: 5-7 business days</span>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Transition Support & Exit Strategy</h3>
+                            <p class="step-subtitle">Freedom & Future Planning</p>
+                            <ul>
+                                <li>Month-to-month licensing with transparent pricing</li>
+                                <li>Connect with preferred IT providers if needed</li>
+                                <li>Complete transfer assistance when ready</li>
+                            </ul>
+                            <span class="timeline">Timeline: Ongoing until you choose</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trust-section">
+            <div class="container">
+                <h2>Why Canadian Businesses Trust Huntertech for License Rescue</h2>
+                
+                <div class="trust-features">
+                    <div class="main-trust-card">
+                        <MapleLeaf color="#00ACAC" />
+                        <h3>Canadian Expertise Coast to Coast</h3>
+                        <ul>
+                            <li>Serving businesses nationwide from BC to Atlantic Canada</li>
+                            <li>Understanding of Canadian business regulations and requirements</li>
+                            <li>15+ years supporting Canadian professional services firms</li>
+                            <li>Direct Microsoft Partner with CSP licensing authority</li>
+                            <li>Established relationships with Microsoft's Canadian team</li>
+                        </ul>
+                    </div>
+
+                    <div class="guarantee-card">
+                        <h3>🔓 Our No Lock-In Guarantee</h3>
+                        <p>Unlike traditional MSPs, we don't view license management as a client retention tool. Our success comes from being the ethical alternative when Canadian businesses need an escape route.</p>
+                        <ul class="guarantee-points">
+                            <li>Month-to-month flexibility</li>
+                            <li>No long-term contracts required</li>
+                            <li>Guaranteed cooperation for transfer-out</li>
+                            <li>Full admin access maintained</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="location-section">
+            <div class="container">
+                <h2>Microsoft License Transfer Services Across Canada</h2>
+                
+                <div class="location-grid">
+                    <div class="location-card">
+                        <h3>Western Canada - Alberta & British Columbia</h3>
+                        <p>From our Calgary and Vancouver offices, we serve businesses throughout Western Canada. Whether you're in Edmonton, Red Deer, Victoria, or Kelowna, we provide rapid Microsoft license rescue services with deep understanding of provincial regulations including Alberta and BC's PIPA requirements.</p>
+                        <ul>
+                            <li>Calgary: (825) 415-6990</li>
+                            <li>Vancouver: (778) 819-7411</li>
+                            <li>Same-day emergency consultations</li>
+                            <li>Provincial privacy law expertise</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="location-card">
+                        <h3>Central Canada - Ontario & Quebec</h3>
+                        <p>Supporting Canada's largest business markets, we help companies from Toronto to Montreal escape toxic msp relationship situations. Our team understands the unique requirements of Ontario and Quebec businesses, including PIPEDA compliance.</p>
+                        <ul>
+                            <li>Serving Toronto, Ottawa, Montreal, Quebec City</li>
+                            <li>Understanding of provincial regulations</li>
+                            <li>Remote support with local expertise</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="location-card">
+                        <h3>Prairie Provinces & Atlantic Canada</h3>
+                        <p>No business is too remote for our Microsoft license rescue service. From Winnipeg to Halifax, Regina to St. John's, we provide comprehensive support to businesses across Canada's prairies and Atlantic provinces, ensuring no company is left trapped by their IT provider.</p>
+                        <ul>
+                            <li>Nationwide coverage via remote support</li>
+                            <li>Understanding of regional business needs</li>
+                            <li>Fast response times across all time zones</li>
+                            <li>Experience with diverse industry sectors</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="canada-wide-section">
+            <div class="container">
+                <h2>Serving Every Canadian Business, Coast to Coast</h2>
+                <div class="canada-benefits">
+                    <div class="benefit-row">
+                        <div class="benefit-item">
+                            <h3>🍁 100% Canadian Owned & Operated</h3>
+                            <p>As a proudly Canadian company, we understand the unique challenges facing businesses across our nation. From federal regulations to provincial requirements, we navigate the Canadian business landscape with expertise.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <h3>🌐 Nationwide Coverage, Local Understanding</h3>
+                            <p>Whether you're in downtown Toronto, rural Saskatchewan, or the Atlantic provinces, our Microsoft license rescue service reaches every corner of Canada with the same commitment to excellence.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-row">
+                        <div class="benefit-item">
+                            <h3>⚖️ Canadian Privacy Law Compliance</h3>
+                            <p>Full compliance with PIPEDA and provincial privacy laws including BC's PIPA, Alberta's PIPA, and Quebec's Law 25. Your data stays in Canada, protected by Canadian law.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <h3>🤝 Direct Microsoft Partnership</h3>
+                            <p>As a Microsoft Partner with CSP authority, we have direct access to Microsoft's systems and support channels, ensuring smooth and reliable license transfers without middleman delays.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-areas">
+                    <h3>Major Markets We Serve:</h3>
+                    <div class="cities-grid">
+                        <div class="city-group">
+                            <h4>Ontario</h4>
+                            <ul>
+                                <li>Toronto (GTA)</li>
+                                <li>Ottawa</li>
+                                <li>Mississauga</li>
+                                <li>Hamilton</li>
+                                <li>London</li>
+                            </ul>
+                        </div>
+                        <div class="city-group">
+                            <h4>Quebec</h4>
+                            <ul>
+                                <li>Montreal</li>
+                                <li>Quebec City</li>
+                                <li>Laval</li>
+                                <li>Gatineau</li>
+                                <li>Sherbrooke</li>
+                            </ul>
+                        </div>
+                        <div class="city-group">
+                            <h4>Western Canada</h4>
+                            <ul>
+                                <li>Calgary</li>
+                                <li>Edmonton</li>
+                                <li>Vancouver</li>
+                                <li>Winnipeg</li>
+                                <li>Saskatoon</li>
+                            </ul>
+                        </div>
+                        <div class="city-group">
+                            <h4>Atlantic & Territories</h4>
+                            <ul>
+                                <li>Halifax</li>
+                                <li>St. John's</li>
+                                <li>Moncton</li>
+                                <li>Charlottetown</li>
+                                <li>All Territories</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <h2>Microsoft Contract Rescue - Frequently Asked Questions</h2>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>Do I need to switch my IT provider to use this service?</h3>
+                        <p>No. This is purely a licensing rescue service. You can keep your current IT support team, find a new one, or handle IT internally. We're just the neutral party that safely holds your Microsoft licenses until you decide what's best for your business.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>What if I already have an MSP lined up?</h3>
+                        <p>Honestly, if you have a replacement provider lined up, they can handle the transfer. We're just the neutral party that safely holds your Microsoft licenses until you decide what's best for your business.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>How long does the license transfer process take?</h3>
+                        <p>Most Microsoft CSP transfers complete within 5-7 business days. Emergency transfers (when current provider is threatening service cutoff) can often be expedited to 48-72 hours. Throughout the process, your team maintains full access to all Microsoft services in good standing.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>What happens to our email and data during the transfer?</h3>
+                        <p>Nothing. Your email, OneDrive files, SharePoint sites, and Teams remain completely accessible. The transfer happens at the billing and administrative level - your users won't even notice the change has occurred.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>Can you help identify duplicate or unnecessary licenses?</h3>
+                        <p>Yes. Our free license audit typically identifies 20-30% cost savings through duplicate elimination, incorrect license assignments, right-sizing user accounts, and removing unused Microsoft services. Many businesses discover they're paying for licenses they don't need.  Depending on your license term with Microsoft, you may not be able to cancel those services until their renewal period</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>What are your rates for temporary license management?</h3>
+                        <p>We charge Microsoft rates with no markup during the rescue period depending on the contract terms for the current licenses.  We do not charge any additional fees for the rescue period.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>Is it legal for my MSP to withhold my Microsoft licenses?</h3>
+                        <p>No. Microsoft's Cloud Solution Provider (CSP) agreement explicitly prohibits resellers from withholding license transfers or admin access. When an MSP refuses to transfer your licenses or denies you admin access to your own Microsoft services, they are in direct violation of their contract with Microsoft. This is considered an abuse of the CSP program.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>What does Microsoft's CSP agreement say about license ownership?</h3>
+                        <p>According to Microsoft's CSP terms, you (the customer) own your data and licenses. The reseller is merely a billing intermediary. Microsoft requires CSP partners to cooperate with customer transfer requests and maintain customer access to their services. Holding licenses "hostage" over payment disputes violates these core requirements.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>Can I report my MSP to Microsoft for withholding licenses?</h3>
+                        <p>Yes. Microsoft takes CSP agreement violations seriously. If your provider is refusing to transfer licenses or denying admin access, you can file a complaint with Microsoft Partner Support. We can help document the violation and assist with the reporting process while we execute your license rescue.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>What rights do I have as a Microsoft customer?</h3>
+                        <p>As the end customer, you have the right to: transfer your licenses to any authorized CSP provider, maintain admin access to your Microsoft tenant, receive your data upon request, and choose your billing partner freely. Any MSP that denies these rights is violating both Microsoft's terms and potentially Canadian business law.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <div class="container">
+                <CTABox 
+                    title="Stop Being Held Hostage by Your Microsoft Licenses"
+                    description="Every day you wait is another day paying inflated licensing fees to a provider that's holding your business back. Our Microsoft Contract Rescue service has helped businesses across Canada - from Victoria to St. John's - break free from licensing lock-in situations."
+                    buttonText="Start Your License Rescue Today"
+                    buttonLink="/contact/?form_conversion=contract-rescue-final-cta"
+                />
+                
+                <div class="contact-options">
+                    <p><strong>🍁 Available for Emergency License Transfers Nationwide</strong></p>
+                    <p class="coverage-text">Serving all provinces and territories across Canada</p>
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <span>Western Canada:</span> <a href="tel:8254156990">(825) 415-6990</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>Pacific/BC:</span> <a href="tel:7788197411">(778) 819-7411</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>Email:</span> <a href="mailto:licensing@huntertech.ca">licensing@huntertech.ca</a>
+                        </div>
+                    </div>
+                    <p class="nationwide-text">Toronto • Montreal • Ottawa • Edmonton • Winnipeg • Halifax • All Major Cities</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .service-page {
+        padding-top: 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    /* Problem Section */
+    .problem-section {
+        padding: 4rem 0;
+        background-color: var(--white);
+    }
+
+    .problem-section h2 {
+        text-align: center;
+        color: var(--secondary-heading);
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .problem-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 3rem;
+        align-items: start;
+    }
+
+    .lead {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        color: var(--text-color);
+    }
+
+    .real-scenario {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-left: 4px solid var(--button-color);
+        margin: 2rem 0;
+    }
+
+    .real-scenario h3 {
+        color: var(--secondary-heading);
+        margin-bottom: 1rem;
+    }
+
+    .pain-points h3 {
+        color: var(--secondary-heading);
+        margin-bottom: 1.5rem;
+    }
+
+    .pain-points ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .pain-points li {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .pain-points li:before {
+        content: "⚠";
+        color: #ff6b6b;
+        position: absolute;
+        left: 0;
+    }
+
+    .stats-box {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        color: var(--white);
+    }
+
+    .stat {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .stat-number {
+        display: block;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+        display: block;
+        font-size: 0.9rem;
+        opacity: 0.95;
+    }
+
+    /* Solution Section */
+    .solution-section {
+        padding: 4rem 0;
+        background-color: var(--secondary-bg);
+    }
+
+    .solution-section h2 {
+        text-align: center;
+        color: var(--secondary-heading);
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
+    }
+
+    .section-intro {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 3rem;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .value-props {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+
+    .value-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .icon-wrapper {
+        width: 3rem;
+        height: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .value-card h3 {
+        color: var(--secondary-heading);
+        margin-bottom: 1rem;
+    }
+
+    .value-card ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .value-card li {
+        margin-bottom: 0.75rem;
+        padding-left: 1.5rem;
+        position: relative;
+        font-size: 0.95rem;
+    }
+
+    .value-card li:before {
+        content: "✓";
+        color: var(--button-color);
+        position: absolute;
+        left: 0;
+    }
+
+    /* Process Section */
+    .process-section {
+        padding: 4rem 0;
+        background-color: var(--white);
+    }
+
+    .process-section h2 {
+        text-align: center;
+        color: var(--secondary-heading);
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .step {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .step-number {
+        flex-shrink: 0;
+        width: 3rem;
+        height: 3rem;
+        background: var(--button-color);
+        color: var(--white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .step-content h3 {
+        color: var(--secondary-heading);
+        margin-bottom: 0.5rem;
+    }
+
+    .step-subtitle {
+        font-weight: 600;
+        color: var(--button-color);
+        margin-bottom: 1rem;
+    }
+
+    .step-content ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+
+    .step-content li {
+        margin-bottom: 0.5rem;
+        padding-left: 1.25rem;
+        position: relative;
+        font-size: 0.95rem;
+    }
+
+    .step-content li:before {
+        content: "•";
+        color: var(--button-color);
+        position: absolute;
+        left: 0;
+    }
+
+    .timeline {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background: #f0f0f0;
+        border-radius: var(--radius-sm);
+        font-size: 0.85rem;
+        color: #666;
+    }
+
+    /* Trust Section */
+    .trust-section {
+        padding: 4rem 0;
+        background-color: var(--secondary-bg);
+    }
+
+    .trust-section h2 {
+        text-align: center;
+        color: var(--secondary-heading);
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .trust-features {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .main-trust-card {
+        background: var(--white);
+        padding: 2.5rem;
+        border-radius: var(--radius-md);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .main-trust-card svg {
+        width: 3rem;
+        height: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .main-trust-card h3 {
+        color: var(--secondary-heading);
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+    }
+
+    .main-trust-card ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .main-trust-card li {
+        margin-bottom: 0.75rem;
+        padding-left: 1.5rem;
+        position: relative;
+        line-height: 1.6;
+    }
+
+    .main-trust-card li:before {
+        content: "✓";
+        color: var(--button-color);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+    }
+
+    .guarantee-card {
+        background: #f8f9fa;
+        border: 3px solid var(--button-color);
+        padding: 2.5rem;
+        border-radius: var(--radius-md);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .guarantee-card h3 {
+        color: var(--secondary-heading);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .guarantee-card p {
+        color: var(--text-color);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        font-size: 1.05rem;
+    }
+
+    .guarantee-points {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .guarantee-points li {
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        position: relative;
+        color: var(--text-color);
+    }
+
+    .guarantee-points li:before {
+        content: "•";
+        color: var(--button-color);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+    }
+
+    /* Location Section */
+    .location-section {
+        padding: 4rem 0;
+        background-color: var(--white);
+    }
+
+    .location-section h2 {
+        text-align: center;
+        color: var(--secondary-heading);
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .location-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+    }
+
+    .location-card {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        border: 2px solid var(--button-color);
+    }
+
+    .location-card h3 {
+        color: var(--secondary-heading);
+        margin-bottom: 1rem;
+    }
+
+    .location-card p {
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    .location-card ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .location-card li {
+        margin-bottom: 0.75rem;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .location-card li:before {
+        content: "📍";
+        position: absolute;
+        left: 0;
+    }
+
+    /* Canada-wide Section */
+    .canada-wide-section {
+        padding: 4rem 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+
+    .canada-wide-section h2 {
+        text-align: center;
+        color: var(--secondary-heading);
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .canada-benefits {
+        margin-bottom: 3rem;
+    }
+
+    .benefit-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .benefit-item {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .benefit-item h3 {
+        color: var(--secondary-heading);
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+    }
+
+    .benefit-item p {
+        line-height: 1.6;
+        color: var(--text-color);
+    }
+
+    .service-areas {
+        background: var(--white);
+        padding: 2.5rem;
+        border-radius: var(--radius-md);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .service-areas h3 {
+        color: var(--secondary-heading);
+        margin-bottom: 2rem;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .cities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+    }
+
+    .city-group h4 {
+        color: var(--button-color);
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        border-bottom: 2px solid var(--button-color);
+        padding-bottom: 0.5rem;
+    }
+
+    .city-group ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .city-group li {
+        margin-bottom: 0.5rem;
+        padding-left: 1.25rem;
+        position: relative;
+        color: var(--text-color);
+    }
+
+    .city-group li:before {
+        content: "•";
+        color: var(--button-color);
+        position: absolute;
+        left: 0;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+        padding: 4rem 0;
+        background-color: var(--secondary-bg);
+    }
+
+    .faq-section h2 {
+        text-align: center;
+        color: var(--secondary-heading);
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+    }
+
+    .faq-item {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .faq-item h3 {
+        color: var(--secondary-heading);
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .faq-item p {
+        line-height: 1.6;
+        color: var(--text-color);
+    }
+
+    /* Final CTA */
+    .final-cta {
+        padding: 4rem 0;
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    }
+
+    .contact-options {
+        text-align: center;
+        margin-top: 2rem;
+        color: var(--white);
+    }
+
+    .contact-options p {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .contact-grid {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .contact-item span {
+        font-weight: 600;
+    }
+
+    .contact-item a {
+        color: var(--white);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+        border-bottom-color: var(--white);
+    }
+
+    .coverage-text {
+        font-size: 1rem;
+        opacity: 0.95;
+        margin: -0.5rem 0 1rem;
+    }
+
+    .nationwide-text {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        margin-top: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .problem-content {
+            grid-template-columns: 1fr;
+        }
+
+        .stats-box {
+            margin-top: 2rem;
+        }
+
+        .process-steps {
+            grid-template-columns: 1fr;
+        }
+
+        .trust-features {
+            grid-template-columns: 1fr;
+        }
+
+        .location-grid,
+        .faq-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .main-trust-card,
+        .guarantee-card {
+            padding: 1.5rem;
+        }
+
+        .contact-grid {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            font-size: 2rem !important;
+        }
+
+        .benefit-row {
+            grid-template-columns: 1fr;
+        }
+
+        .cities-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .benefit-item {
+            padding: 1.5rem;
+        }
+
+        .service-areas {
+            padding: 1.5rem;
+        }
+    }
+</style>

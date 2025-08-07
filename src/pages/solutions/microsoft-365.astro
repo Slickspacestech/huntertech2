@@ -154,6 +154,13 @@ const structuredData = {
                             </div>
                         </div>
 
+                        <div class="rescue-cta">
+                            <h3>⚠️ Stuck with Your Current Provider?</h3>
+                            <p><strong>Microsoft Contract Rescue Service Available</strong></p>
+                            <p>If your current IT provider is holding your Microsoft licenses hostage or making it difficult to switch, we can help. Our Microsoft Contract Rescue service provides a safe, temporary home for your licenses while you find the right long-term solution.</p>
+                            <a href="/services/microsoft-contract-rescue/" class="rescue-button">Learn About License Rescue →</a>
+                        </div>
+
                         <h3>Why Choose Our Microsoft 365 Services?</h3>
                         <div class="benefits-grid">
                             <div class="benefit-card">
@@ -282,6 +289,44 @@ const structuredData = {
         color: var(--primary-color);
         margin-bottom: 0.5rem;
         font-size: 1.2rem;
+    }
+
+    .rescue-cta {
+        background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+        border: 2px solid #ffc107;
+        border-radius: 10px;
+        padding: 2rem;
+        margin: 2rem 0;
+        text-align: center;
+    }
+
+    .rescue-cta h3 {
+        color: #856404;
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    .rescue-cta p {
+        color: #856404;
+        margin-bottom: 1rem;
+    }
+
+    .rescue-button {
+        display: inline-block;
+        background: var(--button-color);
+        color: var(--white);
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-top: 0.5rem;
+    }
+
+    .rescue-button:hover {
+        background: var(--button-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 172, 172, 0.3);
     }
 
     @media (max-width: 768px) {

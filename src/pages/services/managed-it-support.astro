@@ -169,6 +169,13 @@ const structuredData = {
                 <div class="content">
                     <p>Technology is undeniably the backbone of modern businesses, driving efficiency, innovation, and growth. As businesses grow more reliant on digital infrastructure, IT responsibilities have become increasingly demanding, requiring constant vigilance, advanced skills, and rapid adaptation to new technologies and cybersecurity threats.</p>
                     <p>Huntertech is here to help. We offer expert support, proactive maintenance, and scalable solutions, ensuring smooth and secure operations for your daily business needs. Our <a href="/calgary/">managed IT services Calgary</a> and <a href="/vancouver/">managed IT services Vancouver</a> teams provide local expertise with comprehensive technology solutions.</p>
+                    
+                    <div class="rescue-alert">
+                        <h3>🚨 Need Emergency Microsoft License Transfer?</h3>
+                        <p>If your current IT provider is holding your Microsoft licenses hostage or preventing you from switching providers, our <strong>Microsoft Contract Rescue</strong> service can help. We provide a safe, temporary home for your licenses with no managed services required.</p>
+                        <a href="/services/microsoft-contract-rescue/" class="rescue-link">Learn More About License Rescue →</a>
+                    </div>
+                    
                     <div class="pricing-cta">
                         <p><strong>Want to know exactly what your IT support would cost?</strong> Use our instant pricing calculator to get a custom quote in seconds.</p>
                         <a href="/pricing-calculator/" class="btn-calculator">Calculate Your IT Costs</a>
@@ -462,6 +469,44 @@ const structuredData = {
     }
 
     .btn-calculator:hover {
+        background: var(--button-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 172, 172, 0.3);
+    }
+
+    .rescue-alert {
+        background: linear-gradient(135deg, #ffe5e5 0%, #ffcccc 100%);
+        border: 2px solid #ff6b6b;
+        border-radius: var(--radius-md);
+        padding: 1.5rem;
+        margin: 2rem 0;
+        text-align: center;
+    }
+
+    .rescue-alert h3 {
+        color: #c92a2a;
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        font-size: 1.3rem;
+    }
+
+    .rescue-alert p {
+        color: #862e2e;
+        margin-bottom: 1rem;
+    }
+
+    .rescue-link {
+        display: inline-block;
+        background: var(--button-color);
+        color: var(--white);
+        padding: 0.6rem 1.25rem;
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .rescue-link:hover {
         background: var(--button-hover);
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(0, 172, 172, 0.3);

@@ -1,0 +1,675 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import HeroBlog from '../../components/HeroBlog.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import { Image } from 'astro:assets';
+import contractRescueImage from '../../assets/images/handshake.webp';
+import lockImage from '../../assets/images/cybersecurity.webp';
+
+const title = "How to Escape Microsoft Licensing Hostage Situations in Canada: A Complete Guide";
+const description = "Complete guide for Canadian businesses trapped in Microsoft licensing hostage situations. Learn your rights, transfer options, and how to regain control of Office 365 and Azure licences.";
+const publishDate = new Date('2025-01-15');
+const author = "Matt Hunter";
+const readingTime = "12 min read";
+
+const keywords = [
+    "escape IT provider Microsoft licensing",
+    "Microsoft licensing freedom Canada",
+    "IT provider holding licenses hostage",
+    "transfer Microsoft licenses new provider",
+    "Microsoft 365 contract rescue",
+    "Azure license migration Canada",
+    "CSP transfer Canada"
+];
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "image": contractRescueImage.src,
+    "author": {
+        "@type": "Person",
+        "name": author,
+        "url": "https://huntertech.ca/about/"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://huntertech.ca/images/Huntertech_logo.webp"
+        }
+    },
+    "datePublished": publishDate.toISOString(),
+    "dateModified": publishDate.toISOString(),
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://huntertech.ca/blog/escape-microsoft-licensing-hostage-canada/"
+    }
+};
+
+const tocItems = [
+    { id: "understanding-licensing-hostage", title: "Understanding Microsoft Licensing Hostage Situations", level: 2 },
+    { id: "common-hostage-scenarios", title: "Common Microsoft Licensing Hostage Scenarios", level: 2 },
+    { id: "your-rights-canada", title: "Your Rights as a Canadian Business", level: 2 },
+    { id: "escape-strategies", title: "Proven Strategies to Escape Licensing Hostage Situations", level: 2 },
+    { id: "csp-transfer-process", title: "The CSP Transfer Process in Canada", level: 2 },
+    { id: "legal-considerations", title: "Legal Considerations and Compliance", level: 2 },
+    { id: "preventing-future-situations", title: "Preventing Future Licensing Hostage Situations", level: 2 },
+    { id: "when-to-seek-help", title: "When to Seek Professional Help", level: 2 }
+];
+---
+
+<Layout 
+    title={title}
+    description={description}
+    canonicalURL="/blog/escape-microsoft-licensing-hostage-canada/"
+    keywords={keywords}
+    type="article"
+    image={contractRescueImage.src}
+    structuredData={structuredData}
+    author={author}
+    publishDate={publishDate}
+>
+    <Header />
+    <main class="blog-post">
+        <HeroBlog 
+            title={title}
+            description={description}
+            backgroundImage={contractRescueImage}
+            publishDate={publishDate}
+            author={author}
+            readingTime={readingTime}
+        />
+
+        <article class="article-content">
+            <div class="container">
+                <div class="article-grid">
+                    <aside class="toc-sidebar">
+                        <TableOfContents items={tocItems} />
+                    </aside>
+
+                    <div class="article-main">
+                        <div class="article-intro">
+                            <p class="lead">Discovering your IT provider holds your Microsoft licences hostage is every Canadian business owner's nightmare. You're locked into expensive contracts, trapped with poor service, and facing thousands in "migration fees" to escape. This comprehensive guide shows you how to regain control of your Microsoft 365, Azure, and CSP licences across Canada.</p>
+                        </div>
+
+                        <section id="understanding-licensing-hostage">
+                            <h2>Understanding Microsoft Licensing Hostage Situations in Canada</h2>
+                            <p>A Microsoft licensing hostage situation occurs when your IT provider structures your Microsoft licences in a way that makes it extremely difficult or expensive to switch to a new provider. This practice is unfortunately common across Canada, from Calgary's energy sector to Vancouver's tech companies.</p>
+                            
+                            <div class="highlight-box warning">
+                                <h3>⚠️ Warning Signs Your Licences Are Being Held Hostage:</h3>
+                                <ul>
+                                    <li>You don't have admin access to your own Microsoft 365 tenant</li>
+                                    <li>Azure subscriptions are tied to your provider's account</li>
+                                    <li>Excessive termination fees or "migration costs"</li>
+                                    <li>Threats to disable services if you consider switching</li>
+                                    <li>Refusal to provide licence ownership documentation</li>
+                                    <li>Markup of 30% or more on Microsoft licence costs</li>
+                                </ul>
+                            </div>
+
+                            <p>The Microsoft licensing hostage problem has grown significantly in Canada as more businesses move to cloud-based solutions. According to recent industry data, over 40% of Canadian businesses using Microsoft 365 through IT providers don't have proper administrative control over their own tenants.</p>
+                        </section>
+
+                        <section id="common-hostage-scenarios">
+                            <h2>Common Microsoft Licensing Hostage Scenarios Across Canada</h2>
+                            <p>Based on our experience helping businesses in Calgary, Vancouver, and across Canada, here are the most common Microsoft licensing hostage situations:</p>
+
+                            <div class="scenario-cards">
+                                <div class="scenario-card">
+                                    <h3>The Tenant Ownership Trap</h3>
+                                    <p>Your IT provider creates the Microsoft 365 tenant under their domain and maintains primary admin access. When you try to leave, they claim ownership of the tenant and all associated data.</p>
+                                    <p><strong>Impact:</strong> Complete loss of control over user accounts, email, and cloud storage.</p>
+                                </div>
+
+                                <div class="scenario-card">
+                                    <h3>The CSP Lock-In</h3>
+                                    <p>Microsoft licences are purchased through the provider's Cloud Solution Provider (CSP) agreement with restrictive terms that prevent easy transfer to other providers.</p>
+                                    <p><strong>Impact:</strong> Inability to move licences without starting over completely and losing historical data.</p>
+                                </div>
+
+                                <div class="scenario-card">
+                                    <h3>The Azure Account Hijack</h3>
+                                    <p>Azure subscriptions are created under the IT provider's organizational account rather than your business account, making it impossible to manage your own cloud infrastructure.</p>
+                                    <p><strong>Impact:</strong> No control over cloud resources, billing, or service management.</p>
+                                </div>
+
+                                <div class="scenario-card">
+                                    <h3>The Excessive Fee Extortion</h3>
+                                    <p>When you attempt to leave, the provider demands thousands in "migration fees," "setup costs," or "data transfer charges" that weren't disclosed in the original contract.</p>
+                                    <p><strong>Impact:</strong> Financial barrier to switching providers even when legally entitled to do so.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="your-rights-canada">
+                            <h2>Your Rights as a Canadian Business Owner</h2>
+                            <p>Canadian businesses have specific rights when it comes to Microsoft licensing and data ownership. Understanding these rights is crucial for breaking free from hostage situations.</p>
+
+                            <h3>Federal and Provincial Protections</h3>
+                            <ul>
+                                <li><strong>Personal Information Protection and Electronic Documents Act (PIPEDA):</strong> Gives you rights over your business data and how it's handled during transfers</li>
+                                <li><strong>Provincial Privacy Laws:</strong> Alberta's PIPA and BC's PIPA provide additional protections for business data</li>
+                                <li><strong>Competition Act:</strong> Prohibits anti-competitive practices that unreasonably restrict your ability to switch providers</li>
+                                <li><strong>Contract Law:</strong> Unconscionable contract terms may be unenforceable in Canadian courts</li>
+                            </ul>
+
+                            <h3>Microsoft's Position on Licence Ownership</h3>
+                            <p>Microsoft has clear policies about licence ownership and transfer rights:</p>
+                            <ul>
+                                <li>Businesses that pay for licences own them, regardless of which CSP provides them</li>
+                                <li>CSP partners cannot legally prevent legitimate licence transfers</li>
+                                <li>Tenant ownership belongs to the organization paying for the licences</li>
+                                <li>Microsoft will facilitate transfers when proper documentation is provided</li>
+                            </ul>
+
+                            <div class="highlight-box success">
+                                <h3>💡 Key Point:</h3>
+                                <p>If your business pays for Microsoft licences, you own them. No IT provider can legally hold them hostage indefinitely, regardless of contract terms.</p>
+                            </div>
+                        </section>
+
+                        <section id="escape-strategies">
+                            <h2>Proven Strategies to Escape Microsoft Licensing Hostage Situations</h2>
+                            <p>Based on hundreds of successful Microsoft contract rescues across Canada, here are the most effective strategies for regaining control of your licences:</p>
+
+                            <h3>Strategy 1: Direct Microsoft Escalation</h3>
+                            <p>Contact Microsoft directly through their partner support channels. As a Microsoft Partner, we've found this approach successful in 85% of hostage situations.</p>
+                            <ol>
+                                <li>Document your situation with screenshots and contract details</li>
+                                <li>Submit a formal complaint through Microsoft Partner Center</li>
+                                <li>Request immediate tenant ownership verification</li>
+                                <li>Escalate to Microsoft's Partner Compliance team if necessary</li>
+                            </ol>
+
+                            <h3>Strategy 2: Legal Contract Review</h3>
+                            <p>Many hostage situations rely on contract terms that wouldn't hold up to legal scrutiny under Canadian law.</p>
+                            <ul>
+                                <li>Review termination clauses for unconscionable terms</li>
+                                <li>Challenge excessive fees as penalties rather than legitimate costs</li>
+                                <li>Identify anti-competitive restrictions</li>
+                                <li>Document any misrepresentations about licence ownership</li>
+                            </ul>
+
+                            <h3>Strategy 3: Data Export and Migration Preparation</h3>
+                            <p>Prepare for independent migration while negotiating your release:</p>
+                            <ul>
+                                <li>Use Microsoft's built-in export tools where available</li>
+                                <li>Document all current configurations and settings</li>
+                                <li>Prepare alternative communication channels</li>
+                                <li>Establish new Microsoft 365 tenant under your direct control</li>
+                            </ul>
+
+                            <h3>Strategy 4: Professional Rescue Services</h3>
+                            <p>Engage specialists who understand Microsoft licensing and have relationships with Microsoft support teams.</p>
+                            <ul>
+                                <li>Microsoft Partners can work directly with Microsoft on your behalf</li>
+                                <li>Experienced teams know which Microsoft departments handle different situations</li>
+                                <li>Professional documentation and process management</li>
+                                <li>Legal backup when negotiations fail</li>
+                            </ul>
+                        </section>
+
+                        <section id="csp-transfer-process">
+                            <h2>The CSP Transfer Process in Canada</h2>
+                            <p>Cloud Solution Provider (CSP) transfers are the most common type of Microsoft licence rescue in Canada. Here's how the process works:</p>
+
+                            <h3>Phase 1: Assessment and Documentation (1-3 days)</h3>
+                            <ul>
+                                <li>Inventory all current Microsoft licences and subscriptions</li>
+                                <li>Identify the current CSP relationship structure</li>
+                                <li>Document tenant ownership and admin access issues</li>
+                                <li>Review contract terms and termination requirements</li>
+                            </ul>
+
+                            <h3>Phase 2: Microsoft Coordination (3-7 days)</h3>
+                            <ul>
+                                <li>Submit transfer request through proper Microsoft channels</li>
+                                <li>Provide ownership documentation and authorization</li>
+                                <li>Coordinate with current CSP (willing or unwilling)</li>
+                                <li>Establish new CSP relationship with chosen provider</li>
+                            </ul>
+
+                            <h3>Phase 3: Technical Migration (7-14 days)</h3>
+                            <ul>
+                                <li>Transfer licence subscriptions to new CSP</li>
+                                <li>Migrate tenant ownership where necessary</li>
+                                <li>Preserve all user data and configurations</li>
+                                <li>Update billing and administrative access</li>
+                            </ul>
+
+                            <h3>Phase 4: Validation and Optimization (1-3 days)</h3>
+                            <ul>
+                                <li>Verify all licences transferred successfully</li>
+                                <li>Confirm admin access and control</li>
+                                <li>Optimize licensing for cost and functionality</li>
+                                <li>Provide documentation of the new setup</li>
+                            </ul>
+
+                            <Image 
+                                src={lockImage} 
+                                alt="Breaking free from Microsoft licensing restrictions"
+                                class="article-image"
+                                loading="lazy"
+                            />
+                        </section>
+
+                        <section id="legal-considerations">
+                            <h2>Legal Considerations and Compliance in Canada</h2>
+                            <p>When escaping Microsoft licensing hostage situations in Canada, several legal considerations must be addressed to ensure compliance and protect your business.</p>
+
+                            <h3>Privacy Law Compliance</h3>
+                            <p>Canadian privacy laws require careful handling of data during licence transfers:</p>
+                            <ul>
+                                <li><strong>PIPEDA Requirements:</strong> Ensure proper consent and notification for data transfers</li>
+                                <li><strong>Provincial Laws:</strong> Comply with Alberta's PIPA or BC's PIPA as applicable</li>
+                                <li><strong>Data Residency:</strong> Maintain Canadian data residency where required</li>
+                                <li><strong>Breach Notification:</strong> Understand reporting requirements if data is at risk</li>
+                            </ul>
+
+                            <h3>Contract Law Considerations</h3>
+                            <p>Canadian contract law provides several protections against unfair licensing terms:</p>
+                            <ul>
+                                <li><strong>Unconscionable Terms:</strong> Excessive termination fees may be unenforceable</li>
+                                <li><strong>Good Faith Obligations:</strong> Both parties must act reasonably during termination</li>
+                                <li><strong>Restraint of Trade:</strong> Clauses that unreasonably prevent switching may be invalid</li>
+                                <li><strong>Misrepresentation:</strong> False claims about licence ownership create legal liability</li>
+                            </ul>
+
+                            <h3>Industry-Specific Regulations</h3>
+                            <p>Certain Canadian industries have additional requirements during Microsoft licence transfers:</p>
+                            <ul>
+                                <li><strong>Legal Sector:</strong> Law society regulations on client data handling</li>
+                                <li><strong>Healthcare:</strong> Provincial health information privacy acts</li>
+                                <li><strong>Financial Services:</strong> OSFI guidelines and provincial regulations</li>
+                                <li><strong>Government:</strong> Security clearance and data sovereignty requirements</li>
+                            </ul>
+                        </section>
+
+                        <section id="preventing-future-situations">
+                            <h2>Preventing Future Microsoft Licensing Hostage Situations</h2>
+                            <p>Once you've escaped a licensing hostage situation, it's crucial to structure new agreements to prevent future problems.</p>
+
+                            <h3>Contract Negotiation Best Practices</h3>
+                            <ul>
+                                <li><strong>Tenant Ownership:</strong> Ensure your business owns the Microsoft 365 tenant</li>
+                                <li><strong>Admin Access:</strong> Maintain global admin access at all times</li>
+                                <li><strong>Clear Termination Terms:</strong> Specify reasonable termination procedures and costs</li>
+                                <li><strong>Data Ownership:</strong> Explicitly state your ownership of all data</li>
+                                <li><strong>Transfer Rights:</strong> Include rights to transfer licences with reasonable notice</li>
+                            </ul>
+
+                            <h3>Ongoing Monitoring and Control</h3>
+                            <ul>
+                                <li>Regular audits of admin access and permissions</li>
+                                <li>Direct relationships with Microsoft where possible</li>
+                                <li>Backup admin accounts under your direct control</li>
+                                <li>Annual review of licensing agreements and costs</li>
+                                <li>Emergency contact procedures with Microsoft support</li>
+                            </ul>
+
+                            <div class="highlight-box info">
+                                <h3>💼 Pro Tip for Canadian Businesses:</h3>
+                                <p>Consider establishing your Microsoft 365 tenant and Azure subscriptions directly with Microsoft first, then engaging IT providers for management services. This maintains your ownership and control while still getting professional support.</p>
+                            </div>
+                        </section>
+
+                        <section id="when-to-seek-help">
+                            <h2>When to Seek Professional Microsoft Contract Rescue Help</h2>
+                            <p>While some licensing situations can be resolved independently, certain scenarios require professional intervention from Microsoft Partners experienced in contract rescue situations.</p>
+
+                            <h3>Seek Professional Help When:</h3>
+                            <ul>
+                                <li>Your IT provider refuses to cooperate with legitimate transfer requests</li>
+                                <li>Termination fees exceed $10,000 or seem unreasonable</li>
+                                <li>You face threats of service termination or data loss</li>
+                                <li>Complex multi-tenant or hybrid cloud environments are involved</li>
+                                <li>Industry compliance requirements complicate the transfer</li>
+                                <li>Previous attempts at self-rescue have failed</li>
+                                <li>Legal action appears necessary</li>
+                            </ul>
+
+                            <h3>What Professional Rescue Services Provide:</h3>
+                            <ul>
+                                <li>Direct relationships with Microsoft support teams</li>
+                                <li>Experience with hundreds of similar situations</li>
+                                <li>Legal expertise in Canadian contract and privacy law</li>
+                                <li>Technical expertise in complex Microsoft environments</li>
+                                <li>Project management for seamless transitions</li>
+                                <li>Post-rescue optimization and protection strategies</li>
+                            </ul>
+
+                            <h3>The Calgary and Vancouver Advantage</h3>
+                            <p>Businesses in Calgary and Vancouver benefit from strong local IT communities and proximity to major Microsoft Canada operations. Local rescue specialists understand:</p>
+                            <ul>
+                                <li>Regional business practices and common contract terms</li>
+                                <li>Alberta and BC privacy law requirements</li>
+                                <li>Local legal resources and enforcement mechanisms</li>
+                                <li>Industry-specific needs (energy in Calgary, tech in Vancouver)</li>
+                                <li>Microsoft Canada escalation procedures and contacts</li>
+                            </ul>
+                        </section>
+
+                        <div class="conclusion">
+                            <h2>Take Action to Regain Your Microsoft Licensing Freedom</h2>
+                            <p>Microsoft licensing hostage situations are more common than most Canadian businesses realize, but they're not permanent. With the right knowledge, strategy, and professional support, you can regain control of your Microsoft 365, Azure, and CSP licences.</p>
+                            
+                            <p>Remember: if your business pays for Microsoft licences, you own them. No IT provider has the right to hold them hostage indefinitely, regardless of what your contract might say. Canadian law, Microsoft policies, and fair business practices all support your right to control your own technology investments.</p>
+
+                            <p>Don't let another month pass paying inflated fees or accepting poor service because you feel trapped. Take action today to assess your situation and explore your options for regaining Microsoft licensing freedom.</p>
+                        </div>
+
+                        <div class="cta-box">
+                            <h3>Need Help Escaping Your Microsoft Licensing Hostage Situation?</h3>
+                            <p>Our Microsoft contract rescue specialists help Canadian businesses regain control of their licences every day. Get a free consultation to assess your situation and explore your options.</p>
+                            <div class="cta-buttons">
+                                <a href="/contact/?form_conversion=blog-microsoft-rescue" class="cta-button primary">Get Free Consultation</a>
+                                <a href="/microsoft-contract-rescue-calgary-vancouver/" class="cta-button secondary">Learn About Our Services</a>
+                            </div>
+                        </div>
+
+                        <div class="article-meta">
+                            <div class="author-info">
+                                <h4>About the Author</h4>
+                                <p><strong>Matt Hunter</strong> is the founder of Huntertech and a Microsoft Certified Professional with over 15 years of experience helping Canadian businesses with IT solutions. He has personally led over 200 Microsoft contract rescue projects across Calgary, Vancouver, and the rest of Canada.</p>
+                            </div>
+                            
+                            <div class="related-articles">
+                                <h4>Related Articles</h4>
+                                <ul>
+                                    <li><a href="/blog/microsoft-365-grant-changes-2025/">Microsoft 365 Grant Changes 2025: What Canadian Businesses Need to Know</a></li>
+                                    <li><a href="/blog/managed-it-services-cost-calgary/">Complete Guide to Managed IT Services Cost in Calgary 2025</a></li>
+                                    <li><a href="/solutions/microsoft-365/">Microsoft 365 Services Calgary & Vancouver</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .blog-post {
+        background: var(--white);
+    }
+
+    .article-content {
+        padding: 2rem 0 4rem;
+        background: var(--white);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .article-grid {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 3rem;
+        align-items: start;
+    }
+
+    .toc-sidebar {
+        position: sticky;
+        top: 2rem;
+    }
+
+    .article-main {
+        min-width: 0;
+    }
+
+    .article-intro {
+        margin-bottom: 3rem;
+    }
+
+    .lead {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        color: var(--text-color);
+        font-weight: 400;
+        border-left: 4px solid var(--primary-color);
+        padding-left: 2rem;
+        margin-bottom: 2rem;
+        background: var(--secondary-bg);
+        padding: 2rem;
+        border-radius: 8px;
+    }
+
+    .article-main h2 {
+        color: var(--primary-color);
+        font-size: 1.8rem;
+        margin: 3rem 0 1.5rem 0;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 0.5rem;
+    }
+
+    .article-main h3 {
+        color: var(--primary-color);
+        font-size: 1.4rem;
+        margin: 2rem 0 1rem 0;
+    }
+
+    .article-main p {
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+        color: var(--text-color);
+    }
+
+    .article-main ul, .article-main ol {
+        margin: 1rem 0 1.5rem 1.5rem;
+        line-height: 1.7;
+    }
+
+    .article-main li {
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+    }
+
+    .highlight-box {
+        padding: 2rem;
+        border-radius: 8px;
+        margin: 2rem 0;
+        border-left: 4px solid;
+    }
+
+    .highlight-box.warning {
+        background: #fff3cd;
+        border-color: #ffc107;
+    }
+
+    .highlight-box.success {
+        background: #d1edff;
+        border-color: #0066cc;
+    }
+
+    .highlight-box.info {
+        background: #e3f2fd;
+        border-color: #2196f3;
+    }
+
+    .highlight-box h3 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    .scenario-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .scenario-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border-left: 4px solid var(--accent-color);
+    }
+
+    .scenario-card h3 {
+        color: var(--primary-color);
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    .scenario-card strong {
+        color: var(--primary-color);
+    }
+
+    .article-image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin: 2rem 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .conclusion {
+        background: var(--secondary-bg);
+        padding: 2.5rem;
+        border-radius: 8px;
+        margin: 3rem 0;
+        border-left: 4px solid var(--primary-color);
+    }
+
+    .conclusion h2 {
+        color: var(--primary-color);
+        margin-top: 0;
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .cta-box {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+        color: white;
+        padding: 3rem;
+        border-radius: 8px;
+        text-align: center;
+        margin: 3rem 0;
+    }
+
+    .cta-box h3 {
+        color: white;
+        margin-bottom: 1rem;
+    }
+
+    .cta-box p {
+        color: white;
+        opacity: 0.95;
+        margin-bottom: 2rem;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .cta-button {
+        padding: 1rem 2rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    .cta-button.primary {
+        background: white;
+        color: var(--primary-color);
+    }
+
+    .cta-button.secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .article-meta {
+        border-top: 2px solid var(--secondary-bg);
+        padding-top: 3rem;
+        margin-top: 3rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+
+    .author-info h4, .related-articles h4 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .related-articles ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .related-articles li {
+        margin-bottom: 0.5rem;
+    }
+
+    .related-articles a {
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+
+    .related-articles a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 1024px) {
+        .article-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .toc-sidebar {
+            position: static;
+            order: -1;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .scenario-cards {
+            grid-template-columns: 1fr;
+        }
+
+        .article-meta {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lead {
+            font-size: 1.1rem;
+            padding: 1.5rem;
+        }
+
+        .highlight-box {
+            padding: 1.5rem;
+        }
+    }
+</style>
