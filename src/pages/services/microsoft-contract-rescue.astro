@@ -543,7 +543,11 @@ const structuredData = {
                     buttonText="Start Your License Rescue Today"
                     buttonLink="/contact/?form_conversion=contract-rescue-final-cta"
                 />
-                
+            </div>
+        </section>
+        
+        <section class="contact-section">
+            <div class="container">
                 <div class="contact-options">
                     <p><strong>🍁 Available for Emergency License Transfers Nationwide</strong></p>
                     <p class="coverage-text">Serving all provinces and territories across Canada</p>
@@ -558,7 +562,7 @@ const structuredData = {
                             <span>Email:</span> <a href="mailto:licensing@huntertech.ca">licensing@huntertech.ca</a>
                         </div>
                     </div>
-                    <p class="nationwide-text">Toronto • Montreal • Ottawa • Edmonton • Winnipeg • Halifax • All Major Cities</p>
+                    <p class="nationwide-text">Toronto • Montreal • Ottawa • Edmonton • Winnipeg • Halifax • All Canadian Cities</p>
                 </div>
             </div>
         </section>
@@ -1096,15 +1100,27 @@ const structuredData = {
         background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     }
 
+    /* Contact Section */
+    .contact-section {
+        padding: 3rem 0;
+        background: #f8f9fa;
+        border-top: 1px solid #dee2e6;
+    }
+
     .contact-options {
         text-align: center;
-        margin-top: 2rem;
-        color: var(--white);
+        color: var(--text-color);
     }
 
     .contact-options p {
         margin-bottom: 1rem;
         font-size: 1.1rem;
+        color: var(--text-color);
+    }
+
+    .contact-options p strong {
+        color: var(--secondary-heading);
+        font-size: 1.2rem;
     }
 
     .contact-grid {
@@ -1120,30 +1136,36 @@ const structuredData = {
         gap: 0.5rem;
     }
 
+    .contact-item {
+        color: var(--text-color);
+    }
+
     .contact-item span {
         font-weight: 600;
+        color: var(--secondary-heading);
     }
 
     .contact-item a {
-        color: var(--white);
+        color: var(--button-color);
         text-decoration: none;
         border-bottom: 1px solid transparent;
         transition: border-color 0.3s ease;
     }
 
     .contact-item a:hover {
-        border-bottom-color: var(--white);
+        color: var(--button-hover);
+        border-bottom-color: var(--button-hover);
     }
 
     .coverage-text {
         font-size: 1rem;
-        opacity: 0.95;
+        color: #6c757d;
         margin: -0.5rem 0 1rem;
     }
 
     .nationwide-text {
         font-size: 0.9rem;
-        opacity: 0.9;
+        color: #6c757d;
         margin-top: 1.5rem;
         text-transform: uppercase;
         letter-spacing: 1px;

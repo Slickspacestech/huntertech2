@@ -17,6 +17,7 @@ import engineeringItServicesImg from '../assets/images/architect_engineer_tech.w
 import cybersecuritySmallBusinessImg from '../assets/images/blog/cybersecurity-small-business.webp';
 import hiddenCostsDiyVancouverImg from '../assets/images/Blog-Hidden-Costs-DIY-Vancouver.jpg';
 import itPricingGuideImg from '../assets/images/blog/it-pricing-guide.webp';
+import microsoftRescueImg from '../assets/images/handshake.webp';
 
 export interface BlogPost {
     slug: string;
@@ -30,6 +31,18 @@ export interface BlogPost {
 }
 
 export const posts: BlogPost[] = [
+    // {
+    //     slug: 'escape-microsoft-licensing-hostage-canada/',
+    //     title: "How to Escape Microsoft Licensing Hostage Situations in Canada: A Complete Guide",
+    //     date: "2025-08-08",
+    //     author: "Matt Hunter",
+    //     category: "Microsoft Licensing",
+    //     image: microsoftRescueImg,
+    //     content: `
+    //         <p>Complete guide for Canadian businesses trapped in Microsoft licensing hostage situations. Learn your rights under Microsoft's CSP agreement, understand transfer options, and discover how to regain control of your Office 365 and Azure licenses without service disruption.</p>
+    //     `,
+    //     tags: ["Microsoft license transfer Canada", "CSP transfer service", "Microsoft 365 contract rescue", "IT provider holding licenses", "Azure license migration", "Microsoft licensing freedom", "escape IT provider", "Canadian business IT"]
+    // },
     {
         slug: 'managed-it-services-cost-calgary/',
         title: "How Much Do Managed IT Services Cost in Calgary? 2025 Pricing Guide",
