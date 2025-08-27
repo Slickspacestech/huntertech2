@@ -23,6 +23,7 @@ export interface Props {
     keywords: string[];
     featuredImage: any; // Astro image import
     featuredImageAlt?: string;
+    titleClass?: string; // Optional class for the h1 title
     headings?: Array<{
         text: string;
         id: string;
@@ -54,6 +55,7 @@ const {
     keywords,
     featuredImage,
     featuredImageAlt = title,
+    titleClass = '',
     headings = [],
     faqItems = [],
     ctaTitle = "Need Expert IT Support?",
@@ -125,10 +127,71 @@ if (mentions.length > 0) {
     blogStructuredData.mentions = mentions;
 }
 
+// LocalBusiness structured data for Calgary and Vancouver offices
+const localBusinessData = [
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://huntertech.ca/#calgary-office",
+        "name": "Huntertech - Calgary IT Services",
+        "image": "https://huntertech.ca/images/Huntertech_logo.webp",
+        "telephone": "825-415-6990",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "4030 8 St SE",
+            "addressLocality": "Calgary",
+            "addressRegion": "AB",
+            "postalCode": "T2G 3A7",
+            "addressCountry": "CA"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "51.0447",
+            "longitude": "-114.0719"
+        },
+        "url": "https://huntertech.ca",
+        "sameAs": [
+            "https://www.linkedin.com/company/huntertech"
+        ],
+        "openingHours": "Mo-Fr 08:00-17:00",
+        "priceRange": "$$",
+        "areaServed": {
+            "@type": "City",
+            "name": "Calgary"
+        },
+        "serviceType": ["Managed IT Services", "Cloud Desktop Solutions", "IT Support"]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://huntertech.ca/#vancouver-office",
+        "name": "Huntertech - Vancouver IT Services",
+        "image": "https://huntertech.ca/images/Huntertech_logo.webp",
+        "telephone": "778-819-7411",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Vancouver",
+            "addressRegion": "BC",
+            "addressCountry": "CA"
+        },
+        "url": "https://huntertech.ca",
+        "sameAs": [
+            "https://www.linkedin.com/company/huntertech"
+        ],
+        "openingHours": "Mo-Fr 08:00-17:00",
+        "priceRange": "$$",
+        "areaServed": {
+            "@type": "City",
+            "name": "Vancouver"
+        },
+        "serviceType": ["Managed IT Services", "Cloud Desktop Solutions", "IT Support"]
+    }
+];
+
 // Combine structured data
 const structuredData = faqStructuredData 
-    ? [blogStructuredData, faqStructuredData] 
-    : [blogStructuredData];
+    ? [blogStructuredData, faqStructuredData, ...localBusinessData] 
+    : [blogStructuredData, ...localBusinessData];
 ---
 
 <Layout 
@@ -148,6 +211,7 @@ const structuredData = faqStructuredData
             backgroundImage={featuredImage}
             backgroundImageAlt={featuredImageAlt}
             author={author}
+            titleClass={titleClass}
         />
 
         <div class="blog-container">
@@ -181,6 +245,27 @@ const structuredData = faqStructuredData
                     </div>
                 )}
             </article>
+
+            <!-- NAP Information Section -->
+            <div class="contact-info-section">
+                <div class="office-locations">
+                    <h3>Our Office Locations</h3>
+                    <div class="location-cards">
+                        <div class="location-card">
+                            <h4>Calgary Office</h4>
+                            <p>4030 8 St SE<br />
+                            Calgary, AB T2G 3A7<br />
+                            <a href="tel:825-415-6990">825-415-6990</a></p>
+                        </div>
+                        <div class="location-card">
+                            <h4>Vancouver Office</h4>
+                            <p>Vancouver, BC<br />
+                            <a href="tel:778-819-7411">778-819-7411</a></p>
+                        </div>
+                    </div>
+                    <p class="hours">Business Hours: Monday - Friday, 8:00 AM - 5:00 PM MST/PST</p>
+                </div>
+            </div>
         </div>
 
         <div class="blog-container">
@@ -199,6 +284,64 @@ const structuredData = faqStructuredData
 </Layout>
 
 <style>
+.contact-info-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 3rem 0;
+    border: 1px solid #e5e7eb;
+}
+
+.office-locations h3 {
+    font-size: 1.5rem;
+    color: var(--blog-heading-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.location-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.location-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.location-card h4 {
+    color: var(--blog-accent-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.location-card p {
+    color: var(--blog-text-color);
+    line-height: 1.6;
+}
+
+.location-card a {
+    color: var(--blog-link-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.location-card a:hover {
+    color: var(--blog-accent-hover);
+    text-decoration: underline;
+}
+
+.hours {
+    text-align: center;
+    color: var(--blog-text-muted);
+    font-style: italic;
+    margin-top: 1rem;
+}
+
 .faq-section-wrapper {
     margin: 3rem 0;
 }
