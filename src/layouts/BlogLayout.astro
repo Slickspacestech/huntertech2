@@ -1,0 +1,218 @@
+---
+// BlogLayout.astro - Unified layout for all blog posts
+// Handles common structure, SEO, TOC generation, and interactivity
+
+import { Image } from 'astro:assets';
+import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTABox from '../components/CTABox.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import BlogInteractivity from '../components/BlogInteractivity.astro';
+import HeroBlog from '../components/HeroBlog.astro';
+import { formatDate } from '../utils/date';
+import { calculateWordCount, estimateReadingTime } from '../utils/wordCount';
+
+// Blog post props interface
+export interface Props {
+    title: string;
+    description: string;
+    date: string;
+    author?: string;
+    category?: string;
+    keywords: string[];
+    featuredImage: any; // Astro image import
+    featuredImageAlt?: string;
+    headings?: Array<{
+        text: string;
+        id: string;
+        level?: number;
+    }>;
+    faqItems?: Array<{
+        question: string;
+        answer: string;
+    }>;
+    ctaTitle?: string;
+    ctaDescription?: string;
+    ctaButtonText?: string;
+    ctaButtonLink?: string;
+    mentions?: Array<{
+        "@type": string;
+        name: string;
+        url: string;
+    }>;
+    wordCountContent: string; // The content as text for word count calculation
+}
+
+// Extract props with defaults
+const { 
+    title,
+    description,
+    date,
+    author = "Huntertech Team",
+    category = "IT Services",
+    keywords,
+    featuredImage,
+    featuredImageAlt = title,
+    headings = [],
+    faqItems = [],
+    ctaTitle = "Need Expert IT Support?",
+    ctaDescription = "Contact us to schedule a consultation or learn more about our Managed IT Services.",
+    ctaButtonText = "Get Expert Help",
+    ctaButtonLink = "/contact/",
+    mentions = [],
+    wordCountContent
+} = Astro.props;
+
+// Calculate reading metrics
+const wordCount = calculateWordCount(wordCountContent);
+const readingTime = estimateReadingTime(wordCount);
+
+// Generate FAQ structured data if FAQ items exist
+const faqStructuredData = faqItems.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+        }
+    }))
+} : null;
+
+// Generate main blog post structured data
+const blogStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "image": {
+        "@type": "ImageObject",
+        "url": featuredImage.src,
+        "width": "1200",
+        "height": "630"
+    },
+    "author": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://huntertech.ca/images/Huntertech_logo.webp"
+        }
+    },
+    "datePublished": date,
+    "dateModified": date,
+    "description": description,
+    "keywords": keywords.join(", "),
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://huntertech.ca/blog/${Astro.url.pathname.split('/').pop()}/`
+    },
+    "articleSection": category,
+    "inLanguage": "en-CA",
+    "wordCount": wordCount,
+    "timeRequired": `PT${readingTime}M`
+};
+
+// Add mentions if provided
+if (mentions.length > 0) {
+    blogStructuredData.mentions = mentions;
+}
+
+// Combine structured data
+const structuredData = faqStructuredData 
+    ? [blogStructuredData, faqStructuredData] 
+    : [blogStructuredData];
+---
+
+<Layout 
+    title={title} 
+    description={description}
+    keywords={keywords}
+    type="article"
+    image={featuredImage.src}
+    structuredData={structuredData}
+>
+    <Header />
+    
+    <main class="blog-post">
+        <HeroBlog 
+            title={title}
+            subtitle={`${formatDate(date)} • ${readingTime} min read`}
+            backgroundImage={featuredImage}
+            backgroundImageAlt={featuredImageAlt}
+            author={author}
+        />
+
+        <div class="blog-container">
+            <article class="blog-content">
+                {headings.length > 0 && (
+                    <TableOfContents headings={headings} />
+                )}
+
+                <div class="content-card">
+                    <slot />
+                </div>
+
+                {faqItems.length > 0 && (
+                    <div class="faq-section-wrapper">
+                        <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+                        <div class="faq-section">
+                            {faqItems.map(faq => (
+                                <div class="faq-item">
+                                    <details>
+                                        <summary>
+                                            {faq.question}
+                                            <span class="expand-icon">+</span>
+                                        </summary>
+                                        <div class="faq-content">
+                                            <p set:html={faq.answer} />
+                                        </div>
+                                    </details>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </article>
+        </div>
+
+        <div class="blog-container">
+            <CTABox 
+                title={ctaTitle}
+                description={ctaDescription}
+                buttonText={ctaButtonText}
+                buttonLink={ctaButtonLink}
+            />
+        </div>
+
+        <BlogInteractivity />
+    </main>
+
+    <Footer />
+</Layout>
+
+<style>
+.faq-section-wrapper {
+    margin: 3rem 0;
+}
+
+.faq-section-wrapper h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--blog-heading-color);
+    margin: 3rem 0 1.5rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--blog-accent-color);
+    background: linear-gradient(135deg, var(--blog-accent-color), var(--blog-accent-hover));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+</style>

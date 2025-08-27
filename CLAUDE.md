@@ -23,7 +23,9 @@ This is a static website built with Astro.js, featuring:
 ```
 src/
 ├── components/         # Reusable Astro components
-├── layouts/           # Layout templates (Layout.astro is main)
+├── layouts/           # Layout templates
+│   ├── Layout.astro   # Main layout for general pages
+│   └── BlogLayout.astro # Dedicated blog post layout
 ├── pages/             # File-based routing for all pages
 │   ├── blog/          # Blog posts as individual .astro files
 │   ├── industries/    # Industry-specific landing pages
@@ -32,22 +34,84 @@ src/
 ├── data/              # Blog metadata and content data
 ├── assets/images/     # Optimized images
 ├── styles/           # Global CSS
-└── utils/            # Helper functions (date, wordCount)
+│   ├── global.css    # Global styles
+│   └── blog.css      # Blog-specific styling
+└── utils/            # Helper functions
+    ├── date.ts       # Date formatting utilities
+    ├── wordCount.ts  # Word count and reading time
+    └── blogHelpers.ts # Blog-specific helpers (TOC, FAQ, CTA)
 ```
 
 ## Blog System Architecture
 
-The site uses a hybrid blog system:
+The site uses a unified blog system with a dedicated BlogLayout:
 
-1. **Blog posts**: Individual `.astro` files in `src/pages/blog/`
-2. **Blog metadata**: Centralized in `src/data/blog-posts.ts`
-3. **Template**: Use `src/pages/blog/_scheduled/_template.astro` for new blog posts
+1. **Blog Layout**: `src/layouts/BlogLayout.astro` provides consistent structure for all posts
+2. **Blog posts**: Individual `.astro` files in `src/pages/blog/` using BlogLayout
+3. **Blog metadata**: Centralized in `src/data/blog-posts.ts`
+4. **Helper utilities**: `src/utils/blogHelpers.ts` for TOC generation, FAQ parsing, and CTAs
+5. **Template**: Use `src/pages/blog/_template-new-layout.astro` as reference for new posts
+
+### Creating New Blog Posts with BlogLayout:
+
+```astro
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import featuredImage from '../../assets/images/blog/your-image.webp';
+
+const title = "Your Blog Title";
+const description = "Meta description for SEO";
+const date = "2025-08-24";
+const keywords = ["keyword1", "keyword2"];
+
+const headings = [
+    { text: "Section 1", id: "section-1" },
+    { text: "Section 2", id: "section-2" }
+];
+
+const faqItems = [
+    {
+        question: "Common question?",
+        answer: "Detailed answer here."
+    }
+];
+---
+
+<BlogLayout
+    title={title}
+    description={description}
+    date={date}
+    keywords={keywords}
+    featuredImage={featuredImage}
+    headings={headings}
+    faqItems={faqItems}
+    wordCountContent={contentText}
+>
+    <!-- Your blog content here -->
+</BlogLayout>
+```
+
+### BlogLayout Features:
+- **Automatic SEO**: Generates structured data for blog posts and FAQ sections
+- **Table of Contents**: Built-in TOC from headings array
+- **FAQ Integration**: Automatic FAQ section with schema markup
+- **Reading Metrics**: Word count and reading time calculation
+- **Smart CTAs**: Context-aware call-to-action generation
+- **Consistent Design**: All posts share the same professional styling from `blog.css`
+
+### Blog Helper Functions (`src/utils/blogHelpers.ts`):
+- `extractHeadings()`: Parse HTML content for TOC generation
+- `generateSlug()`: Create URL-friendly IDs for headings
+- `extractFAQs()`: Parse FAQ content from various formats
+- `extractMentions()`: Detect software/company mentions for structured data
+- `generateCTA()`: Create context-appropriate CTAs based on content
 
 When creating blog posts:
-- Create the `.astro` file in the appropriate blog subdirectory
+- Use BlogLayout instead of regular Layout for consistency
 - Add metadata entry to `blog-posts.ts` with matching slug
-- Import and reference the featured image in both files
-- Follow the structured data pattern for SEO
+- Import and reference the featured image
+- Pass headings array for automatic TOC generation
+- Include FAQ items for better SEO and user experience
 
 ## Key Configuration
 
