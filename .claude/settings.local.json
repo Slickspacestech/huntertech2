@@ -35,9 +35,13 @@
       "Bash(npm run build:*)",
       "WebFetch(domain:clutch.co)",
       "Bash(npm run dev:*)",
+<<<<<<< HEAD
       "Read(c:\\Users\\MathewHunter\\OneDrive - Hunter IT & Marketing Services Inc\\Pictures/**)",
       "Read(c:\\Users\\MathewHunter\\OneDrive - Hunter IT & Marketing Services Inc\\Pictures/**)",
       "Read(c:\\Users\\MathewHunter\\OneDrive - Hunter IT & Marketing Services Inc\\Pictures/**)"
+=======
+      "WebSearch"
+>>>>>>> 6b8464a6e8e2540b0a71e3b8a2390d530e72d514
     ],
     "deny": []
   }

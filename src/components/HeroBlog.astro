@@ -8,6 +8,7 @@ interface Props {
   backgroundImage: ImageMetadata;
   backgroundImageAlt: string;
   author: string;
+  titleClass?: string;
 }
 
 const {
@@ -15,7 +16,8 @@ const {
   subtitle,
   backgroundImage,
   backgroundImageAlt,
-  author
+  author,
+  titleClass = ''
 } = Astro.props;
 ---
 
@@ -36,7 +38,7 @@ const {
   <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-content animate-fade-in">
-      <h1>{title}</h1>
+      <h1 class={titleClass}>{title}</h1>
       <p class="subtitle">By {author} • {subtitle}</p>
     </div>
   </div>

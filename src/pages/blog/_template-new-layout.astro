@@ -1,0 +1,109 @@
+---
+// Example blog post using the new BlogLayout
+// This demonstrates how much simpler blog posts become with the unified layout
+
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import featuredImage from '../../assets/images/blog/example-post.webp';
+import { generateCTA, extractMentions } from '../../utils/blogHelpers';
+
+// Blog post configuration
+const title = "Example Blog Post Using New Layout";
+const description = "This is an example of how to use the new BlogLayout for consistent, feature-rich blog posts.";
+const date = "2025-08-24";
+const category = "IT Services";
+const keywords = ["example", "blog layout", "astro", "huntertech"];
+
+// Content for word count calculation
+const contentText = `
+    Introduction to the new blog layout system and its benefits for content creation.
+    
+    Key Features of the New Layout
+    The new BlogLayout provides automatic table of contents generation, FAQ handling, and structured data.
+    
+    Table of Contents Generation
+    Headings are automatically extracted and formatted into a navigable table of contents.
+    
+    FAQ Integration
+    FAQ sections are automatically structured with proper schema markup for SEO benefits.
+    
+    Consistent Styling
+    All posts now share the same professional styling and interactive features.
+`;
+
+// Table of contents (can be auto-generated in the future)
+const headings = [
+    { text: "Key Features of the New Layout", id: "key-features" },
+    { text: "Table of Contents Generation", id: "toc-generation" },
+    { text: "FAQ Integration", id: "faq-integration" },
+    { text: "Consistent Styling", id: "consistent-styling" }
+];
+
+// FAQ items with automatic structured data generation
+const faqItems = [
+    {
+        question: "How do I use the new BlogLayout?",
+        answer: "Simply import BlogLayout instead of the regular Layout component and pass the required props including title, description, headings, and FAQ items."
+    },
+    {
+        question: "Does the layout handle SEO automatically?",
+        answer: "Yes, the BlogLayout automatically generates structured data for blog posts and FAQ sections, improving your search engine visibility."
+    },
+    {
+        question: "Can I customize the CTA section?",
+        answer: "Absolutely! You can pass custom CTA props or let the layout automatically generate context-appropriate CTAs based on your content."
+    }
+];
+
+// Auto-generate CTA and mentions
+const cta = generateCTA(category, contentText);
+const mentions = extractMentions(contentText);
+---
+
+<BlogLayout
+    title={title}
+    description={description}
+    date={date}
+    category={category}
+    keywords={keywords}
+    featuredImage={featuredImage}
+    headings={headings}
+    faqItems={faqItems}
+    ctaTitle={cta.title}
+    ctaDescription={cta.description}
+    ctaButtonText={cta.buttonText}
+    ctaButtonLink={cta.buttonLink}
+    mentions={mentions}
+    wordCountContent={contentText}
+>
+    <!-- Blog content goes here with automatic styling -->
+    <p class="lead">Introduction to the new blog layout system and its benefits for content creation and consistency across all blog posts.</p>
+    
+    <h2 id="key-features">Key Features of the New Layout</h2>
+    <p>The new BlogLayout provides several key advantages:</p>
+    
+    <div class="problems-grid">
+        <div class="problem-card">
+            <h3>Automatic TOC Generation</h3>
+            <p>Table of contents is automatically generated from your headings, making navigation seamless for readers.</p>
+        </div>
+        
+        <div class="problem-card">
+            <h3>FAQ Schema Integration</h3>
+            <p>FAQ sections automatically include structured data markup for better search engine visibility.</p>
+        </div>
+        
+        <div class="problem-card">
+            <h3>Consistent Styling</h3>
+            <p>All blog posts share the same professional appearance and interactive features.</p>
+        </div>
+    </div>
+    
+    <h2 id="toc-generation">Table of Contents Generation</h2>
+    <p>Headings are automatically extracted and formatted into a navigable table of contents that appears at the top of each post. This improves user experience and helps with SEO.</p>
+    
+    <h2 id="faq-integration">FAQ Integration</h2>
+    <p>FAQ sections can be easily added through the layout props and will automatically include proper schema markup for search engines.</p>
+    
+    <h2 id="consistent-styling">Consistent Styling</h2>
+    <p>All posts now benefit from the comprehensive blog.css styling system with hover effects, animations, and responsive design.</p>
+</BlogLayout>

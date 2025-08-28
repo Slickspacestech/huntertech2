@@ -1,0 +1,361 @@
+---
+// BlogLayout.astro - Unified layout for all blog posts
+// Handles common structure, SEO, TOC generation, and interactivity
+
+import { Image } from 'astro:assets';
+import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTABox from '../components/CTABox.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import BlogInteractivity from '../components/BlogInteractivity.astro';
+import HeroBlog from '../components/HeroBlog.astro';
+import { formatDate } from '../utils/date';
+import { calculateWordCount, estimateReadingTime } from '../utils/wordCount';
+
+// Blog post props interface
+export interface Props {
+    title: string;
+    description: string;
+    date: string;
+    author?: string;
+    category?: string;
+    keywords: string[];
+    featuredImage: any; // Astro image import
+    featuredImageAlt?: string;
+    titleClass?: string; // Optional class for the h1 title
+    headings?: Array<{
+        text: string;
+        id: string;
+        level?: number;
+    }>;
+    faqItems?: Array<{
+        question: string;
+        answer: string;
+    }>;
+    ctaTitle?: string;
+    ctaDescription?: string;
+    ctaButtonText?: string;
+    ctaButtonLink?: string;
+    mentions?: Array<{
+        "@type": string;
+        name: string;
+        url: string;
+    }>;
+    wordCountContent: string; // The content as text for word count calculation
+}
+
+// Extract props with defaults
+const { 
+    title,
+    description,
+    date,
+    author = "Huntertech Team",
+    category = "IT Services",
+    keywords,
+    featuredImage,
+    featuredImageAlt = title,
+    titleClass = '',
+    headings = [],
+    faqItems = [],
+    ctaTitle = "Need Expert IT Support?",
+    ctaDescription = "Contact us to schedule a consultation or learn more about our Managed IT Services.",
+    ctaButtonText = "Get Expert Help",
+    ctaButtonLink = "/contact/",
+    mentions = [],
+    wordCountContent
+} = Astro.props;
+
+// Calculate reading metrics
+const wordCount = calculateWordCount(wordCountContent);
+const readingTime = estimateReadingTime(wordCount);
+
+// Generate FAQ structured data if FAQ items exist
+const faqStructuredData = faqItems.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+        }
+    }))
+} : null;
+
+// Generate main blog post structured data
+const blogStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "image": {
+        "@type": "ImageObject",
+        "url": featuredImage.src,
+        "width": "1200",
+        "height": "630"
+    },
+    "author": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "url": "https://huntertech.ca"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Huntertech",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://huntertech.ca/images/Huntertech_logo.webp"
+        }
+    },
+    "datePublished": date,
+    "dateModified": date,
+    "description": description,
+    "keywords": keywords.join(", "),
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://huntertech.ca/blog/${Astro.url.pathname.split('/').pop()}/`
+    },
+    "articleSection": category,
+    "inLanguage": "en-CA",
+    "wordCount": wordCount,
+    "timeRequired": `PT${readingTime}M`
+};
+
+// Add mentions if provided
+if (mentions.length > 0) {
+    blogStructuredData.mentions = mentions;
+}
+
+// LocalBusiness structured data for Calgary and Vancouver offices
+const localBusinessData = [
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://huntertech.ca/#calgary-office",
+        "name": "Huntertech - Calgary IT Services",
+        "image": "https://huntertech.ca/images/Huntertech_logo.webp",
+        "telephone": "825-415-6990",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "4030 8 St SE",
+            "addressLocality": "Calgary",
+            "addressRegion": "AB",
+            "postalCode": "T2G 3A7",
+            "addressCountry": "CA"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "51.0447",
+            "longitude": "-114.0719"
+        },
+        "url": "https://huntertech.ca",
+        "sameAs": [
+            "https://www.linkedin.com/company/huntertech"
+        ],
+        "openingHours": "Mo-Fr 08:00-17:00",
+        "priceRange": "$$",
+        "areaServed": {
+            "@type": "City",
+            "name": "Calgary"
+        },
+        "serviceType": ["Managed IT Services", "Cloud Desktop Solutions", "IT Support"]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://huntertech.ca/#vancouver-office",
+        "name": "Huntertech - Vancouver IT Services",
+        "image": "https://huntertech.ca/images/Huntertech_logo.webp",
+        "telephone": "778-819-7411",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Vancouver",
+            "addressRegion": "BC",
+            "addressCountry": "CA"
+        },
+        "url": "https://huntertech.ca",
+        "sameAs": [
+            "https://www.linkedin.com/company/huntertech"
+        ],
+        "openingHours": "Mo-Fr 08:00-17:00",
+        "priceRange": "$$",
+        "areaServed": {
+            "@type": "City",
+            "name": "Vancouver"
+        },
+        "serviceType": ["Managed IT Services", "Cloud Desktop Solutions", "IT Support"]
+    }
+];
+
+// Combine structured data
+const structuredData = faqStructuredData 
+    ? [blogStructuredData, faqStructuredData, ...localBusinessData] 
+    : [blogStructuredData, ...localBusinessData];
+---
+
+<Layout 
+    title={title} 
+    description={description}
+    keywords={keywords}
+    type="article"
+    image={featuredImage.src}
+    structuredData={structuredData}
+>
+    <Header />
+    
+    <main class="blog-post">
+        <HeroBlog 
+            title={title}
+            subtitle={`${formatDate(date)} • ${readingTime} min read`}
+            backgroundImage={featuredImage}
+            backgroundImageAlt={featuredImageAlt}
+            author={author}
+            titleClass={titleClass}
+        />
+
+        <div class="blog-container">
+            <article class="blog-content">
+                {headings.length > 0 && (
+                    <TableOfContents headings={headings} />
+                )}
+
+                <div class="content-card">
+                    <slot />
+                </div>
+
+                {faqItems.length > 0 && (
+                    <div class="faq-section-wrapper">
+                        <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+                        <div class="faq-section">
+                            {faqItems.map(faq => (
+                                <div class="faq-item">
+                                    <details>
+                                        <summary>
+                                            {faq.question}
+                                            <span class="expand-icon">+</span>
+                                        </summary>
+                                        <div class="faq-content">
+                                            <p set:html={faq.answer} />
+                                        </div>
+                                    </details>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </article>
+
+            <!-- NAP Information Section -->
+            <div class="contact-info-section">
+                <div class="office-locations">
+                    <h3>Our Office Locations</h3>
+                    <div class="location-cards">
+                        <div class="location-card">
+                            <h4>Calgary Office</h4>
+                            <p>4030 8 St SE<br />
+                            Calgary, AB T2G 3A7<br />
+                            <a href="tel:825-415-6990">825-415-6990</a></p>
+                        </div>
+                        <div class="location-card">
+                            <h4>Vancouver Office</h4>
+                            <p>Vancouver, BC<br />
+                            <a href="tel:778-819-7411">778-819-7411</a></p>
+                        </div>
+                    </div>
+                    <p class="hours">Business Hours: Monday - Friday, 8:00 AM - 5:00 PM MST/PST</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="blog-container">
+            <CTABox 
+                title={ctaTitle}
+                description={ctaDescription}
+                buttonText={ctaButtonText}
+                buttonLink={ctaButtonLink}
+            />
+        </div>
+
+        <BlogInteractivity />
+    </main>
+
+    <Footer />
+</Layout>
+
+<style>
+.contact-info-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 3rem 0;
+    border: 1px solid #e5e7eb;
+}
+
+.office-locations h3 {
+    font-size: 1.5rem;
+    color: var(--blog-heading-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.location-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.location-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.location-card h4 {
+    color: var(--blog-accent-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.location-card p {
+    color: var(--blog-text-color);
+    line-height: 1.6;
+}
+
+.location-card a {
+    color: var(--blog-link-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.location-card a:hover {
+    color: var(--blog-accent-hover);
+    text-decoration: underline;
+}
+
+.hours {
+    text-align: center;
+    color: var(--blog-text-muted);
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+.faq-section-wrapper {
+    margin: 3rem 0;
+}
+
+.faq-section-wrapper h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--blog-heading-color);
+    margin: 3rem 0 1.5rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--blog-accent-color);
+    background: linear-gradient(135deg, var(--blog-accent-color), var(--blog-accent-hover));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+</style>

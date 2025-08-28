@@ -18,6 +18,7 @@ import cybersecuritySmallBusinessImg from '../assets/images/blog/cybersecurity-s
 import hiddenCostsDiyVancouverImg from '../assets/images/Blog-Hidden-Costs-DIY-Vancouver.jpg';
 import itPricingGuideImg from '../assets/images/blog/it-pricing-guide.webp';
 import microsoftRescueImg from '../assets/images/handshake.webp';
+import cloudDesktopImg from '../assets/images/blog/windows365-vs-azure-virtual-desktop.png';
 
 export interface BlogPost {
     slug: string;
@@ -31,6 +32,18 @@ export interface BlogPost {
 }
 
 export const posts: BlogPost[] = [
+    {
+        slug: 'windows-365-vs-azure-virtual-desktop-calgary-vancouver/',
+        title: "Windows 365 vs Azure Virtual Desktop: Ultimate Guide for Calgary & Vancouver Businesses",
+        date: "2025-08-24",
+        author: "Huntertech Team",
+        category: "Cloud Computing",
+        image: cloudDesktopImg,
+        content: `
+            <p>Choosing between Windows 365 Cloud PC and Azure Virtual Desktop for your Calgary or Vancouver business? Our expert comparison covers pricing, features, and use cases to help local firms make the right choice. Learn about licensing requirements, management complexity, and real-world cost examples.</p>
+        `,
+        tags: ["Windows 365 vs Azure Virtual Desktop Calgary", "cloud desktop solutions Vancouver", "virtual desktop Calgary business", "Windows 365 architecture firms", "Azure Virtual Desktop engineering Calgary", "managed IT services Calgary Vancouver", "cloud PC Calgary", "virtual desktop Vancouver"]
+    },
     // {
     //     slug: 'escape-microsoft-licensing-hostage-canada/',
     //     title: "How to Escape Microsoft Licensing Hostage Situations in Canada: A Complete Guide",
